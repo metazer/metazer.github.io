@@ -1,35 +1,48 @@
-@use 'sass:math';
-
-@mixin mat-icon-size($size, $width: 0) {
-  width: $size;
-  height: $size;
+@mixin ProximaNova($size: 16px, $color: #000000, $weight: 400, $line-height: 1.25) {
+  font-family: 'Proxima Nova', sans-serif;
   font-size: $size;
-  line-height: $size;
-
-  @if $width != 0 {
-    width: $width;
-  }
-}
-
-@mixin mat-icon-color($color: #FFFFFF) {
+  font-weight: $weight;
+  line-height: $line-height;
   color: $color;
 }
 
-@mixin text-shadow($size: 1px, $color: black, $blur: 0px) {
-  text-shadow:
-    $color $size $size $blur,
-    $color -#{$size} -#{$size} $blur,
-    $color -#{$size} $size $blur,
-    $color $size -#{$size} $blur;
+@mixin Roboto($size: 16px, $color: #000000, $weight: 400, $line-height: 1.25) {
+  font-family: 'Roboto', sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  color: $color;
 }
 
-@mixin square($size) {
-  width: $size;
-  height: $size;
+@mixin Raleway($size: 16px, $color: #000000, $weight: 400, $line-height: 1.25) {
+  font-family: 'Raleway', sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  color: $color;
 }
 
-@mixin circle($size) {
-  width: $size;
-  height: $size;
-  border-radius: 50%;
+%page {
+  @extend %fixed-size;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 20px 0;
+
+  @media screen and (max-width: 960px) {
+    padding: 10px 0;
+  }
+}
+
+%fixed-size {
+  width: 100%;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+%dialog {
+  display: block;
+  padding: 48px;
 }
