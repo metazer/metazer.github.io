@@ -45,4 +45,8 @@
 %dialog {
   display: block;
   padding: 48px;
+
+  @media screen and (max-width: 600px) {
+    padding: 10px;
+  }
 }
