@@ -47,13 +47,9 @@ a {
     }
 
     .mat-mdc-dialog-content {
-      max-height: 80vh;
+      max-height: 85vh;
     }
   }
-
-  //@media screen and (max-width: 600px) {
-  //  max-width: min(600px, calc(100vw - 20px)) !important;
-  //}
 }
 
 .route-dialog-backdrop {
