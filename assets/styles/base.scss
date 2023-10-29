@@ -1,3 +1,25 @@
+@use 'sass:math';
+
+@function rw($font) {
+  $vw-context: 1920 * 0.01 * 1px;
+  @return math.div($font, $vw-context) * 1vw;
+  @return $font;
+}
+
+@function rh($font) {
+  $vw-context: 1080 * 0.01 * 1px;
+  @return math.div($font, $vw-context) * 1vh;
+  @return $font;
+}
+
+@function rv($font) {
+  @return max(min(rh($font), rw($font)), $font);
+}
+
+@function rvn($font) {
+  @return min(min(rh($font), rw($font)), $font);
+}
+
 @mixin ProximaNova($size: 16px, $color: #000000, $weight: 400, $line-height: 1.25) {
   font-family: 'Proxima Nova', sans-serif;
   font-size: $size;
@@ -28,25 +50,25 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 20px 0;
+  padding: rv(20px) 0;
 
   @media screen and (max-width: 960px) {
-    padding: 10px 0;
+    padding: rv(10px) 0;
   }
 }
 
 %fixed-size {
   width: 100%;
-  max-width: 1300px;
+  max-width: rv(1300px);
   margin-left: auto;
   margin-right: auto;
 }
 
 %dialog {
   display: block;
-  padding: 48px;
+  padding: rv(48px);
 
   @media screen and (max-width: 600px) {
-    padding: 10px;
+    padding: rv(10px);
   }
 }

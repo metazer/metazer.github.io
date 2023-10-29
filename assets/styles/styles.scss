@@ -1,3 +1,4 @@
+@import 'src/assets/styles/base';
 @import 'src/assets/styles/reset';
 @import 'src/assets/styles/fonts';
 
@@ -6,7 +7,7 @@
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, 'Helvetica Neue', sans-serif; }
+body { margin: 0; font-family: 'Proxima Nova', 'Roboto', sans-serif; }
 
 body {
   background: #000000;
@@ -20,9 +21,9 @@ a {
 .route-dialog .mdc-dialog__surface {
   //background: rgba(0, 0, 0, 0.45) !important;
   background: rgba(20, 20, 20, 0.45) !important;
-  backdrop-filter: blur(30px) !important;
-  border-radius: 76px !important;
-  max-width: min(960px, calc(100vw - 40px)) !important;
+  backdrop-filter: blur(rv(30px)) !important;
+  border-radius: rv(76px) !important;
+  max-width: min(#{rv(960px)}, calc(100vw - #{rv(40px)})) !important;
   width: 100vw !important;
 
   //max-height: calc(100vh - 40px) !important;
@@ -34,16 +35,16 @@ a {
 
 
   @media screen and (max-width: 960px) {
-    max-width: min(960px, calc(100vw - 20px)) !important;
-    border-radius: 24px !important;
+    max-width: min(#{rv(960px)}, calc(100vw - #{rv(20px)})) !important;
+    border-radius: rv(24px) !important;
 
     .mdc-dialog__title {
-      font-size: 24px !important;
-      padding: 0 50px 9px 12px;
+      font-size: rv(24px) !important;
+      padding: 0 rv(50px) rv(9px) rv(12px);
     }
 
     .mdc-dialog__content {
-      padding: 2px;
+      padding: rv(2px);
     }
 
     .mat-mdc-dialog-content {
@@ -58,15 +59,15 @@ a {
 
 
 *::-webkit-scrollbar {
-  width: 6px;
+  width: rv(6px);
 
   &-track {
     background-color: rgba(250, 250, 250, 0.1);
-    border-radius: 3px;
+    border-radius: rv(3px);
   }
 
   &-thumb {
     background-color: rgba(178, 178, 178, 0.5);
-    border-radius: 30px;
+    border-radius: rv(30px);
   }
 }
