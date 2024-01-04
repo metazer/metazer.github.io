@@ -1,74 +1,35 @@
 @use 'sass:math';
 
-@function rw($font) {
-  $vw-context: 1920 * 0.01 * 1px;
-  @return math.div($font, $vw-context) * 1vw;
-  @return $font;
-}
-
-@function rh($font) {
-  $vw-context: 1080 * 0.01 * 1px;
-  @return math.div($font, $vw-context) * 1vh;
-  @return $font;
-}
-
-@function rv($font) {
-  @return max(min(rh($font), rw($font)), $font);
-}
-
-@function rvn($font) {
-  @return min(min(rh($font), rw($font)), $font);
-}
-
-@mixin ProximaNova($size: 16px, $color: #000000, $weight: 400, $line-height: 1.25) {
-  font-family: 'Proxima Nova', sans-serif;
+@mixin mat-icon-size($size, $width: 0) {
+  width: $size;
+  height: $size;
   font-size: $size;
-  font-weight: $weight;
-  line-height: $line-height;
-  color: $color;
-}
+  line-height: $size;
 
-@mixin Roboto($size: 16px, $color: #000000, $weight: 400, $line-height: 1.25) {
-  font-family: 'Roboto', sans-serif;
-  font-size: $size;
-  font-weight: $weight;
-  line-height: $line-height;
-  color: $color;
-}
-
-@mixin Raleway($size: 16px, $color: #000000, $weight: 400, $line-height: 1.25) {
-  font-family: 'Raleway', sans-serif;
-  font-size: $size;
-  font-weight: $weight;
-  line-height: $line-height;
-  color: $color;
-}
-
-%page {
-  @extend %fixed-size;
-
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  padding: rv(20px) 0;
-
-  @media screen and (max-width: 960px) {
-    padding: rv(10px) 0;
+  @if $width != 0 {
+    width: $width;
   }
 }
 
-%fixed-size {
-  width: 100%;
-  max-width: rv(1300px);
-  margin-left: auto;
-  margin-right: auto;
+@mixin mat-icon-color($color: #FFFFFF) {
+  color: $color;
 }
 
-%dialog {
-  display: block;
-  padding: rv(48px);
+@mixin text-shadow($size: 1px, $color: black, $blur: 0px) {
+  text-shadow:
+    $color $size $size $blur,
+    $color -#{$size} -#{$size} $blur,
+    $color -#{$size} $size $blur,
+    $color $size -#{$size} $blur;
+}
 
-  @media screen and (max-width: 600px) {
-    padding: rv(10px);
-  }
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
 }
