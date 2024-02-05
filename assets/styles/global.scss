@@ -1,6 +1,8 @@
-@import 'src/assets/styles/reset';
-@import 'src/assets/styles/fonts';
-@import 'src/assets/styles/material';
+@use './colors';
+
+@import './reset';
+@import './icons';
+@import './material/material';
 
 body, html {
   padding: 0;
@@ -9,13 +11,35 @@ body, html {
   height: 100%;
 }
 
+body {
+  //overflow-y: scroll;
+}
+
 *, *:before, *:after{
   box-sizing: border-box;
 }
 
-.fixed-size {
-  width: 100%;
-  padding: 0 15px;
-  max-width: 1160px;
-  margin: 0 auto;
+a:active, a:focus {
+  outline: 0;
+  border: none;
+  -moz-outline-style: none;
 }
+
+a.text-link {
+  color: colors.$foreground_light-dark;
+  text-decoration: none;
+  border-bottom: 1px dotted colors.$foreground_light-dark;
+
+  &:hover {
+    text-decoration: none;
+    border-bottom-style: solid;
+  }
+}
+
+//html.cdk-global-scrollblock {
+//  overflow-y: hidden;
+//
+//  body {
+//    overflow-y: scroll;
+//  }
+//}

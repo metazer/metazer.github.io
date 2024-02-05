@@ -1,0 +1,47 @@
+.icon {
+  display: flex;
+  font-size: 20px;
+  width: 1em;
+  height: 1em;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: black;
+
+  &-accounts {
+    mask-image: url('/assets/images/icons/accounts.svg');
+  }
+
+  &-pay {
+    mask-image: url('/assets/images/icons/pay.svg');
+  }
+
+  &-youtube {
+    mask-image: url('/assets/images/icons/youtube.svg');
+  }
+
+  &-payout {
+    mask-image: url('/assets/images/icons/payout.svg');
+  }
+
+  &-currency {
+    mask-image: url('/assets/images/icons/currency.svg');
+  }
+
+  &-cross {
+    mask-image: url('/assets/images/icons/plus.svg');
+    transform: rotate(45deg);
+  }
+
+  &-arrow {
+    mask-image: url('/assets/images/icons/arrow.svg');
+
+    &--left {
+      transform: rotate(180deg);
+    }
+
+    &--right {
+      transform: rotate(0deg);
+    }
+  }
+}
