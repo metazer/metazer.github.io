@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/confirmation-dialog/confirmation-dialog.component.scss"],
+  "sourcesContent": [":host {\r\n\r\n  .wrapper {\r\n    max-width: 450px;\r\n  }\r\n\r\n  .content {\r\n    padding: 24px !important;\r\n  }\r\n\r\n  .actions {\r\n    display: flex;\r\n    gap: 10px;\r\n\r\n    & > * {\r\n      flex: 1;\r\n    }\r\n  }\r\n}\r\n"],
+  "mappings": ";AAEE,MAAA,CAAA;AACE,aAAA;;AAGF,MAAA,CAAA;AACE,WAAA;;AAGF,MAAA,CAAA;AACE,WAAA;AACA,OAAA;;AAEA,MAAA,CAJF,QAIE,EAAA;AACE,QAAA;;",
+  "names": []
+}

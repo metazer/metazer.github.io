@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/header/components/account-bar/account-bar.component.scss"],
+  "sourcesContent": ["\r\n:host {\r\n  display: flex;\r\n  gap: 30px;\r\n\r\n  @media screen and (max-width: 780px) {\r\n    width: 100%;\r\n\r\n    & > * {\r\n      flex: 1;\r\n    }\r\n  }\r\n}\r\n"],
+  "mappings": ";AACA;AACE,WAAA;AACA,OAAA;;AAEA,OAAA,OAAA,IAAA,CAAA,SAAA,EAAA;AAJF;AAKI,WAAA;;AAEA,QAAA,EAAA;AACE,UAAA;;;",
+  "names": []
+}

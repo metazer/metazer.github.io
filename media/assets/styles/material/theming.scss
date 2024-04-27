@@ -1,0 +1,20 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$agg-media-primary: mat.define-palette(mat.$indigo-palette);
+$agg-media-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$agg-media-warn: mat.define-palette(mat.$red-palette);
+
+$agg-media-theme: mat.define-light-theme((
+  color: (
+    primary: $agg-media-primary,
+    accent: $agg-media-accent,
+    warn: $agg-media-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+@include mat.all-component-themes($agg-media-theme);

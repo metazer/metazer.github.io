@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ui/flex-ellipsis/flex-ellipsis.component.scss"],
+  "sourcesContent": [":host {\r\n  display: flex;\r\n  flex-grow: 1;\r\n  position: relative;\r\n  align-items: center;\r\n  //background: blue;\r\n\r\n  .container {\r\n    position: absolute;\r\n    width: 100%;\r\n    //background: red;\r\n    display: flex;\r\n    align-items: center;\r\n\r\n    ::ng-deep {\r\n      & > * {\r\n        display: block;\r\n        overflow: hidden;\r\n        white-space: nowrap;\r\n        text-overflow: ellipsis;\r\n        flex-grow: 1;\r\n      }\r\n    }\r\n  }\r\n}\r\n"],
+  "mappings": ";AAAA;AACE,WAAA;AACA,aAAA;AACA,YAAA;AACA,eAAA;;AAGA,MAAA,CAAA;AACE,YAAA;AACA,SAAA;AAEA,WAAA;AACA,eAAA;;AAGE,MAAA,CARJ,UAQI,UAAA,EAAA;AACE,WAAA;AACA,YAAA;AACA,eAAA;AACA,iBAAA;AACA,aAAA;;",
+  "names": []
+}
