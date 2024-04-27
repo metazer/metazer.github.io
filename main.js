@@ -42554,7 +42554,7 @@ var testPaymentRequests = [
     id: 2,
     media: {
       platform: testMediaPlatforms[Math.floor(Math.random() * testMediaPlatforms.length)],
-      links: ["https://www.youtube.com/watch?v=9bZkp7q19f0"]
+      links: ["https://www.youtube.com/watch?v=9bZkp7q19f0", "https://www.youtube.com/watch?v=9bZkp7q19f0"]
     },
     requisites: testPaymentsRequisites[1],
     amount: 2e3,
@@ -46485,8 +46485,21 @@ var ClipboardModule = _ClipboardModule;
   }], null, null);
 })();
 
-// src/app/admin/components/requisites-list/requisites-list.component.ts
+// src/app/ui/requisites-list/requisites-list.component.ts
 var _forTrack05 = ($index, $item) => $item.name;
+function RequisitesListComponent_For_1_Conditional_6_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 3);
+    \u0275\u0275element(1, "mat-icon", 4);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const field_r1 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275advance();
+    \u0275\u0275property("cdkCopyToClipboard", ctx_r1.values[field_r1.name]);
+  }
+}
 function RequisitesListComponent_For_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 0)(1, "div", 1);
@@ -46495,9 +46508,8 @@ function RequisitesListComponent_For_1_Template(rf, ctx) {
     \u0275\u0275elementStart(3, "app-flex-ellipsis")(4, "div", 2);
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(6, "div", 3);
-    \u0275\u0275element(7, "mat-icon", 4);
-    \u0275\u0275elementEnd()();
+    \u0275\u0275template(6, RequisitesListComponent_For_1_Conditional_6_Template, 2, 1, "div", 3);
+    \u0275\u0275elementEnd();
   }
   if (rf & 2) {
     const field_r1 = ctx.$implicit;
@@ -46508,12 +46520,13 @@ function RequisitesListComponent_For_1_Template(rf, ctx) {
     \u0275\u0275property("title", ctx_r1.values[field_r1.name]);
     \u0275\u0275advance();
     \u0275\u0275textInterpolate(ctx_r1.values[field_r1.name]);
-    \u0275\u0275advance(2);
-    \u0275\u0275property("cdkCopyToClipboard", ctx_r1.values[field_r1.name]);
+    \u0275\u0275advance();
+    \u0275\u0275conditional(6, ctx_r1.copyable ? 6 : -1);
   }
 }
 var _RequisitesListComponent = class _RequisitesListComponent {
   constructor() {
+    this.copyable = false;
     this.values = {};
   }
   ngOnChanges() {
@@ -46525,9 +46538,9 @@ var _RequisitesListComponent = class _RequisitesListComponent {
 _RequisitesListComponent.\u0275fac = function RequisitesListComponent_Factory(t) {
   return new (t || _RequisitesListComponent)();
 };
-_RequisitesListComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _RequisitesListComponent, selectors: [["app-requisites-list"]], inputs: { requisites: "requisites", fields: "fields" }, standalone: true, features: [\u0275\u0275NgOnChangesFeature, \u0275\u0275StandaloneFeature], decls: 2, vars: 0, consts: [[1, "item"], [1, "item__title"], [1, "item__value", 3, "title"], [1, "item__action"], ["fontIcon", "content_copy", 3, "cdkCopyToClipboard"]], template: function RequisitesListComponent_Template(rf, ctx) {
+_RequisitesListComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _RequisitesListComponent, selectors: [["app-requisites-list"]], inputs: { requisites: "requisites", fields: "fields", copyable: "copyable" }, standalone: true, features: [\u0275\u0275NgOnChangesFeature, \u0275\u0275StandaloneFeature], decls: 2, vars: 0, consts: [[1, "item"], [1, "item__title"], [1, "item__value", 3, "title"], [1, "item__action"], ["fontIcon", "content_copy", 3, "cdkCopyToClipboard"]], template: function RequisitesListComponent_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275repeaterCreate(0, RequisitesListComponent_For_1_Template, 8, 4, "div", 0, _forTrack05);
+    \u0275\u0275repeaterCreate(0, RequisitesListComponent_For_1_Template, 7, 4, "div", 0, _forTrack05);
   }
   if (rf & 2) {
     \u0275\u0275repeater(ctx.fields);
@@ -46535,67 +46548,84 @@ _RequisitesListComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
 }, dependencies: [FlexEllipsisComponent, MatIcon, CdkCopyToClipboard], styles: ['\n\n[_nghost-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}\n[_nghost-%COMP%]   .item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n[_nghost-%COMP%]   .item__title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  margin-right: 30px;\n}\n[_nghost-%COMP%]   .item__value[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  text-align: right;\n}\n[_nghost-%COMP%]   .item__action[_ngcontent-%COMP%] {\n  margin-left: 10px;\n}\n[_nghost-%COMP%]   .item__action[_ngcontent-%COMP%]   .mat-icon[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  opacity: 0.7;\n  transition: opacity 150ms ease-in-out;\n  cursor: pointer;\n}\n[_nghost-%COMP%]   .item__action[_ngcontent-%COMP%]   .mat-icon[_ngcontent-%COMP%]:hover {\n  opacity: 1;\n}\n/*# sourceMappingURL=requisites-list.component.css.map */'] });
 var RequisitesListComponent = _RequisitesListComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(RequisitesListComponent, { className: "RequisitesListComponent", filePath: "src\\app\\admin\\components\\requisites-list\\requisites-list.component.ts", lineNumber: 14 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(RequisitesListComponent, { className: "RequisitesListComponent", filePath: "src\\app\\ui\\requisites-list\\requisites-list.component.ts", lineNumber: 14 });
 })();
 
-// src/app/admin/composites/payment-card/payment-card.component.ts
-var _forTrack06 = ($index, $item) => $item.id;
-function PaymentCardComponent_For_3_Template(rf, ctx) {
+// src/app/ui/media-links-list/media-links-list.component.ts
+function MediaLinksListComponent_For_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 1)(1, "div", 2);
+    \u0275\u0275elementStart(0, "div", 0)(1, "div", 1);
     \u0275\u0275text(2);
-    \u0275\u0275elementStart(3, "a", 12);
-    \u0275\u0275element(4, "mat-icon", 13);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(5, "mat-form-field", 3);
-    \u0275\u0275element(6, "input", 8);
-    \u0275\u0275elementEnd()();
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "app-flex-ellipsis")(4, "div", 2)(5, "a", 3);
+    \u0275\u0275text(6);
+    \u0275\u0275elementEnd()()()();
   }
   if (rf & 2) {
     const link_r1 = ctx.$implicit;
     const idx_r2 = ctx.$index;
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1("\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u043C\u0435\u0434\u0438\u0430 #", idx_r2 + 1, " ");
-    \u0275\u0275advance();
-    \u0275\u0275property("href", link_r1, \u0275\u0275sanitizeUrl);
+    \u0275\u0275textInterpolate1("", idx_r2 + 1, ".");
     \u0275\u0275advance(3);
-    \u0275\u0275property("value", link_r1);
+    \u0275\u0275property("href", link_r1, \u0275\u0275sanitizeUrl);
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate(link_r1);
   }
 }
-function PaymentCardComponent_Conditional_28_Template(rf, ctx) {
+var _MediaLinksListComponent = class _MediaLinksListComponent {
+};
+_MediaLinksListComponent.\u0275fac = function MediaLinksListComponent_Factory(t) {
+  return new (t || _MediaLinksListComponent)();
+};
+_MediaLinksListComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _MediaLinksListComponent, selectors: [["app-media-links-list"]], inputs: { links: "links" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 2, vars: 0, consts: [[1, "item"], [1, "item__title"], [1, "item__value"], ["target", "_blank", 3, "href"]], template: function MediaLinksListComponent_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275repeaterCreate(0, MediaLinksListComponent_For_1_Template, 7, 3, "div", 0, \u0275\u0275repeaterTrackByIdentity);
+  }
+  if (rf & 2) {
+    \u0275\u0275repeater(ctx.links);
+  }
+}, dependencies: [FlexEllipsisComponent], styles: ['\n\n[_nghost-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}\n[_nghost-%COMP%]   .item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n[_nghost-%COMP%]   .item__title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  margin-right: 15px;\n}\n[_nghost-%COMP%]   .item__value[_ngcontent-%COMP%] {\n  text-align: right;\n  opacity: 0.8;\n}\n[_nghost-%COMP%]   .item__value[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  border-bottom: 1px dotted #616161;\n  text-decoration: none;\n}\n/*# sourceMappingURL=media-links-list.component.css.map */'] });
+var MediaLinksListComponent = _MediaLinksListComponent;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(MediaLinksListComponent, { className: "MediaLinksListComponent", filePath: "src\\app\\ui\\media-links-list\\media-links-list.component.ts", lineNumber: 13 });
+})();
+
+// src/app/admin/composites/payment-request-card/payment-request-card.component.ts
+var _forTrack06 = ($index, $item) => $item.id;
+function PaymentRequestCardComponent_Conditional_7_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-select-trigger");
-    \u0275\u0275element(1, "i", 14);
-    \u0275\u0275elementStart(2, "span", 15);
+    \u0275\u0275element(1, "i", 13);
+    \u0275\u0275elementStart(2, "span", 14);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r2 = \u0275\u0275nextContext();
+    const ctx_r0 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275styleProp("background-color", ctx_r2.paymentStatuses[ctx_r2.formGroup.controls.status.value].color);
+    \u0275\u0275styleProp("background-color", ctx_r0.paymentStatuses[ctx_r0.formGroup.controls.status.value].color);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(ctx_r2.paymentStatuses[ctx_r2.formGroup.controls.status.value].title);
+    \u0275\u0275textInterpolate(ctx_r0.paymentStatuses[ctx_r0.formGroup.controls.status.value].title);
   }
 }
-function PaymentCardComponent_For_30_Template(rf, ctx) {
+function PaymentRequestCardComponent_For_9_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "mat-option", 10);
-    \u0275\u0275element(1, "i", 14);
-    \u0275\u0275elementStart(2, "span", 15);
+    \u0275\u0275elementStart(0, "mat-option", 5);
+    \u0275\u0275element(1, "i", 13);
+    \u0275\u0275elementStart(2, "span", 14);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const status_r4 = ctx.$implicit;
-    \u0275\u0275property("value", status_r4.id);
+    const status_r2 = ctx.$implicit;
+    \u0275\u0275property("value", status_r2.id);
     \u0275\u0275advance();
-    \u0275\u0275styleProp("background-color", status_r4.color);
+    \u0275\u0275styleProp("background-color", status_r2.color);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(status_r4.title);
+    \u0275\u0275textInterpolate(status_r2.title);
   }
 }
-var _PaymentCardComponent = class _PaymentCardComponent {
+var _PaymentRequestCardComponent = class _PaymentRequestCardComponent {
   constructor(fb, paymentsService, notifier) {
     this.fb = fb;
     this.paymentsService = paymentsService;
@@ -46662,88 +46692,103 @@ var _PaymentCardComponent = class _PaymentCardComponent {
     });
   }
 };
-_PaymentCardComponent.\u0275fac = function PaymentCardComponent_Factory(t) {
-  return new (t || _PaymentCardComponent)(\u0275\u0275directiveInject(FormBuilder), \u0275\u0275directiveInject(PaymentsService), \u0275\u0275directiveInject(NotifierService));
+_PaymentRequestCardComponent.\u0275fac = function PaymentRequestCardComponent_Factory(t) {
+  return new (t || _PaymentRequestCardComponent)(\u0275\u0275directiveInject(FormBuilder), \u0275\u0275directiveInject(PaymentsService), \u0275\u0275directiveInject(NotifierService));
 };
-_PaymentCardComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentCardComponent, selectors: [["app-payment-card"]], inputs: { request: "request", method: "method", requisites: "requisites" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 44, vars: 16, consts: [[1, "title"], [1, "form-row"], [1, "form-row__label"], ["appearance", "outline"], ["matInput", "", "mask", "separator.0", "thousandSeparator", " ", "placeholder", "\u0421\u0443\u043C\u043C\u0430", 3, "formControl"], ["matSuffix", "", 1, "currency-label"], [3, "fields", "requisites"], [1, "form-row__subscript"], ["disabled", "", "matInput", "", 3, "value"], ["placeholder", "\u0421\u0442\u0430\u0442\u0443\u0441", 3, "formControl"], [3, "value"], ["size", "medium", "color", "green-box", 3, "click"], ["target", "_blank", 3, "href"], ["fontIcon", "open_in_new"], [1, "select-option-icon", "select-option-icon--mark"], [1, "select-option-label"]], template: function PaymentCardComponent_Template(rf, ctx) {
+_PaymentRequestCardComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentRequestCardComponent, selectors: [["app-payment-request-card"]], inputs: { request: "request", method: "method", requisites: "requisites" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 53, vars: 19, consts: [[1, "title"], [1, "form-row"], [1, "form-row__label"], ["appearance", "outline"], ["placeholder", "\u0421\u0442\u0430\u0442\u0443\u0441", 3, "formControl"], [3, "value"], [3, "links"], [1, "form-row__subscript"], ["matInput", "", "mask", "separator.0", "thousandSeparator", " ", "placeholder", "\u0421\u0443\u043C\u043C\u0430", 3, "formControl"], ["matSuffix", "", 1, "currency-label"], ["disabled", "", "matInput", "", 3, "value"], [3, "fields", "requisites", "copyable"], ["size", "medium", "color", "green-box", 3, "click"], [1, "select-option-icon", "select-option-icon--mark"], [1, "select-option-label"]], template: function PaymentRequestCardComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 0);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(2, PaymentCardComponent_For_3_Template, 7, 3, "div", 1, \u0275\u0275repeaterTrackByIdentity);
-    \u0275\u0275elementStart(4, "div", 1)(5, "div", 2);
-    \u0275\u0275text(6, "\u0421\u0443\u043C\u043C\u0430");
+    \u0275\u0275elementStart(2, "div", 1)(3, "div", 2);
+    \u0275\u0275text(4, "\u0421\u0442\u0430\u0442\u0443\u0441");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "mat-form-field", 3);
-    \u0275\u0275element(8, "input", 4);
-    \u0275\u0275elementStart(9, "span", 5);
-    \u0275\u0275text(10);
+    \u0275\u0275elementStart(5, "mat-form-field", 3)(6, "mat-select", 4);
+    \u0275\u0275template(7, PaymentRequestCardComponent_Conditional_7_Template, 4, 3, "mat-select-trigger");
+    \u0275\u0275repeaterCreate(8, PaymentRequestCardComponent_For_9_Template, 4, 4, "mat-option", 5, _forTrack06);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(11, "div", 1)(12, "div", 2);
-    \u0275\u0275text(13, "\u0420\u0435\u043A\u0432\u0438\u0437\u0438\u0442\u044B");
+    \u0275\u0275elementStart(10, "div", 1)(11, "div", 2);
+    \u0275\u0275text(12, "\u0421\u0441\u044B\u043B\u043A\u0438 \u043D\u0430 \u043C\u0435\u0434\u0438\u0430");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(14, "mat-card");
-    \u0275\u0275element(15, "app-requisites-list", 6);
+    \u0275\u0275elementStart(13, "mat-card");
+    \u0275\u0275element(14, "app-media-links-list", 6);
     \u0275\u0275elementEnd();
-    \u0275\u0275element(16, "div", 7);
+    \u0275\u0275element(15, "div", 7);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(17, "div", 1)(18, "div", 2);
-    \u0275\u0275text(19, "\u0414\u0430\u0442\u0430 \u0437\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u044F");
+    \u0275\u0275elementStart(16, "div", 1)(17, "div", 2);
+    \u0275\u0275text(18, "\u0421\u0443\u043C\u043C\u0430");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(20, "mat-form-field", 3);
-    \u0275\u0275element(21, "input", 8);
-    \u0275\u0275pipe(22, "date");
-    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(19, "mat-form-field", 3);
+    \u0275\u0275element(20, "input", 8);
+    \u0275\u0275elementStart(21, "span", 9);
+    \u0275\u0275text(22);
+    \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(23, "div", 1)(24, "div", 2);
-    \u0275\u0275text(25, "\u0421\u0442\u0430\u0442\u0443\u0441");
+    \u0275\u0275text(25, "\u0421\u043F\u043E\u0441\u043E\u0431 \u043E\u043F\u043B\u0430\u0442\u044B");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(26, "mat-form-field", 3)(27, "mat-select", 9);
-    \u0275\u0275template(28, PaymentCardComponent_Conditional_28_Template, 4, 3, "mat-select-trigger");
-    \u0275\u0275repeaterCreate(29, PaymentCardComponent_For_30_Template, 4, 4, "mat-option", 10, _forTrack06);
-    \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(31, "div", 1)(32, "div", 2);
-    \u0275\u0275text(33, "\u041F\u0440\u043E\u0432\u0435\u0440\u0438\u043B");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(34, "mat-form-field", 3);
-    \u0275\u0275element(35, "input", 8);
+    \u0275\u0275elementStart(26, "mat-form-field", 3);
+    \u0275\u0275element(27, "input", 10);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(36, "div", 1)(37, "div", 2);
-    \u0275\u0275text(38, "\u0414\u0430\u0442\u0430 \u043F\u0440\u043E\u0432\u0435\u0440\u043A\u0438");
+    \u0275\u0275elementStart(28, "div", 1)(29, "div", 2);
+    \u0275\u0275text(30, "\u0420\u0435\u043A\u0432\u0438\u0437\u0438\u0442\u044B");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(39, "mat-form-field", 3);
-    \u0275\u0275element(40, "input", 8);
-    \u0275\u0275pipe(41, "date");
+    \u0275\u0275elementStart(31, "mat-card");
+    \u0275\u0275element(32, "app-requisites-list", 11);
+    \u0275\u0275elementEnd();
+    \u0275\u0275element(33, "div", 7);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(34, "div", 1)(35, "div", 2);
+    \u0275\u0275text(36, "\u0414\u0430\u0442\u0430 \u0437\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u044F");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(37, "mat-form-field", 3);
+    \u0275\u0275element(38, "input", 10);
+    \u0275\u0275pipe(39, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(42, "app-button", 11);
-    \u0275\u0275listener("click", function PaymentCardComponent_Template_app_button_click_42_listener() {
+    \u0275\u0275elementStart(40, "div", 1)(41, "div", 2);
+    \u0275\u0275text(42, "\u0414\u0430\u0442\u0430 \u043F\u0440\u043E\u0432\u0435\u0440\u043A\u0438");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(43, "mat-form-field", 3);
+    \u0275\u0275element(44, "input", 10);
+    \u0275\u0275pipe(45, "date");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(46, "div", 1)(47, "div", 2);
+    \u0275\u0275text(48, "\u041F\u0440\u043E\u0432\u0435\u0440\u0438\u043B");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(49, "mat-form-field", 3);
+    \u0275\u0275element(50, "input", 10);
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(51, "app-button", 12);
+    \u0275\u0275listener("click", function PaymentRequestCardComponent_Template_app_button_click_51_listener() {
       return ctx.submit();
     });
-    \u0275\u0275text(43, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C");
+    \u0275\u0275text(52, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C");
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
     \u0275\u0275advance();
     \u0275\u0275textInterpolate1("\u0417\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u0435 \u2116", ctx.request.id, "");
+    \u0275\u0275advance(5);
+    \u0275\u0275property("formControl", ctx.formGroup.controls.status);
     \u0275\u0275advance();
-    \u0275\u0275repeater(ctx.request.media.links);
+    \u0275\u0275conditional(7, ctx.formGroup.controls.status.value !== null ? 7 : -1);
+    \u0275\u0275advance();
+    \u0275\u0275repeater(ctx.paymentStatusesList);
+    \u0275\u0275advance(6);
+    \u0275\u0275property("links", ctx.request.media.links);
     \u0275\u0275advance(6);
     \u0275\u0275property("formControl", ctx.formGroup.controls.amount);
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate(ctx.method.currency);
     \u0275\u0275advance(5);
-    \u0275\u0275property("fields", ctx.method.fields)("requisites", ctx.requisites);
+    \u0275\u0275property("value", ctx.method.title);
+    \u0275\u0275advance(5);
+    \u0275\u0275property("fields", ctx.method.fields)("requisites", ctx.requisites)("copyable", true);
     \u0275\u0275advance(6);
-    \u0275\u0275property("value", \u0275\u0275pipeBind2(22, 10, ctx.request.createdAt, "d MMM. y \u0433., HH:mm:ss"));
+    \u0275\u0275property("value", \u0275\u0275pipeBind2(39, 13, ctx.request.createdAt, "d MMM. y \u0433., HH:mm:ss"));
     \u0275\u0275advance(6);
-    \u0275\u0275property("formControl", ctx.formGroup.controls.status);
-    \u0275\u0275advance();
-    \u0275\u0275conditional(28, ctx.formGroup.controls.status.value !== null ? 28 : -1);
-    \u0275\u0275advance();
-    \u0275\u0275repeater(ctx.paymentStatusesList);
+    \u0275\u0275property("value", ctx.request.checkedAt ? \u0275\u0275pipeBind2(45, 16, ctx.request.checkedAt, "d MMM. y \u0433., HH:mm:ss") : "\u041D\u0435 \u043F\u0440\u043E\u0432\u0435\u0440\u0435\u043D\u043E");
     \u0275\u0275advance(6);
     \u0275\u0275property("value", ctx.request.checkedBy || "\u041D\u0435 \u043F\u0440\u043E\u0432\u0435\u0440\u0435\u043D\u043E");
-    \u0275\u0275advance(5);
-    \u0275\u0275property("value", ctx.request.checkedAt ? \u0275\u0275pipeBind2(41, 13, ctx.request.checkedAt, "d MMM. y \u0433., HH:mm:ss") : "\u041D\u0435 \u043F\u0440\u043E\u0432\u0435\u0440\u0435\u043D\u043E");
   }
 }, dependencies: [
   MatFormField,
@@ -46755,18 +46800,18 @@ _PaymentCardComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ 
   MatSelect,
   MatSelectTrigger,
   MatOption,
-  MatIcon,
   ReactiveFormsModule,
   DefaultValueAccessor,
   NgControlStatus,
   FormControlDirective,
   NgxMaskDirective,
   RequisitesListComponent,
-  MatCard
-], styles: ['\n\n[_nghost-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  margin-left: 10px;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]     .mat-icon {\n  width: 20px;\n  height: 20px;\n  font-size: 20px;\n  line-height: 20px;\n  color: #505050;\n}\n[_nghost-%COMP%]   .form-row__subscript[_ngcontent-%COMP%] {\n  height: 22px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n  padding: 20px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]   .currency-label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 0 15px;\n  opacity: 0.6;\n}\n@media screen and (max-width: 630px) {\n  [_nghost-%COMP%] {\n    max-width: 400px;\n  }\n}\n@media screen and (max-width: 530px) {\n  [_nghost-%COMP%] {\n    max-width: 280px;\n  }\n}\n/*# sourceMappingURL=payment-card.component.css.map */'] });
-var PaymentCardComponent = _PaymentCardComponent;
+  MatCard,
+  MediaLinksListComponent
+], styles: ['\n\n[_nghost-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  margin-left: 10px;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]     .mat-icon {\n  width: 20px;\n  height: 20px;\n  font-size: 20px;\n  line-height: 20px;\n  color: #505050;\n}\n[_nghost-%COMP%]   .form-row__subscript[_ngcontent-%COMP%] {\n  height: 22px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n  padding: 20px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]   .currency-label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 0 15px;\n  opacity: 0.6;\n}\n@media screen and (max-width: 630px) {\n  [_nghost-%COMP%] {\n    max-width: 400px;\n  }\n}\n@media screen and (max-width: 530px) {\n  [_nghost-%COMP%] {\n    max-width: 280px;\n  }\n}\n/*# sourceMappingURL=payment-request-card.component.css.map */'] });
+var PaymentRequestCardComponent = _PaymentRequestCardComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentCardComponent, { className: "PaymentCardComponent", filePath: "src\\app\\admin\\composites\\payment-card\\payment-card.component.ts", lineNumber: 36 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequestCardComponent, { className: "PaymentRequestCardComponent", filePath: "src\\app\\admin\\composites\\payment-request-card\\payment-request-card.component.ts", lineNumber: 38 });
 })();
 
 // src/app/admin/modals/payments-list-dialog/payments-list-dialog.component.ts
@@ -46859,7 +46904,7 @@ function PaymentsListDialogComponent_For_17_Template(rf, ctx) {
     });
     \u0275\u0275element(3, "i", 17);
     \u0275\u0275elementEnd();
-    \u0275\u0275element(4, "app-payment-card", 18);
+    \u0275\u0275element(4, "app-payment-request-card", 18);
     \u0275\u0275elementStart(5, "div", 16);
     \u0275\u0275listener("click", function PaymentsListDialogComponent_For_17_Template_div_click_5_listener() {
       \u0275\u0275restoreView(_r4);
@@ -47096,7 +47141,7 @@ _PaymentsListDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineCompo
   ReactiveFormsModule,
   NgControlStatus,
   FormControlDirective,
-  PaymentCardComponent
+  PaymentRequestCardComponent
 ], styles: ['\n\n  .admin-payments-dialog > .mat-mdc-dialog-container > .mdc-dialog__container > .mat-mdc-dialog-surface {\n  background-color: transparent !important;\n}\n  .admin-payments-dialog-backdrop {\n  background-color: rgba(0, 0, 0, 0.8) !important;\n}\n[_nghost-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  height: 100vh;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%] {\n  padding: 10px 20px;\n  background-color: white;\n  border-bottom: 2px solid gainsboro;\n  box-shadow: 0 0 40px 0 #080808;\n  box-sizing: border-box;\n  z-index: 1;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 700;\n  font-size: 21px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 700;\n  font-size: 21px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  border-bottom: 1px dotted #616161;\n  opacity: 0.8;\n  text-decoration: none;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .sorting-select[_ngcontent-%COMP%] {\n  width: 280px;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .sorting-select[_ngcontent-%COMP%]     .mat-mdc-form-field-subscript-wrapper {\n  display: none !important;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .close-button[_ngcontent-%COMP%] {\n  padding: 20px;\n  opacity: 0.8;\n  cursor: pointer;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .close-button[_ngcontent-%COMP%]:hover {\n  opacity: 1;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%] {\n  width: 100vw;\n  flex-grow: 1;\n  display: flex;\n  align-items: baseline;\n  justify-content: center;\n  overflow-x: hidden;\n  position: relative;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .feed[_ngcontent-%COMP%] {\n  min-width: 100vw;\n  display: flex;\n  gap: 100px;\n  position: relative;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  transition: all 500ms ease-in-out;\n  transform: scale(0.8);\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block__inner[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  opacity: 0.5;\n  transition: all 500ms ease-in-out;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  height: 100%;\n  padding: 20px;\n  opacity: 0;\n  cursor: pointer;\n  pointer-events: none;\n  transition: opacity 150ms ease-in-out;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%]   .icon[_ngcontent-%COMP%] {\n  background-color: #FFFFFF;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block.active[_ngcontent-%COMP%] {\n  transform: scale(1);\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block.active[_ngcontent-%COMP%]   .payment-block__inner[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block.active[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%] {\n  opacity: 0.8;\n  pointer-events: all;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block.active[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%]:hover {\n  opacity: 1;\n}\n@media screen and (max-width: 700px) {\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%] {\n    margin-top: 5px;\n    margin-bottom: 10px;\n  }\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%]   section[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%]   section[_ngcontent-%COMP%]:first-child {\n    justify-content: center;\n  }\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%]   section[_ngcontent-%COMP%]:last-child {\n    justify-content: space-between;\n  }\n}\n@media screen and (max-width: 340px) {\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .sorting-select[_ngcontent-%COMP%] {\n    width: auto !important;\n    min-width: unset;\n  }\n}\n/*# sourceMappingURL=payments-list-dialog.component.css.map */'], data: { animation: [fadeInFadeOutAnimation("fadeAnimation", 200)] } });
 var PaymentsListDialogComponent = _PaymentsListDialogComponent;
 (() => {
@@ -47451,56 +47496,8 @@ var NotFoundComponent = _NotFoundComponent;
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(NotFoundComponent, { className: "NotFoundComponent", filePath: "src\\app\\not-found\\not-found.component.ts", lineNumber: 10 });
 })();
 
-// src/app/personal/components/requisites-list/requisites-list.component.ts
-var _forTrack09 = ($index, $item) => $item.name;
-function RequisitesListComponent_For_1_Template2(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 0)(1, "div", 1);
-    \u0275\u0275text(2);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "app-flex-ellipsis")(4, "div", 2);
-    \u0275\u0275text(5);
-    \u0275\u0275elementEnd()()();
-  }
-  if (rf & 2) {
-    const field_r1 = ctx.$implicit;
-    const ctx_r1 = \u0275\u0275nextContext();
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(field_r1.title);
-    \u0275\u0275advance(2);
-    \u0275\u0275property("title", ctx_r1.values[field_r1.name]);
-    \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r1.values[field_r1.name]);
-  }
-}
-var _RequisitesListComponent2 = class _RequisitesListComponent2 {
-  constructor() {
-    this.values = {};
-  }
-  ngOnChanges() {
-    for (const field of this.fields) {
-      this.values[field.name] = this.requisites.fields.find((f) => f.name === field.name)?.value || "-";
-    }
-  }
-};
-_RequisitesListComponent2.\u0275fac = function RequisitesListComponent_Factory(t) {
-  return new (t || _RequisitesListComponent2)();
-};
-_RequisitesListComponent2.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _RequisitesListComponent2, selectors: [["app-requisites-list"]], inputs: { requisites: "requisites", fields: "fields" }, standalone: true, features: [\u0275\u0275NgOnChangesFeature, \u0275\u0275StandaloneFeature], decls: 2, vars: 0, consts: [[1, "item"], [1, "item__title"], [1, "item__value", 3, "title"]], template: function RequisitesListComponent_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275repeaterCreate(0, RequisitesListComponent_For_1_Template2, 6, 3, "div", 0, _forTrack09);
-  }
-  if (rf & 2) {
-    \u0275\u0275repeater(ctx.fields);
-  }
-}, dependencies: [FlexEllipsisComponent], styles: ['\n\n[_nghost-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}\n[_nghost-%COMP%]   .item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 30px;\n}\n[_nghost-%COMP%]   .item__title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .item__value[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  text-align: right;\n}\n/*# sourceMappingURL=requisites-list.component.css.map */'] });
-var RequisitesListComponent2 = _RequisitesListComponent2;
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(RequisitesListComponent2, { className: "RequisitesListComponent", filePath: "src\\app\\personal\\components\\requisites-list\\requisites-list.component.ts", lineNumber: 12 });
-})();
-
 // src/app/payment-request/payment-request.component.ts
-var _forTrack010 = ($index, $item) => $item.name;
+var _forTrack09 = ($index, $item) => $item.name;
 function PaymentRequestComponent_For_15_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-option", 9);
@@ -47805,8 +47802,8 @@ _PaymentRequestComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
     \u0275\u0275elementEnd();
     \u0275\u0275repeaterCreate(17, PaymentRequestComponent_For_18_Template, 6, 5, "div", 10, \u0275\u0275repeaterTrackByIdentity);
     \u0275\u0275elementStart(19, "mat-form-field", 7)(20, "mat-select", 11);
-    \u0275\u0275repeaterCreate(21, PaymentRequestComponent_For_22_Template, 2, 2, "mat-option", 9, _forTrack010);
-    \u0275\u0275repeaterCreate(23, PaymentRequestComponent_For_24_Template, 2, 2, "mat-option", 12, _forTrack010);
+    \u0275\u0275repeaterCreate(21, PaymentRequestComponent_For_22_Template, 2, 2, "mat-option", 9, _forTrack09);
+    \u0275\u0275repeaterCreate(23, PaymentRequestComponent_For_24_Template, 2, 2, "mat-option", 12, _forTrack09);
     \u0275\u0275elementEnd();
     \u0275\u0275template(25, PaymentRequestComponent_Conditional_25_Template, 2, 0, "mat-error");
     \u0275\u0275elementEnd();
@@ -47876,12 +47873,12 @@ _PaymentRequestComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
   NgControlStatus,
   FormControlDirective,
   NgxMaskDirective,
-  RequisitesListComponent2,
+  RequisitesListComponent,
   MatCard
 ], styles: ['\n\n[_nghost-%COMP%]   .page-block[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 0 15px;\n  max-width: 1160px;\n  margin: 0 auto;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .wrapper[_ngcontent-%COMP%] {\n  max-width: 520px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-button[_ngcontent-%COMP%] {\n  margin-top: 10px;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  margin-top: 30px;\n}\n[_nghost-%COMP%]   .form-row--row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__subscript[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\n[_nghost-%COMP%]   .form-row__subscript[_ngcontent-%COMP%]    > .mat-mdc-form-field-hint[_ngcontent-%COMP%] {\n  font-size: 12px;\n  opacity: 0.6;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .inline-button[_ngcontent-%COMP%] {\n  margin-bottom: 22px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%]:first-child:not(.form-row__label) {\n  margin-right: 20px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  padding: 20px;\n}\n[_nghost-%COMP%]   .currency-label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 0 15px;\n  opacity: 0.6;\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .form-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  [_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%]:not(:last-child) {\n    margin-right: unset;\n  }\n}\n/*# sourceMappingURL=payment-request.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
 var PaymentRequestComponent = _PaymentRequestComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequestComponent, { className: "PaymentRequestComponent", filePath: "src\\app\\payment-request\\payment-request.component.ts", lineNumber: 41 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequestComponent, { className: "PaymentRequestComponent", filePath: "src\\app\\payment-request\\payment-request.component.ts", lineNumber: 40 });
 })();
 
 // src/app/ui/titled-divider/titled-divider.component.ts
@@ -47907,7 +47904,7 @@ var TitledDividerComponent = _TitledDividerComponent;
 })();
 
 // src/app/personal/pages/general/general.component.ts
-var _forTrack011 = ($index, $item) => $item.title;
+var _forTrack010 = ($index, $item) => $item.title;
 function GeneralComponent_For_6_Conditional_3_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 4);
@@ -47996,7 +47993,7 @@ _GeneralComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type
     \u0275\u0275text(3, "\u0418\u041D\u0424\u041E\u0420\u041C\u0410\u0426\u0418\u042F \u041E\u0411 \u0410\u041A\u041A\u0410\u0423\u041D\u0422\u0415");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(4, "div", 1);
-    \u0275\u0275repeaterCreate(5, GeneralComponent_For_6_Template, 5, 2, "div", 2, _forTrack011);
+    \u0275\u0275repeaterCreate(5, GeneralComponent_For_6_Template, 5, 2, "div", 2, _forTrack010);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -48010,12 +48007,12 @@ var GeneralComponent = _GeneralComponent;
 })();
 
 // src/app/personal/modals/payment-request-dialog/payment-request-dialog.component.ts
-var _forTrack012 = ($index, $item) => $item.id;
-function PaymentRequestDialogComponent_Conditional_14_Template(rf, ctx) {
+var _forTrack011 = ($index, $item) => $item.id;
+function PaymentRequestDialogComponent_Conditional_8_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-select-trigger");
-    \u0275\u0275element(1, "i", 10);
-    \u0275\u0275elementStart(2, "span", 11);
+    \u0275\u0275element(1, "i", 12);
+    \u0275\u0275elementStart(2, "span", 13);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
@@ -48027,11 +48024,11 @@ function PaymentRequestDialogComponent_Conditional_14_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r0.paymentStatuses[ctx_r0.statusFormControl.value].title);
   }
 }
-function PaymentRequestDialogComponent_For_16_Template(rf, ctx) {
+function PaymentRequestDialogComponent_For_10_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "mat-option", 6);
-    \u0275\u0275element(1, "i", 10);
-    \u0275\u0275elementStart(2, "span", 11);
+    \u0275\u0275elementStart(0, "mat-option", 5);
+    \u0275\u0275element(1, "i", 12);
+    \u0275\u0275elementStart(2, "span", 13);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
@@ -48042,28 +48039,6 @@ function PaymentRequestDialogComponent_For_16_Template(rf, ctx) {
     \u0275\u0275styleProp("background-color", status_r2.color);
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate(status_r2.title);
-  }
-}
-function PaymentRequestDialogComponent_For_18_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 1)(1, "div", 2);
-    \u0275\u0275text(2);
-    \u0275\u0275elementStart(3, "a", 12);
-    \u0275\u0275element(4, "mat-icon", 13);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(5, "mat-form-field", 3);
-    \u0275\u0275element(6, "input", 4);
-    \u0275\u0275elementEnd()();
-  }
-  if (rf & 2) {
-    const link_r3 = ctx.$implicit;
-    const idx_r4 = ctx.$index;
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1("\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u043C\u0435\u0434\u0438\u0430 #", idx_r4 + 1, " ");
-    \u0275\u0275advance();
-    \u0275\u0275property("href", link_r3, \u0275\u0275sanitizeUrl);
-    \u0275\u0275advance(3);
-    \u0275\u0275property("value", link_r3);
   }
 }
 var _PaymentRequestDialogComponent = class _PaymentRequestDialogComponent {
@@ -48087,66 +48062,73 @@ var _PaymentRequestDialogComponent = class _PaymentRequestDialogComponent {
 _PaymentRequestDialogComponent.\u0275fac = function PaymentRequestDialogComponent_Factory(t) {
   return new (t || _PaymentRequestDialogComponent)(\u0275\u0275directiveInject(MAT_DIALOG_DATA), \u0275\u0275directiveInject(MatDialogRef), \u0275\u0275directiveInject(FormBuilder));
 };
-_PaymentRequestDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentRequestDialogComponent, selectors: [["app-payment-request-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 33, vars: 11, consts: [[1, "title"], [1, "form-row"], [1, "form-row__label"], ["appearance", "outline"], ["disabled", "", "matInput", "", 3, "value"], ["placeholder", "\u0421\u0442\u0430\u0442\u0443\u0441", 3, "disabled", "formControl"], [3, "value"], ["mask", "separator.0", "thousandSeparator", " ", "matInput", "", 3, "formControl"], ["matSuffix", "", 1, "currency-label"], ["size", "medium", "color", "blue-box", 3, "click"], [1, "select-option-icon", "select-option-icon--mark"], [1, "select-option-label"], ["target", "_blank", 3, "href"], ["fontIcon", "open_in_new"]], template: function PaymentRequestDialogComponent_Template(rf, ctx) {
+_PaymentRequestDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentRequestDialogComponent, selectors: [["app-payment-request-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 37, vars: 12, consts: [[1, "title"], [1, "form-row"], [1, "form-row__label"], ["appearance", "outline"], ["placeholder", "\u0421\u0442\u0430\u0442\u0443\u0441", 3, "disabled", "formControl"], [3, "value"], [3, "links"], [1, "form-row__subscript"], ["mask", "separator.0", "thousandSeparator", " ", "matInput", "", 3, "formControl"], ["matSuffix", "", 1, "currency-label"], ["disabled", "", "matInput", "", 3, "value"], ["size", "medium", "color", "blue-box", 3, "click"], [1, "select-option-icon", "select-option-icon--mark"], [1, "select-option-label"]], template: function PaymentRequestDialogComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-dialog-content")(1, "div", 0);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "div", 1)(4, "div", 2);
-    \u0275\u0275text(5, "\u0414\u0430\u0442\u0430 \u0437\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u044F");
+    \u0275\u0275text(5, "\u0421\u0442\u0430\u0442\u0443\u0441");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "mat-form-field", 3);
-    \u0275\u0275element(7, "input", 4);
-    \u0275\u0275pipe(8, "date");
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(9, "div", 1)(10, "div", 2);
-    \u0275\u0275text(11, "\u0421\u0442\u0430\u0442\u0443\u0441");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(12, "mat-form-field", 3)(13, "mat-select", 5);
-    \u0275\u0275template(14, PaymentRequestDialogComponent_Conditional_14_Template, 4, 3, "mat-select-trigger");
-    \u0275\u0275repeaterCreate(15, PaymentRequestDialogComponent_For_16_Template, 4, 4, "mat-option", 6, _forTrack012);
+    \u0275\u0275elementStart(6, "mat-form-field", 3)(7, "mat-select", 4);
+    \u0275\u0275template(8, PaymentRequestDialogComponent_Conditional_8_Template, 4, 3, "mat-select-trigger");
+    \u0275\u0275repeaterCreate(9, PaymentRequestDialogComponent_For_10_Template, 4, 4, "mat-option", 5, _forTrack011);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275repeaterCreate(17, PaymentRequestDialogComponent_For_18_Template, 7, 3, "div", 1, \u0275\u0275repeaterTrackByIdentity);
-    \u0275\u0275elementStart(19, "div", 1)(20, "div", 2);
-    \u0275\u0275text(21, "\u0421\u0443\u043C\u043C\u0430");
+    \u0275\u0275elementStart(11, "div", 1)(12, "div", 2);
+    \u0275\u0275text(13, "\u0421\u0441\u044B\u043B\u043A\u0438 \u043D\u0430 \u043C\u0435\u0434\u0438\u0430");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(22, "mat-form-field", 3);
-    \u0275\u0275element(23, "input", 7);
-    \u0275\u0275elementStart(24, "span", 8);
-    \u0275\u0275text(25);
+    \u0275\u0275elementStart(14, "mat-card");
+    \u0275\u0275element(15, "app-media-links-list", 6);
+    \u0275\u0275elementEnd();
+    \u0275\u0275element(16, "div", 7);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(17, "div", 1)(18, "div", 2);
+    \u0275\u0275text(19, "\u0421\u0443\u043C\u043C\u0430");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(20, "mat-form-field", 3);
+    \u0275\u0275element(21, "input", 8);
+    \u0275\u0275elementStart(22, "span", 9);
+    \u0275\u0275text(23);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(26, "div", 1)(27, "div", 2);
-    \u0275\u0275text(28, "\u0421\u043F\u043E\u0441\u043E\u0431 \u043E\u043F\u043B\u0430\u0442\u044B");
+    \u0275\u0275elementStart(24, "div", 1)(25, "div", 2);
+    \u0275\u0275text(26, "\u0421\u043F\u043E\u0441\u043E\u0431 \u043E\u043F\u043B\u0430\u0442\u044B");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(29, "mat-form-field", 3);
-    \u0275\u0275element(30, "input", 4);
+    \u0275\u0275elementStart(27, "mat-form-field", 3);
+    \u0275\u0275element(28, "input", 10);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(31, "app-button", 9);
-    \u0275\u0275listener("click", function PaymentRequestDialogComponent_Template_app_button_click_31_listener() {
+    \u0275\u0275elementStart(29, "div", 1)(30, "div", 2);
+    \u0275\u0275text(31, "\u0414\u0430\u0442\u0430 \u0437\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u044F");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(32, "mat-form-field", 3);
+    \u0275\u0275element(33, "input", 10);
+    \u0275\u0275pipe(34, "date");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(35, "app-button", 11);
+    \u0275\u0275listener("click", function PaymentRequestDialogComponent_Template_app_button_click_35_listener() {
       return ctx.close();
     });
-    \u0275\u0275text(32, "\u0417\u0430\u043A\u0440\u044B\u0442\u044C");
+    \u0275\u0275text(36, "\u0417\u0430\u043A\u0440\u044B\u0442\u044C");
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate1("\u0417\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u0435 \u2116", ctx.data.request.id, "");
     \u0275\u0275advance(5);
-    \u0275\u0275property("value", \u0275\u0275pipeBind2(8, 8, ctx.data.request.createdAt, "d MMM. y \u0433., HH:mm:ss"));
-    \u0275\u0275advance(6);
     \u0275\u0275property("disabled", true)("formControl", ctx.statusFormControl);
     \u0275\u0275advance();
-    \u0275\u0275conditional(14, ctx.statusFormControl.value !== null ? 14 : -1);
+    \u0275\u0275conditional(8, ctx.statusFormControl.value !== null ? 8 : -1);
     \u0275\u0275advance();
     \u0275\u0275repeater(ctx.paymentStatusesList);
-    \u0275\u0275advance(2);
-    \u0275\u0275repeater(ctx.data.request.media.links);
+    \u0275\u0275advance(6);
+    \u0275\u0275property("links", ctx.data.request.media.links);
     \u0275\u0275advance(6);
     \u0275\u0275property("formControl", ctx.amountFormControl);
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate(ctx.data.method.currency);
     \u0275\u0275advance(5);
     \u0275\u0275property("value", ctx.data.method.title);
+    \u0275\u0275advance(5);
+    \u0275\u0275property("value", \u0275\u0275pipeBind2(34, 9, ctx.data.request.createdAt, "d MMM. y \u0433., HH:mm:ss"));
   }
 }, dependencies: [
   MatFormField,
@@ -48158,21 +48140,22 @@ _PaymentRequestDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineCom
   MatSelect,
   MatSelectTrigger,
   MatOption,
-  MatIcon,
   ReactiveFormsModule,
   DefaultValueAccessor,
   NgControlStatus,
   FormControlDirective,
   MatDialogContent,
-  NgxMaskDirective
-], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  margin-left: 10px;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]     .mat-icon {\n  width: 20px;\n  height: 20px;\n  font-size: 20px;\n  line-height: 20px;\n  color: #505050;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     .mat-mdc-select-arrow-wrapper {\n  opacity: 0;\n}\n[_nghost-%COMP%]   .currency-label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 0 15px;\n  opacity: 0.6;\n}\n/*# sourceMappingURL=payment-request-dialog.component.css.map */'] });
+  NgxMaskDirective,
+  MatCard,
+  MediaLinksListComponent
+], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  margin-left: 10px;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]     .mat-icon {\n  width: 20px;\n  height: 20px;\n  font-size: 20px;\n  line-height: 20px;\n  color: #505050;\n}\n[_nghost-%COMP%]   .form-row__subscript[_ngcontent-%COMP%] {\n  height: 22px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n  padding: 20px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     .mat-mdc-select-arrow-wrapper {\n  opacity: 0;\n}\n[_nghost-%COMP%]   .currency-label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 0 15px;\n  opacity: 0.6;\n}\n/*# sourceMappingURL=payment-request-dialog.component.css.map */'] });
 var PaymentRequestDialogComponent = _PaymentRequestDialogComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequestDialogComponent, { className: "PaymentRequestDialogComponent", filePath: "src\\app\\personal\\modals\\payment-request-dialog\\payment-request-dialog.component.ts", lineNumber: 37 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequestDialogComponent, { className: "PaymentRequestDialogComponent", filePath: "src\\app\\personal\\modals\\payment-request-dialog\\payment-request-dialog.component.ts", lineNumber: 41 });
 })();
 
 // src/app/personal/pages/payments-requests/payments-requests.component.ts
-var _forTrack013 = ($index, $item) => $item.id;
+var _forTrack012 = ($index, $item) => $item.id;
 function PaymentsRequestsComponent_Conditional_4_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 4);
@@ -48224,7 +48207,7 @@ function PaymentsRequestsComponent_Conditional_4_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 3);
     \u0275\u0275template(1, PaymentsRequestsComponent_Conditional_4_Conditional_1_Template, 2, 0, "div", 4);
-    \u0275\u0275repeaterCreate(2, PaymentsRequestsComponent_Conditional_4_For_3_Template, 15, 12, "div", 5, _forTrack013);
+    \u0275\u0275repeaterCreate(2, PaymentsRequestsComponent_Conditional_4_For_3_Template, 15, 12, "div", 5, _forTrack012);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -48312,7 +48295,7 @@ var PaymentsRequestsComponent = _PaymentsRequestsComponent;
 
 // src/app/personal/modals/payment-requisites-dialog/payment-requisites-dialog.component.ts
 var import_lodash8 = __toESM(require_lodash());
-var _forTrack014 = ($index, $item) => $item.name;
+var _forTrack013 = ($index, $item) => $item.name;
 function PaymentRequisitesDialogComponent_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275text(0, " \u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u043B\u0430\u0442\u0435\u0436\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445 ");
@@ -48768,7 +48751,7 @@ _PaymentRequisitesDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275define
     \u0275\u0275text(5);
     \u0275\u0275elementEnd();
     \u0275\u0275element(6, "div", 2);
-    \u0275\u0275repeaterCreate(7, PaymentRequisitesDialogComponent_For_8_Template, 8, 1, "div", 3, _forTrack014);
+    \u0275\u0275repeaterCreate(7, PaymentRequisitesDialogComponent_For_8_Template, 8, 1, "div", 3, _forTrack013);
     \u0275\u0275elementStart(9, "app-button", 4);
     \u0275\u0275listener("click", function PaymentRequisitesDialogComponent_Template_app_button_click_9_listener() {
       return ctx.submit();
@@ -48814,7 +48797,7 @@ var PaymentRequisitesDialogComponent = _PaymentRequisitesDialogComponent;
 })();
 
 // src/app/personal/pages/payments-requisites/payments-requisites.component.ts
-var _forTrack015 = ($index, $item) => $item.name;
+var _forTrack014 = ($index, $item) => $item.name;
 function PaymentsRequisitesComponent_Conditional_4_For_4_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
@@ -48851,7 +48834,7 @@ function PaymentsRequisitesComponent_Conditional_4_Template(rf, ctx) {
     \u0275\u0275text(1, "\u041F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u043D\u044B\u0435 \u043C\u0435\u0442\u043E\u0434\u044B");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(2, "div", 5);
-    \u0275\u0275repeaterCreate(3, PaymentsRequisitesComponent_Conditional_4_For_4_Template, 10, 3, "div", 6, _forTrack015);
+    \u0275\u0275repeaterCreate(3, PaymentsRequisitesComponent_Conditional_4_For_4_Template, 10, 3, "div", 6, _forTrack014);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -48893,7 +48876,7 @@ function PaymentsRequisitesComponent_Conditional_6_Template(rf, ctx) {
     \u0275\u0275text(1, "\u0414\u043E\u0441\u0442\u0443\u043F\u043D\u044B\u0435 \u043C\u0435\u0442\u043E\u0434\u044B");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(2, "div", 5);
-    \u0275\u0275repeaterCreate(3, PaymentsRequisitesComponent_Conditional_6_For_4_Template, 8, 3, "div", 6, _forTrack015);
+    \u0275\u0275repeaterCreate(3, PaymentsRequisitesComponent_Conditional_6_For_4_Template, 8, 3, "div", 6, _forTrack014);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {

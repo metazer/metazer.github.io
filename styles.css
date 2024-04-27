@@ -2604,6 +2604,9 @@ a.text-link:hover {
   text-decoration: none;
   border-bottom-style: solid;
 }
+.cdk-overlay-dark-backdrop {
+  background: rgb(211, 211, 211) !important;
+}
 
 /* angular:styles/global:styles */
 /*# sourceMappingURL=styles.css.map */
