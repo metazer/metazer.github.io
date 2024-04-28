@@ -244,6 +244,8 @@ import {
   ɵɵsanitizeUrlOrResourceUrl,
   ɵɵstyleMap,
   ɵɵstyleProp,
+  ɵɵsyntheticHostListener,
+  ɵɵsyntheticHostProperty,
   ɵɵtemplate,
   ɵɵtemplateRefExtractor,
   ɵɵtext,
@@ -251,7 +253,7 @@ import {
   ɵɵtextInterpolate1,
   ɵɵtextInterpolate2,
   ɵɵviewQuery
-} from "./chunk-XLWBQR36.js";
+} from "./chunk-VLQZYBJQ.js";
 
 // node_modules/lodash/lodash.js
 var require_lodash = __commonJS({
@@ -4520,7 +4522,7 @@ var require_lodash = __commonJS({
           var result2 = baseCreate(prototype);
           return properties == null ? result2 : baseAssign(result2, properties);
         }
-        var defaults2 = baseRest(function(object, sources) {
+        var defaults3 = baseRest(function(object, sources) {
           object = Object2(object);
           var index = -1;
           var length = sources.length;
@@ -5200,7 +5202,7 @@ var require_lodash = __commonJS({
           }
           return isSymbol(value) ? [value] : copyArray(stringToPath(toString(value)));
         }
-        function uniqueId3(prefix) {
+        function uniqueId4(prefix) {
           var id = ++idCounter;
           return toString(prefix) + id;
         }
@@ -5267,7 +5269,7 @@ var require_lodash = __commonJS({
         lodash.curry = curry;
         lodash.curryRight = curryRight;
         lodash.debounce = debounce;
-        lodash.defaults = defaults2;
+        lodash.defaults = defaults3;
         lodash.defaultsDeep = defaultsDeep;
         lodash.defer = defer2;
         lodash.delay = delay2;
@@ -5543,7 +5545,7 @@ var require_lodash = __commonJS({
         lodash.trimStart = trimStart;
         lodash.truncate = truncate;
         lodash.unescape = unescape;
-        lodash.uniqueId = uniqueId3;
+        lodash.uniqueId = uniqueId4;
         lodash.upperCase = upperCase;
         lodash.upperFirst = upperFirst;
         lodash.each = forEach;
@@ -15523,7 +15525,7 @@ var _AsyncAnimationRendererFactory = class _AsyncAnimationRendererFactory {
    * @internal
    */
   loadImpl() {
-    const moduleImpl = this.moduleImpl ?? import("./chunk-37ZBLCZD.js");
+    const moduleImpl = this.moduleImpl ?? import("./chunk-5AZ4EPQI.js");
     return moduleImpl.catch((e) => {
       throw new RuntimeError(5300, (typeof ngDevMode === "undefined" || ngDevMode) && "Async loading for animations package was enabled, but loading failed. Angular falls back to using regular rendering. No animations will be displayed and their styles won't be applied.");
     }).then(({
@@ -25307,6 +25309,22 @@ var BreakpointObserver = _BreakpointObserver;
 function splitQueries(queries) {
   return queries.map((query2) => query2.split(",")).reduce((a1, a2) => a1.concat(a2)).map((query2) => query2.trim());
 }
+var Breakpoints = {
+  XSmall: "(max-width: 599.98px)",
+  Small: "(min-width: 600px) and (max-width: 959.98px)",
+  Medium: "(min-width: 960px) and (max-width: 1279.98px)",
+  Large: "(min-width: 1280px) and (max-width: 1919.98px)",
+  XLarge: "(min-width: 1920px)",
+  Handset: "(max-width: 599.98px) and (orientation: portrait), (max-width: 959.98px) and (orientation: landscape)",
+  Tablet: "(min-width: 600px) and (max-width: 839.98px) and (orientation: portrait), (min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape)",
+  Web: "(min-width: 840px) and (orientation: portrait), (min-width: 1280px) and (orientation: landscape)",
+  HandsetPortrait: "(max-width: 599.98px) and (orientation: portrait)",
+  TabletPortrait: "(min-width: 600px) and (max-width: 839.98px) and (orientation: portrait)",
+  WebPortrait: "(min-width: 840px) and (orientation: portrait)",
+  HandsetLandscape: "(max-width: 959.98px) and (orientation: landscape)",
+  TabletLandscape: "(min-width: 960px) and (max-width: 1279.98px) and (orientation: landscape)",
+  WebLandscape: "(min-width: 1280px) and (orientation: landscape)"
+};
 
 // node_modules/@angular/cdk/fesm2022/a11y.mjs
 var ID_DELIMITER = " ";
@@ -30044,7 +30062,7 @@ var _MatIcon = class _MatIcon {
       this._updateFontIconClasses();
     }
   }
-  constructor(_elementRef, _iconRegistry, ariaHidden, _location, _errorHandler, defaults2) {
+  constructor(_elementRef, _iconRegistry, ariaHidden, _location, _errorHandler, defaults3) {
     this._elementRef = _elementRef;
     this._iconRegistry = _iconRegistry;
     this._location = _location;
@@ -30052,12 +30070,12 @@ var _MatIcon = class _MatIcon {
     this.inline = false;
     this._previousFontSetClass = [];
     this._currentIconFetch = Subscription.EMPTY;
-    if (defaults2) {
-      if (defaults2.color) {
-        this.color = this._defaultColor = defaults2.color;
+    if (defaults3) {
+      if (defaults3.color) {
+        this.color = this._defaultColor = defaults3.color;
       }
-      if (defaults2.fontSet) {
-        this.fontSet = defaults2.fontSet;
+      if (defaults3.fontSet) {
+        this.fontSet = defaults3.fontSet;
       }
     }
     if (!ariaHidden) {
@@ -38702,8 +38720,8 @@ var _Dialog = class _Dialog {
     this._scrollStrategy = scrollStrategy;
   }
   open(componentOrTemplateRef, config) {
-    const defaults2 = this._defaultOptions || new DialogConfig();
-    config = __spreadValues(__spreadValues({}, defaults2), config);
+    const defaults3 = this._defaultOptions || new DialogConfig();
+    config = __spreadValues(__spreadValues({}, defaults3), config);
     config.id = config.id || `cdk-dialog-${uniqueId++}`;
     if (config.id && this.getDialogById(config.id) && (typeof ngDevMode === "undefined" || ngDevMode)) {
       throw Error(`Dialog with id "${config.id}" exists already. The dialog id must be unique.`);
@@ -42148,6 +42166,24 @@ var MatSelectModule = _MatSelectModule;
   }], null, null);
 })();
 
+// src/app/ui/form-field/form-field.component.ts
+var _c010 = ["*"];
+var _FormFieldComponent = class _FormFieldComponent {
+};
+_FormFieldComponent.\u0275fac = function FormFieldComponent_Factory(t) {
+  return new (t || _FormFieldComponent)();
+};
+_FormFieldComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _FormFieldComponent, selectors: [["app-form-field"]], standalone: true, features: [\u0275\u0275StandaloneFeature], ngContentSelectors: _c010, decls: 1, vars: 0, template: function FormFieldComponent_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275projectionDef();
+    \u0275\u0275projection(0);
+  }
+}, styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]:not(:last-child) {\n  margin-bottom: 0.5em;\n}\n[_nghost-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]     [form-field-label] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]     [form-field-label] a {\n  position: relative;\n  bottom: 1px;\n  margin-left: 10px;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]     [form-field-label] a   .mat-icon {\n  width: 20px;\n  height: 20px;\n  font-size: 20px;\n  line-height: 20px;\n  color: #505050;\n}\n[_nghost-%COMP%]     [form-field-subscript] {\n  height: 22px;\n}\n[_nghost-%COMP%]     [form-field-subscript] > .mat-mdc-form-field-error {\n  font-size: 12px;\n}\n[_nghost-%COMP%]     [form-field-subscript] > .mat-mdc-form-field-hint {\n  font-size: 12px;\n}\n[_nghost-%COMP%]     .mat-icon {\n  width: 22px;\n  height: 22px;\n  font-size: 22px;\n  line-height: 22px;\n}\n[_nghost-%COMP%]     .mat-icon.color--warning {\n  color: var(--mat-form-field-error-text-color);\n}\n[_nghost-%COMP%]     .mat-mdc-checkbox {\n  margin-left: -10px;\n}\n[_nghost-%COMP%]     .inline-button {\n  margin-bottom: 22px;\n}\n[_nghost-%COMP%]     > .mat-mdc-form-field-hint {\n  font-size: 12px;\n  position: relative;\n  bottom: 6px;\n}\n/*# sourceMappingURL=form-field.component.css.map */'] });
+var FormFieldComponent = _FormFieldComponent;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(FormFieldComponent, { className: "FormFieldComponent", filePath: "src\\app\\ui\\form-field\\form-field.component.ts", lineNumber: 10 });
+})();
+
 // src/app/shared/constants/test-accounts.constant.ts
 var testAccounts = [
   {
@@ -42541,6 +42577,9 @@ var PaymentsRequisitesService = _PaymentsRequisitesService;
 var testPaymentRequests = [
   {
     id: 1,
+    channel: {
+      name: "Channel name"
+    },
     media: {
       platform: testMediaPlatforms[Math.floor(Math.random() * testMediaPlatforms.length)],
       links: ["https://www.youtube.com/watch?v=9bZkp7q19f0", "https://www.youtube.com/watch?v=9bZkp7q19f0"]
@@ -42552,6 +42591,9 @@ var testPaymentRequests = [
   },
   {
     id: 2,
+    channel: {
+      name: "Channel name"
+    },
     media: {
       platform: testMediaPlatforms[Math.floor(Math.random() * testMediaPlatforms.length)],
       links: ["https://www.youtube.com/watch?v=9bZkp7q19f0", "https://www.youtube.com/watch?v=9bZkp7q19f0"]
@@ -42565,6 +42607,9 @@ var testPaymentRequests = [
   },
   {
     id: 3,
+    channel: {
+      name: "Channel name"
+    },
     media: {
       platform: testMediaPlatforms[Math.floor(Math.random() * testMediaPlatforms.length)],
       links: ["https://www.youtube.com/watch?v=9bZkp7q19f0"]
@@ -42576,6 +42621,9 @@ var testPaymentRequests = [
   },
   {
     id: 4,
+    channel: {
+      name: "Channel name"
+    },
     media: {
       platform: testMediaPlatforms[Math.floor(Math.random() * testMediaPlatforms.length)],
       links: ["https://www.youtube.com/watch?v=9bZkp7q19f0"]
@@ -42602,7 +42650,7 @@ var _PaymentsRequestsService = class _PaymentsRequestsService {
       });
     });
   }
-  create(data) {
+  create(userId, data) {
     return __async(this, null, function* () {
       return new Promise((resolve) => {
         console.log("create payment request", data);
@@ -42635,7 +42683,7 @@ var _PaymentsRequestsService = class _PaymentsRequestsService {
       });
     });
   }
-  fetchAllPayments(status) {
+  fetchAll(status) {
     return __async(this, null, function* () {
       return new Promise((resolve) => {
         setTimeout(() => {
@@ -42747,8 +42795,8 @@ function AccountDialogComponent_Conditional_3_Template(rf, ctx) {
 }
 function AccountDialogComponent_Conditional_7_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 3);
-    \u0275\u0275element(1, "mat-icon", 12);
+    \u0275\u0275elementStart(0, "a", 2);
+    \u0275\u0275element(1, "mat-icon", 11);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -42772,8 +42820,8 @@ function AccountDialogComponent_Conditional_16_Template(rf, ctx) {
 }
 function AccountDialogComponent_Conditional_20_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 3);
-    \u0275\u0275element(1, "mat-icon", 12);
+    \u0275\u0275elementStart(0, "a", 2);
+    \u0275\u0275element(1, "mat-icon", 11);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -42791,8 +42839,8 @@ function AccountDialogComponent_Conditional_23_Template(rf, ctx) {
 function AccountDialogComponent_Conditional_29_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-select-trigger");
-    \u0275\u0275element(1, "i", 13);
-    \u0275\u0275elementStart(2, "span", 14);
+    \u0275\u0275element(1, "i", 12);
+    \u0275\u0275elementStart(2, "span", 13);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
@@ -42806,9 +42854,9 @@ function AccountDialogComponent_Conditional_29_Template(rf, ctx) {
 }
 function AccountDialogComponent_For_31_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "mat-option", 9);
-    \u0275\u0275element(1, "i", 13);
-    \u0275\u0275elementStart(2, "span", 14);
+    \u0275\u0275elementStart(0, "mat-option", 8);
+    \u0275\u0275element(1, "i", 12);
+    \u0275\u0275elementStart(2, "span", 13);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
@@ -42824,7 +42872,7 @@ function AccountDialogComponent_For_31_Template(rf, ctx) {
 function AccountDialogComponent_Conditional_34_Template(rf, ctx) {
   if (rf & 1) {
     const _r3 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "app-button", 15);
+    \u0275\u0275elementStart(0, "app-button", 14);
     \u0275\u0275listener("click", function AccountDialogComponent_Conditional_34_Template_app_button_click_0_listener() {
       \u0275\u0275restoreView(_r3);
       const ctx_r0 = \u0275\u0275nextContext();
@@ -42971,48 +43019,48 @@ var _AccountDialogComponent = class _AccountDialogComponent {
 _AccountDialogComponent.\u0275fac = function AccountDialogComponent_Factory(t) {
   return new (t || _AccountDialogComponent)(\u0275\u0275directiveInject(MAT_DIALOG_DATA), \u0275\u0275directiveInject(FormBuilder), \u0275\u0275directiveInject(AccountsService), \u0275\u0275directiveInject(NotifierService), \u0275\u0275directiveInject(MatDialogRef), \u0275\u0275directiveInject(DestroyRef), \u0275\u0275directiveInject(ConfirmationDialog));
 };
-_AccountDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AccountDialogComponent, selectors: [["app-account-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 35, vars: 13, consts: [[1, "title"], [1, "form-row"], [1, "form-row__label"], ["target", "_blank", 3, "href"], ["appearance", "outline"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0412\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u0435 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F", 3, "formControl"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043A\u0430\u043D\u0430\u043B\u0430", 3, "formControl"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u043A\u0430\u043D\u0430\u043B", 3, "formControl"], ["placeholder", "\u041F\u0440\u0430\u0432\u0430 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\u0430", 3, "formControl"], [3, "value"], ["size", "medium", "color", "green-box", 1, "button", 3, "click"], ["size", "medium", "color", "red-box", 1, "button"], ["fontIcon", "open_in_new"], [1, "select-option-icon", "select-option-icon--mark"], [1, "select-option-label"], ["size", "medium", "color", "red-box", 1, "button", 3, "click"]], template: function AccountDialogComponent_Template(rf, ctx) {
+_AccountDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AccountDialogComponent, selectors: [["app-account-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 35, vars: 13, consts: [[1, "title"], ["form-field-label", ""], ["target", "_blank", 3, "href"], ["appearance", "outline"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0412\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u0435 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F", 3, "formControl"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043A\u0430\u043D\u0430\u043B\u0430", 3, "formControl"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u043A\u0430\u043D\u0430\u043B", 3, "formControl"], ["placeholder", "\u041F\u0440\u0430\u0432\u0430 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\u0430", 3, "formControl"], [3, "value"], ["size", "medium", "color", "green-box", 1, "button", 3, "click"], ["size", "medium", "color", "red-box", 1, "button"], ["fontIcon", "open_in_new"], [1, "select-option-icon", "select-option-icon--mark"], [1, "select-option-label"], ["size", "medium", "color", "red-box", 1, "button", 3, "click"]], template: function AccountDialogComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-dialog-content")(1, "div", 0);
     \u0275\u0275template(2, AccountDialogComponent_Conditional_2_Template, 1, 0)(3, AccountDialogComponent_Conditional_3_Template, 1, 0);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "div", 1)(5, "div", 2);
-    \u0275\u0275text(6, "\u0412\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u0435 ");
-    \u0275\u0275template(7, AccountDialogComponent_Conditional_7_Template, 2, 1, "a", 3);
+    \u0275\u0275elementStart(4, "app-form-field")(5, "span", 1);
+    \u0275\u0275text(6, " \u0412\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u0435 ");
+    \u0275\u0275template(7, AccountDialogComponent_Conditional_7_Template, 2, 1, "a", 2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(8, "mat-form-field", 4);
-    \u0275\u0275element(9, "input", 5);
+    \u0275\u0275elementStart(8, "mat-form-field", 3);
+    \u0275\u0275element(9, "input", 4);
     \u0275\u0275template(10, AccountDialogComponent_Conditional_10_Template, 2, 0, "mat-error");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(11, "div", 1)(12, "div", 2);
+    \u0275\u0275elementStart(11, "app-form-field")(12, "span", 1);
     \u0275\u0275text(13, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043A\u0430\u043D\u0430\u043B\u0430");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(14, "mat-form-field", 4);
-    \u0275\u0275element(15, "input", 6);
+    \u0275\u0275elementStart(14, "mat-form-field", 3);
+    \u0275\u0275element(15, "input", 5);
     \u0275\u0275template(16, AccountDialogComponent_Conditional_16_Template, 2, 0, "mat-error");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(17, "div", 1)(18, "div", 2);
-    \u0275\u0275text(19, "\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u043A\u0430\u043D\u0430\u043B ");
-    \u0275\u0275template(20, AccountDialogComponent_Conditional_20_Template, 2, 1, "a", 3);
+    \u0275\u0275elementStart(17, "app-form-field")(18, "span", 1);
+    \u0275\u0275text(19, " \u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u043A\u0430\u043D\u0430\u043B ");
+    \u0275\u0275template(20, AccountDialogComponent_Conditional_20_Template, 2, 1, "a", 2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(21, "mat-form-field", 4);
-    \u0275\u0275element(22, "input", 7);
+    \u0275\u0275elementStart(21, "mat-form-field", 3);
+    \u0275\u0275element(22, "input", 6);
     \u0275\u0275template(23, AccountDialogComponent_Conditional_23_Template, 2, 0, "mat-error");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(24, "div", 1)(25, "div", 2);
+    \u0275\u0275elementStart(24, "app-form-field")(25, "span", 1);
     \u0275\u0275text(26, "\u041F\u0440\u0430\u0432\u0430 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\u0430");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(27, "mat-form-field", 4)(28, "mat-select", 8);
+    \u0275\u0275elementStart(27, "mat-form-field", 3)(28, "mat-select", 7);
     \u0275\u0275template(29, AccountDialogComponent_Conditional_29_Template, 4, 3, "mat-select-trigger");
-    \u0275\u0275repeaterCreate(30, AccountDialogComponent_For_31_Template, 4, 4, "mat-option", 9, _forTrack0);
+    \u0275\u0275repeaterCreate(30, AccountDialogComponent_For_31_Template, 4, 4, "mat-option", 8, _forTrack0);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(32, "app-button", 10);
+    \u0275\u0275elementStart(32, "app-button", 9);
     \u0275\u0275listener("click", function AccountDialogComponent_Template_app_button_click_32_listener() {
       return ctx.submit();
     });
     \u0275\u0275text(33);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(34, AccountDialogComponent_Conditional_34_Template, 2, 0, "app-button", 11);
+    \u0275\u0275template(34, AccountDialogComponent_Conditional_34_Template, 2, 0, "app-button", 10);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -43058,18 +43106,37 @@ _AccountDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent(
   MatOption,
   MatSelect,
   MatError,
-  MatSelectTrigger
-], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  position: relative;\n  bottom: 1px;\n  margin-left: 10px;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]     .mat-icon {\n  width: 20px;\n  height: 20px;\n  font-size: 20px;\n  line-height: 20px;\n  color: #505050;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]   .button[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=account-dialog.component.css.map */'] });
+  MatSelectTrigger,
+  FormFieldComponent
+], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .button[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=account-dialog.component.css.map */'] });
 var AccountDialogComponent = _AccountDialogComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AccountDialogComponent, { className: "AccountDialogComponent", filePath: "src\\app\\admin\\modals\\account-dialog\\account-dialog.component.ts", lineNumber: 43 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AccountDialogComponent, { className: "AccountDialogComponent", filePath: "src\\app\\admin\\modals\\account-dialog\\account-dialog.component.ts", lineNumber: 45 });
+})();
+
+// src/app/ui/entities-list/entities-list.component.ts
+var _c011 = ["*"];
+var _EntitiesListComponent = class _EntitiesListComponent {
+};
+_EntitiesListComponent.\u0275fac = function EntitiesListComponent_Factory(t) {
+  return new (t || _EntitiesListComponent)();
+};
+_EntitiesListComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _EntitiesListComponent, selectors: [["app-entities-list"]], standalone: true, features: [\u0275\u0275StandaloneFeature], ngContentSelectors: _c011, decls: 1, vars: 0, template: function EntitiesListComponent_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275projectionDef();
+    \u0275\u0275projection(0);
+  }
+}, styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]     [empty-text] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]     [list-item] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 14px;\n  background-color: #f2f2f2;\n  gap: 10px;\n}\n[_nghost-%COMP%]     [list-item]:not(:last-child) {\n  border-bottom: 1px solid #E8E8E8;\n}\n[_nghost-%COMP%]     [list-item]:last-child {\n  margin-bottom: 10px;\n}\n[_nghost-%COMP%]     [list-item-section] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n[_nghost-%COMP%]     [list-item-section]:first-child {\n  flex-grow: 1;\n  flex-shrink: 0;\n  padding: 0 8px;\n  background-color: #FFFFFF;\n}\n[_nghost-%COMP%]     [list-item-mark] {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background-color: #ee2a17;\n  margin: 0 6px;\n  flex-shrink: 0;\n}\n[_nghost-%COMP%]     [list-item-text] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]     [list-item-button] {\n  flex-grow: 1;\n}\n@media screen and (max-width: 500px) {\n  [_nghost-%COMP%]     [list-item] {\n    flex-direction: column;\n  }\n  [_nghost-%COMP%]     [list-item-section]:first-child {\n    padding: 0 8px;\n    height: 40px;\n  }\n  [_nghost-%COMP%]     [list-item-section]:last-child {\n    justify-content: center;\n    gap: 60px;\n  }\n}\n/*# sourceMappingURL=entities-list.component.css.map */'] });
+var EntitiesListComponent = _EntitiesListComponent;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(EntitiesListComponent, { className: "EntitiesListComponent", filePath: "src\\app\\ui\\entities-list\\entities-list.component.ts", lineNumber: 10 });
 })();
 
 // src/app/admin/pages/accounts/accounts.component.ts
 var _forTrack02 = ($index, $item) => $item.id;
 function AccountsComponent_Conditional_8_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 6);
+    \u0275\u0275elementStart(0, "span", 5);
     \u0275\u0275text(1, "\u0410\u043A\u043A\u0430\u0443\u043D\u0442\u043E\u0432 \u043D\u0435\u0442");
     \u0275\u0275elementEnd();
   }
@@ -43077,26 +43144,26 @@ function AccountsComponent_Conditional_8_Template(rf, ctx) {
 function AccountsComponent_For_10_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 7)(1, "div", 10);
-    \u0275\u0275element(2, "div", 11);
-    \u0275\u0275elementStart(3, "app-flex-ellipsis")(4, "span", 12);
+    \u0275\u0275elementStart(0, "div", 6)(1, "div", 9);
+    \u0275\u0275element(2, "div", 10);
+    \u0275\u0275elementStart(3, "app-flex-ellipsis")(4, "span", 11);
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(6, "div", 10)(7, "app-button", 13);
+    \u0275\u0275elementStart(6, "div", 9)(7, "app-button", 12);
     \u0275\u0275listener("click", function AccountsComponent_For_10_Template_app_button_click_7_listener() {
       const account_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.edit(account_r2));
     });
-    \u0275\u0275element(8, "mat-icon", 14);
+    \u0275\u0275element(8, "mat-icon", 13);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(9, "app-button", 15);
+    \u0275\u0275elementStart(9, "app-button", 14);
     \u0275\u0275listener("click", function AccountsComponent_For_10_Template_app_button_click_9_listener() {
       const account_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.delete(account_r2));
     });
-    \u0275\u0275element(10, "mat-icon", 16);
+    \u0275\u0275element(10, "mat-icon", 15);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -43162,7 +43229,7 @@ var _AccountsComponent = class _AccountsComponent {
 _AccountsComponent.\u0275fac = function AccountsComponent_Factory(t) {
   return new (t || _AccountsComponent)(\u0275\u0275directiveInject(MatDialog), \u0275\u0275directiveInject(DestroyRef), \u0275\u0275directiveInject(ConfirmationDialog), \u0275\u0275directiveInject(AccountsService), \u0275\u0275directiveInject(NotifierService));
 };
-_AccountsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AccountsComponent, selectors: [["app-accounts"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 14, vars: 1, consts: [[1, "top-section"], [1, "page-title"], [1, "page-description"], [1, "content-section"], [1, "page-card"], [1, "accounts-list"], [1, "accounts-list__empty"], [1, "accounts-list__item"], [1, "section-divider"], ["size", "medium", "color", "green-box", 3, "click"], [1, "accounts-list__item-section"], [1, "accounts-list__item-mark"], [1, "accounts-list__item-text"], ["size", "small", "type", "icon", "color", "blue-box", 1, "inline-button", 3, "click"], ["fontIcon", "edit"], ["size", "small", "type", "icon", "color", "red-box", 1, "inline-button", 3, "click"], ["fontIcon", "delete_outline"]], template: function AccountsComponent_Template(rf, ctx) {
+_AccountsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AccountsComponent, selectors: [["app-accounts"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 14, vars: 1, consts: [[1, "top-section"], [1, "page-title"], [1, "page-description"], [1, "content-section"], [1, "page-card"], ["empty-text", ""], ["list-item", ""], [1, "section-divider"], ["size", "medium", "color", "green-box", 3, "click"], ["list-item-section", ""], ["list-item-mark", ""], ["list-item-text", ""], ["size", "small", "type", "icon", "color", "blue-box", 3, "click"], ["fontIcon", "edit"], ["size", "small", "type", "icon", "color", "red-box", 3, "click"], ["fontIcon", "delete_outline"]], template: function AccountsComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 0)(1, "div", 1);
     \u0275\u0275text(2, "\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0430\u043A\u043A\u0430\u0443\u043D\u0442\u0430\u043C\u0438");
@@ -43170,12 +43237,12 @@ _AccountsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ typ
     \u0275\u0275elementStart(3, "div", 2);
     \u0275\u0275text(4, " \u0422\u0430\u043A \u043A\u0430\u043A \u0412\u044B \u044F\u0432\u043B\u044F\u0435\u0442\u0435\u0441\u044C \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\u043E\u043C \u0441\u0430\u0439\u0442\u0430, \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0441\u043C\u0430\u0442\u0440\u0438\u0432\u0430\u0442\u044C \u0432\u0441\u0435 \u0430\u043A\u043A\u0430\u0443\u043D\u0442\u044B \u0438 \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0438\u0445 ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(5, "div", 3)(6, "div", 4)(7, "div", 5);
-    \u0275\u0275template(8, AccountsComponent_Conditional_8_Template, 2, 0, "div", 6);
-    \u0275\u0275repeaterCreate(9, AccountsComponent_For_10_Template, 11, 6, "div", 7, _forTrack02);
+    \u0275\u0275elementStart(5, "div", 3)(6, "div", 4)(7, "app-entities-list");
+    \u0275\u0275template(8, AccountsComponent_Conditional_8_Template, 2, 0, "span", 5);
+    \u0275\u0275repeaterCreate(9, AccountsComponent_For_10_Template, 11, 6, "div", 6, _forTrack02);
     \u0275\u0275elementEnd();
-    \u0275\u0275element(11, "div", 8);
-    \u0275\u0275elementStart(12, "app-button", 9);
+    \u0275\u0275element(11, "div", 7);
+    \u0275\u0275elementStart(12, "app-button", 8);
     \u0275\u0275listener("click", function AccountsComponent_Template_app_button_click_12_listener() {
       return ctx.create();
     });
@@ -43188,10 +43255,10 @@ _AccountsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ typ
     \u0275\u0275advance();
     \u0275\u0275repeater(ctx.accounts);
   }
-}, dependencies: [ButtonComponent, FlexEllipsisComponent, MatIcon], styles: ['\n\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 800;\n  font-size: 20px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 16px;\n}\n[_nghost-%COMP%]   .section-divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .top-section[_ngcontent-%COMP%] {\n  max-width: 460px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-button[_ngcontent-%COMP%] {\n  margin-top: 10px;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  margin-top: 30px;\n  width: 100%;\n  max-width: 540px;\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  padding-bottom: 0;\n}\n[_nghost-%COMP%]   .accounts-list__empty[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .accounts-list__item[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 14px;\n  background-color: #f2f2f2;\n  gap: 10px;\n}\n[_nghost-%COMP%]   .accounts-list__item-section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n[_nghost-%COMP%]   .accounts-list__item-section[_ngcontent-%COMP%]:first-child {\n  flex-grow: 1;\n  flex-shrink: 0;\n  padding: 0 8px;\n  background-color: #FFFFFF;\n}\n[_nghost-%COMP%]   .accounts-list__item-mark[_ngcontent-%COMP%] {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background-color: #ee2a17;\n  margin-right: 8px;\n  flex-shrink: 0;\n}\n[_nghost-%COMP%]   .accounts-list__item-text[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .accounts-list__item[_ngcontent-%COMP%]:not(:last-child) {\n  border-bottom: 1px solid #E8E8E8;\n}\n[_nghost-%COMP%]   .accounts-list__item[_ngcontent-%COMP%]:last-child {\n  margin-bottom: 10px;\n}\n@media screen and (max-width: 1080px) {\n  [_nghost-%COMP%]   .accounts-list__item[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  [_nghost-%COMP%]   .accounts-list__item-section[_ngcontent-%COMP%]:first-child {\n    padding: 0 8px;\n  }\n}\n/*# sourceMappingURL=accounts.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
+}, dependencies: [ButtonComponent, FlexEllipsisComponent, MatIcon, EntitiesListComponent], styles: ['\n\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 800;\n  font-size: 20px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 16px;\n}\n[_nghost-%COMP%]   .section-divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .top-section[_ngcontent-%COMP%] {\n  max-width: 460px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-button[_ngcontent-%COMP%] {\n  margin-top: 10px;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  margin-top: 30px;\n  width: 100%;\n  max-width: 540px;\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  padding-bottom: 0;\n}\n/*# sourceMappingURL=accounts.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
 var AccountsComponent = _AccountsComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AccountsComponent, { className: "AccountsComponent", filePath: "src\\app\\admin\\pages\\accounts\\accounts.component.ts", lineNumber: 25 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AccountsComponent, { className: "AccountsComponent", filePath: "src\\app\\admin\\pages\\accounts\\accounts.component.ts", lineNumber: 26 });
 })();
 
 // src/app/shared/validators/index.ts
@@ -43287,22 +43354,22 @@ var CustomValidators = class {
   }
 };
 
-// src/app/admin/modals/platform-dialog/platform-dialog.component.ts
-function PlatformDialogComponent_Conditional_8_Template(rf, ctx) {
+// src/app/admin/modals/media-platform-dialog/media-platform-dialog.component.ts
+function MediaPlatformDialogComponent_Conditional_8_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-error");
     \u0275\u0275text(1, "\u042D\u0442\u043E \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435");
     \u0275\u0275elementEnd();
   }
 }
-function PlatformDialogComponent_Conditional_9_Template(rf, ctx) {
+function MediaPlatformDialogComponent_Conditional_9_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-error");
     \u0275\u0275text(1, "\u0422\u0430\u043A\u043E\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u0443\u0436\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442");
     \u0275\u0275elementEnd();
   }
 }
-var _PlatformDialogComponent = class _PlatformDialogComponent {
+var _MediaPlatformDialogComponent = class _MediaPlatformDialogComponent {
   constructor(data, dialogRef, fb, notifier, mediaPlatformsService) {
     this.data = data;
     this.dialogRef = dialogRef;
@@ -43338,29 +43405,29 @@ var _PlatformDialogComponent = class _PlatformDialogComponent {
     });
   }
 };
-_PlatformDialogComponent.\u0275fac = function PlatformDialogComponent_Factory(t) {
-  return new (t || _PlatformDialogComponent)(\u0275\u0275directiveInject(MAT_DIALOG_DATA), \u0275\u0275directiveInject(MatDialogRef), \u0275\u0275directiveInject(FormBuilder), \u0275\u0275directiveInject(NotifierService), \u0275\u0275directiveInject(MediaPlatformsService));
+_MediaPlatformDialogComponent.\u0275fac = function MediaPlatformDialogComponent_Factory(t) {
+  return new (t || _MediaPlatformDialogComponent)(\u0275\u0275directiveInject(MAT_DIALOG_DATA), \u0275\u0275directiveInject(MatDialogRef), \u0275\u0275directiveInject(FormBuilder), \u0275\u0275directiveInject(NotifierService), \u0275\u0275directiveInject(MediaPlatformsService));
 };
-_PlatformDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PlatformDialogComponent, selectors: [["app-platform-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 14, vars: 2, consts: [[1, "title"], [1, "form-row"], [1, "form-row__label"], ["appearance", "outline"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: YouTube", 3, "formControl"], ["size", "medium", "color", "green-box", 1, "button", 3, "click"], ["size", "medium", "color", "gray-box", 1, "button", 3, "click"]], template: function PlatformDialogComponent_Template(rf, ctx) {
+_MediaPlatformDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _MediaPlatformDialogComponent, selectors: [["app-media-platform-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 14, vars: 2, consts: [[1, "title"], ["form-field-label", ""], ["appearance", "outline"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: YouTube", 3, "formControl"], ["size", "medium", "color", "green-box", 1, "button", 3, "click"], ["size", "medium", "color", "gray-box", 1, "button", 3, "click"]], template: function MediaPlatformDialogComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-dialog-content")(1, "div", 0);
     \u0275\u0275text(2, "\u0421\u043E\u0437\u0434\u0430\u043D\u0438\u0435 \u043C\u0435\u0434\u0438\u0430 \u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u044B");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "div", 1)(4, "div", 2);
+    \u0275\u0275elementStart(3, "app-form-field")(4, "span", 1);
     \u0275\u0275text(5, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "mat-form-field", 3);
-    \u0275\u0275element(7, "input", 4);
-    \u0275\u0275template(8, PlatformDialogComponent_Conditional_8_Template, 2, 0, "mat-error")(9, PlatformDialogComponent_Conditional_9_Template, 2, 0);
+    \u0275\u0275elementStart(6, "mat-form-field", 2);
+    \u0275\u0275element(7, "input", 3);
+    \u0275\u0275template(8, MediaPlatformDialogComponent_Conditional_8_Template, 2, 0, "mat-error")(9, MediaPlatformDialogComponent_Conditional_9_Template, 2, 0);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(10, "app-button", 5);
-    \u0275\u0275listener("click", function PlatformDialogComponent_Template_app_button_click_10_listener() {
+    \u0275\u0275elementStart(10, "app-button", 4);
+    \u0275\u0275listener("click", function MediaPlatformDialogComponent_Template_app_button_click_10_listener() {
       return ctx.submit();
     });
     \u0275\u0275text(11, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(12, "app-button", 6);
-    \u0275\u0275listener("click", function PlatformDialogComponent_Template_app_button_click_12_listener() {
+    \u0275\u0275elementStart(12, "app-button", 5);
+    \u0275\u0275listener("click", function MediaPlatformDialogComponent_Template_app_button_click_12_listener() {
       return ctx.dialogRef.close();
     });
     \u0275\u0275text(13, "\u0417\u0430\u043A\u0440\u044B\u0442\u044C");
@@ -43372,26 +43439,16 @@ _PlatformDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
     \u0275\u0275advance();
     \u0275\u0275conditional(8, ctx.formGroup.controls.name.getError("required") ? 8 : ctx.formGroup.controls.name.getError("notIn") ? 9 : -1);
   }
-}, dependencies: [
-  ButtonComponent,
-  MatDialogContent,
-  MatFormField,
-  ReactiveFormsModule,
-  DefaultValueAccessor,
-  NgControlStatus,
-  FormControlDirective,
-  MatInput,
-  MatError
-], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 0.5em;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]   .button[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=platform-dialog.component.css.map */'] });
-var PlatformDialogComponent = _PlatformDialogComponent;
+}, dependencies: [ButtonComponent, MatDialogContent, MatFormField, ReactiveFormsModule, DefaultValueAccessor, NgControlStatus, FormControlDirective, MatInput, MatError, FormFieldComponent], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .button[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=media-platform-dialog.component.css.map */'] });
+var MediaPlatformDialogComponent = _MediaPlatformDialogComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PlatformDialogComponent, { className: "PlatformDialogComponent", filePath: "src\\app\\admin\\modals\\platform-dialog\\platform-dialog.component.ts", lineNumber: 33 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(MediaPlatformDialogComponent, { className: "MediaPlatformDialogComponent", filePath: "src\\app\\admin\\modals\\media-platform-dialog\\media-platform-dialog.component.ts", lineNumber: 27 });
 })();
 
 // src/app/admin/pages/media-platforms/media-platforms.component.ts
 function MediaPlatformsComponent_Conditional_8_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 6);
+    \u0275\u0275elementStart(0, "div", 5);
     \u0275\u0275text(1, "\u041F\u043B\u0430\u0442\u0444\u043E\u0440\u043C \u043D\u0435\u0442");
     \u0275\u0275elementEnd();
   }
@@ -43399,16 +43456,16 @@ function MediaPlatformsComponent_Conditional_8_Template(rf, ctx) {
 function MediaPlatformsComponent_For_10_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 7)(1, "div", 10)(2, "app-flex-ellipsis")(3, "span", 11);
+    \u0275\u0275elementStart(0, "div", 6)(1, "div", 9)(2, "app-flex-ellipsis")(3, "span", 10);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(5, "div", 10)(6, "app-button", 12);
+    \u0275\u0275elementStart(5, "div", 9)(6, "app-button", 11);
     \u0275\u0275listener("click", function MediaPlatformsComponent_For_10_Template_app_button_click_6_listener() {
       const platform_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.delete(platform_r2));
     });
-    \u0275\u0275element(7, "mat-icon", 13);
+    \u0275\u0275element(7, "mat-icon", 12);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -43464,7 +43521,7 @@ var _MediaPlatformsComponent = class _MediaPlatformsComponent {
           }
         }
       };
-      this.dialog.open(PlatformDialogComponent, {
+      this.dialog.open(MediaPlatformDialogComponent, {
         data
       }).afterClosed().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
         this.loadPlatforms();
@@ -43475,7 +43532,7 @@ var _MediaPlatformsComponent = class _MediaPlatformsComponent {
 _MediaPlatformsComponent.\u0275fac = function MediaPlatformsComponent_Factory(t) {
   return new (t || _MediaPlatformsComponent)(\u0275\u0275directiveInject(FormBuilder), \u0275\u0275directiveInject(MatDialog), \u0275\u0275directiveInject(MediaPlatformsService), \u0275\u0275directiveInject(NotifierService), \u0275\u0275directiveInject(ConfirmationDialog), \u0275\u0275directiveInject(DestroyRef));
 };
-_MediaPlatformsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _MediaPlatformsComponent, selectors: [["app-media-platforms"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 14, vars: 1, consts: [[1, "top-section"], [1, "page-title"], [1, "page-description"], [1, "content-section"], [1, "page-card"], [1, "platforms-list"], [1, "platforms-list__empty"], [1, "platforms-list__item"], [1, "section-divider"], ["size", "medium", "color", "green-box", 3, "click"], [1, "platforms-list__item-section"], [1, "platforms-list__item-text"], ["size", "small", "type", "icon", "color", "red-box", 1, "inline-button", 3, "click"], ["fontIcon", "delete_outline"]], template: function MediaPlatformsComponent_Template(rf, ctx) {
+_MediaPlatformsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _MediaPlatformsComponent, selectors: [["app-media-platforms"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 14, vars: 1, consts: [[1, "top-section"], [1, "page-title"], [1, "page-description"], [1, "content-section"], [1, "page-card"], ["empty-text", ""], ["list-item", ""], [1, "section-divider"], ["size", "medium", "color", "green-box", 3, "click"], ["list-item-section", ""], ["list-item-text", ""], ["size", "small", "type", "icon", "color", "red-box", 3, "click"], ["fontIcon", "delete_outline"]], template: function MediaPlatformsComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 0)(1, "div", 1);
     \u0275\u0275text(2, "\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0430\u043C\u0438");
@@ -43483,12 +43540,12 @@ _MediaPlatformsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
     \u0275\u0275elementStart(3, "div", 2);
     \u0275\u0275text(4, " \u0422\u0430\u043A \u043A\u0430\u043A \u0412\u044B \u044F\u0432\u043B\u044F\u0435\u0442\u0435\u0441\u044C \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\u043E\u043C \u0441\u0430\u0439\u0442\u0430, \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0441\u043C\u0430\u0442\u0440\u0438\u0432\u0430\u0442\u044C \u0432\u0441\u0435 \u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u044B \u0438 \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0438\u0445 ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(5, "div", 3)(6, "div", 4)(7, "div", 5);
-    \u0275\u0275template(8, MediaPlatformsComponent_Conditional_8_Template, 2, 0, "div", 6);
-    \u0275\u0275repeaterCreate(9, MediaPlatformsComponent_For_10_Template, 8, 3, "div", 7, \u0275\u0275repeaterTrackByIdentity);
+    \u0275\u0275elementStart(5, "div", 3)(6, "div", 4)(7, "app-entities-list");
+    \u0275\u0275template(8, MediaPlatformsComponent_Conditional_8_Template, 2, 0, "div", 5);
+    \u0275\u0275repeaterCreate(9, MediaPlatformsComponent_For_10_Template, 8, 3, "div", 6, \u0275\u0275repeaterTrackByIdentity);
     \u0275\u0275elementEnd();
-    \u0275\u0275element(11, "div", 8);
-    \u0275\u0275elementStart(12, "app-button", 9);
+    \u0275\u0275element(11, "div", 7);
+    \u0275\u0275elementStart(12, "app-button", 8);
     \u0275\u0275listener("click", function MediaPlatformsComponent_Template_app_button_click_12_listener() {
       return ctx.create();
     });
@@ -43505,15 +43562,16 @@ _MediaPlatformsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
   ButtonComponent,
   ReactiveFormsModule,
   FlexEllipsisComponent,
-  MatIcon
-], styles: ['\n\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 800;\n  font-size: 20px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 16px;\n}\n[_nghost-%COMP%]   .section-divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .top-section[_ngcontent-%COMP%] {\n  max-width: 460px;\n}\n[_nghost-%COMP%]   .content-section[_ngcontent-%COMP%] {\n  margin-top: 30px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n  gap: 40px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  width: 100%;\n  max-width: 540px;\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  padding-bottom: 0;\n}\n[_nghost-%COMP%]   .platforms-list__empty[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .platforms-list__item[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 14px;\n  background-color: #f2f2f2;\n  gap: 10px;\n}\n[_nghost-%COMP%]   .platforms-list__item-section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n[_nghost-%COMP%]   .platforms-list__item-section[_ngcontent-%COMP%]:first-child {\n  flex-grow: 1;\n  flex-shrink: 0;\n  padding: 0 8px;\n  background-color: #FFFFFF;\n}\n[_nghost-%COMP%]   .platforms-list__item-mark[_ngcontent-%COMP%] {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background-color: #ee2a17;\n  margin-right: 8px;\n  flex-shrink: 0;\n}\n[_nghost-%COMP%]   .platforms-list__item-text[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .platforms-list__item[_ngcontent-%COMP%]:not(:last-child) {\n  border-bottom: 1px solid #E8E8E8;\n}\n[_nghost-%COMP%]   .platforms-list__item[_ngcontent-%COMP%]:last-child {\n  margin-bottom: 10px;\n}\n/*# sourceMappingURL=media-platforms.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
+  MatIcon,
+  EntitiesListComponent
+], styles: ['\n\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 800;\n  font-size: 20px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 16px;\n}\n[_nghost-%COMP%]   .section-divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .top-section[_ngcontent-%COMP%] {\n  max-width: 460px;\n}\n[_nghost-%COMP%]   .content-section[_ngcontent-%COMP%] {\n  margin-top: 30px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n  gap: 40px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  width: 100%;\n  max-width: 540px;\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  padding-bottom: 0;\n}\n/*# sourceMappingURL=media-platforms.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
 var MediaPlatformsComponent = _MediaPlatformsComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(MediaPlatformsComponent, { className: "MediaPlatformsComponent", filePath: "src\\app\\admin\\pages\\media-platforms\\media-platforms.component.ts", lineNumber: 38 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(MediaPlatformsComponent, { className: "MediaPlatformsComponent", filePath: "src\\app\\admin\\pages\\media-platforms\\media-platforms.component.ts", lineNumber: 40 });
 })();
 
 // node_modules/@angular/material/fesm2022/button-toggle.mjs
-var _c010 = ["button"];
+var _c012 = ["button"];
 var _c17 = ["*"];
 function MatButtonToggle_Conditional_3_Template(rf, ctx) {
   if (rf & 1) {
@@ -43986,7 +44044,7 @@ _MatButtonToggle.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
   selectors: [["mat-button-toggle"]],
   viewQuery: function MatButtonToggle_Query(rf, ctx) {
     if (rf & 1) {
-      \u0275\u0275viewQuery(_c010, 5);
+      \u0275\u0275viewQuery(_c012, 5);
     }
     if (rf & 2) {
       let _t;
@@ -44189,7 +44247,7 @@ var MatButtonToggleModule = _MatButtonToggleModule;
 })();
 
 // node_modules/@angular/material/fesm2022/card.mjs
-var _c011 = ["*"];
+var _c013 = ["*"];
 var _c18 = [[["mat-card-title"], ["mat-card-subtitle"], ["", "mat-card-title", ""], ["", "mat-card-subtitle", ""], ["", "matCardTitle", ""], ["", "matCardSubtitle", ""]], [["", "mat-card-image", ""], ["", "matCardImage", ""], ["", "mat-card-sm-image", ""], ["", "matCardImageSmall", ""], ["", "mat-card-md-image", ""], ["", "matCardImageMedium", ""], ["", "mat-card-lg-image", ""], ["", "matCardImageLarge", ""], ["", "mat-card-xl-image", ""], ["", "matCardImageXLarge", ""]], "*"];
 var _c24 = ["mat-card-title, mat-card-subtitle,\n      [mat-card-title], [mat-card-subtitle],\n      [matCardTitle], [matCardSubtitle]", "[mat-card-image], [matCardImage],\n                    [mat-card-sm-image], [matCardImageSmall],\n                    [mat-card-md-image], [matCardImageMedium],\n                    [mat-card-lg-image], [matCardImageLarge],\n                    [mat-card-xl-image], [matCardImageXLarge]", "*"];
 var _c34 = [[["", "mat-card-avatar", ""], ["", "matCardAvatar", ""]], [["mat-card-title"], ["mat-card-subtitle"], ["", "mat-card-title", ""], ["", "mat-card-subtitle", ""], ["", "matCardTitle", ""], ["", "matCardSubtitle", ""]], "*"];
@@ -44219,7 +44277,7 @@ _MatCard.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
   exportAs: ["matCard"],
   standalone: true,
   features: [\u0275\u0275StandaloneFeature],
-  ngContentSelectors: _c011,
+  ngContentSelectors: _c013,
   decls: 1,
   vars: 0,
   template: function MatCard_Template(rf, ctx) {
@@ -44658,7 +44716,7 @@ var MatCardModule = _MatCardModule;
 })();
 
 // node_modules/@angular/material/fesm2022/checkbox.mjs
-var _c012 = ["input"];
+var _c014 = ["input"];
 var _c19 = ["label"];
 var _c25 = ["*"];
 var MAT_CHECKBOX_DEFAULT_OPTIONS = new InjectionToken("mat-checkbox-default-options", {
@@ -44950,7 +45008,7 @@ _MatCheckbox.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
   selectors: [["mat-checkbox"]],
   viewQuery: function MatCheckbox_Query(rf, ctx) {
     if (rf & 1) {
-      \u0275\u0275viewQuery(_c012, 5);
+      \u0275\u0275viewQuery(_c014, 5);
       \u0275\u0275viewQuery(_c19, 5);
       \u0275\u0275viewQuery(MatRipple, 5);
     }
@@ -45392,8 +45450,8 @@ function PaymentMethodFieldDialogComponent_Conditional_39_Conditional_6_Template
 }
 function PaymentMethodFieldDialogComponent_Conditional_39_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 1)(1, "mat-form-field", 3);
-    \u0275\u0275element(2, "mat-icon", 14)(3, "input", 15);
+    \u0275\u0275elementStart(0, "app-form-field")(1, "mat-form-field", 2);
+    \u0275\u0275element(2, "mat-icon", 13)(3, "input", 14);
     \u0275\u0275elementStart(4, "mat-hint");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd();
@@ -45417,7 +45475,7 @@ function PaymentMethodFieldDialogComponent_Conditional_39_Template(rf, ctx) {
 }
 function PaymentMethodFieldDialogComponent_For_46_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "mat-option", 11);
+    \u0275\u0275elementStart(0, "mat-option", 10);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -45452,37 +45510,37 @@ function PaymentMethodFieldDialogComponent_Conditional_48_For_5_Conditional_4_Te
 function PaymentMethodFieldDialogComponent_Conditional_48_For_5_Conditional_5_Template(rf, ctx) {
   if (rf & 1) {
     const _r3 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "app-button", 20);
+    \u0275\u0275elementStart(0, "app-button", 19);
     \u0275\u0275listener("click", function PaymentMethodFieldDialogComponent_Conditional_48_For_5_Conditional_5_Template_app_button_click_0_listener() {
       \u0275\u0275restoreView(_r3);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.addSelectOption());
     });
-    \u0275\u0275element(1, "mat-icon", 21);
+    \u0275\u0275element(1, "mat-icon", 20);
     \u0275\u0275elementEnd();
   }
 }
 function PaymentMethodFieldDialogComponent_Conditional_48_For_5_Conditional_6_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "app-button", 22);
+    \u0275\u0275elementStart(0, "app-button", 21);
     \u0275\u0275listener("click", function PaymentMethodFieldDialogComponent_Conditional_48_For_5_Conditional_6_Template_app_button_click_0_listener() {
       \u0275\u0275restoreView(_r4);
       const idx_r5 = \u0275\u0275nextContext().$index;
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.removeSelectOption(idx_r5));
     });
-    \u0275\u0275element(1, "mat-icon", 23);
+    \u0275\u0275element(1, "mat-icon", 22);
     \u0275\u0275elementEnd();
   }
 }
 function PaymentMethodFieldDialogComponent_Conditional_48_For_5_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 17)(1, "mat-form-field", 3);
-    \u0275\u0275element(2, "input", 18);
+    \u0275\u0275elementStart(0, "div", 16)(1, "mat-form-field", 2);
+    \u0275\u0275element(2, "input", 17);
     \u0275\u0275template(3, PaymentMethodFieldDialogComponent_Conditional_48_For_5_Conditional_3_Template, 2, 0, "mat-error")(4, PaymentMethodFieldDialogComponent_Conditional_48_For_5_Conditional_4_Template, 2, 0);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(5, PaymentMethodFieldDialogComponent_Conditional_48_For_5_Conditional_5_Template, 2, 0, "app-button", 19)(6, PaymentMethodFieldDialogComponent_Conditional_48_For_5_Conditional_6_Template, 2, 0);
+    \u0275\u0275template(5, PaymentMethodFieldDialogComponent_Conditional_48_For_5_Conditional_5_Template, 2, 0, "app-button", 18)(6, PaymentMethodFieldDialogComponent_Conditional_48_For_5_Conditional_6_Template, 2, 0);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -45500,11 +45558,11 @@ function PaymentMethodFieldDialogComponent_Conditional_48_For_5_Template(rf, ctx
 }
 function PaymentMethodFieldDialogComponent_Conditional_48_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 1)(1, "div", 2);
+    \u0275\u0275elementStart(0, "app-form-field")(1, "span", 1);
     \u0275\u0275text(2, "\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0441\u043F\u0438\u0441\u043A\u0430");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "mat-card", 16);
-    \u0275\u0275repeaterCreate(4, PaymentMethodFieldDialogComponent_Conditional_48_For_5_Template, 7, 5, "div", 17, \u0275\u0275repeaterTrackByIdentity);
+    \u0275\u0275elementStart(3, "mat-card", 15);
+    \u0275\u0275repeaterCreate(4, PaymentMethodFieldDialogComponent_Conditional_48_For_5_Template, 7, 5, "div", 16, \u0275\u0275repeaterTrackByIdentity);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -45605,6 +45663,9 @@ var _PaymentMethodFieldDialogComponent = class _PaymentMethodFieldDialogComponen
     this.fillOptions();
     this.formGroup.controls.name.disable();
     this.isSelectOptionsVisible = data.type === "select";
+    if (data.regex) {
+      this.onRegexValueChange();
+    }
   }
   fillOptions() {
     if (!this.isEditing) {
@@ -45677,66 +45738,66 @@ var _PaymentMethodFieldDialogComponent = class _PaymentMethodFieldDialogComponen
 _PaymentMethodFieldDialogComponent.\u0275fac = function PaymentMethodFieldDialogComponent_Factory(t) {
   return new (t || _PaymentMethodFieldDialogComponent)(\u0275\u0275directiveInject(MAT_DIALOG_DATA), \u0275\u0275directiveInject(MatDialogRef), \u0275\u0275directiveInject(FormBuilder), \u0275\u0275directiveInject(NotifierService));
 };
-_PaymentMethodFieldDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentMethodFieldDialogComponent, selectors: [["app-payment-method-field-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 53, vars: 15, consts: [[1, "title"], [1, "form-row"], [1, "form-row__label"], ["appearance", "outline"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: address", 3, "formControl"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: \u0410\u0434\u0440\u0435\u0441\u0441 \u043A\u043E\u0448\u0435\u043B\u044C\u043A\u0430", 3, "formControl"], ["matInput", "", "placeholder", "\u0411\u0443\u0434\u0435\u0442 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u043E \u0437\u0434\u0435\u0441\u044C", 3, "formControl"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043F\u043E\u0434\u0441\u043A\u0430\u0437\u043A\u0443", 3, "formControl"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: /\\+[0-9]{11,13}/i", 3, "formControl"], [1, "form-row", 3, "hidden"], ["placeholder", "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u043F\u043E\u043B\u044F", 3, "formControl"], [3, "value"], ["size", "medium", "color", "green-box", 1, "button", 3, "click"], ["size", "medium", "color", "gray-box", 1, "button", 3, "click"], ["matPrefix", "", 3, "fontIcon"], ["matInput", "", "placeholder", "\u041F\u0440\u043E\u0432\u0435\u0440\u043A\u0430 \u0440\u0435\u0433\u0443\u043B\u044F\u0440\u043D\u043E\u0433\u043E \u0432\u044B\u0440\u0430\u0436\u0435\u043D\u0438\u044F", 3, "formControl"], [1, "options-list"], [1, "options-list__item"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435", 3, "formControl"], ["size", "medium", "type", "icon", "color", "green-box", 1, "inline-button"], ["size", "medium", "type", "icon", "color", "green-box", 1, "inline-button", 3, "click"], ["fontIcon", "add"], ["size", "medium", "type", "icon", "color", "red-box", 1, "inline-button", 3, "click"], ["fontIcon", "delete_outline"]], template: function PaymentMethodFieldDialogComponent_Template(rf, ctx) {
+_PaymentMethodFieldDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentMethodFieldDialogComponent, selectors: [["app-payment-method-field-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 53, vars: 15, consts: [[1, "title"], ["form-field-label", ""], ["appearance", "outline"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: address", 3, "formControl"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: \u0410\u0434\u0440\u0435\u0441\u0441 \u043A\u043E\u0448\u0435\u043B\u044C\u043A\u0430", 3, "formControl"], ["matInput", "", "placeholder", "\u0411\u0443\u0434\u0435\u0442 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u043E \u0437\u0434\u0435\u0441\u044C", 3, "formControl"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043F\u043E\u0434\u0441\u043A\u0430\u0437\u043A\u0443", 3, "formControl"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: /\\+[0-9]{11,13}/i", 3, "formControl"], [3, "hidden"], ["placeholder", "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u043F\u043E\u043B\u044F", 3, "formControl"], [3, "value"], ["size", "medium", "color", "green-box", 1, "button", 3, "click"], ["size", "medium", "color", "gray-box", 1, "button", 3, "click"], ["matPrefix", "", 3, "fontIcon"], ["matInput", "", "placeholder", "\u041F\u0440\u043E\u0432\u0435\u0440\u043A\u0430 \u0440\u0435\u0433\u0443\u043B\u044F\u0440\u043D\u043E\u0433\u043E \u0432\u044B\u0440\u0430\u0436\u0435\u043D\u0438\u044F", 3, "formControl"], [1, "options-list"], [1, "options-list__item"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435", 3, "formControl"], ["size", "medium", "type", "icon", "color", "green-box", 1, "inline-button"], ["size", "medium", "type", "icon", "color", "green-box", 1, "inline-button", 3, "click"], ["fontIcon", "add"], ["size", "medium", "type", "icon", "color", "red-box", 1, "inline-button", 3, "click"], ["fontIcon", "delete_outline"]], template: function PaymentMethodFieldDialogComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-dialog-content")(1, "div", 0);
     \u0275\u0275template(2, PaymentMethodFieldDialogComponent_Conditional_2_Template, 1, 0)(3, PaymentMethodFieldDialogComponent_Conditional_3_Template, 1, 0);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "div", 1)(5, "div", 2);
+    \u0275\u0275elementStart(4, "app-form-field")(5, "span", 1);
     \u0275\u0275text(6, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "mat-form-field", 3);
-    \u0275\u0275element(8, "input", 4);
+    \u0275\u0275elementStart(7, "mat-form-field", 2);
+    \u0275\u0275element(8, "input", 3);
     \u0275\u0275elementStart(9, "mat-hint");
     \u0275\u0275text(10);
     \u0275\u0275elementEnd();
     \u0275\u0275template(11, PaymentMethodFieldDialogComponent_Conditional_11_Template, 2, 0, "mat-error")(12, PaymentMethodFieldDialogComponent_Conditional_12_Template, 2, 0);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(13, "div", 1)(14, "div", 2);
+    \u0275\u0275elementStart(13, "app-form-field")(14, "span", 1);
     \u0275\u0275text(15, "\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(16, "mat-form-field", 3);
-    \u0275\u0275element(17, "input", 5);
+    \u0275\u0275elementStart(16, "mat-form-field", 2);
+    \u0275\u0275element(17, "input", 4);
     \u0275\u0275template(18, PaymentMethodFieldDialogComponent_Conditional_18_Template, 2, 0, "mat-error")(19, PaymentMethodFieldDialogComponent_Conditional_19_Template, 2, 0);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(20, "div", 1)(21, "div", 2);
+    \u0275\u0275elementStart(20, "app-form-field")(21, "span", 1);
     \u0275\u0275text(22, "\u041F\u043B\u0435\u0439\u0441\u0445\u043E\u043B\u0434\u0435\u0440");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(23, "mat-form-field", 3);
-    \u0275\u0275element(24, "input", 6);
+    \u0275\u0275elementStart(23, "mat-form-field", 2);
+    \u0275\u0275element(24, "input", 5);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(25, "div", 1)(26, "div", 2);
+    \u0275\u0275elementStart(25, "app-form-field")(26, "span", 1);
     \u0275\u0275text(27, "\u041F\u043E\u0434\u0441\u043A\u0430\u0437\u043A\u0430");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(28, "mat-form-field", 3);
-    \u0275\u0275element(29, "input", 7);
+    \u0275\u0275elementStart(28, "mat-form-field", 2);
+    \u0275\u0275element(29, "input", 6);
     \u0275\u0275elementStart(30, "mat-hint");
     \u0275\u0275text(31, "\u0411\u0443\u0434\u0435\u0442 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u043E \u0437\u0434\u0435\u0441\u044C");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(32, "div", 1)(33, "div", 2);
+    \u0275\u0275elementStart(32, "app-form-field")(33, "span", 1);
     \u0275\u0275text(34, "\u0420\u0435\u0433\u0443\u043B\u044F\u0440\u043D\u043E\u0435 \u0432\u044B\u0440\u0430\u0436\u0435\u043D\u0438\u0435");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(35, "mat-form-field", 3);
-    \u0275\u0275element(36, "input", 8);
+    \u0275\u0275elementStart(35, "mat-form-field", 2);
+    \u0275\u0275element(36, "input", 7);
     \u0275\u0275template(37, PaymentMethodFieldDialogComponent_Conditional_37_Template, 2, 0, "mat-error")(38, PaymentMethodFieldDialogComponent_Conditional_38_Template, 2, 0);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(39, PaymentMethodFieldDialogComponent_Conditional_39_Template, 7, 10, "div", 9);
-    \u0275\u0275elementStart(40, "div", 1)(41, "div", 2);
+    \u0275\u0275template(39, PaymentMethodFieldDialogComponent_Conditional_39_Template, 7, 10, "app-form-field", 8);
+    \u0275\u0275elementStart(40, "app-form-field")(41, "span", 1);
     \u0275\u0275text(42, "\u0422\u0438\u043F \u043F\u043E\u043B\u044F");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(43, "mat-form-field", 3)(44, "mat-select", 10);
-    \u0275\u0275repeaterCreate(45, PaymentMethodFieldDialogComponent_For_46_Template, 2, 2, "mat-option", 11, \u0275\u0275repeaterTrackByIdentity);
+    \u0275\u0275elementStart(43, "mat-form-field", 2)(44, "mat-select", 9);
+    \u0275\u0275repeaterCreate(45, PaymentMethodFieldDialogComponent_For_46_Template, 2, 2, "mat-option", 10, \u0275\u0275repeaterTrackByIdentity);
     \u0275\u0275elementEnd();
     \u0275\u0275template(47, PaymentMethodFieldDialogComponent_Conditional_47_Template, 2, 0, "mat-error");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(48, PaymentMethodFieldDialogComponent_Conditional_48_Template, 6, 2, "div", 1);
-    \u0275\u0275elementStart(49, "app-button", 12);
+    \u0275\u0275template(48, PaymentMethodFieldDialogComponent_Conditional_48_Template, 6, 2, "app-form-field");
+    \u0275\u0275elementStart(49, "app-button", 11);
     \u0275\u0275listener("click", function PaymentMethodFieldDialogComponent_Template_app_button_click_49_listener() {
       return ctx.submit();
     });
     \u0275\u0275text(50);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(51, "app-button", 13);
+    \u0275\u0275elementStart(51, "app-button", 12);
     \u0275\u0275listener("click", function PaymentMethodFieldDialogComponent_Template_app_button_click_51_listener() {
       return ctx.dialogRef.close();
     });
@@ -45792,11 +45853,12 @@ _PaymentMethodFieldDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defin
   MatSelect,
   MatOption,
   MatPrefix,
-  MatIcon
-], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-icon[_ngcontent-%COMP%] {\n  width: 22px;\n  height: 22px;\n  font-size: 22px;\n  line-height: 22px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-icon.color--warning[_ngcontent-%COMP%] {\n  color: var(--mat-form-field-error-text-color);\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-mdc-checkbox[_ngcontent-%COMP%] {\n  margin-left: -10px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 0.5em;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n}\n[_nghost-%COMP%]   .options-list[_ngcontent-%COMP%] {\n  padding: 30px 10px 10px 10px;\n}\n[_nghost-%COMP%]   .options-list__item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .options-list__item[_ngcontent-%COMP%]   .inline-button[_ngcontent-%COMP%] {\n  margin-bottom: 22px;\n}\n[_nghost-%COMP%]   .options-list__item[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%]:not(:last-child) {\n  margin-right: 20px;\n}\n[_nghost-%COMP%]   .button[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=payment-method-field-dialog.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
+  MatIcon,
+  FormFieldComponent
+], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n}\n[_nghost-%COMP%]   .options-list[_ngcontent-%COMP%] {\n  padding: 30px 10px 10px 10px;\n}\n[_nghost-%COMP%]   .options-list__item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .options-list__item[_ngcontent-%COMP%]   .inline-button[_ngcontent-%COMP%] {\n  margin-bottom: 22px;\n}\n[_nghost-%COMP%]   .options-list__item[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%]:not(:last-child) {\n  margin-right: 20px;\n}\n[_nghost-%COMP%]   .button[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=payment-method-field-dialog.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
 var PaymentMethodFieldDialogComponent = _PaymentMethodFieldDialogComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentMethodFieldDialogComponent, { className: "PaymentMethodFieldDialogComponent", filePath: "src\\app\\admin\\modals\\payment-method-field-dialog\\payment-method-field-dialog.component.ts", lineNumber: 52 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentMethodFieldDialogComponent, { className: "PaymentMethodFieldDialogComponent", filePath: "src\\app\\admin\\modals\\payment-method-field-dialog\\payment-method-field-dialog.component.ts", lineNumber: 54 });
 })();
 
 // src/app/admin/modals/payment-method-dialog/payment-method-dialog.component.ts
@@ -45828,7 +45890,7 @@ function PaymentMethodDialogComponent_Conditional_17_Template(rf, ctx) {
 }
 function PaymentMethodDialogComponent_For_23_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "mat-button-toggle", 7);
+    \u0275\u0275elementStart(0, "mat-button-toggle", 6);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -45852,24 +45914,24 @@ function PaymentMethodDialogComponent_Conditional_25_Template(rf, ctx) {
 function PaymentMethodDialogComponent_For_33_Template(rf, ctx) {
   if (rf & 1) {
     const _r2 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 10)(1, "div", 14)(2, "app-flex-ellipsis")(3, "span", 15);
+    \u0275\u0275elementStart(0, "div", 8)(1, "div", 12)(2, "app-flex-ellipsis")(3, "span", 13);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(5, "div", 14)(6, "app-button", 16);
+    \u0275\u0275elementStart(5, "div", 12)(6, "app-button", 14);
     \u0275\u0275listener("click", function PaymentMethodDialogComponent_For_33_Template_app_button_click_6_listener() {
       const field_r3 = \u0275\u0275restoreView(_r2).$implicit;
       const ctx_r3 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r3.editField(field_r3));
     });
-    \u0275\u0275element(7, "mat-icon", 17);
+    \u0275\u0275element(7, "mat-icon", 15);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(8, "app-button", 18);
+    \u0275\u0275elementStart(8, "app-button", 16);
     \u0275\u0275listener("click", function PaymentMethodDialogComponent_For_33_Template_app_button_click_8_listener() {
       const field_r3 = \u0275\u0275restoreView(_r2).$implicit;
       const ctx_r3 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r3.deleteField(field_r3));
     });
-    \u0275\u0275element(9, "mat-icon", 19);
+    \u0275\u0275element(9, "mat-icon", 17);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -46037,56 +46099,56 @@ var _PaymentMethodDialogComponent = class _PaymentMethodDialogComponent {
 _PaymentMethodDialogComponent.\u0275fac = function PaymentMethodDialogComponent_Factory(t) {
   return new (t || _PaymentMethodDialogComponent)(\u0275\u0275directiveInject(MatDialog), \u0275\u0275directiveInject(MatDialogRef), \u0275\u0275directiveInject(MAT_DIALOG_DATA), \u0275\u0275directiveInject(FormBuilder), \u0275\u0275directiveInject(DestroyRef), \u0275\u0275directiveInject(PaymentsService), \u0275\u0275directiveInject(NotifierService), \u0275\u0275directiveInject(ConfirmationDialog));
 };
-_PaymentMethodDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentMethodDialogComponent, selectors: [["app-payment-method-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 40, vars: 9, consts: [[1, "title"], [1, "form-row"], [1, "form-row__label"], ["appearance", "outline"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: usdt_trc20", 3, "formControl"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: USDT (TRC-20)", 3, "formControl"], [3, "formControl"], [3, "value"], [1, "form-row__subscript"], [1, "fields-list"], [1, "fields-list__item"], ["size", "small", "color", "gray-box", 1, "button", 3, "click"], ["size", "medium", "color", "green-box", 1, "button", 3, "click"], ["size", "medium", "color", "gray-box", 1, "button", 3, "click"], [1, "fields-list__item-section"], [1, "fields-list__item-text"], ["size", "small", "type", "icon", "color", "blue-box", 1, "inline-button", 3, "click"], ["fontIcon", "edit"], ["size", "small", "type", "icon", "color", "red-box", 1, "inline-button", 3, "click"], ["fontIcon", "delete_outline"]], template: function PaymentMethodDialogComponent_Template(rf, ctx) {
+_PaymentMethodDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentMethodDialogComponent, selectors: [["app-payment-method-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 40, vars: 9, consts: [[1, "title"], ["form-field-label", ""], ["appearance", "outline"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: usdt_trc20", 3, "formControl"], ["matInput", "", "placeholder", "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: USDT (TRC-20)", 3, "formControl"], [3, "formControl"], [3, "value"], ["form-field-subscript", ""], ["list-item", ""], ["size", "small", "color", "gray-box", 1, "button", 3, "click"], ["size", "medium", "color", "green-box", 1, "button", 3, "click"], ["size", "medium", "color", "gray-box", 1, "button", 3, "click"], ["list-item-section", ""], [1, "items-list__item-text"], ["size", "small", "type", "icon", "color", "blue-box", 3, "click"], ["fontIcon", "edit"], ["size", "small", "type", "icon", "color", "red-box", 3, "click"], ["fontIcon", "delete_outline"]], template: function PaymentMethodDialogComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-dialog-content")(1, "div", 0);
     \u0275\u0275template(2, PaymentMethodDialogComponent_Conditional_2_Template, 1, 0)(3, PaymentMethodDialogComponent_Conditional_3_Template, 1, 0);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "div", 1)(5, "div", 2);
+    \u0275\u0275elementStart(4, "app-form-field")(5, "span", 1);
     \u0275\u0275text(6, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "mat-form-field", 3);
-    \u0275\u0275element(8, "input", 4);
+    \u0275\u0275elementStart(7, "mat-form-field", 2);
+    \u0275\u0275element(8, "input", 3);
     \u0275\u0275elementStart(9, "mat-hint");
     \u0275\u0275text(10);
     \u0275\u0275elementEnd();
     \u0275\u0275template(11, PaymentMethodDialogComponent_Conditional_11_Template, 2, 0, "mat-error");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(12, "div", 1)(13, "div", 2);
+    \u0275\u0275elementStart(12, "app-form-field")(13, "span", 1);
     \u0275\u0275text(14, "\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(15, "mat-form-field", 3);
-    \u0275\u0275element(16, "input", 5);
+    \u0275\u0275elementStart(15, "mat-form-field", 2);
+    \u0275\u0275element(16, "input", 4);
     \u0275\u0275template(17, PaymentMethodDialogComponent_Conditional_17_Template, 2, 0, "mat-error");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(18, "div", 1)(19, "div", 2);
+    \u0275\u0275elementStart(18, "app-form-field")(19, "span", 1);
     \u0275\u0275text(20, "\u0412\u0430\u043B\u044E\u0442\u0430");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(21, "mat-button-toggle-group", 6);
-    \u0275\u0275repeaterCreate(22, PaymentMethodDialogComponent_For_23_Template, 2, 2, "mat-button-toggle", 7, \u0275\u0275repeaterTrackByIdentity);
+    \u0275\u0275elementStart(21, "mat-button-toggle-group", 5);
+    \u0275\u0275repeaterCreate(22, PaymentMethodDialogComponent_For_23_Template, 2, 2, "mat-button-toggle", 6, \u0275\u0275repeaterTrackByIdentity);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(24, "div", 8);
+    \u0275\u0275elementStart(24, "div", 7);
     \u0275\u0275template(25, PaymentMethodDialogComponent_Conditional_25_Template, 2, 2, "mat-error");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(26, "div", 1)(27, "div", 2);
+    \u0275\u0275elementStart(26, "app-form-field")(27, "span", 1);
     \u0275\u0275text(28, "\u041F\u043E\u043B\u044F \u0434\u043B\u044F \u0437\u0430\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(29, "mat-card")(30, "mat-card-content")(31, "div", 9);
-    \u0275\u0275repeaterCreate(32, PaymentMethodDialogComponent_For_33_Template, 10, 3, "div", 10, _forTrack03);
+    \u0275\u0275elementStart(29, "mat-card")(30, "mat-card-content")(31, "app-entities-list");
+    \u0275\u0275repeaterCreate(32, PaymentMethodDialogComponent_For_33_Template, 10, 3, "div", 8, _forTrack03);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(34, "app-button", 11);
+    \u0275\u0275elementStart(34, "app-button", 9);
     \u0275\u0275listener("click", function PaymentMethodDialogComponent_Template_app_button_click_34_listener() {
       return ctx.createField();
     });
     \u0275\u0275text(35, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043F\u043E\u043B\u0435");
     \u0275\u0275elementEnd()()()();
-    \u0275\u0275elementStart(36, "app-button", 12);
+    \u0275\u0275elementStart(36, "app-button", 10);
     \u0275\u0275listener("click", function PaymentMethodDialogComponent_Template_app_button_click_36_listener() {
       return ctx.submit();
     });
     \u0275\u0275text(37);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(38, "app-button", 13);
+    \u0275\u0275elementStart(38, "app-button", 11);
     \u0275\u0275listener("click", function PaymentMethodDialogComponent_Template_app_button_click_38_listener() {
       return ctx.dialogRef.close();
     });
@@ -46133,27 +46195,36 @@ _PaymentMethodDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComp
   MatCardContent,
   FlexEllipsisComponent,
   MatButtonToggleGroup,
-  MatButtonToggle
-], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__subscript[_ngcontent-%COMP%] {\n  height: 22px;\n}\n[_nghost-%COMP%]   .form-row__subscript[_ngcontent-%COMP%]    > .mat-mdc-form-field-error[_ngcontent-%COMP%] {\n  font-size: 12px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 0.5em;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]   .fields-list__item[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 14px;\n  background-color: #f2f2f2;\n  gap: 10px;\n}\n[_nghost-%COMP%]   .fields-list__item-section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n[_nghost-%COMP%]   .fields-list__item-section[_ngcontent-%COMP%]:first-child {\n  flex-grow: 1;\n  flex-shrink: 0;\n  padding: 0 8px;\n  background-color: #FFFFFF;\n}\n[_nghost-%COMP%]   .fields-list__item-text[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .fields-list__item[_ngcontent-%COMP%]:not(:last-child) {\n  border-bottom: 1px solid #E8E8E8;\n}\n[_nghost-%COMP%]   .fields-list__item[_ngcontent-%COMP%]:last-child {\n  margin-bottom: 10px;\n}\n[_nghost-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n}\n[_nghost-%COMP%]   .button[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=payment-method-dialog.component.css.map */'], data: { animation: [
+  MatButtonToggle,
+  EntitiesListComponent,
+  FormFieldComponent
+], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n}\n[_nghost-%COMP%]   .button[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=payment-method-dialog.component.css.map */'], data: { animation: [
   expandAnimation("expandAnimation", 150),
   fadeInFadeOutAnimation("fadeAnimation", 150),
   slideDownUpAnimation("slideDownUpAnimation", 30, 150)
 ] } });
 var PaymentMethodDialogComponent = _PaymentMethodDialogComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentMethodDialogComponent, { className: "PaymentMethodDialogComponent", filePath: "src\\app\\admin\\modals\\payment-method-dialog\\payment-method-dialog.component.ts", lineNumber: 58 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentMethodDialogComponent, { className: "PaymentMethodDialogComponent", filePath: "src\\app\\admin\\modals\\payment-method-dialog\\payment-method-dialog.component.ts", lineNumber: 62 });
 })();
 
 // src/app/admin/pages/payment-methods/payment-methods.component.ts
 var _forTrack04 = ($index, $item) => $item.name;
-function PaymentMethodsComponent_For_9_Template(rf, ctx) {
+function PaymentMethodsComponent_Conditional_7_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "span", 5);
+    \u0275\u0275text(1, "\u041C\u0435\u0442\u043E\u0434\u043E\u0432 \u043D\u0435\u0442");
+    \u0275\u0275elementEnd();
+  }
+}
+function PaymentMethodsComponent_For_10_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 6)(1, "div", 9)(2, "app-flex-ellipsis")(3, "span", 10);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(5, "div", 9)(6, "app-button", 11);
-    \u0275\u0275listener("click", function PaymentMethodsComponent_For_9_Template_app_button_click_6_listener() {
+    \u0275\u0275listener("click", function PaymentMethodsComponent_For_10_Template_app_button_click_6_listener() {
       const method_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.edit(method_r2));
@@ -46161,7 +46232,7 @@ function PaymentMethodsComponent_For_9_Template(rf, ctx) {
     \u0275\u0275element(7, "mat-icon", 12);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(8, "app-button", 13);
-    \u0275\u0275listener("click", function PaymentMethodsComponent_For_9_Template_app_button_click_8_listener() {
+    \u0275\u0275listener("click", function PaymentMethodsComponent_For_10_Template_app_button_click_8_listener() {
       const method_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.delete(method_r2));
@@ -46234,7 +46305,7 @@ var _PaymentMethodsComponent = class _PaymentMethodsComponent {
 _PaymentMethodsComponent.\u0275fac = function PaymentMethodsComponent_Factory(t) {
   return new (t || _PaymentMethodsComponent)(\u0275\u0275directiveInject(MatDialog), \u0275\u0275directiveInject(DestroyRef), \u0275\u0275directiveInject(PaymentsService), \u0275\u0275directiveInject(NotifierService), \u0275\u0275directiveInject(ConfirmationDialog));
 };
-_PaymentMethodsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentMethodsComponent, selectors: [["app-payment-methods"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 13, vars: 0, consts: [[1, "top-section"], [1, "page-title"], [1, "page-description"], [1, "content-section"], [1, "page-card"], [1, "methods-list"], [1, "methods-list__item"], [1, "section-divider"], ["size", "medium", "color", "green-box", 3, "click"], [1, "methods-list__item-section"], [1, "methods-list__item-text"], ["size", "small", "type", "icon", "color", "blue-box", 1, "inline-button", 3, "click"], ["fontIcon", "edit"], ["size", "small", "type", "icon", "color", "red-box", 1, "inline-button", 3, "click"], ["fontIcon", "delete_outline"]], template: function PaymentMethodsComponent_Template(rf, ctx) {
+_PaymentMethodsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentMethodsComponent, selectors: [["app-payment-methods"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 14, vars: 1, consts: [[1, "top-section"], [1, "page-title"], [1, "page-description"], [1, "content-section"], [1, "page-card"], ["empty-text", ""], ["list-item", ""], [1, "section-divider"], ["size", "medium", "color", "green-box", 3, "click"], ["list-item-section", ""], ["list-item-text", ""], ["size", "small", "type", "icon", "color", "blue-box", 3, "click"], ["fontIcon", "edit"], ["size", "small", "type", "icon", "color", "red-box", 3, "click"], ["fontIcon", "delete_outline"]], template: function PaymentMethodsComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 0)(1, "div", 1);
     \u0275\u0275text(2, "\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u043C\u0435\u0442\u043E\u0434\u0430\u043C\u0438 \u043E\u043F\u043B\u0430\u0442\u044B");
@@ -46242,30 +46313,35 @@ _PaymentMethodsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
     \u0275\u0275elementStart(3, "div", 2);
     \u0275\u0275text(4, " \u0422\u0430\u043A \u043A\u0430\u043A \u0412\u044B \u044F\u0432\u043B\u044F\u0435\u0442\u0435\u0441\u044C \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\u043E\u043C \u0441\u0430\u0439\u0442\u0430, \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0441\u043C\u0430\u0442\u0440\u0438\u0432\u0430\u0442\u044C \u0432\u0441\u0435 \u043C\u0435\u0442\u043E\u0434\u044B \u043E\u043F\u043B\u0430\u0442\u044B \u0438 \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0438\u0445 ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(5, "div", 3)(6, "div", 4)(7, "div", 5);
-    \u0275\u0275repeaterCreate(8, PaymentMethodsComponent_For_9_Template, 10, 3, "div", 6, _forTrack04);
+    \u0275\u0275elementStart(5, "div", 3)(6, "div", 4);
+    \u0275\u0275template(7, PaymentMethodsComponent_Conditional_7_Template, 2, 0, "span", 5);
+    \u0275\u0275elementStart(8, "app-entities-list");
+    \u0275\u0275repeaterCreate(9, PaymentMethodsComponent_For_10_Template, 10, 3, "div", 6, _forTrack04);
     \u0275\u0275elementEnd();
-    \u0275\u0275element(10, "div", 7);
-    \u0275\u0275elementStart(11, "app-button", 8);
-    \u0275\u0275listener("click", function PaymentMethodsComponent_Template_app_button_click_11_listener() {
+    \u0275\u0275element(11, "div", 7);
+    \u0275\u0275elementStart(12, "app-button", 8);
+    \u0275\u0275listener("click", function PaymentMethodsComponent_Template_app_button_click_12_listener() {
       return ctx.add();
     });
-    \u0275\u0275text(12, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043D\u043E\u0432\u0443\u044E");
+    \u0275\u0275text(13, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043D\u043E\u0432\u0443\u044E");
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    \u0275\u0275advance(8);
+    \u0275\u0275advance(7);
+    \u0275\u0275conditional(7, ctx.methods.length === 0 ? 7 : -1);
+    \u0275\u0275advance(2);
     \u0275\u0275repeater(ctx.methods);
   }
 }, dependencies: [
   ButtonComponent,
   ReactiveFormsModule,
   FlexEllipsisComponent,
-  MatIcon
-], styles: ['\n\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%]   .section-divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .top-section[_ngcontent-%COMP%] {\n  max-width: 460px;\n}\n[_nghost-%COMP%]   .content-section[_ngcontent-%COMP%] {\n  margin-top: 30px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n  gap: 40px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  width: 100%;\n  max-width: 540px;\n}\n[_nghost-%COMP%]   .methods-list__item[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 14px;\n  background-color: #f2f2f2;\n  gap: 10px;\n}\n[_nghost-%COMP%]   .methods-list__item-section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n[_nghost-%COMP%]   .methods-list__item-section[_ngcontent-%COMP%]:first-child {\n  flex-grow: 1;\n  flex-shrink: 0;\n  padding: 0 8px;\n  background-color: #FFFFFF;\n}\n[_nghost-%COMP%]   .methods-list__item-text[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .methods-list__item[_ngcontent-%COMP%]:not(:last-child) {\n  border-bottom: 1px solid #E8E8E8;\n}\n[_nghost-%COMP%]   .methods-list__item[_ngcontent-%COMP%]:last-child {\n  margin-bottom: 10px;\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .methods-list__item[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  [_nghost-%COMP%]   .methods-list__item-section[_ngcontent-%COMP%] {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n  }\n  [_nghost-%COMP%]   .methods-list__item-section[_ngcontent-%COMP%]:first-child {\n    height: 50px;\n  }\n  [_nghost-%COMP%]   .methods-list__item-section[_ngcontent-%COMP%]:last-child {\n    justify-content: center;\n    gap: 60px;\n  }\n}\n/*# sourceMappingURL=payment-methods.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
+  MatIcon,
+  EntitiesListComponent
+], styles: ['\n\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%]   .section-divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .top-section[_ngcontent-%COMP%] {\n  max-width: 460px;\n}\n[_nghost-%COMP%]   .content-section[_ngcontent-%COMP%] {\n  margin-top: 30px;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: wrap;\n  gap: 40px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  width: 100%;\n  max-width: 540px;\n}\n/*# sourceMappingURL=payment-methods.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
 var PaymentMethodsComponent = _PaymentMethodsComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentMethodsComponent, { className: "PaymentMethodsComponent", filePath: "src\\app\\admin\\pages\\payment-methods\\payment-methods.component.ts", lineNumber: 36 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentMethodsComponent, { className: "PaymentMethodsComponent", filePath: "src\\app\\admin\\pages\\payment-methods\\payment-methods.component.ts", lineNumber: 38 });
 })();
 
 // node_modules/@angular/cdk/fesm2022/clipboard.mjs
@@ -46485,47 +46561,1995 @@ var ClipboardModule = _ClipboardModule;
   }], null, null);
 })();
 
+// node_modules/@angular/material/fesm2022/button.mjs
+var _c015 = ["mat-button", ""];
+var _c110 = [[["", 8, "material-icons", 3, "iconPositionEnd", ""], ["mat-icon", 3, "iconPositionEnd", ""], ["", "matButtonIcon", "", 3, "iconPositionEnd", ""]], "*", [["", "iconPositionEnd", "", 8, "material-icons"], ["mat-icon", "iconPositionEnd", ""], ["", "matButtonIcon", "", "iconPositionEnd", ""]]];
+var _c26 = [".material-icons:not([iconPositionEnd]), mat-icon:not([iconPositionEnd]), [matButtonIcon]:not([iconPositionEnd])", "*", ".material-icons[iconPositionEnd], mat-icon[iconPositionEnd], [matButtonIcon][iconPositionEnd]"];
+var _c35 = '.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity, 0);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button{position:relative;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:64px;border:none;outline:none;line-height:inherit;user-select:none;-webkit-appearance:none;overflow:visible;vertical-align:middle;background:rgba(0,0,0,0)}.mdc-button .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-button::-moz-focus-inner{padding:0;border:0}.mdc-button:active{outline:none}.mdc-button:hover{cursor:pointer}.mdc-button:disabled{cursor:default;pointer-events:none}.mdc-button[hidden]{display:none}.mdc-button .mdc-button__icon{margin-left:0;margin-right:8px;display:inline-block;position:relative;vertical-align:top}[dir=rtl] .mdc-button .mdc-button__icon,.mdc-button .mdc-button__icon[dir=rtl]{margin-left:8px;margin-right:0}.mdc-button .mdc-button__progress-indicator{font-size:0;position:absolute;transform:translate(-50%, -50%);top:50%;left:50%;line-height:initial}.mdc-button .mdc-button__label{position:relative}.mdc-button .mdc-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px);display:none}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring{border-color:CanvasText}}.mdc-button .mdc-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring::after{border-color:CanvasText}}@media screen and (forced-colors: active){.mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__focus-ring,.mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__focus-ring{display:block}}.mdc-button .mdc-button__touch{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%)}.mdc-button__label+.mdc-button__icon{margin-left:8px;margin-right:0}[dir=rtl] .mdc-button__label+.mdc-button__icon,.mdc-button__label+.mdc-button__icon[dir=rtl]{margin-left:0;margin-right:8px}svg.mdc-button__icon{fill:currentColor}.mdc-button--touch{margin-top:6px;margin-bottom:6px}.mdc-button{padding:0 8px 0 8px}.mdc-button--unelevated{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--unelevated.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--unelevated.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--raised{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--raised.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--raised.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--outlined{border-style:solid;transition:border 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button--outlined .mdc-button__ripple{border-style:solid;border-color:rgba(0,0,0,0)}.mat-mdc-button{font-family:var(--mdc-text-button-label-text-font);font-size:var(--mdc-text-button-label-text-size);letter-spacing:var(--mdc-text-button-label-text-tracking);font-weight:var(--mdc-text-button-label-text-weight);text-transform:var(--mdc-text-button-label-text-transform);height:var(--mdc-text-button-container-height);border-radius:var(--mdc-text-button-container-shape);padding:0 var(--mat-text-button-horizontal-padding, 8px)}.mat-mdc-button:not(:disabled){color:var(--mdc-text-button-label-text-color)}.mat-mdc-button:disabled{color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button .mdc-button__ripple{border-radius:var(--mdc-text-button-container-shape)}.mat-mdc-button:has(.material-icons,mat-icon,[matButtonIcon]){padding:0 var(--mat-text-button-with-icon-horizontal-padding, 8px)}.mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}[dir=rtl] .mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}.mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}.mat-mdc-button .mat-ripple-element{background-color:var(--mat-text-button-ripple-color)}.mat-mdc-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-state-layer-color)}.mat-mdc-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-disabled-state-layer-color)}.mat-mdc-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-hover-state-layer-opacity)}.mat-mdc-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-focus-state-layer-opacity)}.mat-mdc-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-pressed-state-layer-opacity)}.mat-mdc-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-text-button-touch-target-display)}.mat-mdc-button[disabled],.mat-mdc-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-unelevated-button{font-family:var(--mdc-filled-button-label-text-font);font-size:var(--mdc-filled-button-label-text-size);letter-spacing:var(--mdc-filled-button-label-text-tracking);font-weight:var(--mdc-filled-button-label-text-weight);text-transform:var(--mdc-filled-button-label-text-transform);height:var(--mdc-filled-button-container-height);border-radius:var(--mdc-filled-button-container-shape);padding:0 var(--mat-filled-button-horizontal-padding, 16px)}.mat-mdc-unelevated-button:not(:disabled){background-color:var(--mdc-filled-button-container-color)}.mat-mdc-unelevated-button:disabled{background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button:not(:disabled){color:var(--mdc-filled-button-label-text-color)}.mat-mdc-unelevated-button:disabled{color:var(--mdc-filled-button-disabled-label-text-color)}.mat-mdc-unelevated-button .mdc-button__ripple{border-radius:var(--mdc-filled-button-container-shape)}.mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}.mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}.mat-mdc-unelevated-button .mat-ripple-element{background-color:var(--mat-filled-button-ripple-color)}.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-state-layer-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-disabled-state-layer-color)}.mat-mdc-unelevated-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-hover-state-layer-opacity)}.mat-mdc-unelevated-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-focus-state-layer-opacity)}.mat-mdc-unelevated-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-pressed-state-layer-opacity)}.mat-mdc-unelevated-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-filled-button-touch-target-display)}.mat-mdc-unelevated-button[disabled],.mat-mdc-unelevated-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-filled-button-disabled-label-text-color);background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-raised-button{font-family:var(--mdc-protected-button-label-text-font);font-size:var(--mdc-protected-button-label-text-size);letter-spacing:var(--mdc-protected-button-label-text-tracking);font-weight:var(--mdc-protected-button-label-text-weight);text-transform:var(--mdc-protected-button-label-text-transform);height:var(--mdc-protected-button-container-height);border-radius:var(--mdc-protected-button-container-shape);padding:0 var(--mat-protected-button-horizontal-padding, 16px);box-shadow:var(--mdc-protected-button-container-elevation-shadow)}.mat-mdc-raised-button:not(:disabled){background-color:var(--mdc-protected-button-container-color)}.mat-mdc-raised-button:disabled{background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button:not(:disabled){color:var(--mdc-protected-button-label-text-color)}.mat-mdc-raised-button:disabled{color:var(--mdc-protected-button-disabled-label-text-color)}.mat-mdc-raised-button .mdc-button__ripple{border-radius:var(--mdc-protected-button-container-shape)}.mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}.mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}.mat-mdc-raised-button .mat-ripple-element{background-color:var(--mat-protected-button-ripple-color)}.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-state-layer-color)}.mat-mdc-raised-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-disabled-state-layer-color)}.mat-mdc-raised-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-hover-state-layer-opacity)}.mat-mdc-raised-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-focus-state-layer-opacity)}.mat-mdc-raised-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-pressed-state-layer-opacity)}.mat-mdc-raised-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-protected-button-touch-target-display)}.mat-mdc-raised-button:hover{box-shadow:var(--mdc-protected-button-hover-container-elevation-shadow)}.mat-mdc-raised-button:focus{box-shadow:var(--mdc-protected-button-focus-container-elevation-shadow)}.mat-mdc-raised-button:active,.mat-mdc-raised-button:focus:active{box-shadow:var(--mdc-protected-button-pressed-container-elevation-shadow)}.mat-mdc-raised-button[disabled],.mat-mdc-raised-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-protected-button-disabled-label-text-color);background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button[disabled].mat-mdc-button-disabled,.mat-mdc-raised-button.mat-mdc-button-disabled.mat-mdc-button-disabled{box-shadow:var(--mdc-protected-button-disabled-container-elevation-shadow)}.mat-mdc-raised-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-outlined-button{font-family:var(--mdc-outlined-button-label-text-font);font-size:var(--mdc-outlined-button-label-text-size);letter-spacing:var(--mdc-outlined-button-label-text-tracking);font-weight:var(--mdc-outlined-button-label-text-weight);text-transform:var(--mdc-outlined-button-label-text-transform);height:var(--mdc-outlined-button-container-height);border-radius:var(--mdc-outlined-button-container-shape);padding:0 15px 0 15px;border-width:var(--mdc-outlined-button-outline-width);padding:0 var(--mat-outlined-button-horizontal-padding, 15px)}.mat-mdc-outlined-button:not(:disabled){color:var(--mdc-outlined-button-label-text-color)}.mat-mdc-outlined-button:disabled{color:var(--mdc-outlined-button-disabled-label-text-color)}.mat-mdc-outlined-button .mdc-button__ripple{border-radius:var(--mdc-outlined-button-container-shape)}.mat-mdc-outlined-button:not(:disabled){border-color:var(--mdc-outlined-button-outline-color)}.mat-mdc-outlined-button:disabled{border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mdc-button--icon-trailing{padding:0 11px 0 15px}.mat-mdc-outlined-button.mdc-button--icon-leading{padding:0 15px 0 11px}.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:var(--mdc-outlined-button-outline-width)}.mat-mdc-outlined-button .mdc-button__touch{left:calc(-1 * var(--mdc-outlined-button-outline-width));width:calc(100% + 2 * var(--mdc-outlined-button-outline-width))}.mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}.mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}.mat-mdc-outlined-button .mat-ripple-element{background-color:var(--mat-outlined-button-ripple-color)}.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-state-layer-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-disabled-state-layer-color)}.mat-mdc-outlined-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-hover-state-layer-opacity)}.mat-mdc-outlined-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-focus-state-layer-opacity)}.mat-mdc-outlined-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-pressed-state-layer-opacity)}.mat-mdc-outlined-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-outlined-button-touch-target-display)}.mat-mdc-outlined-button[disabled],.mat-mdc-outlined-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-outlined-button-disabled-label-text-color);border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-button-base{text-decoration:none}.mat-mdc-button,.mat-mdc-unelevated-button,.mat-mdc-raised-button,.mat-mdc-outlined-button{-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-button .mdc-button__label,.mat-mdc-unelevated-button .mdc-button__label,.mat-mdc-raised-button .mdc-button__label,.mat-mdc-outlined-button .mdc-button__label{z-index:1}.mat-mdc-button .mat-mdc-focus-indicator,.mat-mdc-unelevated-button .mat-mdc-focus-indicator,.mat-mdc-raised-button .mat-mdc-focus-indicator,.mat-mdc-outlined-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-unelevated-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-raised-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-outlined-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-button._mat-animation-noopable,.mat-mdc-unelevated-button._mat-animation-noopable,.mat-mdc-raised-button._mat-animation-noopable,.mat-mdc-outlined-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-button>.mat-icon,.mat-mdc-unelevated-button>.mat-icon,.mat-mdc-raised-button>.mat-icon,.mat-mdc-outlined-button>.mat-icon{display:inline-block;position:relative;vertical-align:top;font-size:1.125rem;height:1.125rem;width:1.125rem}.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:-1px}.mat-mdc-unelevated-button .mat-mdc-focus-indicator::before,.mat-mdc-raised-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-outlined-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 3px)*-1)}';
+var _c44 = ".cdk-high-contrast-active .mat-mdc-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-unelevated-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-raised-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-outlined-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-icon-button{outline:solid 1px}";
+var _c53 = ["mat-fab", ""];
+var _c63 = ["mat-mini-fab", ""];
+var _c72 = '.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-fab{position:relative;display:inline-flex;position:relative;align-items:center;justify-content:center;box-sizing:border-box;width:56px;height:56px;padding:0;border:none;fill:currentColor;text-decoration:none;cursor:pointer;user-select:none;-moz-appearance:none;-webkit-appearance:none;overflow:visible;transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),opacity 15ms linear 30ms,transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-fab .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-fab[hidden]{display:none}.mdc-fab::-moz-focus-inner{padding:0;border:0}.mdc-fab .mdc-fab__focus-ring{position:absolute}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{border-color:CanvasText}}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{border-color:CanvasText}}.mdc-fab:active,.mdc-fab:focus{outline:none}.mdc-fab:hover{cursor:pointer}.mdc-fab>svg{width:100%}.mdc-fab--mini{width:40px;height:40px}.mdc-fab--extended{border-radius:24px;padding-left:20px;padding-right:20px;width:auto;max-width:100%;height:48px;line-height:normal}.mdc-fab--extended .mdc-fab__ripple{border-radius:24px}.mdc-fab--extended .mdc-fab__icon{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mdc-fab--extended .mdc-fab__icon,.mdc-fab--extended .mdc-fab__icon[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mdc-fab--extended .mdc-fab__label+.mdc-fab__icon,.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}.mdc-fab--touch{margin-top:4px;margin-bottom:4px;margin-right:4px;margin-left:4px}.mdc-fab--touch .mdc-fab__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-fab::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-fab::before{border-color:CanvasText}}.mdc-fab__label{justify-content:flex-start;text-overflow:ellipsis;white-space:nowrap;overflow-x:hidden;overflow-y:visible}.mdc-fab__icon{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mdc-fab .mdc-fab__icon{display:inline-flex;align-items:center;justify-content:center}.mdc-fab--exited{transform:scale(0);opacity:0;transition:opacity 15ms linear 150ms,transform 180ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mdc-fab--exited .mdc-fab__icon{transform:scale(0);transition:transform 135ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mat-mdc-fab{background-color:var(--mdc-fab-container-color)}.mat-mdc-fab .mdc-fab__icon{width:var(--mdc-fab-icon-size);height:var(--mdc-fab-icon-size);font-size:var(--mdc-fab-icon-size)}.mat-mdc-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-container-shape)}.mat-mdc-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-container-shape)}.mat-mdc-mini-fab{background-color:var(--mdc-fab-small-container-color)}.mat-mdc-mini-fab .mdc-fab__icon{width:var(--mdc-fab-small-icon-size);height:var(--mdc-fab-small-icon-size);font-size:var(--mdc-fab-small-icon-size)}.mat-mdc-mini-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-mini-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-extended-fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mdc-extended-fab-container-height);border-radius:var(--mdc-extended-fab-container-shape);font-family:var(--mdc-extended-fab-label-text-font);font-size:var(--mdc-extended-fab-label-text-size);font-weight:var(--mdc-extended-fab-label-text-weight);letter-spacing:var(--mdc-extended-fab-label-text-tracking)}.mat-mdc-extended-fab .mdc-fab__ripple{border-radius:var(--mdc-extended-fab-container-shape)}.mat-mdc-fab,.mat-mdc-mini-fab{-webkit-tap-highlight-color:rgba(0,0,0,0);flex-shrink:0}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-fab .mdc-button__label,.mat-mdc-mini-fab .mdc-button__label{z-index:1}.mat-mdc-fab .mat-mdc-focus-indicator,.mat-mdc-mini-fab .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-fab:focus .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-fab._mat-animation-noopable,.mat-mdc-mini-fab._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-fab:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-mini-fab:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}.mat-mdc-fab .mat-icon,.mat-mdc-fab .material-icons,.mat-mdc-mini-fab .mat-icon,.mat-mdc-mini-fab .material-icons{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mat-mdc-fab .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-fab[disabled],.mat-mdc-fab[disabled]:focus,.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-fab.mat-mdc-button-disabled:focus,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab[disabled]:focus,.mat-mdc-mini-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-fab.mat-mdc-button-disabled-interactive,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-fab{color:var(--mat-fab-foreground-color, inherit);box-shadow:var(--mdc-fab-container-elevation-shadow)}.mat-mdc-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-touch-target-display)}.mat-mdc-fab .mat-ripple-element{background-color:var(--mat-fab-ripple-color)}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-state-layer-color)}.mat-mdc-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-disabled-state-layer-color)}.mat-mdc-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-hover-state-layer-opacity)}.mat-mdc-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-focus-state-layer-opacity)}.mat-mdc-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-pressed-state-layer-opacity)}.mat-mdc-fab:hover{box-shadow:var(--mdc-fab-hover-container-elevation-shadow)}.mat-mdc-fab:focus{box-shadow:var(--mdc-fab-focus-container-elevation-shadow)}.mat-mdc-fab:active,.mat-mdc-fab:focus:active{box-shadow:var(--mdc-fab-pressed-container-elevation-shadow)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-disabled-state-foreground-color);background-color:var(--mat-fab-disabled-state-container-color)}.mat-mdc-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-mini-fab{color:var(--mat-fab-small-foreground-color, inherit);box-shadow:var(--mdc-fab-small-container-elevation-shadow)}.mat-mdc-mini-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-small-touch-target-display)}.mat-mdc-mini-fab .mat-ripple-element{background-color:var(--mat-fab-small-ripple-color)}.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-state-layer-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-disabled-state-layer-color)}.mat-mdc-mini-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-hover-state-layer-opacity)}.mat-mdc-mini-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-focus-state-layer-opacity)}.mat-mdc-mini-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-pressed-state-layer-opacity)}.mat-mdc-mini-fab:hover{box-shadow:var(--mdc-fab-small-hover-container-elevation-shadow)}.mat-mdc-mini-fab:focus{box-shadow:var(--mdc-fab-small-focus-container-elevation-shadow)}.mat-mdc-mini-fab:active,.mat-mdc-mini-fab:focus:active{box-shadow:var(--mdc-fab-small-pressed-container-elevation-shadow)}.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-small-disabled-state-foreground-color);background-color:var(--mat-fab-small-disabled-state-container-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab{box-shadow:var(--mdc-extended-fab-container-elevation-shadow)}.mat-mdc-extended-fab:hover{box-shadow:var(--mdc-extended-fab-hover-container-elevation-shadow)}.mat-mdc-extended-fab:focus{box-shadow:var(--mdc-extended-fab-focus-container-elevation-shadow)}.mat-mdc-extended-fab:active,.mat-mdc-extended-fab:focus:active{box-shadow:var(--mdc-extended-fab-pressed-container-elevation-shadow)}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab[disabled]:focus,.mat-mdc-extended-fab.mat-mdc-button-disabled,.mat-mdc-extended-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-extended-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab>.mat-icon,.mat-mdc-extended-fab>.material-icons{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mat-mdc-extended-fab>.mat-icon,[dir=rtl] .mat-mdc-extended-fab>.material-icons,.mat-mdc-extended-fab>.mat-icon[dir=rtl],.mat-mdc-extended-fab>.material-icons[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mat-mdc-extended-fab .mat-mdc-button-touch-target{width:100%}.mat-mdc-extended-fab .mdc-button__label+.mat-icon,.mat-mdc-extended-fab .mdc-button__label+.material-icons{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.mat-icon,[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.material-icons,.mat-mdc-extended-fab .mdc-button__label+.mat-icon[dir=rtl],.mat-mdc-extended-fab .mdc-button__label+.material-icons[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}';
+var _c8 = ["mat-icon-button", ""];
+var _c9 = ["*"];
+var _c10 = '.mdc-icon-button{display:inline-block;position:relative;box-sizing:border-box;border:none;outline:none;background-color:rgba(0,0,0,0);fill:currentColor;color:inherit;text-decoration:none;cursor:pointer;user-select:none;z-index:0;overflow:visible}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}@media screen and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{display:block}}.mdc-icon-button:disabled{cursor:default;pointer-events:none}.mdc-icon-button[hidden]{display:none}.mdc-icon-button--display-flex{align-items:center;display:inline-flex;justify-content:center}.mdc-icon-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:100%;width:100%;display:none}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring{border-color:CanvasText}}.mdc-icon-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring::after{border-color:CanvasText}}.mdc-icon-button__icon{display:inline-block}.mdc-icon-button__icon.mdc-icon-button__icon--on{display:none}.mdc-icon-button--on .mdc-icon-button__icon{display:none}.mdc-icon-button--on .mdc-icon-button__icon.mdc-icon-button__icon--on{display:inline-block}.mdc-icon-button__link{height:100%;left:0;outline:none;position:absolute;top:0;width:100%}.mat-mdc-icon-button{color:var(--mdc-icon-button-icon-color)}.mat-mdc-icon-button .mdc-button__icon{font-size:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button svg,.mat-mdc-icon-button img{width:var(--mdc-icon-button-icon-size);height:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button:disabled{color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button{border-radius:50%;flex-shrink:0;text-align:center;width:var(--mdc-icon-button-state-layer-size, 48px);height:var(--mdc-icon-button-state-layer-size, 48px);padding:calc(calc(var(--mdc-icon-button-state-layer-size, 48px) - var(--mdc-icon-button-icon-size, 24px)) / 2);font-size:var(--mdc-icon-button-icon-size);-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-icon-button svg{vertical-align:baseline}.mat-mdc-icon-button[disabled],.mat-mdc-icon-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-icon-button .mat-mdc-button-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-icon-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-icon-button .mdc-button__label{z-index:1}.mat-mdc-icon-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-icon-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-icon-button .mat-ripple-element{background-color:var(--mat-icon-button-ripple-color)}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-state-layer-color)}.mat-mdc-icon-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-disabled-state-layer-color)}.mat-mdc-icon-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-hover-state-layer-opacity)}.mat-mdc-icon-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-focus-state-layer-opacity)}.mat-mdc-icon-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-pressed-state-layer-opacity)}.mat-mdc-icon-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-icon-button-touch-target-display)}.mat-mdc-icon-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple{border-radius:50%}.mat-mdc-icon-button.mat-unthemed:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-primary:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-accent:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-warn:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}';
+var MAT_BUTTON_CONFIG = new InjectionToken("MAT_BUTTON_CONFIG");
+var MAT_BUTTON_HOST = {
+  "[attr.disabled]": "_getDisabledAttribute()",
+  "[attr.aria-disabled]": "_getAriaDisabled()",
+  "[class.mat-mdc-button-disabled]": "disabled",
+  "[class.mat-mdc-button-disabled-interactive]": "disabledInteractive",
+  "[class._mat-animation-noopable]": '_animationMode === "NoopAnimations"',
+  // MDC automatically applies the primary theme color to the button, but we want to support
+  // an unthemed version. If color is undefined, apply a CSS class that makes it easy to
+  // select and style this "theme".
+  "[class.mat-unthemed]": "!color",
+  // Add a class that applies to all buttons. This makes it easier to target if somebody
+  // wants to target all Material buttons.
+  "[class.mat-mdc-button-base]": "true",
+  "[class]": 'color ? "mat-" + color : ""'
+};
+var HOST_SELECTOR_MDC_CLASS_PAIR = [{
+  attribute: "mat-button",
+  mdcClasses: ["mdc-button", "mat-mdc-button"]
+}, {
+  attribute: "mat-flat-button",
+  mdcClasses: ["mdc-button", "mdc-button--unelevated", "mat-mdc-unelevated-button"]
+}, {
+  attribute: "mat-raised-button",
+  mdcClasses: ["mdc-button", "mdc-button--raised", "mat-mdc-raised-button"]
+}, {
+  attribute: "mat-stroked-button",
+  mdcClasses: ["mdc-button", "mdc-button--outlined", "mat-mdc-outlined-button"]
+}, {
+  attribute: "mat-fab",
+  mdcClasses: ["mdc-fab", "mat-mdc-fab"]
+}, {
+  attribute: "mat-mini-fab",
+  mdcClasses: ["mdc-fab", "mdc-fab--mini", "mat-mdc-mini-fab"]
+}, {
+  attribute: "mat-icon-button",
+  mdcClasses: ["mdc-icon-button", "mat-mdc-icon-button"]
+}];
+var _MatButtonBase = class _MatButtonBase {
+  /**
+   * Reference to the MatRipple instance of the button.
+   * @deprecated Considered an implementation detail. To be removed.
+   * @breaking-change 17.0.0
+   */
+  get ripple() {
+    return this._rippleLoader?.getRipple(this._elementRef.nativeElement);
+  }
+  set ripple(v) {
+    this._rippleLoader?.attachRipple(this._elementRef.nativeElement, v);
+  }
+  /** Whether the ripple effect is disabled or not. */
+  get disableRipple() {
+    return this._disableRipple;
+  }
+  set disableRipple(value) {
+    this._disableRipple = value;
+    this._updateRippleDisabled();
+  }
+  /** Whether the button is disabled. */
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value) {
+    this._disabled = value;
+    this._updateRippleDisabled();
+  }
+  constructor(_elementRef, _platform, _ngZone, _animationMode) {
+    this._elementRef = _elementRef;
+    this._platform = _platform;
+    this._ngZone = _ngZone;
+    this._animationMode = _animationMode;
+    this._focusMonitor = inject(FocusMonitor);
+    this._rippleLoader = inject(MatRippleLoader);
+    this._isFab = false;
+    this._disableRipple = false;
+    this._disabled = false;
+    const config = inject(MAT_BUTTON_CONFIG, {
+      optional: true
+    });
+    const element = _elementRef.nativeElement;
+    const classList = element.classList;
+    this.disabledInteractive = config?.disabledInteractive ?? false;
+    this._rippleLoader?.configureRipple(element, {
+      className: "mat-mdc-button-ripple"
+    });
+    for (const {
+      attribute,
+      mdcClasses
+    } of HOST_SELECTOR_MDC_CLASS_PAIR) {
+      if (element.hasAttribute(attribute)) {
+        classList.add(...mdcClasses);
+      }
+    }
+  }
+  ngAfterViewInit() {
+    this._focusMonitor.monitor(this._elementRef, true);
+  }
+  ngOnDestroy() {
+    this._focusMonitor.stopMonitoring(this._elementRef);
+    this._rippleLoader?.destroyRipple(this._elementRef.nativeElement);
+  }
+  /** Focuses the button. */
+  focus(origin = "program", options) {
+    if (origin) {
+      this._focusMonitor.focusVia(this._elementRef.nativeElement, origin, options);
+    } else {
+      this._elementRef.nativeElement.focus(options);
+    }
+  }
+  _getAriaDisabled() {
+    if (this.ariaDisabled != null) {
+      return this.ariaDisabled;
+    }
+    return this.disabled && this.disabledInteractive ? true : null;
+  }
+  _getDisabledAttribute() {
+    return this.disabledInteractive || !this.disabled ? null : true;
+  }
+  _updateRippleDisabled() {
+    this._rippleLoader?.setDisabled(this._elementRef.nativeElement, this.disableRipple || this.disabled);
+  }
+};
+_MatButtonBase.\u0275fac = function MatButtonBase_Factory(t) {
+  \u0275\u0275invalidFactory();
+};
+_MatButtonBase.\u0275dir = /* @__PURE__ */ \u0275\u0275defineDirective({
+  type: _MatButtonBase,
+  inputs: {
+    color: "color",
+    disableRipple: [InputFlags.HasDecoratorInputTransform, "disableRipple", "disableRipple", booleanAttribute],
+    disabled: [InputFlags.HasDecoratorInputTransform, "disabled", "disabled", booleanAttribute],
+    ariaDisabled: [InputFlags.HasDecoratorInputTransform, "aria-disabled", "ariaDisabled", booleanAttribute],
+    disabledInteractive: [InputFlags.HasDecoratorInputTransform, "disabledInteractive", "disabledInteractive", booleanAttribute]
+  },
+  features: [\u0275\u0275InputTransformsFeature]
+});
+var MatButtonBase = _MatButtonBase;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatButtonBase, [{
+    type: Directive
+  }], () => [{
+    type: ElementRef
+  }, {
+    type: Platform
+  }, {
+    type: NgZone
+  }, {
+    type: void 0
+  }], {
+    color: [{
+      type: Input
+    }],
+    disableRipple: [{
+      type: Input,
+      args: [{
+        transform: booleanAttribute
+      }]
+    }],
+    disabled: [{
+      type: Input,
+      args: [{
+        transform: booleanAttribute
+      }]
+    }],
+    ariaDisabled: [{
+      type: Input,
+      args: [{
+        transform: booleanAttribute,
+        alias: "aria-disabled"
+      }]
+    }],
+    disabledInteractive: [{
+      type: Input,
+      args: [{
+        transform: booleanAttribute
+      }]
+    }]
+  });
+})();
+var MAT_ANCHOR_HOST = {
+  "[attr.disabled]": "_getDisabledAttribute()",
+  "[class.mat-mdc-button-disabled]": "disabled",
+  "[class.mat-mdc-button-disabled-interactive]": "disabledInteractive",
+  "[class._mat-animation-noopable]": '_animationMode === "NoopAnimations"',
+  // Note that we ignore the user-specified tabindex when it's disabled for
+  // consistency with the `mat-button` applied on native buttons where even
+  // though they have an index, they're not tabbable.
+  "[attr.tabindex]": "disabled && !disabledInteractive ? -1 : tabIndex",
+  "[attr.aria-disabled]": "_getDisabledAttribute()",
+  // MDC automatically applies the primary theme color to the button, but we want to support
+  // an unthemed version. If color is undefined, apply a CSS class that makes it easy to
+  // select and style this "theme".
+  "[class.mat-unthemed]": "!color",
+  // Add a class that applies to all buttons. This makes it easier to target if somebody
+  // wants to target all Material buttons.
+  "[class.mat-mdc-button-base]": "true",
+  "[class]": 'color ? "mat-" + color : ""'
+};
+var _MatAnchorBase = class _MatAnchorBase extends MatButtonBase {
+  constructor(elementRef, platform, ngZone, animationMode) {
+    super(elementRef, platform, ngZone, animationMode);
+    this._haltDisabledEvents = (event) => {
+      if (this.disabled) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    };
+  }
+  ngOnInit() {
+    this._ngZone.runOutsideAngular(() => {
+      this._elementRef.nativeElement.addEventListener("click", this._haltDisabledEvents);
+    });
+  }
+  ngOnDestroy() {
+    super.ngOnDestroy();
+    this._elementRef.nativeElement.removeEventListener("click", this._haltDisabledEvents);
+  }
+  _getAriaDisabled() {
+    return this.ariaDisabled == null ? this.disabled : this.ariaDisabled;
+  }
+};
+_MatAnchorBase.\u0275fac = function MatAnchorBase_Factory(t) {
+  \u0275\u0275invalidFactory();
+};
+_MatAnchorBase.\u0275dir = /* @__PURE__ */ \u0275\u0275defineDirective({
+  type: _MatAnchorBase,
+  inputs: {
+    tabIndex: [InputFlags.HasDecoratorInputTransform, "tabIndex", "tabIndex", (value) => {
+      return value == null ? void 0 : numberAttribute(value);
+    }]
+  },
+  features: [\u0275\u0275InputTransformsFeature, \u0275\u0275InheritDefinitionFeature]
+});
+var MatAnchorBase = _MatAnchorBase;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatAnchorBase, [{
+    type: Directive
+  }], () => [{
+    type: ElementRef
+  }, {
+    type: Platform
+  }, {
+    type: NgZone
+  }, {
+    type: void 0
+  }], {
+    tabIndex: [{
+      type: Input,
+      args: [{
+        transform: (value) => {
+          return value == null ? void 0 : numberAttribute(value);
+        }
+      }]
+    }]
+  });
+})();
+var _MatButton = class _MatButton extends MatButtonBase {
+  constructor(elementRef, platform, ngZone, animationMode) {
+    super(elementRef, platform, ngZone, animationMode);
+  }
+};
+_MatButton.\u0275fac = function MatButton_Factory(t) {
+  return new (t || _MatButton)(\u0275\u0275directiveInject(ElementRef), \u0275\u0275directiveInject(Platform), \u0275\u0275directiveInject(NgZone), \u0275\u0275directiveInject(ANIMATION_MODULE_TYPE, 8));
+};
+_MatButton.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
+  type: _MatButton,
+  selectors: [["button", "mat-button", ""], ["button", "mat-raised-button", ""], ["button", "mat-flat-button", ""], ["button", "mat-stroked-button", ""]],
+  hostVars: 14,
+  hostBindings: function MatButton_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      \u0275\u0275attribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
+      \u0275\u0275classMap(ctx.color ? "mat-" + ctx.color : "");
+      \u0275\u0275classProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+    }
+  },
+  exportAs: ["matButton"],
+  standalone: true,
+  features: [\u0275\u0275InheritDefinitionFeature, \u0275\u0275StandaloneFeature],
+  attrs: _c015,
+  ngContentSelectors: _c26,
+  decls: 7,
+  vars: 4,
+  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+  template: function MatButton_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275projectionDef(_c110);
+      \u0275\u0275element(0, "span", 0);
+      \u0275\u0275projection(1);
+      \u0275\u0275elementStart(2, "span", 1);
+      \u0275\u0275projection(3, 1);
+      \u0275\u0275elementEnd();
+      \u0275\u0275projection(4, 2);
+      \u0275\u0275element(5, "span", 2)(6, "span", 3);
+    }
+    if (rf & 2) {
+      \u0275\u0275classProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+    }
+  },
+  styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity, 0);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button{position:relative;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:64px;border:none;outline:none;line-height:inherit;user-select:none;-webkit-appearance:none;overflow:visible;vertical-align:middle;background:rgba(0,0,0,0)}.mdc-button .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-button::-moz-focus-inner{padding:0;border:0}.mdc-button:active{outline:none}.mdc-button:hover{cursor:pointer}.mdc-button:disabled{cursor:default;pointer-events:none}.mdc-button[hidden]{display:none}.mdc-button .mdc-button__icon{margin-left:0;margin-right:8px;display:inline-block;position:relative;vertical-align:top}[dir=rtl] .mdc-button .mdc-button__icon,.mdc-button .mdc-button__icon[dir=rtl]{margin-left:8px;margin-right:0}.mdc-button .mdc-button__progress-indicator{font-size:0;position:absolute;transform:translate(-50%, -50%);top:50%;left:50%;line-height:initial}.mdc-button .mdc-button__label{position:relative}.mdc-button .mdc-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px);display:none}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring{border-color:CanvasText}}.mdc-button .mdc-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring::after{border-color:CanvasText}}@media screen and (forced-colors: active){.mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__focus-ring,.mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__focus-ring{display:block}}.mdc-button .mdc-button__touch{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%)}.mdc-button__label+.mdc-button__icon{margin-left:8px;margin-right:0}[dir=rtl] .mdc-button__label+.mdc-button__icon,.mdc-button__label+.mdc-button__icon[dir=rtl]{margin-left:0;margin-right:8px}svg.mdc-button__icon{fill:currentColor}.mdc-button--touch{margin-top:6px;margin-bottom:6px}.mdc-button{padding:0 8px 0 8px}.mdc-button--unelevated{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--unelevated.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--unelevated.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--raised{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--raised.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--raised.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--outlined{border-style:solid;transition:border 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button--outlined .mdc-button__ripple{border-style:solid;border-color:rgba(0,0,0,0)}.mat-mdc-button{font-family:var(--mdc-text-button-label-text-font);font-size:var(--mdc-text-button-label-text-size);letter-spacing:var(--mdc-text-button-label-text-tracking);font-weight:var(--mdc-text-button-label-text-weight);text-transform:var(--mdc-text-button-label-text-transform);height:var(--mdc-text-button-container-height);border-radius:var(--mdc-text-button-container-shape);padding:0 var(--mat-text-button-horizontal-padding, 8px)}.mat-mdc-button:not(:disabled){color:var(--mdc-text-button-label-text-color)}.mat-mdc-button:disabled{color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button .mdc-button__ripple{border-radius:var(--mdc-text-button-container-shape)}.mat-mdc-button:has(.material-icons,mat-icon,[matButtonIcon]){padding:0 var(--mat-text-button-with-icon-horizontal-padding, 8px)}.mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}[dir=rtl] .mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}.mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}.mat-mdc-button .mat-ripple-element{background-color:var(--mat-text-button-ripple-color)}.mat-mdc-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-state-layer-color)}.mat-mdc-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-disabled-state-layer-color)}.mat-mdc-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-hover-state-layer-opacity)}.mat-mdc-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-focus-state-layer-opacity)}.mat-mdc-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-pressed-state-layer-opacity)}.mat-mdc-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-text-button-touch-target-display)}.mat-mdc-button[disabled],.mat-mdc-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-unelevated-button{font-family:var(--mdc-filled-button-label-text-font);font-size:var(--mdc-filled-button-label-text-size);letter-spacing:var(--mdc-filled-button-label-text-tracking);font-weight:var(--mdc-filled-button-label-text-weight);text-transform:var(--mdc-filled-button-label-text-transform);height:var(--mdc-filled-button-container-height);border-radius:var(--mdc-filled-button-container-shape);padding:0 var(--mat-filled-button-horizontal-padding, 16px)}.mat-mdc-unelevated-button:not(:disabled){background-color:var(--mdc-filled-button-container-color)}.mat-mdc-unelevated-button:disabled{background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button:not(:disabled){color:var(--mdc-filled-button-label-text-color)}.mat-mdc-unelevated-button:disabled{color:var(--mdc-filled-button-disabled-label-text-color)}.mat-mdc-unelevated-button .mdc-button__ripple{border-radius:var(--mdc-filled-button-container-shape)}.mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}.mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}.mat-mdc-unelevated-button .mat-ripple-element{background-color:var(--mat-filled-button-ripple-color)}.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-state-layer-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-disabled-state-layer-color)}.mat-mdc-unelevated-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-hover-state-layer-opacity)}.mat-mdc-unelevated-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-focus-state-layer-opacity)}.mat-mdc-unelevated-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-pressed-state-layer-opacity)}.mat-mdc-unelevated-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-filled-button-touch-target-display)}.mat-mdc-unelevated-button[disabled],.mat-mdc-unelevated-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-filled-button-disabled-label-text-color);background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-raised-button{font-family:var(--mdc-protected-button-label-text-font);font-size:var(--mdc-protected-button-label-text-size);letter-spacing:var(--mdc-protected-button-label-text-tracking);font-weight:var(--mdc-protected-button-label-text-weight);text-transform:var(--mdc-protected-button-label-text-transform);height:var(--mdc-protected-button-container-height);border-radius:var(--mdc-protected-button-container-shape);padding:0 var(--mat-protected-button-horizontal-padding, 16px);box-shadow:var(--mdc-protected-button-container-elevation-shadow)}.mat-mdc-raised-button:not(:disabled){background-color:var(--mdc-protected-button-container-color)}.mat-mdc-raised-button:disabled{background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button:not(:disabled){color:var(--mdc-protected-button-label-text-color)}.mat-mdc-raised-button:disabled{color:var(--mdc-protected-button-disabled-label-text-color)}.mat-mdc-raised-button .mdc-button__ripple{border-radius:var(--mdc-protected-button-container-shape)}.mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}.mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}.mat-mdc-raised-button .mat-ripple-element{background-color:var(--mat-protected-button-ripple-color)}.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-state-layer-color)}.mat-mdc-raised-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-disabled-state-layer-color)}.mat-mdc-raised-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-hover-state-layer-opacity)}.mat-mdc-raised-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-focus-state-layer-opacity)}.mat-mdc-raised-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-pressed-state-layer-opacity)}.mat-mdc-raised-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-protected-button-touch-target-display)}.mat-mdc-raised-button:hover{box-shadow:var(--mdc-protected-button-hover-container-elevation-shadow)}.mat-mdc-raised-button:focus{box-shadow:var(--mdc-protected-button-focus-container-elevation-shadow)}.mat-mdc-raised-button:active,.mat-mdc-raised-button:focus:active{box-shadow:var(--mdc-protected-button-pressed-container-elevation-shadow)}.mat-mdc-raised-button[disabled],.mat-mdc-raised-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-protected-button-disabled-label-text-color);background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button[disabled].mat-mdc-button-disabled,.mat-mdc-raised-button.mat-mdc-button-disabled.mat-mdc-button-disabled{box-shadow:var(--mdc-protected-button-disabled-container-elevation-shadow)}.mat-mdc-raised-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-outlined-button{font-family:var(--mdc-outlined-button-label-text-font);font-size:var(--mdc-outlined-button-label-text-size);letter-spacing:var(--mdc-outlined-button-label-text-tracking);font-weight:var(--mdc-outlined-button-label-text-weight);text-transform:var(--mdc-outlined-button-label-text-transform);height:var(--mdc-outlined-button-container-height);border-radius:var(--mdc-outlined-button-container-shape);padding:0 15px 0 15px;border-width:var(--mdc-outlined-button-outline-width);padding:0 var(--mat-outlined-button-horizontal-padding, 15px)}.mat-mdc-outlined-button:not(:disabled){color:var(--mdc-outlined-button-label-text-color)}.mat-mdc-outlined-button:disabled{color:var(--mdc-outlined-button-disabled-label-text-color)}.mat-mdc-outlined-button .mdc-button__ripple{border-radius:var(--mdc-outlined-button-container-shape)}.mat-mdc-outlined-button:not(:disabled){border-color:var(--mdc-outlined-button-outline-color)}.mat-mdc-outlined-button:disabled{border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mdc-button--icon-trailing{padding:0 11px 0 15px}.mat-mdc-outlined-button.mdc-button--icon-leading{padding:0 15px 0 11px}.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:var(--mdc-outlined-button-outline-width)}.mat-mdc-outlined-button .mdc-button__touch{left:calc(-1 * var(--mdc-outlined-button-outline-width));width:calc(100% + 2 * var(--mdc-outlined-button-outline-width))}.mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}.mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}.mat-mdc-outlined-button .mat-ripple-element{background-color:var(--mat-outlined-button-ripple-color)}.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-state-layer-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-disabled-state-layer-color)}.mat-mdc-outlined-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-hover-state-layer-opacity)}.mat-mdc-outlined-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-focus-state-layer-opacity)}.mat-mdc-outlined-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-pressed-state-layer-opacity)}.mat-mdc-outlined-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-outlined-button-touch-target-display)}.mat-mdc-outlined-button[disabled],.mat-mdc-outlined-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-outlined-button-disabled-label-text-color);border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-button-base{text-decoration:none}.mat-mdc-button,.mat-mdc-unelevated-button,.mat-mdc-raised-button,.mat-mdc-outlined-button{-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-button .mdc-button__label,.mat-mdc-unelevated-button .mdc-button__label,.mat-mdc-raised-button .mdc-button__label,.mat-mdc-outlined-button .mdc-button__label{z-index:1}.mat-mdc-button .mat-mdc-focus-indicator,.mat-mdc-unelevated-button .mat-mdc-focus-indicator,.mat-mdc-raised-button .mat-mdc-focus-indicator,.mat-mdc-outlined-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-unelevated-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-raised-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-outlined-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-button._mat-animation-noopable,.mat-mdc-unelevated-button._mat-animation-noopable,.mat-mdc-raised-button._mat-animation-noopable,.mat-mdc-outlined-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-button>.mat-icon,.mat-mdc-unelevated-button>.mat-icon,.mat-mdc-raised-button>.mat-icon,.mat-mdc-outlined-button>.mat-icon{display:inline-block;position:relative;vertical-align:top;font-size:1.125rem;height:1.125rem;width:1.125rem}.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:-1px}.mat-mdc-unelevated-button .mat-mdc-focus-indicator::before,.mat-mdc-raised-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-outlined-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 3px)*-1)}', ".cdk-high-contrast-active .mat-mdc-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-unelevated-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-raised-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-outlined-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-icon-button{outline:solid 1px}"],
+  encapsulation: 2,
+  changeDetection: 0
+});
+var MatButton = _MatButton;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatButton, [{
+    type: Component,
+    args: [{
+      selector: `
+    button[mat-button], button[mat-raised-button], button[mat-flat-button],
+    button[mat-stroked-button]
+  `,
+      host: MAT_BUTTON_HOST,
+      exportAs: "matButton",
+      encapsulation: ViewEncapsulation$1.None,
+      changeDetection: ChangeDetectionStrategy.OnPush,
+      standalone: true,
+      template: `<span
+    class="mat-mdc-button-persistent-ripple"
+    [class.mdc-button__ripple]="!_isFab"
+    [class.mdc-fab__ripple]="_isFab"></span>
+
+<ng-content select=".material-icons:not([iconPositionEnd]), mat-icon:not([iconPositionEnd]), [matButtonIcon]:not([iconPositionEnd])">
+</ng-content>
+
+<span class="mdc-button__label"><ng-content></ng-content></span>
+
+<ng-content select=".material-icons[iconPositionEnd], mat-icon[iconPositionEnd], [matButtonIcon][iconPositionEnd]">
+</ng-content>
+
+<!--
+  The indicator can't be directly on the button, because MDC uses ::before for high contrast
+  indication and it can't be on the ripple, because it has a border radius and overflow: hidden.
+-->
+<span class="mat-mdc-focus-indicator"></span>
+
+<span class="mat-mdc-button-touch-target"></span>
+`,
+      styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity, 0);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button{position:relative;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:64px;border:none;outline:none;line-height:inherit;user-select:none;-webkit-appearance:none;overflow:visible;vertical-align:middle;background:rgba(0,0,0,0)}.mdc-button .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-button::-moz-focus-inner{padding:0;border:0}.mdc-button:active{outline:none}.mdc-button:hover{cursor:pointer}.mdc-button:disabled{cursor:default;pointer-events:none}.mdc-button[hidden]{display:none}.mdc-button .mdc-button__icon{margin-left:0;margin-right:8px;display:inline-block;position:relative;vertical-align:top}[dir=rtl] .mdc-button .mdc-button__icon,.mdc-button .mdc-button__icon[dir=rtl]{margin-left:8px;margin-right:0}.mdc-button .mdc-button__progress-indicator{font-size:0;position:absolute;transform:translate(-50%, -50%);top:50%;left:50%;line-height:initial}.mdc-button .mdc-button__label{position:relative}.mdc-button .mdc-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px);display:none}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring{border-color:CanvasText}}.mdc-button .mdc-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring::after{border-color:CanvasText}}@media screen and (forced-colors: active){.mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__focus-ring,.mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__focus-ring{display:block}}.mdc-button .mdc-button__touch{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%)}.mdc-button__label+.mdc-button__icon{margin-left:8px;margin-right:0}[dir=rtl] .mdc-button__label+.mdc-button__icon,.mdc-button__label+.mdc-button__icon[dir=rtl]{margin-left:0;margin-right:8px}svg.mdc-button__icon{fill:currentColor}.mdc-button--touch{margin-top:6px;margin-bottom:6px}.mdc-button{padding:0 8px 0 8px}.mdc-button--unelevated{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--unelevated.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--unelevated.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--raised{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--raised.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--raised.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--outlined{border-style:solid;transition:border 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button--outlined .mdc-button__ripple{border-style:solid;border-color:rgba(0,0,0,0)}.mat-mdc-button{font-family:var(--mdc-text-button-label-text-font);font-size:var(--mdc-text-button-label-text-size);letter-spacing:var(--mdc-text-button-label-text-tracking);font-weight:var(--mdc-text-button-label-text-weight);text-transform:var(--mdc-text-button-label-text-transform);height:var(--mdc-text-button-container-height);border-radius:var(--mdc-text-button-container-shape);padding:0 var(--mat-text-button-horizontal-padding, 8px)}.mat-mdc-button:not(:disabled){color:var(--mdc-text-button-label-text-color)}.mat-mdc-button:disabled{color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button .mdc-button__ripple{border-radius:var(--mdc-text-button-container-shape)}.mat-mdc-button:has(.material-icons,mat-icon,[matButtonIcon]){padding:0 var(--mat-text-button-with-icon-horizontal-padding, 8px)}.mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}[dir=rtl] .mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}.mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}.mat-mdc-button .mat-ripple-element{background-color:var(--mat-text-button-ripple-color)}.mat-mdc-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-state-layer-color)}.mat-mdc-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-disabled-state-layer-color)}.mat-mdc-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-hover-state-layer-opacity)}.mat-mdc-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-focus-state-layer-opacity)}.mat-mdc-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-pressed-state-layer-opacity)}.mat-mdc-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-text-button-touch-target-display)}.mat-mdc-button[disabled],.mat-mdc-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-unelevated-button{font-family:var(--mdc-filled-button-label-text-font);font-size:var(--mdc-filled-button-label-text-size);letter-spacing:var(--mdc-filled-button-label-text-tracking);font-weight:var(--mdc-filled-button-label-text-weight);text-transform:var(--mdc-filled-button-label-text-transform);height:var(--mdc-filled-button-container-height);border-radius:var(--mdc-filled-button-container-shape);padding:0 var(--mat-filled-button-horizontal-padding, 16px)}.mat-mdc-unelevated-button:not(:disabled){background-color:var(--mdc-filled-button-container-color)}.mat-mdc-unelevated-button:disabled{background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button:not(:disabled){color:var(--mdc-filled-button-label-text-color)}.mat-mdc-unelevated-button:disabled{color:var(--mdc-filled-button-disabled-label-text-color)}.mat-mdc-unelevated-button .mdc-button__ripple{border-radius:var(--mdc-filled-button-container-shape)}.mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}.mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}.mat-mdc-unelevated-button .mat-ripple-element{background-color:var(--mat-filled-button-ripple-color)}.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-state-layer-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-disabled-state-layer-color)}.mat-mdc-unelevated-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-hover-state-layer-opacity)}.mat-mdc-unelevated-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-focus-state-layer-opacity)}.mat-mdc-unelevated-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-pressed-state-layer-opacity)}.mat-mdc-unelevated-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-filled-button-touch-target-display)}.mat-mdc-unelevated-button[disabled],.mat-mdc-unelevated-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-filled-button-disabled-label-text-color);background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-raised-button{font-family:var(--mdc-protected-button-label-text-font);font-size:var(--mdc-protected-button-label-text-size);letter-spacing:var(--mdc-protected-button-label-text-tracking);font-weight:var(--mdc-protected-button-label-text-weight);text-transform:var(--mdc-protected-button-label-text-transform);height:var(--mdc-protected-button-container-height);border-radius:var(--mdc-protected-button-container-shape);padding:0 var(--mat-protected-button-horizontal-padding, 16px);box-shadow:var(--mdc-protected-button-container-elevation-shadow)}.mat-mdc-raised-button:not(:disabled){background-color:var(--mdc-protected-button-container-color)}.mat-mdc-raised-button:disabled{background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button:not(:disabled){color:var(--mdc-protected-button-label-text-color)}.mat-mdc-raised-button:disabled{color:var(--mdc-protected-button-disabled-label-text-color)}.mat-mdc-raised-button .mdc-button__ripple{border-radius:var(--mdc-protected-button-container-shape)}.mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}.mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}.mat-mdc-raised-button .mat-ripple-element{background-color:var(--mat-protected-button-ripple-color)}.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-state-layer-color)}.mat-mdc-raised-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-disabled-state-layer-color)}.mat-mdc-raised-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-hover-state-layer-opacity)}.mat-mdc-raised-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-focus-state-layer-opacity)}.mat-mdc-raised-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-pressed-state-layer-opacity)}.mat-mdc-raised-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-protected-button-touch-target-display)}.mat-mdc-raised-button:hover{box-shadow:var(--mdc-protected-button-hover-container-elevation-shadow)}.mat-mdc-raised-button:focus{box-shadow:var(--mdc-protected-button-focus-container-elevation-shadow)}.mat-mdc-raised-button:active,.mat-mdc-raised-button:focus:active{box-shadow:var(--mdc-protected-button-pressed-container-elevation-shadow)}.mat-mdc-raised-button[disabled],.mat-mdc-raised-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-protected-button-disabled-label-text-color);background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button[disabled].mat-mdc-button-disabled,.mat-mdc-raised-button.mat-mdc-button-disabled.mat-mdc-button-disabled{box-shadow:var(--mdc-protected-button-disabled-container-elevation-shadow)}.mat-mdc-raised-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-outlined-button{font-family:var(--mdc-outlined-button-label-text-font);font-size:var(--mdc-outlined-button-label-text-size);letter-spacing:var(--mdc-outlined-button-label-text-tracking);font-weight:var(--mdc-outlined-button-label-text-weight);text-transform:var(--mdc-outlined-button-label-text-transform);height:var(--mdc-outlined-button-container-height);border-radius:var(--mdc-outlined-button-container-shape);padding:0 15px 0 15px;border-width:var(--mdc-outlined-button-outline-width);padding:0 var(--mat-outlined-button-horizontal-padding, 15px)}.mat-mdc-outlined-button:not(:disabled){color:var(--mdc-outlined-button-label-text-color)}.mat-mdc-outlined-button:disabled{color:var(--mdc-outlined-button-disabled-label-text-color)}.mat-mdc-outlined-button .mdc-button__ripple{border-radius:var(--mdc-outlined-button-container-shape)}.mat-mdc-outlined-button:not(:disabled){border-color:var(--mdc-outlined-button-outline-color)}.mat-mdc-outlined-button:disabled{border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mdc-button--icon-trailing{padding:0 11px 0 15px}.mat-mdc-outlined-button.mdc-button--icon-leading{padding:0 15px 0 11px}.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:var(--mdc-outlined-button-outline-width)}.mat-mdc-outlined-button .mdc-button__touch{left:calc(-1 * var(--mdc-outlined-button-outline-width));width:calc(100% + 2 * var(--mdc-outlined-button-outline-width))}.mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}.mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}.mat-mdc-outlined-button .mat-ripple-element{background-color:var(--mat-outlined-button-ripple-color)}.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-state-layer-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-disabled-state-layer-color)}.mat-mdc-outlined-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-hover-state-layer-opacity)}.mat-mdc-outlined-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-focus-state-layer-opacity)}.mat-mdc-outlined-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-pressed-state-layer-opacity)}.mat-mdc-outlined-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-outlined-button-touch-target-display)}.mat-mdc-outlined-button[disabled],.mat-mdc-outlined-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-outlined-button-disabled-label-text-color);border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-button-base{text-decoration:none}.mat-mdc-button,.mat-mdc-unelevated-button,.mat-mdc-raised-button,.mat-mdc-outlined-button{-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-button .mdc-button__label,.mat-mdc-unelevated-button .mdc-button__label,.mat-mdc-raised-button .mdc-button__label,.mat-mdc-outlined-button .mdc-button__label{z-index:1}.mat-mdc-button .mat-mdc-focus-indicator,.mat-mdc-unelevated-button .mat-mdc-focus-indicator,.mat-mdc-raised-button .mat-mdc-focus-indicator,.mat-mdc-outlined-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-unelevated-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-raised-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-outlined-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-button._mat-animation-noopable,.mat-mdc-unelevated-button._mat-animation-noopable,.mat-mdc-raised-button._mat-animation-noopable,.mat-mdc-outlined-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-button>.mat-icon,.mat-mdc-unelevated-button>.mat-icon,.mat-mdc-raised-button>.mat-icon,.mat-mdc-outlined-button>.mat-icon{display:inline-block;position:relative;vertical-align:top;font-size:1.125rem;height:1.125rem;width:1.125rem}.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:-1px}.mat-mdc-unelevated-button .mat-mdc-focus-indicator::before,.mat-mdc-raised-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-outlined-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 3px)*-1)}', ".cdk-high-contrast-active .mat-mdc-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-unelevated-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-raised-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-outlined-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-icon-button{outline:solid 1px}"]
+    }]
+  }], () => [{
+    type: ElementRef
+  }, {
+    type: Platform
+  }, {
+    type: NgZone
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [ANIMATION_MODULE_TYPE]
+    }]
+  }], null);
+})();
+var _MatAnchor = class _MatAnchor extends MatAnchorBase {
+  constructor(elementRef, platform, ngZone, animationMode) {
+    super(elementRef, platform, ngZone, animationMode);
+  }
+};
+_MatAnchor.\u0275fac = function MatAnchor_Factory(t) {
+  return new (t || _MatAnchor)(\u0275\u0275directiveInject(ElementRef), \u0275\u0275directiveInject(Platform), \u0275\u0275directiveInject(NgZone), \u0275\u0275directiveInject(ANIMATION_MODULE_TYPE, 8));
+};
+_MatAnchor.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
+  type: _MatAnchor,
+  selectors: [["a", "mat-button", ""], ["a", "mat-raised-button", ""], ["a", "mat-flat-button", ""], ["a", "mat-stroked-button", ""]],
+  hostVars: 15,
+  hostBindings: function MatAnchor_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      \u0275\u0275attribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
+      \u0275\u0275classMap(ctx.color ? "mat-" + ctx.color : "");
+      \u0275\u0275classProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+    }
+  },
+  exportAs: ["matButton", "matAnchor"],
+  standalone: true,
+  features: [\u0275\u0275InheritDefinitionFeature, \u0275\u0275StandaloneFeature],
+  attrs: _c015,
+  ngContentSelectors: _c26,
+  decls: 7,
+  vars: 4,
+  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+  template: function MatAnchor_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275projectionDef(_c110);
+      \u0275\u0275element(0, "span", 0);
+      \u0275\u0275projection(1);
+      \u0275\u0275elementStart(2, "span", 1);
+      \u0275\u0275projection(3, 1);
+      \u0275\u0275elementEnd();
+      \u0275\u0275projection(4, 2);
+      \u0275\u0275element(5, "span", 2)(6, "span", 3);
+    }
+    if (rf & 2) {
+      \u0275\u0275classProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+    }
+  },
+  styles: [_c35, _c44],
+  encapsulation: 2,
+  changeDetection: 0
+});
+var MatAnchor = _MatAnchor;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatAnchor, [{
+    type: Component,
+    args: [{
+      selector: `a[mat-button], a[mat-raised-button], a[mat-flat-button], a[mat-stroked-button]`,
+      exportAs: "matButton, matAnchor",
+      host: MAT_ANCHOR_HOST,
+      encapsulation: ViewEncapsulation$1.None,
+      changeDetection: ChangeDetectionStrategy.OnPush,
+      standalone: true,
+      template: `<span
+    class="mat-mdc-button-persistent-ripple"
+    [class.mdc-button__ripple]="!_isFab"
+    [class.mdc-fab__ripple]="_isFab"></span>
+
+<ng-content select=".material-icons:not([iconPositionEnd]), mat-icon:not([iconPositionEnd]), [matButtonIcon]:not([iconPositionEnd])">
+</ng-content>
+
+<span class="mdc-button__label"><ng-content></ng-content></span>
+
+<ng-content select=".material-icons[iconPositionEnd], mat-icon[iconPositionEnd], [matButtonIcon][iconPositionEnd]">
+</ng-content>
+
+<!--
+  The indicator can't be directly on the button, because MDC uses ::before for high contrast
+  indication and it can't be on the ripple, because it has a border radius and overflow: hidden.
+-->
+<span class="mat-mdc-focus-indicator"></span>
+
+<span class="mat-mdc-button-touch-target"></span>
+`,
+      styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity, 0);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button{position:relative;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:64px;border:none;outline:none;line-height:inherit;user-select:none;-webkit-appearance:none;overflow:visible;vertical-align:middle;background:rgba(0,0,0,0)}.mdc-button .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-button::-moz-focus-inner{padding:0;border:0}.mdc-button:active{outline:none}.mdc-button:hover{cursor:pointer}.mdc-button:disabled{cursor:default;pointer-events:none}.mdc-button[hidden]{display:none}.mdc-button .mdc-button__icon{margin-left:0;margin-right:8px;display:inline-block;position:relative;vertical-align:top}[dir=rtl] .mdc-button .mdc-button__icon,.mdc-button .mdc-button__icon[dir=rtl]{margin-left:8px;margin-right:0}.mdc-button .mdc-button__progress-indicator{font-size:0;position:absolute;transform:translate(-50%, -50%);top:50%;left:50%;line-height:initial}.mdc-button .mdc-button__label{position:relative}.mdc-button .mdc-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px);display:none}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring{border-color:CanvasText}}.mdc-button .mdc-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring::after{border-color:CanvasText}}@media screen and (forced-colors: active){.mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__focus-ring,.mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__focus-ring{display:block}}.mdc-button .mdc-button__touch{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%)}.mdc-button__label+.mdc-button__icon{margin-left:8px;margin-right:0}[dir=rtl] .mdc-button__label+.mdc-button__icon,.mdc-button__label+.mdc-button__icon[dir=rtl]{margin-left:0;margin-right:8px}svg.mdc-button__icon{fill:currentColor}.mdc-button--touch{margin-top:6px;margin-bottom:6px}.mdc-button{padding:0 8px 0 8px}.mdc-button--unelevated{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--unelevated.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--unelevated.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--raised{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--raised.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--raised.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--outlined{border-style:solid;transition:border 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button--outlined .mdc-button__ripple{border-style:solid;border-color:rgba(0,0,0,0)}.mat-mdc-button{font-family:var(--mdc-text-button-label-text-font);font-size:var(--mdc-text-button-label-text-size);letter-spacing:var(--mdc-text-button-label-text-tracking);font-weight:var(--mdc-text-button-label-text-weight);text-transform:var(--mdc-text-button-label-text-transform);height:var(--mdc-text-button-container-height);border-radius:var(--mdc-text-button-container-shape);padding:0 var(--mat-text-button-horizontal-padding, 8px)}.mat-mdc-button:not(:disabled){color:var(--mdc-text-button-label-text-color)}.mat-mdc-button:disabled{color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button .mdc-button__ripple{border-radius:var(--mdc-text-button-container-shape)}.mat-mdc-button:has(.material-icons,mat-icon,[matButtonIcon]){padding:0 var(--mat-text-button-with-icon-horizontal-padding, 8px)}.mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}[dir=rtl] .mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}.mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}.mat-mdc-button .mat-ripple-element{background-color:var(--mat-text-button-ripple-color)}.mat-mdc-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-state-layer-color)}.mat-mdc-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-disabled-state-layer-color)}.mat-mdc-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-hover-state-layer-opacity)}.mat-mdc-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-focus-state-layer-opacity)}.mat-mdc-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-pressed-state-layer-opacity)}.mat-mdc-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-text-button-touch-target-display)}.mat-mdc-button[disabled],.mat-mdc-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-unelevated-button{font-family:var(--mdc-filled-button-label-text-font);font-size:var(--mdc-filled-button-label-text-size);letter-spacing:var(--mdc-filled-button-label-text-tracking);font-weight:var(--mdc-filled-button-label-text-weight);text-transform:var(--mdc-filled-button-label-text-transform);height:var(--mdc-filled-button-container-height);border-radius:var(--mdc-filled-button-container-shape);padding:0 var(--mat-filled-button-horizontal-padding, 16px)}.mat-mdc-unelevated-button:not(:disabled){background-color:var(--mdc-filled-button-container-color)}.mat-mdc-unelevated-button:disabled{background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button:not(:disabled){color:var(--mdc-filled-button-label-text-color)}.mat-mdc-unelevated-button:disabled{color:var(--mdc-filled-button-disabled-label-text-color)}.mat-mdc-unelevated-button .mdc-button__ripple{border-radius:var(--mdc-filled-button-container-shape)}.mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}.mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}.mat-mdc-unelevated-button .mat-ripple-element{background-color:var(--mat-filled-button-ripple-color)}.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-state-layer-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-disabled-state-layer-color)}.mat-mdc-unelevated-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-hover-state-layer-opacity)}.mat-mdc-unelevated-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-focus-state-layer-opacity)}.mat-mdc-unelevated-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-pressed-state-layer-opacity)}.mat-mdc-unelevated-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-filled-button-touch-target-display)}.mat-mdc-unelevated-button[disabled],.mat-mdc-unelevated-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-filled-button-disabled-label-text-color);background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-raised-button{font-family:var(--mdc-protected-button-label-text-font);font-size:var(--mdc-protected-button-label-text-size);letter-spacing:var(--mdc-protected-button-label-text-tracking);font-weight:var(--mdc-protected-button-label-text-weight);text-transform:var(--mdc-protected-button-label-text-transform);height:var(--mdc-protected-button-container-height);border-radius:var(--mdc-protected-button-container-shape);padding:0 var(--mat-protected-button-horizontal-padding, 16px);box-shadow:var(--mdc-protected-button-container-elevation-shadow)}.mat-mdc-raised-button:not(:disabled){background-color:var(--mdc-protected-button-container-color)}.mat-mdc-raised-button:disabled{background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button:not(:disabled){color:var(--mdc-protected-button-label-text-color)}.mat-mdc-raised-button:disabled{color:var(--mdc-protected-button-disabled-label-text-color)}.mat-mdc-raised-button .mdc-button__ripple{border-radius:var(--mdc-protected-button-container-shape)}.mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}.mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}.mat-mdc-raised-button .mat-ripple-element{background-color:var(--mat-protected-button-ripple-color)}.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-state-layer-color)}.mat-mdc-raised-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-disabled-state-layer-color)}.mat-mdc-raised-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-hover-state-layer-opacity)}.mat-mdc-raised-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-focus-state-layer-opacity)}.mat-mdc-raised-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-pressed-state-layer-opacity)}.mat-mdc-raised-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-protected-button-touch-target-display)}.mat-mdc-raised-button:hover{box-shadow:var(--mdc-protected-button-hover-container-elevation-shadow)}.mat-mdc-raised-button:focus{box-shadow:var(--mdc-protected-button-focus-container-elevation-shadow)}.mat-mdc-raised-button:active,.mat-mdc-raised-button:focus:active{box-shadow:var(--mdc-protected-button-pressed-container-elevation-shadow)}.mat-mdc-raised-button[disabled],.mat-mdc-raised-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-protected-button-disabled-label-text-color);background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button[disabled].mat-mdc-button-disabled,.mat-mdc-raised-button.mat-mdc-button-disabled.mat-mdc-button-disabled{box-shadow:var(--mdc-protected-button-disabled-container-elevation-shadow)}.mat-mdc-raised-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-outlined-button{font-family:var(--mdc-outlined-button-label-text-font);font-size:var(--mdc-outlined-button-label-text-size);letter-spacing:var(--mdc-outlined-button-label-text-tracking);font-weight:var(--mdc-outlined-button-label-text-weight);text-transform:var(--mdc-outlined-button-label-text-transform);height:var(--mdc-outlined-button-container-height);border-radius:var(--mdc-outlined-button-container-shape);padding:0 15px 0 15px;border-width:var(--mdc-outlined-button-outline-width);padding:0 var(--mat-outlined-button-horizontal-padding, 15px)}.mat-mdc-outlined-button:not(:disabled){color:var(--mdc-outlined-button-label-text-color)}.mat-mdc-outlined-button:disabled{color:var(--mdc-outlined-button-disabled-label-text-color)}.mat-mdc-outlined-button .mdc-button__ripple{border-radius:var(--mdc-outlined-button-container-shape)}.mat-mdc-outlined-button:not(:disabled){border-color:var(--mdc-outlined-button-outline-color)}.mat-mdc-outlined-button:disabled{border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mdc-button--icon-trailing{padding:0 11px 0 15px}.mat-mdc-outlined-button.mdc-button--icon-leading{padding:0 15px 0 11px}.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:var(--mdc-outlined-button-outline-width)}.mat-mdc-outlined-button .mdc-button__touch{left:calc(-1 * var(--mdc-outlined-button-outline-width));width:calc(100% + 2 * var(--mdc-outlined-button-outline-width))}.mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}.mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}.mat-mdc-outlined-button .mat-ripple-element{background-color:var(--mat-outlined-button-ripple-color)}.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-state-layer-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-disabled-state-layer-color)}.mat-mdc-outlined-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-hover-state-layer-opacity)}.mat-mdc-outlined-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-focus-state-layer-opacity)}.mat-mdc-outlined-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-pressed-state-layer-opacity)}.mat-mdc-outlined-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-outlined-button-touch-target-display)}.mat-mdc-outlined-button[disabled],.mat-mdc-outlined-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-outlined-button-disabled-label-text-color);border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-button-base{text-decoration:none}.mat-mdc-button,.mat-mdc-unelevated-button,.mat-mdc-raised-button,.mat-mdc-outlined-button{-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-button .mdc-button__label,.mat-mdc-unelevated-button .mdc-button__label,.mat-mdc-raised-button .mdc-button__label,.mat-mdc-outlined-button .mdc-button__label{z-index:1}.mat-mdc-button .mat-mdc-focus-indicator,.mat-mdc-unelevated-button .mat-mdc-focus-indicator,.mat-mdc-raised-button .mat-mdc-focus-indicator,.mat-mdc-outlined-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-unelevated-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-raised-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-outlined-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-button._mat-animation-noopable,.mat-mdc-unelevated-button._mat-animation-noopable,.mat-mdc-raised-button._mat-animation-noopable,.mat-mdc-outlined-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-button>.mat-icon,.mat-mdc-unelevated-button>.mat-icon,.mat-mdc-raised-button>.mat-icon,.mat-mdc-outlined-button>.mat-icon{display:inline-block;position:relative;vertical-align:top;font-size:1.125rem;height:1.125rem;width:1.125rem}.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:-1px}.mat-mdc-unelevated-button .mat-mdc-focus-indicator::before,.mat-mdc-raised-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-outlined-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 3px)*-1)}', ".cdk-high-contrast-active .mat-mdc-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-unelevated-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-raised-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-outlined-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-icon-button{outline:solid 1px}"]
+    }]
+  }], () => [{
+    type: ElementRef
+  }, {
+    type: Platform
+  }, {
+    type: NgZone
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [ANIMATION_MODULE_TYPE]
+    }]
+  }], null);
+})();
+var MAT_FAB_DEFAULT_OPTIONS = new InjectionToken("mat-mdc-fab-default-options", {
+  providedIn: "root",
+  factory: MAT_FAB_DEFAULT_OPTIONS_FACTORY
+});
+function MAT_FAB_DEFAULT_OPTIONS_FACTORY() {
+  return {
+    // The FAB by default has its color set to accent.
+    color: "accent"
+  };
+}
+var defaults2 = MAT_FAB_DEFAULT_OPTIONS_FACTORY();
+var _MatFabButton = class _MatFabButton extends MatButtonBase {
+  constructor(elementRef, platform, ngZone, animationMode, _options) {
+    super(elementRef, platform, ngZone, animationMode);
+    this._options = _options;
+    this._isFab = true;
+    this._options = this._options || defaults2;
+    this.color = this._options.color || defaults2.color;
+  }
+};
+_MatFabButton.\u0275fac = function MatFabButton_Factory(t) {
+  return new (t || _MatFabButton)(\u0275\u0275directiveInject(ElementRef), \u0275\u0275directiveInject(Platform), \u0275\u0275directiveInject(NgZone), \u0275\u0275directiveInject(ANIMATION_MODULE_TYPE, 8), \u0275\u0275directiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
+};
+_MatFabButton.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
+  type: _MatFabButton,
+  selectors: [["button", "mat-fab", ""]],
+  hostVars: 18,
+  hostBindings: function MatFabButton_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      \u0275\u0275attribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
+      \u0275\u0275classMap(ctx.color ? "mat-" + ctx.color : "");
+      \u0275\u0275classProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true)("mdc-fab--extended", ctx.extended)("mat-mdc-extended-fab", ctx.extended);
+    }
+  },
+  inputs: {
+    extended: [InputFlags.HasDecoratorInputTransform, "extended", "extended", booleanAttribute]
+  },
+  exportAs: ["matButton"],
+  standalone: true,
+  features: [\u0275\u0275InputTransformsFeature, \u0275\u0275InheritDefinitionFeature, \u0275\u0275StandaloneFeature],
+  attrs: _c53,
+  ngContentSelectors: _c26,
+  decls: 7,
+  vars: 4,
+  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+  template: function MatFabButton_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275projectionDef(_c110);
+      \u0275\u0275element(0, "span", 0);
+      \u0275\u0275projection(1);
+      \u0275\u0275elementStart(2, "span", 1);
+      \u0275\u0275projection(3, 1);
+      \u0275\u0275elementEnd();
+      \u0275\u0275projection(4, 2);
+      \u0275\u0275element(5, "span", 2)(6, "span", 3);
+    }
+    if (rf & 2) {
+      \u0275\u0275classProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+    }
+  },
+  styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-fab{position:relative;display:inline-flex;position:relative;align-items:center;justify-content:center;box-sizing:border-box;width:56px;height:56px;padding:0;border:none;fill:currentColor;text-decoration:none;cursor:pointer;user-select:none;-moz-appearance:none;-webkit-appearance:none;overflow:visible;transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),opacity 15ms linear 30ms,transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-fab .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-fab[hidden]{display:none}.mdc-fab::-moz-focus-inner{padding:0;border:0}.mdc-fab .mdc-fab__focus-ring{position:absolute}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{border-color:CanvasText}}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{border-color:CanvasText}}.mdc-fab:active,.mdc-fab:focus{outline:none}.mdc-fab:hover{cursor:pointer}.mdc-fab>svg{width:100%}.mdc-fab--mini{width:40px;height:40px}.mdc-fab--extended{border-radius:24px;padding-left:20px;padding-right:20px;width:auto;max-width:100%;height:48px;line-height:normal}.mdc-fab--extended .mdc-fab__ripple{border-radius:24px}.mdc-fab--extended .mdc-fab__icon{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mdc-fab--extended .mdc-fab__icon,.mdc-fab--extended .mdc-fab__icon[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mdc-fab--extended .mdc-fab__label+.mdc-fab__icon,.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}.mdc-fab--touch{margin-top:4px;margin-bottom:4px;margin-right:4px;margin-left:4px}.mdc-fab--touch .mdc-fab__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-fab::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-fab::before{border-color:CanvasText}}.mdc-fab__label{justify-content:flex-start;text-overflow:ellipsis;white-space:nowrap;overflow-x:hidden;overflow-y:visible}.mdc-fab__icon{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mdc-fab .mdc-fab__icon{display:inline-flex;align-items:center;justify-content:center}.mdc-fab--exited{transform:scale(0);opacity:0;transition:opacity 15ms linear 150ms,transform 180ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mdc-fab--exited .mdc-fab__icon{transform:scale(0);transition:transform 135ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mat-mdc-fab{background-color:var(--mdc-fab-container-color)}.mat-mdc-fab .mdc-fab__icon{width:var(--mdc-fab-icon-size);height:var(--mdc-fab-icon-size);font-size:var(--mdc-fab-icon-size)}.mat-mdc-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-container-shape)}.mat-mdc-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-container-shape)}.mat-mdc-mini-fab{background-color:var(--mdc-fab-small-container-color)}.mat-mdc-mini-fab .mdc-fab__icon{width:var(--mdc-fab-small-icon-size);height:var(--mdc-fab-small-icon-size);font-size:var(--mdc-fab-small-icon-size)}.mat-mdc-mini-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-mini-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-extended-fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mdc-extended-fab-container-height);border-radius:var(--mdc-extended-fab-container-shape);font-family:var(--mdc-extended-fab-label-text-font);font-size:var(--mdc-extended-fab-label-text-size);font-weight:var(--mdc-extended-fab-label-text-weight);letter-spacing:var(--mdc-extended-fab-label-text-tracking)}.mat-mdc-extended-fab .mdc-fab__ripple{border-radius:var(--mdc-extended-fab-container-shape)}.mat-mdc-fab,.mat-mdc-mini-fab{-webkit-tap-highlight-color:rgba(0,0,0,0);flex-shrink:0}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-fab .mdc-button__label,.mat-mdc-mini-fab .mdc-button__label{z-index:1}.mat-mdc-fab .mat-mdc-focus-indicator,.mat-mdc-mini-fab .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-fab:focus .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-fab._mat-animation-noopable,.mat-mdc-mini-fab._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-fab:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-mini-fab:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}.mat-mdc-fab .mat-icon,.mat-mdc-fab .material-icons,.mat-mdc-mini-fab .mat-icon,.mat-mdc-mini-fab .material-icons{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mat-mdc-fab .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-fab[disabled],.mat-mdc-fab[disabled]:focus,.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-fab.mat-mdc-button-disabled:focus,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab[disabled]:focus,.mat-mdc-mini-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-fab.mat-mdc-button-disabled-interactive,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-fab{color:var(--mat-fab-foreground-color, inherit);box-shadow:var(--mdc-fab-container-elevation-shadow)}.mat-mdc-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-touch-target-display)}.mat-mdc-fab .mat-ripple-element{background-color:var(--mat-fab-ripple-color)}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-state-layer-color)}.mat-mdc-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-disabled-state-layer-color)}.mat-mdc-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-hover-state-layer-opacity)}.mat-mdc-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-focus-state-layer-opacity)}.mat-mdc-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-pressed-state-layer-opacity)}.mat-mdc-fab:hover{box-shadow:var(--mdc-fab-hover-container-elevation-shadow)}.mat-mdc-fab:focus{box-shadow:var(--mdc-fab-focus-container-elevation-shadow)}.mat-mdc-fab:active,.mat-mdc-fab:focus:active{box-shadow:var(--mdc-fab-pressed-container-elevation-shadow)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-disabled-state-foreground-color);background-color:var(--mat-fab-disabled-state-container-color)}.mat-mdc-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-mini-fab{color:var(--mat-fab-small-foreground-color, inherit);box-shadow:var(--mdc-fab-small-container-elevation-shadow)}.mat-mdc-mini-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-small-touch-target-display)}.mat-mdc-mini-fab .mat-ripple-element{background-color:var(--mat-fab-small-ripple-color)}.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-state-layer-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-disabled-state-layer-color)}.mat-mdc-mini-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-hover-state-layer-opacity)}.mat-mdc-mini-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-focus-state-layer-opacity)}.mat-mdc-mini-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-pressed-state-layer-opacity)}.mat-mdc-mini-fab:hover{box-shadow:var(--mdc-fab-small-hover-container-elevation-shadow)}.mat-mdc-mini-fab:focus{box-shadow:var(--mdc-fab-small-focus-container-elevation-shadow)}.mat-mdc-mini-fab:active,.mat-mdc-mini-fab:focus:active{box-shadow:var(--mdc-fab-small-pressed-container-elevation-shadow)}.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-small-disabled-state-foreground-color);background-color:var(--mat-fab-small-disabled-state-container-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab{box-shadow:var(--mdc-extended-fab-container-elevation-shadow)}.mat-mdc-extended-fab:hover{box-shadow:var(--mdc-extended-fab-hover-container-elevation-shadow)}.mat-mdc-extended-fab:focus{box-shadow:var(--mdc-extended-fab-focus-container-elevation-shadow)}.mat-mdc-extended-fab:active,.mat-mdc-extended-fab:focus:active{box-shadow:var(--mdc-extended-fab-pressed-container-elevation-shadow)}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab[disabled]:focus,.mat-mdc-extended-fab.mat-mdc-button-disabled,.mat-mdc-extended-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-extended-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab>.mat-icon,.mat-mdc-extended-fab>.material-icons{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mat-mdc-extended-fab>.mat-icon,[dir=rtl] .mat-mdc-extended-fab>.material-icons,.mat-mdc-extended-fab>.mat-icon[dir=rtl],.mat-mdc-extended-fab>.material-icons[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mat-mdc-extended-fab .mat-mdc-button-touch-target{width:100%}.mat-mdc-extended-fab .mdc-button__label+.mat-icon,.mat-mdc-extended-fab .mdc-button__label+.material-icons{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.mat-icon,[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.material-icons,.mat-mdc-extended-fab .mdc-button__label+.mat-icon[dir=rtl],.mat-mdc-extended-fab .mdc-button__label+.material-icons[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}'],
+  encapsulation: 2,
+  changeDetection: 0
+});
+var MatFabButton = _MatFabButton;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatFabButton, [{
+    type: Component,
+    args: [{
+      selector: `button[mat-fab]`,
+      host: __spreadProps(__spreadValues({}, MAT_BUTTON_HOST), {
+        "[class.mdc-fab--extended]": "extended",
+        "[class.mat-mdc-extended-fab]": "extended"
+      }),
+      exportAs: "matButton",
+      encapsulation: ViewEncapsulation$1.None,
+      changeDetection: ChangeDetectionStrategy.OnPush,
+      standalone: true,
+      template: `<span
+    class="mat-mdc-button-persistent-ripple"
+    [class.mdc-button__ripple]="!_isFab"
+    [class.mdc-fab__ripple]="_isFab"></span>
+
+<ng-content select=".material-icons:not([iconPositionEnd]), mat-icon:not([iconPositionEnd]), [matButtonIcon]:not([iconPositionEnd])">
+</ng-content>
+
+<span class="mdc-button__label"><ng-content></ng-content></span>
+
+<ng-content select=".material-icons[iconPositionEnd], mat-icon[iconPositionEnd], [matButtonIcon][iconPositionEnd]">
+</ng-content>
+
+<!--
+  The indicator can't be directly on the button, because MDC uses ::before for high contrast
+  indication and it can't be on the ripple, because it has a border radius and overflow: hidden.
+-->
+<span class="mat-mdc-focus-indicator"></span>
+
+<span class="mat-mdc-button-touch-target"></span>
+`,
+      styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-fab{position:relative;display:inline-flex;position:relative;align-items:center;justify-content:center;box-sizing:border-box;width:56px;height:56px;padding:0;border:none;fill:currentColor;text-decoration:none;cursor:pointer;user-select:none;-moz-appearance:none;-webkit-appearance:none;overflow:visible;transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),opacity 15ms linear 30ms,transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-fab .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-fab[hidden]{display:none}.mdc-fab::-moz-focus-inner{padding:0;border:0}.mdc-fab .mdc-fab__focus-ring{position:absolute}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{border-color:CanvasText}}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{border-color:CanvasText}}.mdc-fab:active,.mdc-fab:focus{outline:none}.mdc-fab:hover{cursor:pointer}.mdc-fab>svg{width:100%}.mdc-fab--mini{width:40px;height:40px}.mdc-fab--extended{border-radius:24px;padding-left:20px;padding-right:20px;width:auto;max-width:100%;height:48px;line-height:normal}.mdc-fab--extended .mdc-fab__ripple{border-radius:24px}.mdc-fab--extended .mdc-fab__icon{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mdc-fab--extended .mdc-fab__icon,.mdc-fab--extended .mdc-fab__icon[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mdc-fab--extended .mdc-fab__label+.mdc-fab__icon,.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}.mdc-fab--touch{margin-top:4px;margin-bottom:4px;margin-right:4px;margin-left:4px}.mdc-fab--touch .mdc-fab__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-fab::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-fab::before{border-color:CanvasText}}.mdc-fab__label{justify-content:flex-start;text-overflow:ellipsis;white-space:nowrap;overflow-x:hidden;overflow-y:visible}.mdc-fab__icon{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mdc-fab .mdc-fab__icon{display:inline-flex;align-items:center;justify-content:center}.mdc-fab--exited{transform:scale(0);opacity:0;transition:opacity 15ms linear 150ms,transform 180ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mdc-fab--exited .mdc-fab__icon{transform:scale(0);transition:transform 135ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mat-mdc-fab{background-color:var(--mdc-fab-container-color)}.mat-mdc-fab .mdc-fab__icon{width:var(--mdc-fab-icon-size);height:var(--mdc-fab-icon-size);font-size:var(--mdc-fab-icon-size)}.mat-mdc-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-container-shape)}.mat-mdc-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-container-shape)}.mat-mdc-mini-fab{background-color:var(--mdc-fab-small-container-color)}.mat-mdc-mini-fab .mdc-fab__icon{width:var(--mdc-fab-small-icon-size);height:var(--mdc-fab-small-icon-size);font-size:var(--mdc-fab-small-icon-size)}.mat-mdc-mini-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-mini-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-extended-fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mdc-extended-fab-container-height);border-radius:var(--mdc-extended-fab-container-shape);font-family:var(--mdc-extended-fab-label-text-font);font-size:var(--mdc-extended-fab-label-text-size);font-weight:var(--mdc-extended-fab-label-text-weight);letter-spacing:var(--mdc-extended-fab-label-text-tracking)}.mat-mdc-extended-fab .mdc-fab__ripple{border-radius:var(--mdc-extended-fab-container-shape)}.mat-mdc-fab,.mat-mdc-mini-fab{-webkit-tap-highlight-color:rgba(0,0,0,0);flex-shrink:0}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-fab .mdc-button__label,.mat-mdc-mini-fab .mdc-button__label{z-index:1}.mat-mdc-fab .mat-mdc-focus-indicator,.mat-mdc-mini-fab .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-fab:focus .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-fab._mat-animation-noopable,.mat-mdc-mini-fab._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-fab:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-mini-fab:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}.mat-mdc-fab .mat-icon,.mat-mdc-fab .material-icons,.mat-mdc-mini-fab .mat-icon,.mat-mdc-mini-fab .material-icons{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mat-mdc-fab .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-fab[disabled],.mat-mdc-fab[disabled]:focus,.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-fab.mat-mdc-button-disabled:focus,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab[disabled]:focus,.mat-mdc-mini-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-fab.mat-mdc-button-disabled-interactive,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-fab{color:var(--mat-fab-foreground-color, inherit);box-shadow:var(--mdc-fab-container-elevation-shadow)}.mat-mdc-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-touch-target-display)}.mat-mdc-fab .mat-ripple-element{background-color:var(--mat-fab-ripple-color)}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-state-layer-color)}.mat-mdc-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-disabled-state-layer-color)}.mat-mdc-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-hover-state-layer-opacity)}.mat-mdc-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-focus-state-layer-opacity)}.mat-mdc-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-pressed-state-layer-opacity)}.mat-mdc-fab:hover{box-shadow:var(--mdc-fab-hover-container-elevation-shadow)}.mat-mdc-fab:focus{box-shadow:var(--mdc-fab-focus-container-elevation-shadow)}.mat-mdc-fab:active,.mat-mdc-fab:focus:active{box-shadow:var(--mdc-fab-pressed-container-elevation-shadow)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-disabled-state-foreground-color);background-color:var(--mat-fab-disabled-state-container-color)}.mat-mdc-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-mini-fab{color:var(--mat-fab-small-foreground-color, inherit);box-shadow:var(--mdc-fab-small-container-elevation-shadow)}.mat-mdc-mini-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-small-touch-target-display)}.mat-mdc-mini-fab .mat-ripple-element{background-color:var(--mat-fab-small-ripple-color)}.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-state-layer-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-disabled-state-layer-color)}.mat-mdc-mini-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-hover-state-layer-opacity)}.mat-mdc-mini-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-focus-state-layer-opacity)}.mat-mdc-mini-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-pressed-state-layer-opacity)}.mat-mdc-mini-fab:hover{box-shadow:var(--mdc-fab-small-hover-container-elevation-shadow)}.mat-mdc-mini-fab:focus{box-shadow:var(--mdc-fab-small-focus-container-elevation-shadow)}.mat-mdc-mini-fab:active,.mat-mdc-mini-fab:focus:active{box-shadow:var(--mdc-fab-small-pressed-container-elevation-shadow)}.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-small-disabled-state-foreground-color);background-color:var(--mat-fab-small-disabled-state-container-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab{box-shadow:var(--mdc-extended-fab-container-elevation-shadow)}.mat-mdc-extended-fab:hover{box-shadow:var(--mdc-extended-fab-hover-container-elevation-shadow)}.mat-mdc-extended-fab:focus{box-shadow:var(--mdc-extended-fab-focus-container-elevation-shadow)}.mat-mdc-extended-fab:active,.mat-mdc-extended-fab:focus:active{box-shadow:var(--mdc-extended-fab-pressed-container-elevation-shadow)}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab[disabled]:focus,.mat-mdc-extended-fab.mat-mdc-button-disabled,.mat-mdc-extended-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-extended-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab>.mat-icon,.mat-mdc-extended-fab>.material-icons{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mat-mdc-extended-fab>.mat-icon,[dir=rtl] .mat-mdc-extended-fab>.material-icons,.mat-mdc-extended-fab>.mat-icon[dir=rtl],.mat-mdc-extended-fab>.material-icons[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mat-mdc-extended-fab .mat-mdc-button-touch-target{width:100%}.mat-mdc-extended-fab .mdc-button__label+.mat-icon,.mat-mdc-extended-fab .mdc-button__label+.material-icons{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.mat-icon,[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.material-icons,.mat-mdc-extended-fab .mdc-button__label+.mat-icon[dir=rtl],.mat-mdc-extended-fab .mdc-button__label+.material-icons[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}']
+    }]
+  }], () => [{
+    type: ElementRef
+  }, {
+    type: Platform
+  }, {
+    type: NgZone
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [ANIMATION_MODULE_TYPE]
+    }]
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [MAT_FAB_DEFAULT_OPTIONS]
+    }]
+  }], {
+    extended: [{
+      type: Input,
+      args: [{
+        transform: booleanAttribute
+      }]
+    }]
+  });
+})();
+var _MatMiniFabButton = class _MatMiniFabButton extends MatButtonBase {
+  constructor(elementRef, platform, ngZone, animationMode, _options) {
+    super(elementRef, platform, ngZone, animationMode);
+    this._options = _options;
+    this._isFab = true;
+    this._options = this._options || defaults2;
+    this.color = this._options.color || defaults2.color;
+  }
+};
+_MatMiniFabButton.\u0275fac = function MatMiniFabButton_Factory(t) {
+  return new (t || _MatMiniFabButton)(\u0275\u0275directiveInject(ElementRef), \u0275\u0275directiveInject(Platform), \u0275\u0275directiveInject(NgZone), \u0275\u0275directiveInject(ANIMATION_MODULE_TYPE, 8), \u0275\u0275directiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
+};
+_MatMiniFabButton.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
+  type: _MatMiniFabButton,
+  selectors: [["button", "mat-mini-fab", ""]],
+  hostVars: 14,
+  hostBindings: function MatMiniFabButton_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      \u0275\u0275attribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
+      \u0275\u0275classMap(ctx.color ? "mat-" + ctx.color : "");
+      \u0275\u0275classProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+    }
+  },
+  exportAs: ["matButton"],
+  standalone: true,
+  features: [\u0275\u0275InheritDefinitionFeature, \u0275\u0275StandaloneFeature],
+  attrs: _c63,
+  ngContentSelectors: _c26,
+  decls: 7,
+  vars: 4,
+  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+  template: function MatMiniFabButton_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275projectionDef(_c110);
+      \u0275\u0275element(0, "span", 0);
+      \u0275\u0275projection(1);
+      \u0275\u0275elementStart(2, "span", 1);
+      \u0275\u0275projection(3, 1);
+      \u0275\u0275elementEnd();
+      \u0275\u0275projection(4, 2);
+      \u0275\u0275element(5, "span", 2)(6, "span", 3);
+    }
+    if (rf & 2) {
+      \u0275\u0275classProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+    }
+  },
+  styles: [_c72],
+  encapsulation: 2,
+  changeDetection: 0
+});
+var MatMiniFabButton = _MatMiniFabButton;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatMiniFabButton, [{
+    type: Component,
+    args: [{
+      selector: `button[mat-mini-fab]`,
+      host: MAT_BUTTON_HOST,
+      exportAs: "matButton",
+      encapsulation: ViewEncapsulation$1.None,
+      changeDetection: ChangeDetectionStrategy.OnPush,
+      standalone: true,
+      template: `<span
+    class="mat-mdc-button-persistent-ripple"
+    [class.mdc-button__ripple]="!_isFab"
+    [class.mdc-fab__ripple]="_isFab"></span>
+
+<ng-content select=".material-icons:not([iconPositionEnd]), mat-icon:not([iconPositionEnd]), [matButtonIcon]:not([iconPositionEnd])">
+</ng-content>
+
+<span class="mdc-button__label"><ng-content></ng-content></span>
+
+<ng-content select=".material-icons[iconPositionEnd], mat-icon[iconPositionEnd], [matButtonIcon][iconPositionEnd]">
+</ng-content>
+
+<!--
+  The indicator can't be directly on the button, because MDC uses ::before for high contrast
+  indication and it can't be on the ripple, because it has a border radius and overflow: hidden.
+-->
+<span class="mat-mdc-focus-indicator"></span>
+
+<span class="mat-mdc-button-touch-target"></span>
+`,
+      styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-fab{position:relative;display:inline-flex;position:relative;align-items:center;justify-content:center;box-sizing:border-box;width:56px;height:56px;padding:0;border:none;fill:currentColor;text-decoration:none;cursor:pointer;user-select:none;-moz-appearance:none;-webkit-appearance:none;overflow:visible;transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),opacity 15ms linear 30ms,transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-fab .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-fab[hidden]{display:none}.mdc-fab::-moz-focus-inner{padding:0;border:0}.mdc-fab .mdc-fab__focus-ring{position:absolute}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{border-color:CanvasText}}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{border-color:CanvasText}}.mdc-fab:active,.mdc-fab:focus{outline:none}.mdc-fab:hover{cursor:pointer}.mdc-fab>svg{width:100%}.mdc-fab--mini{width:40px;height:40px}.mdc-fab--extended{border-radius:24px;padding-left:20px;padding-right:20px;width:auto;max-width:100%;height:48px;line-height:normal}.mdc-fab--extended .mdc-fab__ripple{border-radius:24px}.mdc-fab--extended .mdc-fab__icon{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mdc-fab--extended .mdc-fab__icon,.mdc-fab--extended .mdc-fab__icon[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mdc-fab--extended .mdc-fab__label+.mdc-fab__icon,.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}.mdc-fab--touch{margin-top:4px;margin-bottom:4px;margin-right:4px;margin-left:4px}.mdc-fab--touch .mdc-fab__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-fab::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-fab::before{border-color:CanvasText}}.mdc-fab__label{justify-content:flex-start;text-overflow:ellipsis;white-space:nowrap;overflow-x:hidden;overflow-y:visible}.mdc-fab__icon{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mdc-fab .mdc-fab__icon{display:inline-flex;align-items:center;justify-content:center}.mdc-fab--exited{transform:scale(0);opacity:0;transition:opacity 15ms linear 150ms,transform 180ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mdc-fab--exited .mdc-fab__icon{transform:scale(0);transition:transform 135ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mat-mdc-fab{background-color:var(--mdc-fab-container-color)}.mat-mdc-fab .mdc-fab__icon{width:var(--mdc-fab-icon-size);height:var(--mdc-fab-icon-size);font-size:var(--mdc-fab-icon-size)}.mat-mdc-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-container-shape)}.mat-mdc-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-container-shape)}.mat-mdc-mini-fab{background-color:var(--mdc-fab-small-container-color)}.mat-mdc-mini-fab .mdc-fab__icon{width:var(--mdc-fab-small-icon-size);height:var(--mdc-fab-small-icon-size);font-size:var(--mdc-fab-small-icon-size)}.mat-mdc-mini-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-mini-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-extended-fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mdc-extended-fab-container-height);border-radius:var(--mdc-extended-fab-container-shape);font-family:var(--mdc-extended-fab-label-text-font);font-size:var(--mdc-extended-fab-label-text-size);font-weight:var(--mdc-extended-fab-label-text-weight);letter-spacing:var(--mdc-extended-fab-label-text-tracking)}.mat-mdc-extended-fab .mdc-fab__ripple{border-radius:var(--mdc-extended-fab-container-shape)}.mat-mdc-fab,.mat-mdc-mini-fab{-webkit-tap-highlight-color:rgba(0,0,0,0);flex-shrink:0}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-fab .mdc-button__label,.mat-mdc-mini-fab .mdc-button__label{z-index:1}.mat-mdc-fab .mat-mdc-focus-indicator,.mat-mdc-mini-fab .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-fab:focus .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-fab._mat-animation-noopable,.mat-mdc-mini-fab._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-fab:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-mini-fab:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}.mat-mdc-fab .mat-icon,.mat-mdc-fab .material-icons,.mat-mdc-mini-fab .mat-icon,.mat-mdc-mini-fab .material-icons{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mat-mdc-fab .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-fab[disabled],.mat-mdc-fab[disabled]:focus,.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-fab.mat-mdc-button-disabled:focus,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab[disabled]:focus,.mat-mdc-mini-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-fab.mat-mdc-button-disabled-interactive,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-fab{color:var(--mat-fab-foreground-color, inherit);box-shadow:var(--mdc-fab-container-elevation-shadow)}.mat-mdc-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-touch-target-display)}.mat-mdc-fab .mat-ripple-element{background-color:var(--mat-fab-ripple-color)}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-state-layer-color)}.mat-mdc-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-disabled-state-layer-color)}.mat-mdc-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-hover-state-layer-opacity)}.mat-mdc-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-focus-state-layer-opacity)}.mat-mdc-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-pressed-state-layer-opacity)}.mat-mdc-fab:hover{box-shadow:var(--mdc-fab-hover-container-elevation-shadow)}.mat-mdc-fab:focus{box-shadow:var(--mdc-fab-focus-container-elevation-shadow)}.mat-mdc-fab:active,.mat-mdc-fab:focus:active{box-shadow:var(--mdc-fab-pressed-container-elevation-shadow)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-disabled-state-foreground-color);background-color:var(--mat-fab-disabled-state-container-color)}.mat-mdc-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-mini-fab{color:var(--mat-fab-small-foreground-color, inherit);box-shadow:var(--mdc-fab-small-container-elevation-shadow)}.mat-mdc-mini-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-small-touch-target-display)}.mat-mdc-mini-fab .mat-ripple-element{background-color:var(--mat-fab-small-ripple-color)}.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-state-layer-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-disabled-state-layer-color)}.mat-mdc-mini-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-hover-state-layer-opacity)}.mat-mdc-mini-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-focus-state-layer-opacity)}.mat-mdc-mini-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-pressed-state-layer-opacity)}.mat-mdc-mini-fab:hover{box-shadow:var(--mdc-fab-small-hover-container-elevation-shadow)}.mat-mdc-mini-fab:focus{box-shadow:var(--mdc-fab-small-focus-container-elevation-shadow)}.mat-mdc-mini-fab:active,.mat-mdc-mini-fab:focus:active{box-shadow:var(--mdc-fab-small-pressed-container-elevation-shadow)}.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-small-disabled-state-foreground-color);background-color:var(--mat-fab-small-disabled-state-container-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab{box-shadow:var(--mdc-extended-fab-container-elevation-shadow)}.mat-mdc-extended-fab:hover{box-shadow:var(--mdc-extended-fab-hover-container-elevation-shadow)}.mat-mdc-extended-fab:focus{box-shadow:var(--mdc-extended-fab-focus-container-elevation-shadow)}.mat-mdc-extended-fab:active,.mat-mdc-extended-fab:focus:active{box-shadow:var(--mdc-extended-fab-pressed-container-elevation-shadow)}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab[disabled]:focus,.mat-mdc-extended-fab.mat-mdc-button-disabled,.mat-mdc-extended-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-extended-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab>.mat-icon,.mat-mdc-extended-fab>.material-icons{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mat-mdc-extended-fab>.mat-icon,[dir=rtl] .mat-mdc-extended-fab>.material-icons,.mat-mdc-extended-fab>.mat-icon[dir=rtl],.mat-mdc-extended-fab>.material-icons[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mat-mdc-extended-fab .mat-mdc-button-touch-target{width:100%}.mat-mdc-extended-fab .mdc-button__label+.mat-icon,.mat-mdc-extended-fab .mdc-button__label+.material-icons{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.mat-icon,[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.material-icons,.mat-mdc-extended-fab .mdc-button__label+.mat-icon[dir=rtl],.mat-mdc-extended-fab .mdc-button__label+.material-icons[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}']
+    }]
+  }], () => [{
+    type: ElementRef
+  }, {
+    type: Platform
+  }, {
+    type: NgZone
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [ANIMATION_MODULE_TYPE]
+    }]
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [MAT_FAB_DEFAULT_OPTIONS]
+    }]
+  }], null);
+})();
+var _MatFabAnchor = class _MatFabAnchor extends MatAnchor {
+  constructor(elementRef, platform, ngZone, animationMode, _options) {
+    super(elementRef, platform, ngZone, animationMode);
+    this._options = _options;
+    this._isFab = true;
+    this._options = this._options || defaults2;
+    this.color = this._options.color || defaults2.color;
+  }
+};
+_MatFabAnchor.\u0275fac = function MatFabAnchor_Factory(t) {
+  return new (t || _MatFabAnchor)(\u0275\u0275directiveInject(ElementRef), \u0275\u0275directiveInject(Platform), \u0275\u0275directiveInject(NgZone), \u0275\u0275directiveInject(ANIMATION_MODULE_TYPE, 8), \u0275\u0275directiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
+};
+_MatFabAnchor.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
+  type: _MatFabAnchor,
+  selectors: [["a", "mat-fab", ""]],
+  hostVars: 19,
+  hostBindings: function MatFabAnchor_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      \u0275\u0275attribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
+      \u0275\u0275classMap(ctx.color ? "mat-" + ctx.color : "");
+      \u0275\u0275classProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true)("mdc-fab--extended", ctx.extended)("mat-mdc-extended-fab", ctx.extended);
+    }
+  },
+  inputs: {
+    extended: [InputFlags.HasDecoratorInputTransform, "extended", "extended", booleanAttribute]
+  },
+  exportAs: ["matButton", "matAnchor"],
+  standalone: true,
+  features: [\u0275\u0275InputTransformsFeature, \u0275\u0275InheritDefinitionFeature, \u0275\u0275StandaloneFeature],
+  attrs: _c53,
+  ngContentSelectors: _c26,
+  decls: 7,
+  vars: 4,
+  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+  template: function MatFabAnchor_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275projectionDef(_c110);
+      \u0275\u0275element(0, "span", 0);
+      \u0275\u0275projection(1);
+      \u0275\u0275elementStart(2, "span", 1);
+      \u0275\u0275projection(3, 1);
+      \u0275\u0275elementEnd();
+      \u0275\u0275projection(4, 2);
+      \u0275\u0275element(5, "span", 2)(6, "span", 3);
+    }
+    if (rf & 2) {
+      \u0275\u0275classProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+    }
+  },
+  styles: [_c72],
+  encapsulation: 2,
+  changeDetection: 0
+});
+var MatFabAnchor = _MatFabAnchor;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatFabAnchor, [{
+    type: Component,
+    args: [{
+      selector: `a[mat-fab]`,
+      host: __spreadProps(__spreadValues({}, MAT_ANCHOR_HOST), {
+        "[class.mdc-fab--extended]": "extended",
+        "[class.mat-mdc-extended-fab]": "extended"
+      }),
+      exportAs: "matButton, matAnchor",
+      encapsulation: ViewEncapsulation$1.None,
+      changeDetection: ChangeDetectionStrategy.OnPush,
+      standalone: true,
+      template: `<span
+    class="mat-mdc-button-persistent-ripple"
+    [class.mdc-button__ripple]="!_isFab"
+    [class.mdc-fab__ripple]="_isFab"></span>
+
+<ng-content select=".material-icons:not([iconPositionEnd]), mat-icon:not([iconPositionEnd]), [matButtonIcon]:not([iconPositionEnd])">
+</ng-content>
+
+<span class="mdc-button__label"><ng-content></ng-content></span>
+
+<ng-content select=".material-icons[iconPositionEnd], mat-icon[iconPositionEnd], [matButtonIcon][iconPositionEnd]">
+</ng-content>
+
+<!--
+  The indicator can't be directly on the button, because MDC uses ::before for high contrast
+  indication and it can't be on the ripple, because it has a border radius and overflow: hidden.
+-->
+<span class="mat-mdc-focus-indicator"></span>
+
+<span class="mat-mdc-button-touch-target"></span>
+`,
+      styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-fab{position:relative;display:inline-flex;position:relative;align-items:center;justify-content:center;box-sizing:border-box;width:56px;height:56px;padding:0;border:none;fill:currentColor;text-decoration:none;cursor:pointer;user-select:none;-moz-appearance:none;-webkit-appearance:none;overflow:visible;transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),opacity 15ms linear 30ms,transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-fab .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-fab[hidden]{display:none}.mdc-fab::-moz-focus-inner{padding:0;border:0}.mdc-fab .mdc-fab__focus-ring{position:absolute}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{border-color:CanvasText}}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{border-color:CanvasText}}.mdc-fab:active,.mdc-fab:focus{outline:none}.mdc-fab:hover{cursor:pointer}.mdc-fab>svg{width:100%}.mdc-fab--mini{width:40px;height:40px}.mdc-fab--extended{border-radius:24px;padding-left:20px;padding-right:20px;width:auto;max-width:100%;height:48px;line-height:normal}.mdc-fab--extended .mdc-fab__ripple{border-radius:24px}.mdc-fab--extended .mdc-fab__icon{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mdc-fab--extended .mdc-fab__icon,.mdc-fab--extended .mdc-fab__icon[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mdc-fab--extended .mdc-fab__label+.mdc-fab__icon,.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}.mdc-fab--touch{margin-top:4px;margin-bottom:4px;margin-right:4px;margin-left:4px}.mdc-fab--touch .mdc-fab__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-fab::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-fab::before{border-color:CanvasText}}.mdc-fab__label{justify-content:flex-start;text-overflow:ellipsis;white-space:nowrap;overflow-x:hidden;overflow-y:visible}.mdc-fab__icon{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mdc-fab .mdc-fab__icon{display:inline-flex;align-items:center;justify-content:center}.mdc-fab--exited{transform:scale(0);opacity:0;transition:opacity 15ms linear 150ms,transform 180ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mdc-fab--exited .mdc-fab__icon{transform:scale(0);transition:transform 135ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mat-mdc-fab{background-color:var(--mdc-fab-container-color)}.mat-mdc-fab .mdc-fab__icon{width:var(--mdc-fab-icon-size);height:var(--mdc-fab-icon-size);font-size:var(--mdc-fab-icon-size)}.mat-mdc-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-container-shape)}.mat-mdc-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-container-shape)}.mat-mdc-mini-fab{background-color:var(--mdc-fab-small-container-color)}.mat-mdc-mini-fab .mdc-fab__icon{width:var(--mdc-fab-small-icon-size);height:var(--mdc-fab-small-icon-size);font-size:var(--mdc-fab-small-icon-size)}.mat-mdc-mini-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-mini-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-extended-fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mdc-extended-fab-container-height);border-radius:var(--mdc-extended-fab-container-shape);font-family:var(--mdc-extended-fab-label-text-font);font-size:var(--mdc-extended-fab-label-text-size);font-weight:var(--mdc-extended-fab-label-text-weight);letter-spacing:var(--mdc-extended-fab-label-text-tracking)}.mat-mdc-extended-fab .mdc-fab__ripple{border-radius:var(--mdc-extended-fab-container-shape)}.mat-mdc-fab,.mat-mdc-mini-fab{-webkit-tap-highlight-color:rgba(0,0,0,0);flex-shrink:0}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-fab .mdc-button__label,.mat-mdc-mini-fab .mdc-button__label{z-index:1}.mat-mdc-fab .mat-mdc-focus-indicator,.mat-mdc-mini-fab .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-fab:focus .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-fab._mat-animation-noopable,.mat-mdc-mini-fab._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-fab:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-mini-fab:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}.mat-mdc-fab .mat-icon,.mat-mdc-fab .material-icons,.mat-mdc-mini-fab .mat-icon,.mat-mdc-mini-fab .material-icons{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mat-mdc-fab .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-fab[disabled],.mat-mdc-fab[disabled]:focus,.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-fab.mat-mdc-button-disabled:focus,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab[disabled]:focus,.mat-mdc-mini-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-fab.mat-mdc-button-disabled-interactive,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-fab{color:var(--mat-fab-foreground-color, inherit);box-shadow:var(--mdc-fab-container-elevation-shadow)}.mat-mdc-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-touch-target-display)}.mat-mdc-fab .mat-ripple-element{background-color:var(--mat-fab-ripple-color)}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-state-layer-color)}.mat-mdc-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-disabled-state-layer-color)}.mat-mdc-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-hover-state-layer-opacity)}.mat-mdc-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-focus-state-layer-opacity)}.mat-mdc-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-pressed-state-layer-opacity)}.mat-mdc-fab:hover{box-shadow:var(--mdc-fab-hover-container-elevation-shadow)}.mat-mdc-fab:focus{box-shadow:var(--mdc-fab-focus-container-elevation-shadow)}.mat-mdc-fab:active,.mat-mdc-fab:focus:active{box-shadow:var(--mdc-fab-pressed-container-elevation-shadow)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-disabled-state-foreground-color);background-color:var(--mat-fab-disabled-state-container-color)}.mat-mdc-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-mini-fab{color:var(--mat-fab-small-foreground-color, inherit);box-shadow:var(--mdc-fab-small-container-elevation-shadow)}.mat-mdc-mini-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-small-touch-target-display)}.mat-mdc-mini-fab .mat-ripple-element{background-color:var(--mat-fab-small-ripple-color)}.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-state-layer-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-disabled-state-layer-color)}.mat-mdc-mini-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-hover-state-layer-opacity)}.mat-mdc-mini-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-focus-state-layer-opacity)}.mat-mdc-mini-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-pressed-state-layer-opacity)}.mat-mdc-mini-fab:hover{box-shadow:var(--mdc-fab-small-hover-container-elevation-shadow)}.mat-mdc-mini-fab:focus{box-shadow:var(--mdc-fab-small-focus-container-elevation-shadow)}.mat-mdc-mini-fab:active,.mat-mdc-mini-fab:focus:active{box-shadow:var(--mdc-fab-small-pressed-container-elevation-shadow)}.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-small-disabled-state-foreground-color);background-color:var(--mat-fab-small-disabled-state-container-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab{box-shadow:var(--mdc-extended-fab-container-elevation-shadow)}.mat-mdc-extended-fab:hover{box-shadow:var(--mdc-extended-fab-hover-container-elevation-shadow)}.mat-mdc-extended-fab:focus{box-shadow:var(--mdc-extended-fab-focus-container-elevation-shadow)}.mat-mdc-extended-fab:active,.mat-mdc-extended-fab:focus:active{box-shadow:var(--mdc-extended-fab-pressed-container-elevation-shadow)}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab[disabled]:focus,.mat-mdc-extended-fab.mat-mdc-button-disabled,.mat-mdc-extended-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-extended-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab>.mat-icon,.mat-mdc-extended-fab>.material-icons{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mat-mdc-extended-fab>.mat-icon,[dir=rtl] .mat-mdc-extended-fab>.material-icons,.mat-mdc-extended-fab>.mat-icon[dir=rtl],.mat-mdc-extended-fab>.material-icons[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mat-mdc-extended-fab .mat-mdc-button-touch-target{width:100%}.mat-mdc-extended-fab .mdc-button__label+.mat-icon,.mat-mdc-extended-fab .mdc-button__label+.material-icons{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.mat-icon,[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.material-icons,.mat-mdc-extended-fab .mdc-button__label+.mat-icon[dir=rtl],.mat-mdc-extended-fab .mdc-button__label+.material-icons[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}']
+    }]
+  }], () => [{
+    type: ElementRef
+  }, {
+    type: Platform
+  }, {
+    type: NgZone
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [ANIMATION_MODULE_TYPE]
+    }]
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [MAT_FAB_DEFAULT_OPTIONS]
+    }]
+  }], {
+    extended: [{
+      type: Input,
+      args: [{
+        transform: booleanAttribute
+      }]
+    }]
+  });
+})();
+var _MatMiniFabAnchor = class _MatMiniFabAnchor extends MatAnchor {
+  constructor(elementRef, platform, ngZone, animationMode, _options) {
+    super(elementRef, platform, ngZone, animationMode);
+    this._options = _options;
+    this._isFab = true;
+    this._options = this._options || defaults2;
+    this.color = this._options.color || defaults2.color;
+  }
+};
+_MatMiniFabAnchor.\u0275fac = function MatMiniFabAnchor_Factory(t) {
+  return new (t || _MatMiniFabAnchor)(\u0275\u0275directiveInject(ElementRef), \u0275\u0275directiveInject(Platform), \u0275\u0275directiveInject(NgZone), \u0275\u0275directiveInject(ANIMATION_MODULE_TYPE, 8), \u0275\u0275directiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
+};
+_MatMiniFabAnchor.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
+  type: _MatMiniFabAnchor,
+  selectors: [["a", "mat-mini-fab", ""]],
+  hostVars: 15,
+  hostBindings: function MatMiniFabAnchor_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      \u0275\u0275attribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
+      \u0275\u0275classMap(ctx.color ? "mat-" + ctx.color : "");
+      \u0275\u0275classProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+    }
+  },
+  exportAs: ["matButton", "matAnchor"],
+  standalone: true,
+  features: [\u0275\u0275InheritDefinitionFeature, \u0275\u0275StandaloneFeature],
+  attrs: _c63,
+  ngContentSelectors: _c26,
+  decls: 7,
+  vars: 4,
+  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+  template: function MatMiniFabAnchor_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275projectionDef(_c110);
+      \u0275\u0275element(0, "span", 0);
+      \u0275\u0275projection(1);
+      \u0275\u0275elementStart(2, "span", 1);
+      \u0275\u0275projection(3, 1);
+      \u0275\u0275elementEnd();
+      \u0275\u0275projection(4, 2);
+      \u0275\u0275element(5, "span", 2)(6, "span", 3);
+    }
+    if (rf & 2) {
+      \u0275\u0275classProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+    }
+  },
+  styles: [_c72],
+  encapsulation: 2,
+  changeDetection: 0
+});
+var MatMiniFabAnchor = _MatMiniFabAnchor;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatMiniFabAnchor, [{
+    type: Component,
+    args: [{
+      selector: `a[mat-mini-fab]`,
+      host: MAT_ANCHOR_HOST,
+      exportAs: "matButton, matAnchor",
+      encapsulation: ViewEncapsulation$1.None,
+      changeDetection: ChangeDetectionStrategy.OnPush,
+      standalone: true,
+      template: `<span
+    class="mat-mdc-button-persistent-ripple"
+    [class.mdc-button__ripple]="!_isFab"
+    [class.mdc-fab__ripple]="_isFab"></span>
+
+<ng-content select=".material-icons:not([iconPositionEnd]), mat-icon:not([iconPositionEnd]), [matButtonIcon]:not([iconPositionEnd])">
+</ng-content>
+
+<span class="mdc-button__label"><ng-content></ng-content></span>
+
+<ng-content select=".material-icons[iconPositionEnd], mat-icon[iconPositionEnd], [matButtonIcon][iconPositionEnd]">
+</ng-content>
+
+<!--
+  The indicator can't be directly on the button, because MDC uses ::before for high contrast
+  indication and it can't be on the ripple, because it has a border radius and overflow: hidden.
+-->
+<span class="mat-mdc-focus-indicator"></span>
+
+<span class="mat-mdc-button-touch-target"></span>
+`,
+      styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-fab{position:relative;display:inline-flex;position:relative;align-items:center;justify-content:center;box-sizing:border-box;width:56px;height:56px;padding:0;border:none;fill:currentColor;text-decoration:none;cursor:pointer;user-select:none;-moz-appearance:none;-webkit-appearance:none;overflow:visible;transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),opacity 15ms linear 30ms,transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-fab .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-fab[hidden]{display:none}.mdc-fab::-moz-focus-inner{padding:0;border:0}.mdc-fab .mdc-fab__focus-ring{position:absolute}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{border-color:CanvasText}}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{border-color:CanvasText}}.mdc-fab:active,.mdc-fab:focus{outline:none}.mdc-fab:hover{cursor:pointer}.mdc-fab>svg{width:100%}.mdc-fab--mini{width:40px;height:40px}.mdc-fab--extended{border-radius:24px;padding-left:20px;padding-right:20px;width:auto;max-width:100%;height:48px;line-height:normal}.mdc-fab--extended .mdc-fab__ripple{border-radius:24px}.mdc-fab--extended .mdc-fab__icon{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mdc-fab--extended .mdc-fab__icon,.mdc-fab--extended .mdc-fab__icon[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mdc-fab--extended .mdc-fab__label+.mdc-fab__icon,.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}.mdc-fab--touch{margin-top:4px;margin-bottom:4px;margin-right:4px;margin-left:4px}.mdc-fab--touch .mdc-fab__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-fab::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-fab::before{border-color:CanvasText}}.mdc-fab__label{justify-content:flex-start;text-overflow:ellipsis;white-space:nowrap;overflow-x:hidden;overflow-y:visible}.mdc-fab__icon{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mdc-fab .mdc-fab__icon{display:inline-flex;align-items:center;justify-content:center}.mdc-fab--exited{transform:scale(0);opacity:0;transition:opacity 15ms linear 150ms,transform 180ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mdc-fab--exited .mdc-fab__icon{transform:scale(0);transition:transform 135ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mat-mdc-fab{background-color:var(--mdc-fab-container-color)}.mat-mdc-fab .mdc-fab__icon{width:var(--mdc-fab-icon-size);height:var(--mdc-fab-icon-size);font-size:var(--mdc-fab-icon-size)}.mat-mdc-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-container-shape)}.mat-mdc-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-container-shape)}.mat-mdc-mini-fab{background-color:var(--mdc-fab-small-container-color)}.mat-mdc-mini-fab .mdc-fab__icon{width:var(--mdc-fab-small-icon-size);height:var(--mdc-fab-small-icon-size);font-size:var(--mdc-fab-small-icon-size)}.mat-mdc-mini-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-mini-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-extended-fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mdc-extended-fab-container-height);border-radius:var(--mdc-extended-fab-container-shape);font-family:var(--mdc-extended-fab-label-text-font);font-size:var(--mdc-extended-fab-label-text-size);font-weight:var(--mdc-extended-fab-label-text-weight);letter-spacing:var(--mdc-extended-fab-label-text-tracking)}.mat-mdc-extended-fab .mdc-fab__ripple{border-radius:var(--mdc-extended-fab-container-shape)}.mat-mdc-fab,.mat-mdc-mini-fab{-webkit-tap-highlight-color:rgba(0,0,0,0);flex-shrink:0}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-fab .mdc-button__label,.mat-mdc-mini-fab .mdc-button__label{z-index:1}.mat-mdc-fab .mat-mdc-focus-indicator,.mat-mdc-mini-fab .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-fab:focus .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-fab._mat-animation-noopable,.mat-mdc-mini-fab._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-fab:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-mini-fab:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}.mat-mdc-fab .mat-icon,.mat-mdc-fab .material-icons,.mat-mdc-mini-fab .mat-icon,.mat-mdc-mini-fab .material-icons{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mat-mdc-fab .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-fab[disabled],.mat-mdc-fab[disabled]:focus,.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-fab.mat-mdc-button-disabled:focus,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab[disabled]:focus,.mat-mdc-mini-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-fab.mat-mdc-button-disabled-interactive,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-fab{color:var(--mat-fab-foreground-color, inherit);box-shadow:var(--mdc-fab-container-elevation-shadow)}.mat-mdc-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-touch-target-display)}.mat-mdc-fab .mat-ripple-element{background-color:var(--mat-fab-ripple-color)}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-state-layer-color)}.mat-mdc-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-disabled-state-layer-color)}.mat-mdc-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-hover-state-layer-opacity)}.mat-mdc-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-focus-state-layer-opacity)}.mat-mdc-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-pressed-state-layer-opacity)}.mat-mdc-fab:hover{box-shadow:var(--mdc-fab-hover-container-elevation-shadow)}.mat-mdc-fab:focus{box-shadow:var(--mdc-fab-focus-container-elevation-shadow)}.mat-mdc-fab:active,.mat-mdc-fab:focus:active{box-shadow:var(--mdc-fab-pressed-container-elevation-shadow)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-disabled-state-foreground-color);background-color:var(--mat-fab-disabled-state-container-color)}.mat-mdc-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-mini-fab{color:var(--mat-fab-small-foreground-color, inherit);box-shadow:var(--mdc-fab-small-container-elevation-shadow)}.mat-mdc-mini-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-small-touch-target-display)}.mat-mdc-mini-fab .mat-ripple-element{background-color:var(--mat-fab-small-ripple-color)}.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-state-layer-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-disabled-state-layer-color)}.mat-mdc-mini-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-hover-state-layer-opacity)}.mat-mdc-mini-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-focus-state-layer-opacity)}.mat-mdc-mini-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-pressed-state-layer-opacity)}.mat-mdc-mini-fab:hover{box-shadow:var(--mdc-fab-small-hover-container-elevation-shadow)}.mat-mdc-mini-fab:focus{box-shadow:var(--mdc-fab-small-focus-container-elevation-shadow)}.mat-mdc-mini-fab:active,.mat-mdc-mini-fab:focus:active{box-shadow:var(--mdc-fab-small-pressed-container-elevation-shadow)}.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-small-disabled-state-foreground-color);background-color:var(--mat-fab-small-disabled-state-container-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab{box-shadow:var(--mdc-extended-fab-container-elevation-shadow)}.mat-mdc-extended-fab:hover{box-shadow:var(--mdc-extended-fab-hover-container-elevation-shadow)}.mat-mdc-extended-fab:focus{box-shadow:var(--mdc-extended-fab-focus-container-elevation-shadow)}.mat-mdc-extended-fab:active,.mat-mdc-extended-fab:focus:active{box-shadow:var(--mdc-extended-fab-pressed-container-elevation-shadow)}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab[disabled]:focus,.mat-mdc-extended-fab.mat-mdc-button-disabled,.mat-mdc-extended-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-extended-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab>.mat-icon,.mat-mdc-extended-fab>.material-icons{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mat-mdc-extended-fab>.mat-icon,[dir=rtl] .mat-mdc-extended-fab>.material-icons,.mat-mdc-extended-fab>.mat-icon[dir=rtl],.mat-mdc-extended-fab>.material-icons[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mat-mdc-extended-fab .mat-mdc-button-touch-target{width:100%}.mat-mdc-extended-fab .mdc-button__label+.mat-icon,.mat-mdc-extended-fab .mdc-button__label+.material-icons{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.mat-icon,[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.material-icons,.mat-mdc-extended-fab .mdc-button__label+.mat-icon[dir=rtl],.mat-mdc-extended-fab .mdc-button__label+.material-icons[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}']
+    }]
+  }], () => [{
+    type: ElementRef
+  }, {
+    type: Platform
+  }, {
+    type: NgZone
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [ANIMATION_MODULE_TYPE]
+    }]
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [MAT_FAB_DEFAULT_OPTIONS]
+    }]
+  }], null);
+})();
+var _MatIconButton = class _MatIconButton extends MatButtonBase {
+  constructor(elementRef, platform, ngZone, animationMode) {
+    super(elementRef, platform, ngZone, animationMode);
+    this._rippleLoader.configureRipple(this._elementRef.nativeElement, {
+      centered: true
+    });
+  }
+};
+_MatIconButton.\u0275fac = function MatIconButton_Factory(t) {
+  return new (t || _MatIconButton)(\u0275\u0275directiveInject(ElementRef), \u0275\u0275directiveInject(Platform), \u0275\u0275directiveInject(NgZone), \u0275\u0275directiveInject(ANIMATION_MODULE_TYPE, 8));
+};
+_MatIconButton.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
+  type: _MatIconButton,
+  selectors: [["button", "mat-icon-button", ""]],
+  hostVars: 14,
+  hostBindings: function MatIconButton_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      \u0275\u0275attribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
+      \u0275\u0275classMap(ctx.color ? "mat-" + ctx.color : "");
+      \u0275\u0275classProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+    }
+  },
+  exportAs: ["matButton"],
+  standalone: true,
+  features: [\u0275\u0275InheritDefinitionFeature, \u0275\u0275StandaloneFeature],
+  attrs: _c8,
+  ngContentSelectors: _c9,
+  decls: 4,
+  vars: 0,
+  consts: [[1, "mat-mdc-button-persistent-ripple", "mdc-icon-button__ripple"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+  template: function MatIconButton_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275projectionDef();
+      \u0275\u0275element(0, "span", 0);
+      \u0275\u0275projection(1);
+      \u0275\u0275element(2, "span", 1)(3, "span", 2);
+    }
+  },
+  styles: ['.mdc-icon-button{display:inline-block;position:relative;box-sizing:border-box;border:none;outline:none;background-color:rgba(0,0,0,0);fill:currentColor;color:inherit;text-decoration:none;cursor:pointer;user-select:none;z-index:0;overflow:visible}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}@media screen and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{display:block}}.mdc-icon-button:disabled{cursor:default;pointer-events:none}.mdc-icon-button[hidden]{display:none}.mdc-icon-button--display-flex{align-items:center;display:inline-flex;justify-content:center}.mdc-icon-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:100%;width:100%;display:none}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring{border-color:CanvasText}}.mdc-icon-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring::after{border-color:CanvasText}}.mdc-icon-button__icon{display:inline-block}.mdc-icon-button__icon.mdc-icon-button__icon--on{display:none}.mdc-icon-button--on .mdc-icon-button__icon{display:none}.mdc-icon-button--on .mdc-icon-button__icon.mdc-icon-button__icon--on{display:inline-block}.mdc-icon-button__link{height:100%;left:0;outline:none;position:absolute;top:0;width:100%}.mat-mdc-icon-button{color:var(--mdc-icon-button-icon-color)}.mat-mdc-icon-button .mdc-button__icon{font-size:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button svg,.mat-mdc-icon-button img{width:var(--mdc-icon-button-icon-size);height:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button:disabled{color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button{border-radius:50%;flex-shrink:0;text-align:center;width:var(--mdc-icon-button-state-layer-size, 48px);height:var(--mdc-icon-button-state-layer-size, 48px);padding:calc(calc(var(--mdc-icon-button-state-layer-size, 48px) - var(--mdc-icon-button-icon-size, 24px)) / 2);font-size:var(--mdc-icon-button-icon-size);-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-icon-button svg{vertical-align:baseline}.mat-mdc-icon-button[disabled],.mat-mdc-icon-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-icon-button .mat-mdc-button-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-icon-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-icon-button .mdc-button__label{z-index:1}.mat-mdc-icon-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-icon-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-icon-button .mat-ripple-element{background-color:var(--mat-icon-button-ripple-color)}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-state-layer-color)}.mat-mdc-icon-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-disabled-state-layer-color)}.mat-mdc-icon-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-hover-state-layer-opacity)}.mat-mdc-icon-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-focus-state-layer-opacity)}.mat-mdc-icon-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-pressed-state-layer-opacity)}.mat-mdc-icon-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-icon-button-touch-target-display)}.mat-mdc-icon-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple{border-radius:50%}.mat-mdc-icon-button.mat-unthemed:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-primary:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-accent:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-warn:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}', _c44],
+  encapsulation: 2,
+  changeDetection: 0
+});
+var MatIconButton = _MatIconButton;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatIconButton, [{
+    type: Component,
+    args: [{
+      selector: `button[mat-icon-button]`,
+      host: MAT_BUTTON_HOST,
+      exportAs: "matButton",
+      encapsulation: ViewEncapsulation$1.None,
+      changeDetection: ChangeDetectionStrategy.OnPush,
+      standalone: true,
+      template: `<span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span>
+
+<ng-content></ng-content>
+
+<!--
+  The indicator can't be directly on the button, because MDC uses ::before for high contrast
+  indication and it can't be on the ripple, because it has a border radius and overflow: hidden.
+-->
+<span class="mat-mdc-focus-indicator"></span>
+
+<span class="mat-mdc-button-touch-target"></span>
+`,
+      styles: ['.mdc-icon-button{display:inline-block;position:relative;box-sizing:border-box;border:none;outline:none;background-color:rgba(0,0,0,0);fill:currentColor;color:inherit;text-decoration:none;cursor:pointer;user-select:none;z-index:0;overflow:visible}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}@media screen and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{display:block}}.mdc-icon-button:disabled{cursor:default;pointer-events:none}.mdc-icon-button[hidden]{display:none}.mdc-icon-button--display-flex{align-items:center;display:inline-flex;justify-content:center}.mdc-icon-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:100%;width:100%;display:none}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring{border-color:CanvasText}}.mdc-icon-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring::after{border-color:CanvasText}}.mdc-icon-button__icon{display:inline-block}.mdc-icon-button__icon.mdc-icon-button__icon--on{display:none}.mdc-icon-button--on .mdc-icon-button__icon{display:none}.mdc-icon-button--on .mdc-icon-button__icon.mdc-icon-button__icon--on{display:inline-block}.mdc-icon-button__link{height:100%;left:0;outline:none;position:absolute;top:0;width:100%}.mat-mdc-icon-button{color:var(--mdc-icon-button-icon-color)}.mat-mdc-icon-button .mdc-button__icon{font-size:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button svg,.mat-mdc-icon-button img{width:var(--mdc-icon-button-icon-size);height:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button:disabled{color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button{border-radius:50%;flex-shrink:0;text-align:center;width:var(--mdc-icon-button-state-layer-size, 48px);height:var(--mdc-icon-button-state-layer-size, 48px);padding:calc(calc(var(--mdc-icon-button-state-layer-size, 48px) - var(--mdc-icon-button-icon-size, 24px)) / 2);font-size:var(--mdc-icon-button-icon-size);-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-icon-button svg{vertical-align:baseline}.mat-mdc-icon-button[disabled],.mat-mdc-icon-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-icon-button .mat-mdc-button-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-icon-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-icon-button .mdc-button__label{z-index:1}.mat-mdc-icon-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-icon-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-icon-button .mat-ripple-element{background-color:var(--mat-icon-button-ripple-color)}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-state-layer-color)}.mat-mdc-icon-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-disabled-state-layer-color)}.mat-mdc-icon-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-hover-state-layer-opacity)}.mat-mdc-icon-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-focus-state-layer-opacity)}.mat-mdc-icon-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-pressed-state-layer-opacity)}.mat-mdc-icon-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-icon-button-touch-target-display)}.mat-mdc-icon-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple{border-radius:50%}.mat-mdc-icon-button.mat-unthemed:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-primary:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-accent:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-warn:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}', ".cdk-high-contrast-active .mat-mdc-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-unelevated-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-raised-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-outlined-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-icon-button{outline:solid 1px}"]
+    }]
+  }], () => [{
+    type: ElementRef
+  }, {
+    type: Platform
+  }, {
+    type: NgZone
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [ANIMATION_MODULE_TYPE]
+    }]
+  }], null);
+})();
+var _MatIconAnchor = class _MatIconAnchor extends MatAnchorBase {
+  constructor(elementRef, platform, ngZone, animationMode) {
+    super(elementRef, platform, ngZone, animationMode);
+  }
+};
+_MatIconAnchor.\u0275fac = function MatIconAnchor_Factory(t) {
+  return new (t || _MatIconAnchor)(\u0275\u0275directiveInject(ElementRef), \u0275\u0275directiveInject(Platform), \u0275\u0275directiveInject(NgZone), \u0275\u0275directiveInject(ANIMATION_MODULE_TYPE, 8));
+};
+_MatIconAnchor.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
+  type: _MatIconAnchor,
+  selectors: [["a", "mat-icon-button", ""]],
+  hostVars: 15,
+  hostBindings: function MatIconAnchor_HostBindings(rf, ctx) {
+    if (rf & 2) {
+      \u0275\u0275attribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
+      \u0275\u0275classMap(ctx.color ? "mat-" + ctx.color : "");
+      \u0275\u0275classProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+    }
+  },
+  exportAs: ["matButton", "matAnchor"],
+  standalone: true,
+  features: [\u0275\u0275InheritDefinitionFeature, \u0275\u0275StandaloneFeature],
+  attrs: _c8,
+  ngContentSelectors: _c26,
+  decls: 7,
+  vars: 4,
+  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+  template: function MatIconAnchor_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275projectionDef(_c110);
+      \u0275\u0275element(0, "span", 0);
+      \u0275\u0275projection(1);
+      \u0275\u0275elementStart(2, "span", 1);
+      \u0275\u0275projection(3, 1);
+      \u0275\u0275elementEnd();
+      \u0275\u0275projection(4, 2);
+      \u0275\u0275element(5, "span", 2)(6, "span", 3);
+    }
+    if (rf & 2) {
+      \u0275\u0275classProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+    }
+  },
+  styles: [_c10, _c44],
+  encapsulation: 2,
+  changeDetection: 0
+});
+var MatIconAnchor = _MatIconAnchor;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatIconAnchor, [{
+    type: Component,
+    args: [{
+      selector: `a[mat-icon-button]`,
+      host: MAT_ANCHOR_HOST,
+      exportAs: "matButton, matAnchor",
+      encapsulation: ViewEncapsulation$1.None,
+      changeDetection: ChangeDetectionStrategy.OnPush,
+      standalone: true,
+      template: `<span
+    class="mat-mdc-button-persistent-ripple"
+    [class.mdc-button__ripple]="!_isFab"
+    [class.mdc-fab__ripple]="_isFab"></span>
+
+<ng-content select=".material-icons:not([iconPositionEnd]), mat-icon:not([iconPositionEnd]), [matButtonIcon]:not([iconPositionEnd])">
+</ng-content>
+
+<span class="mdc-button__label"><ng-content></ng-content></span>
+
+<ng-content select=".material-icons[iconPositionEnd], mat-icon[iconPositionEnd], [matButtonIcon][iconPositionEnd]">
+</ng-content>
+
+<!--
+  The indicator can't be directly on the button, because MDC uses ::before for high contrast
+  indication and it can't be on the ripple, because it has a border radius and overflow: hidden.
+-->
+<span class="mat-mdc-focus-indicator"></span>
+
+<span class="mat-mdc-button-touch-target"></span>
+`,
+      styles: ['.mdc-icon-button{display:inline-block;position:relative;box-sizing:border-box;border:none;outline:none;background-color:rgba(0,0,0,0);fill:currentColor;color:inherit;text-decoration:none;cursor:pointer;user-select:none;z-index:0;overflow:visible}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}@media screen and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{display:block}}.mdc-icon-button:disabled{cursor:default;pointer-events:none}.mdc-icon-button[hidden]{display:none}.mdc-icon-button--display-flex{align-items:center;display:inline-flex;justify-content:center}.mdc-icon-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:100%;width:100%;display:none}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring{border-color:CanvasText}}.mdc-icon-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring::after{border-color:CanvasText}}.mdc-icon-button__icon{display:inline-block}.mdc-icon-button__icon.mdc-icon-button__icon--on{display:none}.mdc-icon-button--on .mdc-icon-button__icon{display:none}.mdc-icon-button--on .mdc-icon-button__icon.mdc-icon-button__icon--on{display:inline-block}.mdc-icon-button__link{height:100%;left:0;outline:none;position:absolute;top:0;width:100%}.mat-mdc-icon-button{color:var(--mdc-icon-button-icon-color)}.mat-mdc-icon-button .mdc-button__icon{font-size:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button svg,.mat-mdc-icon-button img{width:var(--mdc-icon-button-icon-size);height:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button:disabled{color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button{border-radius:50%;flex-shrink:0;text-align:center;width:var(--mdc-icon-button-state-layer-size, 48px);height:var(--mdc-icon-button-state-layer-size, 48px);padding:calc(calc(var(--mdc-icon-button-state-layer-size, 48px) - var(--mdc-icon-button-icon-size, 24px)) / 2);font-size:var(--mdc-icon-button-icon-size);-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-icon-button svg{vertical-align:baseline}.mat-mdc-icon-button[disabled],.mat-mdc-icon-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-icon-button .mat-mdc-button-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-icon-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-icon-button .mdc-button__label{z-index:1}.mat-mdc-icon-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-icon-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-icon-button .mat-ripple-element{background-color:var(--mat-icon-button-ripple-color)}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-state-layer-color)}.mat-mdc-icon-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-disabled-state-layer-color)}.mat-mdc-icon-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-hover-state-layer-opacity)}.mat-mdc-icon-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-focus-state-layer-opacity)}.mat-mdc-icon-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-pressed-state-layer-opacity)}.mat-mdc-icon-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-icon-button-touch-target-display)}.mat-mdc-icon-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple{border-radius:50%}.mat-mdc-icon-button.mat-unthemed:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-primary:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-accent:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-warn:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}', ".cdk-high-contrast-active .mat-mdc-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-unelevated-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-raised-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-outlined-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-icon-button{outline:solid 1px}"]
+    }]
+  }], () => [{
+    type: ElementRef
+  }, {
+    type: Platform
+  }, {
+    type: NgZone
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Optional
+    }, {
+      type: Inject,
+      args: [ANIMATION_MODULE_TYPE]
+    }]
+  }], null);
+})();
+var _MatButtonModule = class _MatButtonModule {
+};
+_MatButtonModule.\u0275fac = function MatButtonModule_Factory(t) {
+  return new (t || _MatButtonModule)();
+};
+_MatButtonModule.\u0275mod = /* @__PURE__ */ \u0275\u0275defineNgModule({
+  type: _MatButtonModule
+});
+_MatButtonModule.\u0275inj = /* @__PURE__ */ \u0275\u0275defineInjector({
+  imports: [MatCommonModule, MatRippleModule, MatCommonModule]
+});
+var MatButtonModule = _MatButtonModule;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatButtonModule, [{
+    type: NgModule,
+    args: [{
+      imports: [MatCommonModule, MatRippleModule, MatAnchor, MatButton, MatIconAnchor, MatMiniFabAnchor, MatMiniFabButton, MatIconButton, MatFabAnchor, MatFabButton],
+      exports: [MatAnchor, MatButton, MatIconAnchor, MatIconButton, MatMiniFabAnchor, MatMiniFabButton, MatFabAnchor, MatFabButton, MatCommonModule]
+    }]
+  }], null, null);
+})();
+
+// node_modules/@angular/material/fesm2022/snack-bar.mjs
+function SimpleSnackBar_Conditional_2_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r1 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 1)(1, "button", 2);
+    \u0275\u0275listener("click", function SimpleSnackBar_Conditional_2_Template_button_click_1_listener() {
+      \u0275\u0275restoreView(_r1);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.action());
+    });
+    \u0275\u0275text(2);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1(" ", ctx_r1.data.action, " ");
+  }
+}
+var _c016 = ["label"];
+function MatSnackBarContainer_ng_template_4_Template(rf, ctx) {
+}
+var MAX_TIMEOUT = Math.pow(2, 31) - 1;
+var MatSnackBarRef = class {
+  constructor(containerInstance, _overlayRef) {
+    this._overlayRef = _overlayRef;
+    this._afterDismissed = new Subject();
+    this._afterOpened = new Subject();
+    this._onAction = new Subject();
+    this._dismissedByAction = false;
+    this.containerInstance = containerInstance;
+    containerInstance._onExit.subscribe(() => this._finishDismiss());
+  }
+  /** Dismisses the snack bar. */
+  dismiss() {
+    if (!this._afterDismissed.closed) {
+      this.containerInstance.exit();
+    }
+    clearTimeout(this._durationTimeoutId);
+  }
+  /** Marks the snackbar action clicked. */
+  dismissWithAction() {
+    if (!this._onAction.closed) {
+      this._dismissedByAction = true;
+      this._onAction.next();
+      this._onAction.complete();
+      this.dismiss();
+    }
+    clearTimeout(this._durationTimeoutId);
+  }
+  /**
+   * Marks the snackbar action clicked.
+   * @deprecated Use `dismissWithAction` instead.
+   * @breaking-change 8.0.0
+   */
+  closeWithAction() {
+    this.dismissWithAction();
+  }
+  /** Dismisses the snack bar after some duration */
+  _dismissAfter(duration) {
+    this._durationTimeoutId = setTimeout(() => this.dismiss(), Math.min(duration, MAX_TIMEOUT));
+  }
+  /** Marks the snackbar as opened */
+  _open() {
+    if (!this._afterOpened.closed) {
+      this._afterOpened.next();
+      this._afterOpened.complete();
+    }
+  }
+  /** Cleans up the DOM after closing. */
+  _finishDismiss() {
+    this._overlayRef.dispose();
+    if (!this._onAction.closed) {
+      this._onAction.complete();
+    }
+    this._afterDismissed.next({
+      dismissedByAction: this._dismissedByAction
+    });
+    this._afterDismissed.complete();
+    this._dismissedByAction = false;
+  }
+  /** Gets an observable that is notified when the snack bar is finished closing. */
+  afterDismissed() {
+    return this._afterDismissed;
+  }
+  /** Gets an observable that is notified when the snack bar has opened and appeared. */
+  afterOpened() {
+    return this.containerInstance._onEnter;
+  }
+  /** Gets an observable that is notified when the snack bar action is called. */
+  onAction() {
+    return this._onAction;
+  }
+};
+var MAT_SNACK_BAR_DATA = new InjectionToken("MatSnackBarData");
+var MatSnackBarConfig = class {
+  constructor() {
+    this.politeness = "assertive";
+    this.announcementMessage = "";
+    this.duration = 0;
+    this.data = null;
+    this.horizontalPosition = "center";
+    this.verticalPosition = "bottom";
+  }
+};
+var _MatSnackBarLabel = class _MatSnackBarLabel {
+};
+_MatSnackBarLabel.\u0275fac = function MatSnackBarLabel_Factory(t) {
+  return new (t || _MatSnackBarLabel)();
+};
+_MatSnackBarLabel.\u0275dir = /* @__PURE__ */ \u0275\u0275defineDirective({
+  type: _MatSnackBarLabel,
+  selectors: [["", "matSnackBarLabel", ""]],
+  hostAttrs: [1, "mat-mdc-snack-bar-label", "mdc-snackbar__label"],
+  standalone: true
+});
+var MatSnackBarLabel = _MatSnackBarLabel;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBarLabel, [{
+    type: Directive,
+    args: [{
+      selector: `[matSnackBarLabel]`,
+      standalone: true,
+      host: {
+        "class": "mat-mdc-snack-bar-label mdc-snackbar__label"
+      }
+    }]
+  }], null, null);
+})();
+var _MatSnackBarActions = class _MatSnackBarActions {
+};
+_MatSnackBarActions.\u0275fac = function MatSnackBarActions_Factory(t) {
+  return new (t || _MatSnackBarActions)();
+};
+_MatSnackBarActions.\u0275dir = /* @__PURE__ */ \u0275\u0275defineDirective({
+  type: _MatSnackBarActions,
+  selectors: [["", "matSnackBarActions", ""]],
+  hostAttrs: [1, "mat-mdc-snack-bar-actions", "mdc-snackbar__actions"],
+  standalone: true
+});
+var MatSnackBarActions = _MatSnackBarActions;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBarActions, [{
+    type: Directive,
+    args: [{
+      selector: `[matSnackBarActions]`,
+      standalone: true,
+      host: {
+        "class": "mat-mdc-snack-bar-actions mdc-snackbar__actions"
+      }
+    }]
+  }], null, null);
+})();
+var _MatSnackBarAction = class _MatSnackBarAction {
+};
+_MatSnackBarAction.\u0275fac = function MatSnackBarAction_Factory(t) {
+  return new (t || _MatSnackBarAction)();
+};
+_MatSnackBarAction.\u0275dir = /* @__PURE__ */ \u0275\u0275defineDirective({
+  type: _MatSnackBarAction,
+  selectors: [["", "matSnackBarAction", ""]],
+  hostAttrs: [1, "mat-mdc-snack-bar-action", "mdc-snackbar__action"],
+  standalone: true
+});
+var MatSnackBarAction = _MatSnackBarAction;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBarAction, [{
+    type: Directive,
+    args: [{
+      selector: `[matSnackBarAction]`,
+      standalone: true,
+      host: {
+        "class": "mat-mdc-snack-bar-action mdc-snackbar__action"
+      }
+    }]
+  }], null, null);
+})();
+var _SimpleSnackBar = class _SimpleSnackBar {
+  constructor(snackBarRef, data) {
+    this.snackBarRef = snackBarRef;
+    this.data = data;
+  }
+  /** Performs the action on the snack bar. */
+  action() {
+    this.snackBarRef.dismissWithAction();
+  }
+  /** If the action button should be shown. */
+  get hasAction() {
+    return !!this.data.action;
+  }
+};
+_SimpleSnackBar.\u0275fac = function SimpleSnackBar_Factory(t) {
+  return new (t || _SimpleSnackBar)(\u0275\u0275directiveInject(MatSnackBarRef), \u0275\u0275directiveInject(MAT_SNACK_BAR_DATA));
+};
+_SimpleSnackBar.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
+  type: _SimpleSnackBar,
+  selectors: [["simple-snack-bar"]],
+  hostAttrs: [1, "mat-mdc-simple-snack-bar"],
+  exportAs: ["matSnackBar"],
+  standalone: true,
+  features: [\u0275\u0275StandaloneFeature],
+  decls: 3,
+  vars: 2,
+  consts: [["matSnackBarLabel", ""], ["matSnackBarActions", ""], ["mat-button", "", "matSnackBarAction", "", 3, "click"]],
+  template: function SimpleSnackBar_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275elementStart(0, "div", 0);
+      \u0275\u0275text(1);
+      \u0275\u0275elementEnd();
+      \u0275\u0275template(2, SimpleSnackBar_Conditional_2_Template, 3, 1, "div", 1);
+    }
+    if (rf & 2) {
+      \u0275\u0275advance();
+      \u0275\u0275textInterpolate1(" ", ctx.data.message, "\n");
+      \u0275\u0275advance();
+      \u0275\u0275conditional(2, ctx.hasAction ? 2 : -1);
+    }
+  },
+  dependencies: [MatButton, MatSnackBarLabel, MatSnackBarActions, MatSnackBarAction],
+  styles: [".mat-mdc-simple-snack-bar{display:flex}"],
+  encapsulation: 2,
+  changeDetection: 0
+});
+var SimpleSnackBar = _SimpleSnackBar;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(SimpleSnackBar, [{
+    type: Component,
+    args: [{
+      selector: "simple-snack-bar",
+      exportAs: "matSnackBar",
+      encapsulation: ViewEncapsulation$1.None,
+      changeDetection: ChangeDetectionStrategy.OnPush,
+      imports: [MatButton, MatSnackBarLabel, MatSnackBarActions, MatSnackBarAction],
+      standalone: true,
+      host: {
+        "class": "mat-mdc-simple-snack-bar"
+      },
+      template: '<div matSnackBarLabel>\n  {{data.message}}\n</div>\n\n@if (hasAction) {\n  <div matSnackBarActions>\n    <button mat-button matSnackBarAction (click)="action()">\n      {{data.action}}\n    </button>\n  </div>\n}\n',
+      styles: [".mat-mdc-simple-snack-bar{display:flex}"]
+    }]
+  }], () => [{
+    type: MatSnackBarRef
+  }, {
+    type: void 0,
+    decorators: [{
+      type: Inject,
+      args: [MAT_SNACK_BAR_DATA]
+    }]
+  }], null);
+})();
+var matSnackBarAnimations = {
+  /** Animation that shows and hides a snack bar. */
+  snackBarState: trigger("state", [state("void, hidden", style({
+    transform: "scale(0.8)",
+    opacity: 0
+  })), state("visible", style({
+    transform: "scale(1)",
+    opacity: 1
+  })), transition("* => visible", animate("150ms cubic-bezier(0, 0, 0.2, 1)")), transition("* => void, * => hidden", animate("75ms cubic-bezier(0.4, 0.0, 1, 1)", style({
+    opacity: 0
+  })))])
+};
+var uniqueId3 = 0;
+var _MatSnackBarContainer = class _MatSnackBarContainer extends BasePortalOutlet {
+  constructor(_ngZone, _elementRef, _changeDetectorRef, _platform, snackBarConfig) {
+    super();
+    this._ngZone = _ngZone;
+    this._elementRef = _elementRef;
+    this._changeDetectorRef = _changeDetectorRef;
+    this._platform = _platform;
+    this.snackBarConfig = snackBarConfig;
+    this._document = inject(DOCUMENT);
+    this._trackedModals = /* @__PURE__ */ new Set();
+    this._announceDelay = 150;
+    this._destroyed = false;
+    this._onAnnounce = new Subject();
+    this._onExit = new Subject();
+    this._onEnter = new Subject();
+    this._animationState = "void";
+    this._liveElementId = `mat-snack-bar-container-live-${uniqueId3++}`;
+    this.attachDomPortal = (portal) => {
+      this._assertNotAttached();
+      const result = this._portalOutlet.attachDomPortal(portal);
+      this._afterPortalAttached();
+      return result;
+    };
+    if (snackBarConfig.politeness === "assertive" && !snackBarConfig.announcementMessage) {
+      this._live = "assertive";
+    } else if (snackBarConfig.politeness === "off") {
+      this._live = "off";
+    } else {
+      this._live = "polite";
+    }
+    if (this._platform.FIREFOX) {
+      if (this._live === "polite") {
+        this._role = "status";
+      }
+      if (this._live === "assertive") {
+        this._role = "alert";
+      }
+    }
+  }
+  /** Attach a component portal as content to this snack bar container. */
+  attachComponentPortal(portal) {
+    this._assertNotAttached();
+    const result = this._portalOutlet.attachComponentPortal(portal);
+    this._afterPortalAttached();
+    return result;
+  }
+  /** Attach a template portal as content to this snack bar container. */
+  attachTemplatePortal(portal) {
+    this._assertNotAttached();
+    const result = this._portalOutlet.attachTemplatePortal(portal);
+    this._afterPortalAttached();
+    return result;
+  }
+  /** Handle end of animations, updating the state of the snackbar. */
+  onAnimationEnd(event) {
+    const {
+      fromState,
+      toState
+    } = event;
+    if (toState === "void" && fromState !== "void" || toState === "hidden") {
+      this._completeExit();
+    }
+    if (toState === "visible") {
+      const onEnter = this._onEnter;
+      this._ngZone.run(() => {
+        onEnter.next();
+        onEnter.complete();
+      });
+    }
+  }
+  /** Begin animation of snack bar entrance into view. */
+  enter() {
+    if (!this._destroyed) {
+      this._animationState = "visible";
+      this._changeDetectorRef.markForCheck();
+      this._changeDetectorRef.detectChanges();
+      this._screenReaderAnnounce();
+    }
+  }
+  /** Begin animation of the snack bar exiting from view. */
+  exit() {
+    this._ngZone.run(() => {
+      this._animationState = "hidden";
+      this._changeDetectorRef.markForCheck();
+      this._elementRef.nativeElement.setAttribute("mat-exit", "");
+      clearTimeout(this._announceTimeoutId);
+    });
+    return this._onExit;
+  }
+  /** Makes sure the exit callbacks have been invoked when the element is destroyed. */
+  ngOnDestroy() {
+    this._destroyed = true;
+    this._clearFromModals();
+    this._completeExit();
+  }
+  /**
+   * Removes the element in a microtask. Helps prevent errors where we end up
+   * removing an element which is in the middle of an animation.
+   */
+  _completeExit() {
+    queueMicrotask(() => {
+      this._onExit.next();
+      this._onExit.complete();
+    });
+  }
+  /**
+   * Called after the portal contents have been attached. Can be
+   * used to modify the DOM once it's guaranteed to be in place.
+   */
+  _afterPortalAttached() {
+    const element = this._elementRef.nativeElement;
+    const panelClasses = this.snackBarConfig.panelClass;
+    if (panelClasses) {
+      if (Array.isArray(panelClasses)) {
+        panelClasses.forEach((cssClass) => element.classList.add(cssClass));
+      } else {
+        element.classList.add(panelClasses);
+      }
+    }
+    this._exposeToModals();
+    const label = this._label.nativeElement;
+    const labelClass = "mdc-snackbar__label";
+    label.classList.toggle(labelClass, !label.querySelector(`.${labelClass}`));
+  }
+  /**
+   * Some browsers won't expose the accessibility node of the live element if there is an
+   * `aria-modal` and the live element is outside of it. This method works around the issue by
+   * pointing the `aria-owns` of all modals to the live element.
+   */
+  _exposeToModals() {
+    const id = this._liveElementId;
+    const modals = this._document.querySelectorAll('body > .cdk-overlay-container [aria-modal="true"]');
+    for (let i = 0; i < modals.length; i++) {
+      const modal = modals[i];
+      const ariaOwns = modal.getAttribute("aria-owns");
+      this._trackedModals.add(modal);
+      if (!ariaOwns) {
+        modal.setAttribute("aria-owns", id);
+      } else if (ariaOwns.indexOf(id) === -1) {
+        modal.setAttribute("aria-owns", ariaOwns + " " + id);
+      }
+    }
+  }
+  /** Clears the references to the live element from any modals it was added to. */
+  _clearFromModals() {
+    this._trackedModals.forEach((modal) => {
+      const ariaOwns = modal.getAttribute("aria-owns");
+      if (ariaOwns) {
+        const newValue = ariaOwns.replace(this._liveElementId, "").trim();
+        if (newValue.length > 0) {
+          modal.setAttribute("aria-owns", newValue);
+        } else {
+          modal.removeAttribute("aria-owns");
+        }
+      }
+    });
+    this._trackedModals.clear();
+  }
+  /** Asserts that no content is already attached to the container. */
+  _assertNotAttached() {
+    if (this._portalOutlet.hasAttached() && (typeof ngDevMode === "undefined" || ngDevMode)) {
+      throw Error("Attempting to attach snack bar content after content is already attached");
+    }
+  }
+  /**
+   * Starts a timeout to move the snack bar content to the live region so screen readers will
+   * announce it.
+   */
+  _screenReaderAnnounce() {
+    if (!this._announceTimeoutId) {
+      this._ngZone.runOutsideAngular(() => {
+        this._announceTimeoutId = setTimeout(() => {
+          const inertElement = this._elementRef.nativeElement.querySelector("[aria-hidden]");
+          const liveElement = this._elementRef.nativeElement.querySelector("[aria-live]");
+          if (inertElement && liveElement) {
+            let focusedElement = null;
+            if (this._platform.isBrowser && document.activeElement instanceof HTMLElement && inertElement.contains(document.activeElement)) {
+              focusedElement = document.activeElement;
+            }
+            inertElement.removeAttribute("aria-hidden");
+            liveElement.appendChild(inertElement);
+            focusedElement?.focus();
+            this._onAnnounce.next();
+            this._onAnnounce.complete();
+          }
+        }, this._announceDelay);
+      });
+    }
+  }
+};
+_MatSnackBarContainer.\u0275fac = function MatSnackBarContainer_Factory(t) {
+  return new (t || _MatSnackBarContainer)(\u0275\u0275directiveInject(NgZone), \u0275\u0275directiveInject(ElementRef), \u0275\u0275directiveInject(ChangeDetectorRef), \u0275\u0275directiveInject(Platform), \u0275\u0275directiveInject(MatSnackBarConfig));
+};
+_MatSnackBarContainer.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
+  type: _MatSnackBarContainer,
+  selectors: [["mat-snack-bar-container"]],
+  viewQuery: function MatSnackBarContainer_Query(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275viewQuery(CdkPortalOutlet, 7);
+      \u0275\u0275viewQuery(_c016, 7);
+    }
+    if (rf & 2) {
+      let _t;
+      \u0275\u0275queryRefresh(_t = \u0275\u0275loadQuery()) && (ctx._portalOutlet = _t.first);
+      \u0275\u0275queryRefresh(_t = \u0275\u0275loadQuery()) && (ctx._label = _t.first);
+    }
+  },
+  hostAttrs: [1, "mdc-snackbar", "mat-mdc-snack-bar-container", "mdc-snackbar--open"],
+  hostVars: 1,
+  hostBindings: function MatSnackBarContainer_HostBindings(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275syntheticHostListener("@state.done", function MatSnackBarContainer_animation_state_done_HostBindingHandler($event) {
+        return ctx.onAnimationEnd($event);
+      });
+    }
+    if (rf & 2) {
+      \u0275\u0275syntheticHostProperty("@state", ctx._animationState);
+    }
+  },
+  standalone: true,
+  features: [\u0275\u0275InheritDefinitionFeature, \u0275\u0275StandaloneFeature],
+  decls: 6,
+  vars: 3,
+  consts: [["label", ""], [1, "mdc-snackbar__surface"], [1, "mat-mdc-snack-bar-label"], ["aria-hidden", "true"], ["cdkPortalOutlet", ""]],
+  template: function MatSnackBarContainer_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275elementStart(0, "div", 1)(1, "div", 2, 0)(3, "div", 3);
+      \u0275\u0275template(4, MatSnackBarContainer_ng_template_4_Template, 0, 0, "ng-template", 4);
+      \u0275\u0275elementEnd();
+      \u0275\u0275element(5, "div");
+      \u0275\u0275elementEnd()();
+    }
+    if (rf & 2) {
+      \u0275\u0275advance(5);
+      \u0275\u0275attribute("aria-live", ctx._live)("role", ctx._role)("id", ctx._liveElementId);
+    }
+  },
+  dependencies: [CdkPortalOutlet],
+  styles: ['.mdc-snackbar{display:none;position:fixed;right:0;bottom:0;left:0;align-items:center;justify-content:center;box-sizing:border-box;pointer-events:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}.mdc-snackbar--opening,.mdc-snackbar--open,.mdc-snackbar--closing{display:flex}.mdc-snackbar--open .mdc-snackbar__label,.mdc-snackbar--open .mdc-snackbar__actions{visibility:visible}.mdc-snackbar__surface{padding-left:0;padding-right:8px;display:flex;align-items:center;justify-content:flex-start;box-sizing:border-box;transform:scale(0.8);opacity:0}.mdc-snackbar__surface::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-snackbar__surface::before{border-color:CanvasText}}[dir=rtl] .mdc-snackbar__surface,.mdc-snackbar__surface[dir=rtl]{padding-left:8px;padding-right:0}.mdc-snackbar--open .mdc-snackbar__surface{transform:scale(1);opacity:1;pointer-events:auto}.mdc-snackbar--closing .mdc-snackbar__surface{transform:scale(1)}.mdc-snackbar__label{padding-left:16px;padding-right:8px;width:100%;flex-grow:1;box-sizing:border-box;margin:0;visibility:hidden;padding-top:14px;padding-bottom:14px}[dir=rtl] .mdc-snackbar__label,.mdc-snackbar__label[dir=rtl]{padding-left:8px;padding-right:16px}.mdc-snackbar__label::before{display:inline;content:attr(data-mdc-snackbar-label-text)}.mdc-snackbar__actions{display:flex;flex-shrink:0;align-items:center;box-sizing:border-box;visibility:hidden}.mdc-snackbar__action+.mdc-snackbar__dismiss{margin-left:8px;margin-right:0}[dir=rtl] .mdc-snackbar__action+.mdc-snackbar__dismiss,.mdc-snackbar__action+.mdc-snackbar__dismiss[dir=rtl]{margin-left:0;margin-right:8px}.mat-mdc-snack-bar-container{margin:8px;position:static}.mat-mdc-snack-bar-container .mdc-snackbar__surface{min-width:344px}@media(max-width: 480px),(max-width: 344px){.mat-mdc-snack-bar-container .mdc-snackbar__surface{min-width:100%}}@media(max-width: 480px),(max-width: 344px){.mat-mdc-snack-bar-container{width:100vw}}.mat-mdc-snack-bar-container .mdc-snackbar__surface{max-width:672px}.mat-mdc-snack-bar-container .mdc-snackbar__surface{box-shadow:0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)}.mat-mdc-snack-bar-container .mdc-snackbar__surface{background-color:var(--mdc-snackbar-container-color)}.mat-mdc-snack-bar-container .mdc-snackbar__surface{border-radius:var(--mdc-snackbar-container-shape)}.mat-mdc-snack-bar-container .mdc-snackbar__label{color:var(--mdc-snackbar-supporting-text-color)}.mat-mdc-snack-bar-container .mdc-snackbar__label{font-size:var(--mdc-snackbar-supporting-text-size);font-family:var(--mdc-snackbar-supporting-text-font);font-weight:var(--mdc-snackbar-supporting-text-weight);line-height:var(--mdc-snackbar-supporting-text-line-height)}.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled){color:var(--mat-snack-bar-button-color);--mat-text-button-state-layer-color:currentColor;--mat-text-button-ripple-color:currentColor}.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) .mat-ripple-element{opacity:.1}.mat-mdc-snack-bar-container .mdc-snackbar__label::before{display:none}.mat-mdc-snack-bar-handset,.mat-mdc-snack-bar-container,.mat-mdc-snack-bar-label{flex:1 1 auto}.mat-mdc-snack-bar-handset .mdc-snackbar__surface{width:100%}'],
+  encapsulation: 2,
+  data: {
+    animation: [matSnackBarAnimations.snackBarState]
+  }
+});
+var MatSnackBarContainer = _MatSnackBarContainer;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBarContainer, [{
+    type: Component,
+    args: [{
+      selector: "mat-snack-bar-container",
+      changeDetection: ChangeDetectionStrategy.Default,
+      encapsulation: ViewEncapsulation$1.None,
+      animations: [matSnackBarAnimations.snackBarState],
+      standalone: true,
+      imports: [CdkPortalOutlet],
+      host: {
+        "class": "mdc-snackbar mat-mdc-snack-bar-container mdc-snackbar--open",
+        "[@state]": "_animationState",
+        "(@state.done)": "onAnimationEnd($event)"
+      },
+      template: '<div class="mdc-snackbar__surface">\n  <!--\n    This outer label wrapper will have the class `mdc-snackbar__label` applied if\n    the attached template/component does not contain it.\n  -->\n  <div class="mat-mdc-snack-bar-label" #label>\n    <!-- Initialy holds the snack bar content, will be empty after announcing to screen readers. -->\n    <div aria-hidden="true">\n      <ng-template cdkPortalOutlet />\n    </div>\n\n    <!-- Will receive the snack bar content from the non-live div, move will happen a short delay after opening -->\n    <div [attr.aria-live]="_live" [attr.role]="_role" [attr.id]="_liveElementId"></div>\n  </div>\n</div>\n',
+      styles: ['.mdc-snackbar{display:none;position:fixed;right:0;bottom:0;left:0;align-items:center;justify-content:center;box-sizing:border-box;pointer-events:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}.mdc-snackbar--opening,.mdc-snackbar--open,.mdc-snackbar--closing{display:flex}.mdc-snackbar--open .mdc-snackbar__label,.mdc-snackbar--open .mdc-snackbar__actions{visibility:visible}.mdc-snackbar__surface{padding-left:0;padding-right:8px;display:flex;align-items:center;justify-content:flex-start;box-sizing:border-box;transform:scale(0.8);opacity:0}.mdc-snackbar__surface::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-snackbar__surface::before{border-color:CanvasText}}[dir=rtl] .mdc-snackbar__surface,.mdc-snackbar__surface[dir=rtl]{padding-left:8px;padding-right:0}.mdc-snackbar--open .mdc-snackbar__surface{transform:scale(1);opacity:1;pointer-events:auto}.mdc-snackbar--closing .mdc-snackbar__surface{transform:scale(1)}.mdc-snackbar__label{padding-left:16px;padding-right:8px;width:100%;flex-grow:1;box-sizing:border-box;margin:0;visibility:hidden;padding-top:14px;padding-bottom:14px}[dir=rtl] .mdc-snackbar__label,.mdc-snackbar__label[dir=rtl]{padding-left:8px;padding-right:16px}.mdc-snackbar__label::before{display:inline;content:attr(data-mdc-snackbar-label-text)}.mdc-snackbar__actions{display:flex;flex-shrink:0;align-items:center;box-sizing:border-box;visibility:hidden}.mdc-snackbar__action+.mdc-snackbar__dismiss{margin-left:8px;margin-right:0}[dir=rtl] .mdc-snackbar__action+.mdc-snackbar__dismiss,.mdc-snackbar__action+.mdc-snackbar__dismiss[dir=rtl]{margin-left:0;margin-right:8px}.mat-mdc-snack-bar-container{margin:8px;position:static}.mat-mdc-snack-bar-container .mdc-snackbar__surface{min-width:344px}@media(max-width: 480px),(max-width: 344px){.mat-mdc-snack-bar-container .mdc-snackbar__surface{min-width:100%}}@media(max-width: 480px),(max-width: 344px){.mat-mdc-snack-bar-container{width:100vw}}.mat-mdc-snack-bar-container .mdc-snackbar__surface{max-width:672px}.mat-mdc-snack-bar-container .mdc-snackbar__surface{box-shadow:0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)}.mat-mdc-snack-bar-container .mdc-snackbar__surface{background-color:var(--mdc-snackbar-container-color)}.mat-mdc-snack-bar-container .mdc-snackbar__surface{border-radius:var(--mdc-snackbar-container-shape)}.mat-mdc-snack-bar-container .mdc-snackbar__label{color:var(--mdc-snackbar-supporting-text-color)}.mat-mdc-snack-bar-container .mdc-snackbar__label{font-size:var(--mdc-snackbar-supporting-text-size);font-family:var(--mdc-snackbar-supporting-text-font);font-weight:var(--mdc-snackbar-supporting-text-weight);line-height:var(--mdc-snackbar-supporting-text-line-height)}.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled){color:var(--mat-snack-bar-button-color);--mat-text-button-state-layer-color:currentColor;--mat-text-button-ripple-color:currentColor}.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) .mat-ripple-element{opacity:.1}.mat-mdc-snack-bar-container .mdc-snackbar__label::before{display:none}.mat-mdc-snack-bar-handset,.mat-mdc-snack-bar-container,.mat-mdc-snack-bar-label{flex:1 1 auto}.mat-mdc-snack-bar-handset .mdc-snackbar__surface{width:100%}']
+    }]
+  }], () => [{
+    type: NgZone
+  }, {
+    type: ElementRef
+  }, {
+    type: ChangeDetectorRef
+  }, {
+    type: Platform
+  }, {
+    type: MatSnackBarConfig
+  }], {
+    _portalOutlet: [{
+      type: ViewChild,
+      args: [CdkPortalOutlet, {
+        static: true
+      }]
+    }],
+    _label: [{
+      type: ViewChild,
+      args: ["label", {
+        static: true
+      }]
+    }]
+  });
+})();
+function MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY() {
+  return new MatSnackBarConfig();
+}
+var MAT_SNACK_BAR_DEFAULT_OPTIONS = new InjectionToken("mat-snack-bar-default-options", {
+  providedIn: "root",
+  factory: MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY
+});
+var _MatSnackBar = class _MatSnackBar {
+  /** Reference to the currently opened snackbar at *any* level. */
+  get _openedSnackBarRef() {
+    const parent = this._parentSnackBar;
+    return parent ? parent._openedSnackBarRef : this._snackBarRefAtThisLevel;
+  }
+  set _openedSnackBarRef(value) {
+    if (this._parentSnackBar) {
+      this._parentSnackBar._openedSnackBarRef = value;
+    } else {
+      this._snackBarRefAtThisLevel = value;
+    }
+  }
+  constructor(_overlay, _live, _injector, _breakpointObserver, _parentSnackBar, _defaultConfig) {
+    this._overlay = _overlay;
+    this._live = _live;
+    this._injector = _injector;
+    this._breakpointObserver = _breakpointObserver;
+    this._parentSnackBar = _parentSnackBar;
+    this._defaultConfig = _defaultConfig;
+    this._snackBarRefAtThisLevel = null;
+    this.simpleSnackBarComponent = SimpleSnackBar;
+    this.snackBarContainerComponent = MatSnackBarContainer;
+    this.handsetCssClass = "mat-mdc-snack-bar-handset";
+  }
+  /**
+   * Creates and dispatches a snack bar with a custom component for the content, removing any
+   * currently opened snack bars.
+   *
+   * @param component Component to be instantiated.
+   * @param config Extra configuration for the snack bar.
+   */
+  openFromComponent(component, config) {
+    return this._attach(component, config);
+  }
+  /**
+   * Creates and dispatches a snack bar with a custom template for the content, removing any
+   * currently opened snack bars.
+   *
+   * @param template Template to be instantiated.
+   * @param config Extra configuration for the snack bar.
+   */
+  openFromTemplate(template, config) {
+    return this._attach(template, config);
+  }
+  /**
+   * Opens a snackbar with a message and an optional action.
+   * @param message The message to show in the snackbar.
+   * @param action The label for the snackbar action.
+   * @param config Additional configuration options for the snackbar.
+   */
+  open(message, action = "", config) {
+    const _config = __spreadValues(__spreadValues({}, this._defaultConfig), config);
+    _config.data = {
+      message,
+      action
+    };
+    if (_config.announcementMessage === message) {
+      _config.announcementMessage = void 0;
+    }
+    return this.openFromComponent(this.simpleSnackBarComponent, _config);
+  }
+  /**
+   * Dismisses the currently-visible snack bar.
+   */
+  dismiss() {
+    if (this._openedSnackBarRef) {
+      this._openedSnackBarRef.dismiss();
+    }
+  }
+  ngOnDestroy() {
+    if (this._snackBarRefAtThisLevel) {
+      this._snackBarRefAtThisLevel.dismiss();
+    }
+  }
+  /**
+   * Attaches the snack bar container component to the overlay.
+   */
+  _attachSnackBarContainer(overlayRef, config) {
+    const userInjector = config && config.viewContainerRef && config.viewContainerRef.injector;
+    const injector = Injector.create({
+      parent: userInjector || this._injector,
+      providers: [{
+        provide: MatSnackBarConfig,
+        useValue: config
+      }]
+    });
+    const containerPortal = new ComponentPortal(this.snackBarContainerComponent, config.viewContainerRef, injector);
+    const containerRef = overlayRef.attach(containerPortal);
+    containerRef.instance.snackBarConfig = config;
+    return containerRef.instance;
+  }
+  /**
+   * Places a new component or a template as the content of the snack bar container.
+   */
+  _attach(content, userConfig) {
+    const config = __spreadValues(__spreadValues(__spreadValues({}, new MatSnackBarConfig()), this._defaultConfig), userConfig);
+    const overlayRef = this._createOverlay(config);
+    const container = this._attachSnackBarContainer(overlayRef, config);
+    const snackBarRef = new MatSnackBarRef(container, overlayRef);
+    if (content instanceof TemplateRef) {
+      const portal = new TemplatePortal(content, null, {
+        $implicit: config.data,
+        snackBarRef
+      });
+      snackBarRef.instance = container.attachTemplatePortal(portal);
+    } else {
+      const injector = this._createInjector(config, snackBarRef);
+      const portal = new ComponentPortal(content, void 0, injector);
+      const contentRef = container.attachComponentPortal(portal);
+      snackBarRef.instance = contentRef.instance;
+    }
+    this._breakpointObserver.observe(Breakpoints.HandsetPortrait).pipe(takeUntil(overlayRef.detachments())).subscribe((state2) => {
+      overlayRef.overlayElement.classList.toggle(this.handsetCssClass, state2.matches);
+    });
+    if (config.announcementMessage) {
+      container._onAnnounce.subscribe(() => {
+        this._live.announce(config.announcementMessage, config.politeness);
+      });
+    }
+    this._animateSnackBar(snackBarRef, config);
+    this._openedSnackBarRef = snackBarRef;
+    return this._openedSnackBarRef;
+  }
+  /** Animates the old snack bar out and the new one in. */
+  _animateSnackBar(snackBarRef, config) {
+    snackBarRef.afterDismissed().subscribe(() => {
+      if (this._openedSnackBarRef == snackBarRef) {
+        this._openedSnackBarRef = null;
+      }
+      if (config.announcementMessage) {
+        this._live.clear();
+      }
+    });
+    if (this._openedSnackBarRef) {
+      this._openedSnackBarRef.afterDismissed().subscribe(() => {
+        snackBarRef.containerInstance.enter();
+      });
+      this._openedSnackBarRef.dismiss();
+    } else {
+      snackBarRef.containerInstance.enter();
+    }
+    if (config.duration && config.duration > 0) {
+      snackBarRef.afterOpened().subscribe(() => snackBarRef._dismissAfter(config.duration));
+    }
+  }
+  /**
+   * Creates a new overlay and places it in the correct location.
+   * @param config The user-specified snack bar config.
+   */
+  _createOverlay(config) {
+    const overlayConfig = new OverlayConfig();
+    overlayConfig.direction = config.direction;
+    let positionStrategy = this._overlay.position().global();
+    const isRtl = config.direction === "rtl";
+    const isLeft = config.horizontalPosition === "left" || config.horizontalPosition === "start" && !isRtl || config.horizontalPosition === "end" && isRtl;
+    const isRight = !isLeft && config.horizontalPosition !== "center";
+    if (isLeft) {
+      positionStrategy.left("0");
+    } else if (isRight) {
+      positionStrategy.right("0");
+    } else {
+      positionStrategy.centerHorizontally();
+    }
+    if (config.verticalPosition === "top") {
+      positionStrategy.top("0");
+    } else {
+      positionStrategy.bottom("0");
+    }
+    overlayConfig.positionStrategy = positionStrategy;
+    return this._overlay.create(overlayConfig);
+  }
+  /**
+   * Creates an injector to be used inside of a snack bar component.
+   * @param config Config that was used to create the snack bar.
+   * @param snackBarRef Reference to the snack bar.
+   */
+  _createInjector(config, snackBarRef) {
+    const userInjector = config && config.viewContainerRef && config.viewContainerRef.injector;
+    return Injector.create({
+      parent: userInjector || this._injector,
+      providers: [{
+        provide: MatSnackBarRef,
+        useValue: snackBarRef
+      }, {
+        provide: MAT_SNACK_BAR_DATA,
+        useValue: config.data
+      }]
+    });
+  }
+};
+_MatSnackBar.\u0275fac = function MatSnackBar_Factory(t) {
+  return new (t || _MatSnackBar)(\u0275\u0275inject(Overlay), \u0275\u0275inject(LiveAnnouncer), \u0275\u0275inject(Injector), \u0275\u0275inject(BreakpointObserver), \u0275\u0275inject(_MatSnackBar, 12), \u0275\u0275inject(MAT_SNACK_BAR_DEFAULT_OPTIONS));
+};
+_MatSnackBar.\u0275prov = /* @__PURE__ */ \u0275\u0275defineInjectable({
+  token: _MatSnackBar,
+  factory: _MatSnackBar.\u0275fac,
+  providedIn: "root"
+});
+var MatSnackBar = _MatSnackBar;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBar, [{
+    type: Injectable,
+    args: [{
+      providedIn: "root"
+    }]
+  }], () => [{
+    type: Overlay
+  }, {
+    type: LiveAnnouncer
+  }, {
+    type: Injector
+  }, {
+    type: BreakpointObserver
+  }, {
+    type: MatSnackBar,
+    decorators: [{
+      type: Optional
+    }, {
+      type: SkipSelf
+    }]
+  }, {
+    type: MatSnackBarConfig,
+    decorators: [{
+      type: Inject,
+      args: [MAT_SNACK_BAR_DEFAULT_OPTIONS]
+    }]
+  }], null);
+})();
+var DIRECTIVES2 = [MatSnackBarContainer, MatSnackBarLabel, MatSnackBarActions, MatSnackBarAction];
+var _MatSnackBarModule = class _MatSnackBarModule {
+};
+_MatSnackBarModule.\u0275fac = function MatSnackBarModule_Factory(t) {
+  return new (t || _MatSnackBarModule)();
+};
+_MatSnackBarModule.\u0275mod = /* @__PURE__ */ \u0275\u0275defineNgModule({
+  type: _MatSnackBarModule
+});
+_MatSnackBarModule.\u0275inj = /* @__PURE__ */ \u0275\u0275defineInjector({
+  providers: [MatSnackBar],
+  imports: [OverlayModule, PortalModule, MatButtonModule, MatCommonModule, SimpleSnackBar, MatCommonModule]
+});
+var MatSnackBarModule = _MatSnackBarModule;
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBarModule, [{
+    type: NgModule,
+    args: [{
+      imports: [OverlayModule, PortalModule, MatButtonModule, MatCommonModule, SimpleSnackBar, ...DIRECTIVES2],
+      exports: [MatCommonModule, ...DIRECTIVES2],
+      providers: [MatSnackBar]
+    }]
+  }], null, null);
+})();
+
 // src/app/ui/requisites-list/requisites-list.component.ts
 var _forTrack05 = ($index, $item) => $item.name;
 function RequisitesListComponent_For_1_Conditional_6_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 3);
-    \u0275\u0275element(1, "mat-icon", 4);
+    \u0275\u0275elementStart(0, "div", 4);
+    \u0275\u0275element(1, "mat-icon", 5);
     \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const field_r1 = \u0275\u0275nextContext().$implicit;
-    const ctx_r1 = \u0275\u0275nextContext();
-    \u0275\u0275advance();
-    \u0275\u0275property("cdkCopyToClipboard", ctx_r1.values[field_r1.name]);
   }
 }
 function RequisitesListComponent_For_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 0)(1, "div", 1);
+    const _r1 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 1);
+    \u0275\u0275listener("click", function RequisitesListComponent_For_1_Template_div_click_0_listener() {
+      \u0275\u0275restoreView(_r1);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onCopyClick());
+    });
+    \u0275\u0275elementStart(1, "div", 2);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "app-flex-ellipsis")(4, "div", 2);
+    \u0275\u0275elementStart(3, "app-flex-ellipsis")(4, "div", 3);
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(6, RequisitesListComponent_For_1_Conditional_6_Template, 2, 1, "div", 3);
+    \u0275\u0275template(6, RequisitesListComponent_For_1_Conditional_6_Template, 2, 0, "div", 4);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const field_r1 = ctx.$implicit;
+    const field_r3 = ctx.$implicit;
     const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275property("cdkCopyToClipboard", ctx_r1.values[field_r3.name]);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(field_r1.title);
+    \u0275\u0275textInterpolate(field_r3.title);
     \u0275\u0275advance(2);
-    \u0275\u0275property("title", ctx_r1.values[field_r1.name]);
+    \u0275\u0275property("title", ctx_r1.values[field_r3.name]);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r1.values[field_r1.name]);
+    \u0275\u0275textInterpolate(ctx_r1.values[field_r3.name]);
     \u0275\u0275advance();
     \u0275\u0275conditional(6, ctx_r1.copyable ? 6 : -1);
   }
 }
 var _RequisitesListComponent = class _RequisitesListComponent {
-  constructor() {
+  constructor(snackBar) {
+    this.snackBar = snackBar;
     this.copyable = false;
     this.values = {};
   }
@@ -46534,21 +48558,26 @@ var _RequisitesListComponent = class _RequisitesListComponent {
       this.values[field.name] = this.requisites.fields.find((f) => f.name === field.name)?.value || "-";
     }
   }
+  onCopyClick() {
+    this.snackBar.open("\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u043E", "", {
+      duration: 2e3
+    });
+  }
 };
 _RequisitesListComponent.\u0275fac = function RequisitesListComponent_Factory(t) {
-  return new (t || _RequisitesListComponent)();
+  return new (t || _RequisitesListComponent)(\u0275\u0275directiveInject(MatSnackBar));
 };
-_RequisitesListComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _RequisitesListComponent, selectors: [["app-requisites-list"]], inputs: { requisites: "requisites", fields: "fields", copyable: "copyable" }, standalone: true, features: [\u0275\u0275NgOnChangesFeature, \u0275\u0275StandaloneFeature], decls: 2, vars: 0, consts: [[1, "item"], [1, "item__title"], [1, "item__value", 3, "title"], [1, "item__action"], ["fontIcon", "content_copy", 3, "cdkCopyToClipboard"]], template: function RequisitesListComponent_Template(rf, ctx) {
+_RequisitesListComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _RequisitesListComponent, selectors: [["app-requisites-list"]], inputs: { requisites: "requisites", fields: "fields", copyable: "copyable" }, standalone: true, features: [\u0275\u0275NgOnChangesFeature, \u0275\u0275StandaloneFeature], decls: 2, vars: 0, consts: [[1, "item", 3, "cdkCopyToClipboard"], [1, "item", 3, "click", "cdkCopyToClipboard"], [1, "item__title"], [1, "item__value", 3, "title"], [1, "item__action"], ["fontIcon", "content_copy"]], template: function RequisitesListComponent_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275repeaterCreate(0, RequisitesListComponent_For_1_Template, 7, 4, "div", 0, _forTrack05);
+    \u0275\u0275repeaterCreate(0, RequisitesListComponent_For_1_Template, 7, 5, "div", 0, _forTrack05);
   }
   if (rf & 2) {
     \u0275\u0275repeater(ctx.fields);
   }
-}, dependencies: [FlexEllipsisComponent, MatIcon, CdkCopyToClipboard], styles: ['\n\n[_nghost-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}\n[_nghost-%COMP%]   .item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n[_nghost-%COMP%]   .item__title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  margin-right: 30px;\n}\n[_nghost-%COMP%]   .item__value[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  text-align: right;\n}\n[_nghost-%COMP%]   .item__action[_ngcontent-%COMP%] {\n  margin-left: 10px;\n}\n[_nghost-%COMP%]   .item__action[_ngcontent-%COMP%]   .mat-icon[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  opacity: 0.7;\n  transition: opacity 150ms ease-in-out;\n  cursor: pointer;\n}\n[_nghost-%COMP%]   .item__action[_ngcontent-%COMP%]   .mat-icon[_ngcontent-%COMP%]:hover {\n  opacity: 1;\n}\n/*# sourceMappingURL=requisites-list.component.css.map */'] });
+}, dependencies: [FlexEllipsisComponent, MatIcon, CdkCopyToClipboard], styles: ['\n\n[_nghost-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}\n[_nghost-%COMP%]   .item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  cursor: pointer;\n}\n[_nghost-%COMP%]   .item__title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  margin-right: 30px;\n}\n[_nghost-%COMP%]   .item__value[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  text-align: right;\n}\n[_nghost-%COMP%]   .item__action[_ngcontent-%COMP%] {\n  margin-left: 10px;\n}\n[_nghost-%COMP%]   .item__action[_ngcontent-%COMP%]   .mat-icon[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  opacity: 0.7;\n  transition: opacity 150ms ease-in-out;\n  cursor: pointer;\n}\n[_nghost-%COMP%]   .item__action[_ngcontent-%COMP%]   .mat-icon[_ngcontent-%COMP%]:hover {\n  opacity: 1;\n}\n/*# sourceMappingURL=requisites-list.component.css.map */'] });
 var RequisitesListComponent = _RequisitesListComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(RequisitesListComponent, { className: "RequisitesListComponent", filePath: "src\\app\\ui\\requisites-list\\requisites-list.component.ts", lineNumber: 14 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(RequisitesListComponent, { className: "RequisitesListComponent", filePath: "src\\app\\ui\\requisites-list\\requisites-list.component.ts", lineNumber: 15 });
 })();
 
 // src/app/ui/media-links-list/media-links-list.component.ts
@@ -46587,16 +48616,16 @@ _MediaLinksListComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
 }, dependencies: [FlexEllipsisComponent], styles: ['\n\n[_nghost-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}\n[_nghost-%COMP%]   .item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n[_nghost-%COMP%]   .item__title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  margin-right: 15px;\n}\n[_nghost-%COMP%]   .item__value[_ngcontent-%COMP%] {\n  text-align: right;\n  opacity: 0.8;\n}\n[_nghost-%COMP%]   .item__value[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  border-bottom: 1px dotted #616161;\n  text-decoration: none;\n}\n/*# sourceMappingURL=media-links-list.component.css.map */'] });
 var MediaLinksListComponent = _MediaLinksListComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(MediaLinksListComponent, { className: "MediaLinksListComponent", filePath: "src\\app\\ui\\media-links-list\\media-links-list.component.ts", lineNumber: 13 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(MediaLinksListComponent, { className: "MediaLinksListComponent", filePath: "src\\app\\ui\\media-links-list\\media-links-list.component.ts", lineNumber: 12 });
 })();
 
 // src/app/admin/composites/payment-request-card/payment-request-card.component.ts
 var _forTrack06 = ($index, $item) => $item.id;
-function PaymentRequestCardComponent_Conditional_7_Template(rf, ctx) {
+function PaymentRequestCardComponent_Conditional_8_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-select-trigger");
-    \u0275\u0275element(1, "i", 13);
-    \u0275\u0275elementStart(2, "span", 14);
+    \u0275\u0275element(1, "i", 14);
+    \u0275\u0275elementStart(2, "span", 15);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
@@ -46608,11 +48637,11 @@ function PaymentRequestCardComponent_Conditional_7_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r0.paymentStatuses[ctx_r0.formGroup.controls.status.value].title);
   }
 }
-function PaymentRequestCardComponent_For_9_Template(rf, ctx) {
+function PaymentRequestCardComponent_For_10_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-option", 5);
-    \u0275\u0275element(1, "i", 13);
-    \u0275\u0275elementStart(2, "span", 14);
+    \u0275\u0275element(1, "i", 14);
+    \u0275\u0275elementStart(2, "span", 15);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
@@ -46626,10 +48655,11 @@ function PaymentRequestCardComponent_For_9_Template(rf, ctx) {
   }
 }
 var _PaymentRequestCardComponent = class _PaymentRequestCardComponent {
-  constructor(fb, paymentsService, notifier) {
+  constructor(fb, paymentsService, notifier, snackBar) {
     this.fb = fb;
     this.paymentsService = paymentsService;
     this.notifier = notifier;
+    this.snackBar = snackBar;
     this.formGroup = this.fb.group({
       status: this.fb.control(null, {
         validators: [Validators.required]
@@ -46643,6 +48673,11 @@ var _PaymentRequestCardComponent = class _PaymentRequestCardComponent {
   }
   ngOnInit() {
     this.fillData();
+  }
+  onCopyClick() {
+    this.snackBar.open("\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u043E", "", {
+      duration: 2e3
+    });
   }
   fillData() {
     this.formGroup.setValue({
@@ -46693,71 +48728,76 @@ var _PaymentRequestCardComponent = class _PaymentRequestCardComponent {
   }
 };
 _PaymentRequestCardComponent.\u0275fac = function PaymentRequestCardComponent_Factory(t) {
-  return new (t || _PaymentRequestCardComponent)(\u0275\u0275directiveInject(FormBuilder), \u0275\u0275directiveInject(PaymentsService), \u0275\u0275directiveInject(NotifierService));
+  return new (t || _PaymentRequestCardComponent)(\u0275\u0275directiveInject(FormBuilder), \u0275\u0275directiveInject(PaymentsService), \u0275\u0275directiveInject(NotifierService), \u0275\u0275directiveInject(MatSnackBar));
 };
-_PaymentRequestCardComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentRequestCardComponent, selectors: [["app-payment-request-card"]], inputs: { request: "request", method: "method", requisites: "requisites" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 53, vars: 19, consts: [[1, "title"], [1, "form-row"], [1, "form-row__label"], ["appearance", "outline"], ["placeholder", "\u0421\u0442\u0430\u0442\u0443\u0441", 3, "formControl"], [3, "value"], [3, "links"], [1, "form-row__subscript"], ["matInput", "", "mask", "separator.0", "thousandSeparator", " ", "placeholder", "\u0421\u0443\u043C\u043C\u0430", 3, "formControl"], ["matSuffix", "", 1, "currency-label"], ["disabled", "", "matInput", "", 3, "value"], [3, "fields", "requisites", "copyable"], ["size", "medium", "color", "green-box", 3, "click"], [1, "select-option-icon", "select-option-icon--mark"], [1, "select-option-label"]], template: function PaymentRequestCardComponent_Template(rf, ctx) {
+_PaymentRequestCardComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentRequestCardComponent, selectors: [["app-payment-request-card"]], inputs: { request: "request", method: "method", requisites: "requisites" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 53, vars: 22, consts: [[1, "title", 3, "click", "cdkCopyToClipboard"], ["fontIcon", "content_copy"], ["form-field-label", ""], ["appearance", "outline"], ["placeholder", "\u0421\u0442\u0430\u0442\u0443\u0441", 3, "formControl"], [3, "value"], [3, "links"], ["form-field-subscript", ""], ["appearance", "outline", 1, "copyable", 3, "click", "cdkCopyToClipboard"], ["matInput", "", "mask", "separator.0", "thousandSeparator", " ", "placeholder", "\u0421\u0443\u043C\u043C\u0430", 3, "suffix", "formControl"], ["matSuffix", "", "fontIcon", "content_copy"], ["disabled", "", "matInput", "", 3, "value"], [3, "fields", "requisites", "copyable"], ["size", "medium", "color", "green-box", 3, "click"], [1, "select-option-icon", "select-option-icon--mark"], [1, "select-option-label"]], template: function PaymentRequestCardComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 0);
+    \u0275\u0275listener("click", function PaymentRequestCardComponent_Template_div_click_0_listener() {
+      return ctx.onCopyClick();
+    });
     \u0275\u0275text(1);
+    \u0275\u0275element(2, "mat-icon", 1);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "div", 1)(3, "div", 2);
-    \u0275\u0275text(4, "\u0421\u0442\u0430\u0442\u0443\u0441");
+    \u0275\u0275elementStart(3, "app-form-field")(4, "span", 2);
+    \u0275\u0275text(5, "\u0421\u0442\u0430\u0442\u0443\u0441");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "mat-form-field", 3)(6, "mat-select", 4);
-    \u0275\u0275template(7, PaymentRequestCardComponent_Conditional_7_Template, 4, 3, "mat-select-trigger");
-    \u0275\u0275repeaterCreate(8, PaymentRequestCardComponent_For_9_Template, 4, 4, "mat-option", 5, _forTrack06);
+    \u0275\u0275elementStart(6, "mat-form-field", 3)(7, "mat-select", 4);
+    \u0275\u0275template(8, PaymentRequestCardComponent_Conditional_8_Template, 4, 3, "mat-select-trigger");
+    \u0275\u0275repeaterCreate(9, PaymentRequestCardComponent_For_10_Template, 4, 4, "mat-option", 5, _forTrack06);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(10, "div", 1)(11, "div", 2);
-    \u0275\u0275text(12, "\u0421\u0441\u044B\u043B\u043A\u0438 \u043D\u0430 \u043C\u0435\u0434\u0438\u0430");
+    \u0275\u0275elementStart(11, "app-form-field")(12, "span", 2);
+    \u0275\u0275text(13, "\u0421\u0441\u044B\u043B\u043A\u0438 \u043D\u0430 \u043C\u0435\u0434\u0438\u0430");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(13, "mat-card");
-    \u0275\u0275element(14, "app-media-links-list", 6);
+    \u0275\u0275elementStart(14, "mat-card");
+    \u0275\u0275element(15, "app-media-links-list", 6);
     \u0275\u0275elementEnd();
-    \u0275\u0275element(15, "div", 7);
+    \u0275\u0275element(16, "div", 7);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(16, "div", 1)(17, "div", 2);
-    \u0275\u0275text(18, "\u0421\u0443\u043C\u043C\u0430");
+    \u0275\u0275elementStart(17, "app-form-field")(18, "span", 2);
+    \u0275\u0275text(19, "\u0421\u0443\u043C\u043C\u0430");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(19, "mat-form-field", 3);
-    \u0275\u0275element(20, "input", 8);
-    \u0275\u0275elementStart(21, "span", 9);
-    \u0275\u0275text(22);
-    \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(23, "div", 1)(24, "div", 2);
+    \u0275\u0275elementStart(20, "mat-form-field", 8);
+    \u0275\u0275listener("click", function PaymentRequestCardComponent_Template_mat_form_field_click_20_listener() {
+      return ctx.onCopyClick();
+    });
+    \u0275\u0275element(21, "input", 9)(22, "mat-icon", 10);
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(23, "app-form-field")(24, "span", 2);
     \u0275\u0275text(25, "\u0421\u043F\u043E\u0441\u043E\u0431 \u043E\u043F\u043B\u0430\u0442\u044B");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(26, "mat-form-field", 3);
-    \u0275\u0275element(27, "input", 10);
+    \u0275\u0275element(27, "input", 11);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(28, "div", 1)(29, "div", 2);
+    \u0275\u0275elementStart(28, "app-form-field")(29, "span", 2);
     \u0275\u0275text(30, "\u0420\u0435\u043A\u0432\u0438\u0437\u0438\u0442\u044B");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(31, "mat-card");
-    \u0275\u0275element(32, "app-requisites-list", 11);
+    \u0275\u0275element(32, "app-requisites-list", 12);
     \u0275\u0275elementEnd();
     \u0275\u0275element(33, "div", 7);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(34, "div", 1)(35, "div", 2);
+    \u0275\u0275elementStart(34, "app-form-field")(35, "span", 2);
     \u0275\u0275text(36, "\u0414\u0430\u0442\u0430 \u0437\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u044F");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(37, "mat-form-field", 3);
-    \u0275\u0275element(38, "input", 10);
+    \u0275\u0275element(38, "input", 11);
     \u0275\u0275pipe(39, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(40, "div", 1)(41, "div", 2);
+    \u0275\u0275elementStart(40, "app-form-field")(41, "span", 2);
     \u0275\u0275text(42, "\u0414\u0430\u0442\u0430 \u043F\u0440\u043E\u0432\u0435\u0440\u043A\u0438");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(43, "mat-form-field", 3);
-    \u0275\u0275element(44, "input", 10);
+    \u0275\u0275element(44, "input", 11);
     \u0275\u0275pipe(45, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(46, "div", 1)(47, "div", 2);
+    \u0275\u0275elementStart(46, "app-form-field")(47, "span", 2);
     \u0275\u0275text(48, "\u041F\u0440\u043E\u0432\u0435\u0440\u0438\u043B");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(49, "mat-form-field", 3);
-    \u0275\u0275element(50, "input", 10);
+    \u0275\u0275element(50, "input", 11);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(51, "app-button", 12);
+    \u0275\u0275elementStart(51, "app-button", 13);
     \u0275\u0275listener("click", function PaymentRequestCardComponent_Template_app_button_click_51_listener() {
       return ctx.submit();
     });
@@ -46765,28 +48805,29 @@ _PaymentRequestCardComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineCompo
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
+    \u0275\u0275property("cdkCopyToClipboard", "\u0417\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u0435 \u2116" + ctx.request.id + " (" + ctx.request.channel.name + ")");
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate1("\u0417\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u0435 \u2116", ctx.request.id, "");
-    \u0275\u0275advance(5);
+    \u0275\u0275textInterpolate2(" \u0417\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u0435 \u2116", ctx.request.id, " (", ctx.request.channel.name, ") ");
+    \u0275\u0275advance(6);
     \u0275\u0275property("formControl", ctx.formGroup.controls.status);
     \u0275\u0275advance();
-    \u0275\u0275conditional(7, ctx.formGroup.controls.status.value !== null ? 7 : -1);
+    \u0275\u0275conditional(8, ctx.formGroup.controls.status.value !== null ? 8 : -1);
     \u0275\u0275advance();
     \u0275\u0275repeater(ctx.paymentStatusesList);
     \u0275\u0275advance(6);
     \u0275\u0275property("links", ctx.request.media.links);
-    \u0275\u0275advance(6);
-    \u0275\u0275property("formControl", ctx.formGroup.controls.amount);
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(ctx.method.currency);
     \u0275\u0275advance(5);
+    \u0275\u0275property("cdkCopyToClipboard", ctx.formGroup.controls.amount.value + "");
+    \u0275\u0275advance();
+    \u0275\u0275property("suffix", " " + ctx.method.currency)("formControl", ctx.formGroup.controls.amount);
+    \u0275\u0275advance(6);
     \u0275\u0275property("value", ctx.method.title);
     \u0275\u0275advance(5);
     \u0275\u0275property("fields", ctx.method.fields)("requisites", ctx.requisites)("copyable", true);
     \u0275\u0275advance(6);
-    \u0275\u0275property("value", \u0275\u0275pipeBind2(39, 13, ctx.request.createdAt, "d MMM. y \u0433., HH:mm:ss"));
+    \u0275\u0275property("value", \u0275\u0275pipeBind2(39, 16, ctx.request.createdAt, "d MMM. y \u0433., HH:mm:ss"));
     \u0275\u0275advance(6);
-    \u0275\u0275property("value", ctx.request.checkedAt ? \u0275\u0275pipeBind2(45, 16, ctx.request.checkedAt, "d MMM. y \u0433., HH:mm:ss") : "\u041D\u0435 \u043F\u0440\u043E\u0432\u0435\u0440\u0435\u043D\u043E");
+    \u0275\u0275property("value", ctx.request.checkedAt ? \u0275\u0275pipeBind2(45, 19, ctx.request.checkedAt, "d MMM. y \u0433., HH:mm:ss") : "\u041D\u0435 \u043F\u0440\u043E\u0432\u0435\u0440\u0435\u043D\u043E");
     \u0275\u0275advance(6);
     \u0275\u0275property("value", ctx.request.checkedBy || "\u041D\u0435 \u043F\u0440\u043E\u0432\u0435\u0440\u0435\u043D\u043E");
   }
@@ -46800,6 +48841,7 @@ _PaymentRequestCardComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineCompo
   MatSelect,
   MatSelectTrigger,
   MatOption,
+  MatIcon,
   ReactiveFormsModule,
   DefaultValueAccessor,
   NgControlStatus,
@@ -46807,15 +48849,17 @@ _PaymentRequestCardComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineCompo
   NgxMaskDirective,
   RequisitesListComponent,
   MatCard,
-  MediaLinksListComponent
-], styles: ['\n\n[_nghost-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  margin-left: 10px;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]     .mat-icon {\n  width: 20px;\n  height: 20px;\n  font-size: 20px;\n  line-height: 20px;\n  color: #505050;\n}\n[_nghost-%COMP%]   .form-row__subscript[_ngcontent-%COMP%] {\n  height: 22px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n  padding: 20px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]   .currency-label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 0 15px;\n  opacity: 0.6;\n}\n@media screen and (max-width: 630px) {\n  [_nghost-%COMP%] {\n    max-width: 400px;\n  }\n}\n@media screen and (max-width: 530px) {\n  [_nghost-%COMP%] {\n    max-width: 280px;\n  }\n}\n/*# sourceMappingURL=payment-request-card.component.css.map */'] });
+  MediaLinksListComponent,
+  FormFieldComponent,
+  CdkCopyToClipboard
+], styles: ['\n\n[_nghost-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  cursor: pointer;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%]   .mat-icon[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n[_nghost-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n  padding: 20px;\n}\n[_nghost-%COMP%]   .currency-label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 0 15px;\n  opacity: 0.6;\n}\n[_nghost-%COMP%]   .copyable[_ngcontent-%COMP%] {\n  cursor: pointer;\n}\n[_nghost-%COMP%]   .copyable[_ngcontent-%COMP%]     input {\n  pointer-events: none;\n}\n@media screen and (max-width: 630px) {\n  [_nghost-%COMP%] {\n    max-width: 400px;\n  }\n}\n@media screen and (max-width: 530px) {\n  [_nghost-%COMP%] {\n    max-width: 280px;\n  }\n}\n/*# sourceMappingURL=payment-request-card.component.css.map */'] });
 var PaymentRequestCardComponent = _PaymentRequestCardComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequestCardComponent, { className: "PaymentRequestCardComponent", filePath: "src\\app\\admin\\composites\\payment-request-card\\payment-request-card.component.ts", lineNumber: 38 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequestCardComponent, { className: "PaymentRequestCardComponent", filePath: "src\\app\\admin\\composites\\payment-request-card\\payment-request-card.component.ts", lineNumber: 43 });
 })();
 
 // src/app/admin/modals/payments-list-dialog/payments-list-dialog.component.ts
-var _c013 = ["feed"];
+var _c017 = ["feed"];
 var _forTrack07 = ($index, $item) => $item.id;
 function PaymentsListDialogComponent_Conditional_2_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
@@ -46998,7 +49042,7 @@ var _PaymentsListDialogComponent = class _PaymentsListDialogComponent {
       if (this.data.accountId) {
         this.requestsList = yield this.paymentsService.requests.fetchAllForUser(this.data.accountId, status);
       } else {
-        this.requestsList = yield this.paymentsService.requests.fetchAllPayments(status);
+        this.requestsList = yield this.paymentsService.requests.fetchAll(status);
       }
     });
   }
@@ -47081,7 +49125,7 @@ _PaymentsListDialogComponent.\u0275fac = function PaymentsListDialogComponent_Fa
 };
 _PaymentsListDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentsListDialogComponent, selectors: [["app-payments-list-dialog"]], viewQuery: function PaymentsListDialogComponent_Query(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275viewQuery(_c013, 7, ElementRef);
+    \u0275\u0275viewQuery(_c017, 7, ElementRef);
   }
   if (rf & 2) {
     let _t;
@@ -47145,14 +49189,14 @@ _PaymentsListDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineCompo
 ], styles: ['\n\n  .admin-payments-dialog > .mat-mdc-dialog-container > .mdc-dialog__container > .mat-mdc-dialog-surface {\n  background-color: transparent !important;\n}\n  .admin-payments-dialog-backdrop {\n  background-color: rgba(0, 0, 0, 0.8) !important;\n}\n[_nghost-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  height: 100vh;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%] {\n  padding: 10px 20px;\n  background-color: white;\n  border-bottom: 2px solid gainsboro;\n  box-shadow: 0 0 40px 0 #080808;\n  box-sizing: border-box;\n  z-index: 1;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 700;\n  font-size: 21px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 700;\n  font-size: 21px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  border-bottom: 1px dotted #616161;\n  opacity: 0.8;\n  text-decoration: none;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .sorting-select[_ngcontent-%COMP%] {\n  width: 280px;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .sorting-select[_ngcontent-%COMP%]     .mat-mdc-form-field-subscript-wrapper {\n  display: none !important;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .close-button[_ngcontent-%COMP%] {\n  padding: 20px;\n  opacity: 0.8;\n  cursor: pointer;\n}\n[_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .close-button[_ngcontent-%COMP%]:hover {\n  opacity: 1;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%] {\n  width: 100vw;\n  flex-grow: 1;\n  display: flex;\n  align-items: baseline;\n  justify-content: center;\n  overflow-x: hidden;\n  position: relative;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .feed[_ngcontent-%COMP%] {\n  min-width: 100vw;\n  display: flex;\n  gap: 100px;\n  position: relative;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  transition: all 500ms ease-in-out;\n  transform: scale(0.8);\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block__inner[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  opacity: 0.5;\n  transition: all 500ms ease-in-out;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  height: 100%;\n  padding: 20px;\n  opacity: 0;\n  cursor: pointer;\n  pointer-events: none;\n  transition: opacity 150ms ease-in-out;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%]   .icon[_ngcontent-%COMP%] {\n  background-color: #FFFFFF;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block.active[_ngcontent-%COMP%] {\n  transform: scale(1);\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block.active[_ngcontent-%COMP%]   .payment-block__inner[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block.active[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%] {\n  opacity: 0.8;\n  pointer-events: all;\n}\n[_nghost-%COMP%]   .content[_ngcontent-%COMP%]   .payment-block.active[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%]:hover {\n  opacity: 1;\n}\n@media screen and (max-width: 700px) {\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%] {\n    margin-top: 5px;\n    margin-bottom: 10px;\n  }\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%]   section[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%]   section[_ngcontent-%COMP%]:first-child {\n    justify-content: center;\n  }\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%]   section[_ngcontent-%COMP%]:last-child {\n    justify-content: space-between;\n  }\n}\n@media screen and (max-width: 340px) {\n  [_nghost-%COMP%]   .header[_ngcontent-%COMP%]   .sorting-select[_ngcontent-%COMP%] {\n    width: auto !important;\n    min-width: unset;\n  }\n}\n/*# sourceMappingURL=payments-list-dialog.component.css.map */'], data: { animation: [fadeInFadeOutAnimation("fadeAnimation", 200)] } });
 var PaymentsListDialogComponent = _PaymentsListDialogComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentsListDialogComponent, { className: "PaymentsListDialogComponent", filePath: "src\\app\\admin\\modals\\payments-list-dialog\\payments-list-dialog.component.ts", lineNumber: 52 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentsListDialogComponent, { className: "PaymentsListDialogComponent", filePath: "src\\app\\admin\\modals\\payments-list-dialog\\payments-list-dialog.component.ts", lineNumber: 51 });
 })();
 
 // src/app/admin/pages/payments/payments.component.ts
 var _forTrack08 = ($index, $item) => $item.id;
 function PaymentsComponent_Conditional_11_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 8);
+    \u0275\u0275elementStart(0, "span", 7);
     \u0275\u0275text(1, "\u0417\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u0439 \u043D\u0430 \u0432\u044B\u043F\u043B\u0430\u0442\u0443 \u043D\u0435\u0442");
     \u0275\u0275elementEnd();
   }
@@ -47160,25 +49204,25 @@ function PaymentsComponent_Conditional_11_Template(rf, ctx) {
 function PaymentsComponent_For_13_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 9)(1, "div", 10);
-    \u0275\u0275element(2, "div", 11);
-    \u0275\u0275elementStart(3, "div", 12);
-    \u0275\u0275text(4);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(5, "div", 10)(6, "app-button", 13);
-    \u0275\u0275listener("click", function PaymentsComponent_For_13_Template_app_button_click_6_listener() {
+    \u0275\u0275elementStart(0, "div", 8)(1, "div", 9);
+    \u0275\u0275element(2, "div", 10);
+    \u0275\u0275elementStart(3, "app-flex-ellipsis")(4, "div", 11);
+    \u0275\u0275text(5);
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(6, "div", 9)(7, "app-button", 12);
+    \u0275\u0275listener("click", function PaymentsComponent_For_13_Template_app_button_click_7_listener() {
       const account_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.openAccountPaymentsList(account_r2.id));
     });
-    \u0275\u0275text(7, "\u0421\u043F\u0438\u0441\u043E\u043A \u0437\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u0439");
+    \u0275\u0275text(8, "\u0421\u043F\u0438\u0441\u043E\u043A \u0437\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u0439");
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
     const account_r2 = ctx.$implicit;
     \u0275\u0275advance(2);
     \u0275\u0275styleProp("background-color", "#ee2a17");
-    \u0275\u0275advance(2);
+    \u0275\u0275advance(3);
     \u0275\u0275textInterpolate2("", account_r2.vk.name, " (", account_r2.channel.name, ")");
   }
 }
@@ -47191,6 +49235,7 @@ var _PaymentsComponent = class _PaymentsComponent {
   }
   ngOnInit() {
     this.loadAccounts();
+    this.openAllPaymentsList();
   }
   loadAccounts() {
     return __async(this, null, function* () {
@@ -47221,7 +49266,7 @@ var _PaymentsComponent = class _PaymentsComponent {
 _PaymentsComponent.\u0275fac = function PaymentsComponent_Factory(t) {
   return new (t || _PaymentsComponent)(\u0275\u0275directiveInject(MatDialog), \u0275\u0275directiveInject(DestroyRef), \u0275\u0275directiveInject(AccountsService));
 };
-_PaymentsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentsComponent, selectors: [["app-payments"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 14, vars: 1, consts: [[1, "top-section"], [1, "page-title"], [1, "page-card"], [1, "flex-row"], [1, "card-title"], ["size", "small", "color", "blue-box", 3, "click"], [1, "section-divider"], [1, "payments-list"], [1, "payments-list__empty"], [1, "payments-list__item"], [1, "payments-list__item-section"], [1, "payments-list__item-mark"], [1, "payments-list__item-text"], ["size", "small", "color", "blue-box", 1, "payments-list__item-button", 3, "click"]], template: function PaymentsComponent_Template(rf, ctx) {
+_PaymentsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentsComponent, selectors: [["app-payments"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 14, vars: 1, consts: [[1, "top-section"], [1, "page-title"], [1, "page-card"], [1, "flex-row"], [1, "card-title"], ["size", "small", "color", "blue-box", 3, "click"], [1, "section-divider"], ["empty-text", ""], ["list-item", ""], ["list-item-section", ""], ["list-item-mark", ""], ["list-item-text", ""], ["list-item-button", "", "size", "small", "color", "blue-box", 3, "click"]], template: function PaymentsComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 0)(1, "div", 1);
     \u0275\u0275text(2, "\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0432\u044B\u043F\u043B\u0430\u0442\u0430\u043C\u0438");
@@ -47236,9 +49281,9 @@ _PaymentsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ typ
     \u0275\u0275text(8, "\u0421\u043F\u0438\u0441\u043E\u043A \u043D\u0430 \u0432\u044B\u043F\u043B\u0430\u0442\u0443");
     \u0275\u0275elementEnd()();
     \u0275\u0275element(9, "div", 6);
-    \u0275\u0275elementStart(10, "div", 7);
-    \u0275\u0275template(11, PaymentsComponent_Conditional_11_Template, 2, 0, "div", 8);
-    \u0275\u0275repeaterCreate(12, PaymentsComponent_For_13_Template, 8, 4, "div", 9, _forTrack08);
+    \u0275\u0275elementStart(10, "app-entities-list");
+    \u0275\u0275template(11, PaymentsComponent_Conditional_11_Template, 2, 0, "span", 7);
+    \u0275\u0275repeaterCreate(12, PaymentsComponent_For_13_Template, 9, 4, "div", 8, _forTrack08);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -47247,10 +49292,10 @@ _PaymentsComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ typ
     \u0275\u0275advance();
     \u0275\u0275repeater(ctx.accounts);
   }
-}, dependencies: [ButtonComponent], styles: ['\n\n[_nghost-%COMP%]   .page-block[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 0 15px;\n  max-width: 1160px;\n  margin: 0 auto;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 800;\n  font-size: 20px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 16px;\n}\n[_nghost-%COMP%]   .section-divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .top-section[_ngcontent-%COMP%] {\n  max-width: 440px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-button[_ngcontent-%COMP%] {\n  margin-top: 10px;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  margin-top: 30px;\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  padding-bottom: 0;\n  white-space: nowrap;\n}\n[_nghost-%COMP%]   .flex-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 50px;\n  justify-content: space-between;\n}\n[_nghost-%COMP%]   .flex-row[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  flex: 1;\n}\n[_nghost-%COMP%]   .payments-list__empty[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .payments-list__item[_ngcontent-%COMP%] {\n  display: flex;\n  padding: 14px;\n  background-color: #f2f2f2;\n  gap: 14px;\n}\n[_nghost-%COMP%]   .payments-list__item-section[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #FFFFFF;\n}\n[_nghost-%COMP%]   .payments-list__item-section[_ngcontent-%COMP%]:first-child {\n  flex-shrink: 0;\n  padding: 0 8px;\n}\n[_nghost-%COMP%]   .payments-list__item-mark[_ngcontent-%COMP%] {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background-color: #ee2a17;\n  margin-right: 8px;\n  flex-shrink: 0;\n}\n[_nghost-%COMP%]   .payments-list__item-text[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  text-align: center;\n  padding: 10px 0;\n}\n[_nghost-%COMP%]   .payments-list__item-button[_ngcontent-%COMP%] {\n  flex-grow: 1;\n}\n[_nghost-%COMP%]   .payments-list__item[_ngcontent-%COMP%]:not(:last-child) {\n  border-bottom: 1px solid #E8E8E8;\n}\n@media screen and (max-width: 1080px) {\n  [_nghost-%COMP%]   .flex-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n    gap: 20px;\n    align-items: unset;\n  }\n  [_nghost-%COMP%]   .payments-list__item[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  [_nghost-%COMP%]   .payments-list__item-section[_ngcontent-%COMP%]:first-child {\n    padding: 0 8px;\n  }\n}\n/*# sourceMappingURL=payments.component.css.map */'] });
+}, dependencies: [ButtonComponent, FlexEllipsisComponent, EntitiesListComponent], styles: ['\n\n[_nghost-%COMP%]   .page-block[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 0 15px;\n  max-width: 1160px;\n  margin: 0 auto;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 800;\n  font-size: 20px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 16px;\n}\n[_nghost-%COMP%]   .section-divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .top-section[_ngcontent-%COMP%] {\n  max-width: 440px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-button[_ngcontent-%COMP%] {\n  margin-top: 10px;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  margin-top: 30px;\n}\n[_nghost-%COMP%]   .card-title[_ngcontent-%COMP%] {\n  padding-bottom: 0;\n  flex-shrink: 0;\n  text-align: center;\n}\n[_nghost-%COMP%]   .flex-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 50px;\n  justify-content: space-between;\n}\n[_nghost-%COMP%]   .flex-row[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  flex: 1;\n}\n@media screen and (max-width: 660px) {\n  [_nghost-%COMP%]   .flex-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n    gap: 20px;\n  }\n}\n/*# sourceMappingURL=payments.component.css.map */'] });
 var PaymentsComponent = _PaymentsComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentsComponent, { className: "PaymentsComponent", filePath: "src\\app\\admin\\pages\\payments\\payments.component.ts", lineNumber: 20 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentsComponent, { className: "PaymentsComponent", filePath: "src\\app\\admin\\pages\\payments\\payments.component.ts", lineNumber: 22 });
 })();
 
 // src/app/admin/admin.routes.ts
@@ -47316,13 +49361,13 @@ var HomeComponent = _HomeComponent;
 })();
 
 // src/app/footer/footer.component.ts
-var _c014 = () => ({ exact: true });
+var _c018 = () => ({ exact: true });
 var _FooterComponent = class _FooterComponent {
 };
 _FooterComponent.\u0275fac = function FooterComponent_Factory(t) {
   return new (t || _FooterComponent)();
 };
-_FooterComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _FooterComponent, selectors: [["app-footer"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 27, vars: 2, consts: [[1, "page-block"], [1, "labels"], ["routerLink", "/", "href", "/", 1, "labels__logo"], [1, "labels__text"], [1, "links-block"], [1, "links-block__title"], [1, "links-block__list"], ["routerLink", "/", "routerLinkActive", "active", 1, "links-block__item", 3, "routerLinkActiveOptions"], ["routerLink", "/payout", "routerLinkActive", "active", 1, "links-block__item"], ["routerLink", "/my/payouts", "routerLinkActive", "active", 1, "links-block__item"], ["routerLink", "/admin", "routerLinkActive", "active", 1, "links-block__item"], ["href", "https://amazing-rp.ru/", 1, "links-block__item"], ["href", "https://amazing-craft.ru/", 1, "links-block__item"]], template: function FooterComponent_Template(rf, ctx) {
+_FooterComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _FooterComponent, selectors: [["app-footer"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 17, vars: 2, consts: [[1, "page-block"], [1, "labels"], ["routerLink", "/", "href", "/", 1, "labels__logo"], [1, "labels__text"], [1, "links-block"], [1, "links-block__title"], [1, "links-block__list"], ["routerLink", "/", "routerLinkActive", "active", 1, "links-block__item", 3, "routerLinkActiveOptions"], ["routerLink", "/payout", "routerLinkActive", "active", 1, "links-block__item"], ["routerLink", "/my/payouts", "routerLinkActive", "active", 1, "links-block__item"], ["routerLink", "/admin", "routerLinkActive", "active", 1, "links-block__item"]], template: function FooterComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 0)(1, "div", 1);
     \u0275\u0275element(2, "a", 2);
@@ -47343,23 +49388,11 @@ _FooterComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type:
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(15, "a", 10);
     \u0275\u0275text(16, "\u041F\u0430\u043D\u0435\u043B\u044C \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\u0430");
-    \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(17, "div", 4)(18, "span", 5);
-    \u0275\u0275text(19, "\u041D\u0430\u0448\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u044B");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(20, "div", 6)(21, "a", 11);
-    \u0275\u0275text(22, "Amazing RolePlay");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(23, "a", 12);
-    \u0275\u0275text(24, "Amazing Craft");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(25, "a", 12);
-    \u0275\u0275text(26, "GTA V (\u0412 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435)");
     \u0275\u0275elementEnd()()()();
   }
   if (rf & 2) {
     \u0275\u0275advance(9);
-    \u0275\u0275property("routerLinkActiveOptions", \u0275\u0275pureFunction0(1, _c014));
+    \u0275\u0275property("routerLinkActiveOptions", \u0275\u0275pureFunction0(1, _c018));
   }
 }, dependencies: [RouterLink, RouterLinkActive], styles: ['\n\n[_nghost-%COMP%]   .page-block[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 0 15px;\n  max-width: 1160px;\n  margin: 0 auto;\n}\n[_nghost-%COMP%] {\n  display: flex;\n  background: #FFFFFF;\n  box-shadow: 0 -10px 20px 5px rgba(0, 0, 0, 0.03);\n  border-top: 1px solid #ededed;\n}\n[_nghost-%COMP%]   .page-block[_ngcontent-%COMP%] {\n  padding: 60px 15px;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n[_nghost-%COMP%]   .labels__logo[_ngcontent-%COMP%] {\n  display: block;\n  position: relative;\n  background-image: url(/assets/images/logotypes/logotype.png);\n  background-size: contain;\n  background-repeat: no-repeat;\n  height: 35px;\n  margin-bottom: 25px;\n  opacity: 0.7;\n}\n[_nghost-%COMP%]   .labels__text[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  max-width: 450px;\n}\n[_nghost-%COMP%]   .links[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: flex-start;\n  gap: 60px;\n}\n[_nghost-%COMP%]   .links-block[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n}\n[_nghost-%COMP%]   .links-block__title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: bold;\n  font-size: 18px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  margin-bottom: 30px;\n}\n[_nghost-%COMP%]   .links-block__list[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n[_nghost-%COMP%]   .links-block__item[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: normal;\n  font-size: 14px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  text-decoration: none;\n}\n@media screen and (max-width: 900px) {\n  [_nghost-%COMP%]   .page-block[_ngcontent-%COMP%] {\n    flex-direction: column;\n    gap: 50px;\n  }\n}\n/*# sourceMappingURL=footer.component.css.map */'] });
 var FooterComponent = _FooterComponent;
@@ -47396,7 +49429,7 @@ var AccountBarComponent = _AccountBarComponent;
 })();
 
 // src/app/header/components/navigation-bar/navigation-bar.component.ts
-var _c015 = () => ({ exact: true });
+var _c019 = () => ({ exact: true });
 function NavigationBarComponent_Conditional_6_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 3);
@@ -47427,7 +49460,7 @@ _NavigationBarComponent2.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
     \u0275\u0275template(6, NavigationBarComponent_Conditional_6_Template, 2, 0, "a", 3);
   }
   if (rf & 2) {
-    \u0275\u0275property("routerLinkActiveOptions", \u0275\u0275pureFunction0(2, _c015));
+    \u0275\u0275property("routerLinkActiveOptions", \u0275\u0275pureFunction0(2, _c019));
     \u0275\u0275advance(6);
     \u0275\u0275conditional(6, ctx.authState.accessLevel >= ctx.AccessLevel.HELPER ? 6 : -1);
   }
@@ -47554,7 +49587,7 @@ function PaymentRequestComponent_For_18_Conditional_5_Template(rf, ctx) {
 }
 function PaymentRequestComponent_For_18_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 10)(1, "mat-form-field", 7);
+    \u0275\u0275elementStart(0, "app-form-field", 10)(1, "mat-form-field", 7);
     \u0275\u0275element(2, "input", 19);
     \u0275\u0275template(3, PaymentRequestComponent_For_18_Conditional_3_Template, 2, 0, "mat-error");
     \u0275\u0275elementEnd();
@@ -47607,9 +49640,9 @@ function PaymentRequestComponent_Conditional_25_Template(rf, ctx) {
     \u0275\u0275elementEnd();
   }
 }
-function PaymentRequestComponent_Conditional_29_Template(rf, ctx) {
+function PaymentRequestComponent_Conditional_28_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 15);
+    \u0275\u0275elementStart(0, "span", 14);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -47619,14 +49652,14 @@ function PaymentRequestComponent_Conditional_29_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r2.formGroup.controls.method.value.currency);
   }
 }
-function PaymentRequestComponent_Conditional_30_Template(rf, ctx) {
+function PaymentRequestComponent_Conditional_29_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-error");
     \u0275\u0275text(1, "\u042D\u0442\u043E \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043B\u0435");
     \u0275\u0275elementEnd();
   }
 }
-function PaymentRequestComponent_Conditional_34_Template(rf, ctx) {
+function PaymentRequestComponent_Conditional_33_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-card")(1, "div");
     \u0275\u0275element(2, "app-requisites-list", 25);
@@ -47639,14 +49672,14 @@ function PaymentRequestComponent_Conditional_34_Template(rf, ctx) {
     \u0275\u0275property("fields", ctx_r2.formGroup.controls.method.value.fields)("requisites", ctx_r2.requisites[ctx_r2.formGroup.controls.method.value.name]);
   }
 }
-function PaymentRequestComponent_Conditional_36_Template(rf, ctx) {
+function PaymentRequestComponent_Conditional_35_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-hint");
     \u0275\u0275text(1, "\u041F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E\u0441\u0442\u044C \u0440\u0435\u043A\u0432\u0438\u0437\u0438\u0442\u043E\u0432");
     \u0275\u0275elementEnd();
   }
 }
-function PaymentRequestComponent_Conditional_37_Template(rf, ctx) {
+function PaymentRequestComponent_Conditional_36_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-hint");
     \u0275\u0275text(1, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043C\u0435\u0442\u043E\u0434 \u0434\u043B\u044F \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0430 \u0440\u0435\u043A\u0432\u0438\u0437\u0438\u0442\u043E\u0432");
@@ -47760,7 +49793,7 @@ var _PaymentRequestComponent = class _PaymentRequestComponent {
       }
       this.formGroup.disable();
       const { mediaPlatform, method, amount, mediaLinks } = this.formGroup.value;
-      yield this.paymentsService.requests.create({
+      yield this.paymentsService.requests.create(this.authState.id, {
         mediaPlatform,
         methodName: method.name,
         amount,
@@ -47780,7 +49813,7 @@ var _PaymentRequestComponent = class _PaymentRequestComponent {
 _PaymentRequestComponent.\u0275fac = function PaymentRequestComponent_Factory(t) {
   return new (t || _PaymentRequestComponent)(\u0275\u0275directiveInject(FormBuilder), \u0275\u0275directiveInject(MediaPlatformsService), \u0275\u0275directiveInject(PaymentsService), \u0275\u0275directiveInject(NotifierService), \u0275\u0275directiveInject(AuthState));
 };
-_PaymentRequestComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentRequestComponent, selectors: [["app-payment-request"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 40, vars: 9, consts: [[1, "page-block"], [1, "wrapper"], [1, "page-title"], [1, "page-description"], ["routerLink", "/work-rules", 1, "text-link"], ["routerLink", "/my/payouts", "size", "medium", "color", "green-box", 1, "page-button"], [1, "page-card"], ["appearance", "outline"], ["placeholder", "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0443", 3, "formControl"], [3, "value"], [1, "form-row", "form-row--row"], ["placeholder", "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043C\u0435\u0442\u043E\u0434 \u043E\u043F\u043B\u0430\u0442\u044B", 3, "formControl"], ["disabled", "", 3, "value"], [1, "form-row"], ["matInput", "", "mask", "separator.0", "thousandSeparator", " ", "placeholder", "\u0421\u0443\u043C\u043C\u0430", 3, "keyup.enter", "formControl"], ["matSuffix", "", 1, "currency-label"], [1, "form-row__label"], [1, "form-row__subscript"], ["size", "medium", "color", "red-box", 3, "click"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0440\u043E\u043B\u0438\u043A", 3, "formControl"], ["size", "medium", "type", "icon", "color", "green-box", 1, "inline-button"], ["size", "medium", "type", "icon", "color", "green-box", 1, "inline-button", 3, "click"], ["fontIcon", "add"], ["size", "medium", "type", "icon", "color", "red-box", 1, "inline-button", 3, "click"], ["fontIcon", "delete_outline"], [3, "fields", "requisites"]], template: function PaymentRequestComponent_Template(rf, ctx) {
+_PaymentRequestComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentRequestComponent, selectors: [["app-payment-request"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 39, vars: 9, consts: [[1, "page-block"], [1, "wrapper"], [1, "page-title"], [1, "page-description"], ["routerLink", "/work-rules", 1, "text-link"], ["routerLink", "/my/payouts", "size", "medium", "color", "green-box", 1, "page-button"], [1, "page-card"], ["appearance", "outline"], ["placeholder", "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u043B\u0430\u0442\u0444\u043E\u0440\u043C\u0443", 3, "formControl"], [3, "value"], [1, "direction--row"], ["placeholder", "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043C\u0435\u0442\u043E\u0434 \u043E\u043F\u043B\u0430\u0442\u044B", 3, "formControl"], ["disabled", "", 3, "value"], ["matInput", "", "mask", "separator.0", "thousandSeparator", " ", "placeholder", "\u0421\u0443\u043C\u043C\u0430", 3, "keyup.enter", "formControl"], ["matSuffix", "", 1, "currency-label"], [1, "requisites"], ["form-field-label", ""], ["form-field-subscript", ""], ["size", "medium", "color", "red-box", 3, "click"], ["matInput", "", "placeholder", "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0440\u043E\u043B\u0438\u043A", 3, "formControl"], ["size", "medium", "type", "icon", "color", "green-box", 1, "inline-button"], ["size", "medium", "type", "icon", "color", "green-box", 1, "inline-button", 3, "click"], ["fontIcon", "add"], ["size", "medium", "type", "icon", "color", "red-box", 1, "inline-button", 3, "click"], ["fontIcon", "delete_outline"], [3, "fields", "requisites"]], template: function PaymentRequestComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 0)(1, "div", 1)(2, "div", 2);
     \u0275\u0275text(3, "\u041F\u043E\u0434\u0430\u0442\u044C \u0437\u0430\u044F\u0432\u043A\u0443 \u043D\u0430 \u0432\u044B\u043F\u043B\u0430\u0442\u0443");
@@ -47800,32 +49833,32 @@ _PaymentRequestComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
     \u0275\u0275elementEnd();
     \u0275\u0275template(16, PaymentRequestComponent_Conditional_16_Template, 2, 0, "mat-error");
     \u0275\u0275elementEnd();
-    \u0275\u0275repeaterCreate(17, PaymentRequestComponent_For_18_Template, 6, 5, "div", 10, \u0275\u0275repeaterTrackByIdentity);
+    \u0275\u0275repeaterCreate(17, PaymentRequestComponent_For_18_Template, 6, 5, "app-form-field", 10, \u0275\u0275repeaterTrackByIdentity);
     \u0275\u0275elementStart(19, "mat-form-field", 7)(20, "mat-select", 11);
     \u0275\u0275repeaterCreate(21, PaymentRequestComponent_For_22_Template, 2, 2, "mat-option", 9, _forTrack09);
     \u0275\u0275repeaterCreate(23, PaymentRequestComponent_For_24_Template, 2, 2, "mat-option", 12, _forTrack09);
     \u0275\u0275elementEnd();
     \u0275\u0275template(25, PaymentRequestComponent_Conditional_25_Template, 2, 0, "mat-error");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(26, "div", 13)(27, "mat-form-field", 7)(28, "input", 14);
-    \u0275\u0275listener("keyup.enter", function PaymentRequestComponent_Template_input_keyup_enter_28_listener() {
+    \u0275\u0275elementStart(26, "mat-form-field", 7)(27, "input", 13);
+    \u0275\u0275listener("keyup.enter", function PaymentRequestComponent_Template_input_keyup_enter_27_listener() {
       return ctx.submit();
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(29, PaymentRequestComponent_Conditional_29_Template, 2, 1, "span", 15)(30, PaymentRequestComponent_Conditional_30_Template, 2, 0, "mat-error");
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(31, "div", 13)(32, "div", 16);
-    \u0275\u0275text(33, "\u0420\u0435\u043A\u0432\u0438\u0437\u0438\u0442\u044B");
+    \u0275\u0275template(28, PaymentRequestComponent_Conditional_28_Template, 2, 1, "span", 14)(29, PaymentRequestComponent_Conditional_29_Template, 2, 0, "mat-error");
     \u0275\u0275elementEnd();
-    \u0275\u0275template(34, PaymentRequestComponent_Conditional_34_Template, 3, 4, "mat-card");
-    \u0275\u0275elementStart(35, "div", 17);
-    \u0275\u0275template(36, PaymentRequestComponent_Conditional_36_Template, 2, 0, "mat-hint")(37, PaymentRequestComponent_Conditional_37_Template, 2, 0);
+    \u0275\u0275elementStart(30, "app-form-field", 15)(31, "span", 16);
+    \u0275\u0275text(32, "\u0420\u0435\u043A\u0432\u0438\u0437\u0438\u0442\u044B");
+    \u0275\u0275elementEnd();
+    \u0275\u0275template(33, PaymentRequestComponent_Conditional_33_Template, 3, 4, "mat-card");
+    \u0275\u0275elementStart(34, "div", 17);
+    \u0275\u0275template(35, PaymentRequestComponent_Conditional_35_Template, 2, 0, "mat-hint")(36, PaymentRequestComponent_Conditional_36_Template, 2, 0);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(38, "app-button", 18);
-    \u0275\u0275listener("click", function PaymentRequestComponent_Template_app_button_click_38_listener() {
+    \u0275\u0275elementStart(37, "app-button", 18);
+    \u0275\u0275listener("click", function PaymentRequestComponent_Template_app_button_click_37_listener() {
       return ctx.submit();
     });
-    \u0275\u0275text(39, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0437\u0430\u044F\u0432\u043A\u0443");
+    \u0275\u0275text(38, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0437\u0430\u044F\u0432\u043A\u0443");
     \u0275\u0275elementEnd()()()();
   }
   if (rf & 2) {
@@ -47845,16 +49878,16 @@ _PaymentRequestComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
     \u0275\u0275repeater(ctx.unconnectedMethods);
     \u0275\u0275advance(2);
     \u0275\u0275conditional(25, ctx.formGroup.controls.method.getError("required") ? 25 : -1);
-    \u0275\u0275advance(3);
+    \u0275\u0275advance(2);
     \u0275\u0275property("formControl", ctx.formGroup.controls.amount);
     \u0275\u0275advance();
-    \u0275\u0275conditional(29, ctx.formGroup.controls.method.value ? 29 : -1);
+    \u0275\u0275conditional(28, ctx.formGroup.controls.method.value ? 28 : -1);
     \u0275\u0275advance();
-    \u0275\u0275conditional(30, ctx.formGroup.controls.amount.getError("required") ? 30 : -1);
+    \u0275\u0275conditional(29, ctx.formGroup.controls.amount.getError("required") ? 29 : -1);
     \u0275\u0275advance(4);
-    \u0275\u0275conditional(34, ctx.displayedRequisites ? 34 : -1);
+    \u0275\u0275conditional(33, ctx.displayedRequisites ? 33 : -1);
     \u0275\u0275advance(2);
-    \u0275\u0275conditional(36, ctx.formGroup.controls.method.value ? 36 : 37);
+    \u0275\u0275conditional(35, ctx.formGroup.controls.method.value ? 35 : 36);
   }
 }, dependencies: [
   RouterLink,
@@ -47874,21 +49907,22 @@ _PaymentRequestComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
   FormControlDirective,
   NgxMaskDirective,
   RequisitesListComponent,
-  MatCard
-], styles: ['\n\n[_nghost-%COMP%]   .page-block[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 0 15px;\n  max-width: 1160px;\n  margin: 0 auto;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .wrapper[_ngcontent-%COMP%] {\n  max-width: 520px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-button[_ngcontent-%COMP%] {\n  margin-top: 10px;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  margin-top: 30px;\n}\n[_nghost-%COMP%]   .form-row--row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__subscript[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\n[_nghost-%COMP%]   .form-row__subscript[_ngcontent-%COMP%]    > .mat-mdc-form-field-hint[_ngcontent-%COMP%] {\n  font-size: 12px;\n  opacity: 0.6;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .inline-button[_ngcontent-%COMP%] {\n  margin-bottom: 22px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%]:first-child:not(.form-row__label) {\n  margin-right: 20px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  padding: 20px;\n}\n[_nghost-%COMP%]   .currency-label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 0 15px;\n  opacity: 0.6;\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .form-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  [_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%]:not(:last-child) {\n    margin-right: unset;\n  }\n}\n/*# sourceMappingURL=payment-request.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
+  MatCard,
+  FormFieldComponent
+], styles: ['\n\n[_nghost-%COMP%]   .page-block[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 0 15px;\n  max-width: 1160px;\n  margin: 0 auto;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .wrapper[_ngcontent-%COMP%] {\n  max-width: 520px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-button[_ngcontent-%COMP%] {\n  margin-top: 10px;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  margin-top: 30px;\n}\n[_nghost-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n}\n[_nghost-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  padding: 20px;\n}\n[_nghost-%COMP%]   .currency-label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 0 15px;\n  opacity: 0.6;\n}\n[_nghost-%COMP%]   app-form-field[_ngcontent-%COMP%] {\n  margin-bottom: 0 !important;\n}\n[_nghost-%COMP%]   app-form-field[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%]:first-child:not([form-field-label]) {\n  margin-right: 20px;\n}\n[_nghost-%COMP%]   app-form-field.direction--row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n[_nghost-%COMP%]   app-form-field.requisites[_ngcontent-%COMP%] {\n  margin-bottom: 0.5em !important;\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   app-form-field[_ngcontent-%COMP%] {\n    flex-direction: column !important;\n  }\n  [_nghost-%COMP%]   app-form-field[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%]:not(:last-child) {\n    margin-right: unset !important;\n  }\n}\n/*# sourceMappingURL=payment-request.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
 var PaymentRequestComponent = _PaymentRequestComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequestComponent, { className: "PaymentRequestComponent", filePath: "src\\app\\payment-request\\payment-request.component.ts", lineNumber: 40 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequestComponent, { className: "PaymentRequestComponent", filePath: "src\\app\\payment-request\\payment-request.component.ts", lineNumber: 42 });
 })();
 
 // src/app/ui/titled-divider/titled-divider.component.ts
-var _c016 = ["*"];
+var _c020 = ["*"];
 var _TitledDividerComponent = class _TitledDividerComponent {
 };
 _TitledDividerComponent.\u0275fac = function TitledDividerComponent_Factory(t) {
   return new (t || _TitledDividerComponent)();
 };
-_TitledDividerComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _TitledDividerComponent, selectors: [["app-titled-divider"]], standalone: true, features: [\u0275\u0275StandaloneFeature], ngContentSelectors: _c016, decls: 4, vars: 0, consts: [[1, "leading"], [1, "text"], [1, "trailing"]], template: function TitledDividerComponent_Template(rf, ctx) {
+_TitledDividerComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _TitledDividerComponent, selectors: [["app-titled-divider"]], standalone: true, features: [\u0275\u0275StandaloneFeature], ngContentSelectors: _c020, decls: 4, vars: 0, consts: [[1, "leading"], [1, "text"], [1, "trailing"]], template: function TitledDividerComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275projectionDef();
     \u0275\u0275element(0, "div", 0);
@@ -48011,8 +50045,8 @@ var _forTrack011 = ($index, $item) => $item.id;
 function PaymentRequestDialogComponent_Conditional_8_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-select-trigger");
-    \u0275\u0275element(1, "i", 12);
-    \u0275\u0275elementStart(2, "span", 13);
+    \u0275\u0275element(1, "i", 11);
+    \u0275\u0275elementStart(2, "span", 12);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
@@ -48026,9 +50060,9 @@ function PaymentRequestDialogComponent_Conditional_8_Template(rf, ctx) {
 }
 function PaymentRequestDialogComponent_For_10_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "mat-option", 5);
-    \u0275\u0275element(1, "i", 12);
-    \u0275\u0275elementStart(2, "span", 13);
+    \u0275\u0275elementStart(0, "mat-option", 4);
+    \u0275\u0275element(1, "i", 11);
+    \u0275\u0275elementStart(2, "span", 12);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
@@ -48062,48 +50096,48 @@ var _PaymentRequestDialogComponent = class _PaymentRequestDialogComponent {
 _PaymentRequestDialogComponent.\u0275fac = function PaymentRequestDialogComponent_Factory(t) {
   return new (t || _PaymentRequestDialogComponent)(\u0275\u0275directiveInject(MAT_DIALOG_DATA), \u0275\u0275directiveInject(MatDialogRef), \u0275\u0275directiveInject(FormBuilder));
 };
-_PaymentRequestDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentRequestDialogComponent, selectors: [["app-payment-request-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 37, vars: 12, consts: [[1, "title"], [1, "form-row"], [1, "form-row__label"], ["appearance", "outline"], ["placeholder", "\u0421\u0442\u0430\u0442\u0443\u0441", 3, "disabled", "formControl"], [3, "value"], [3, "links"], [1, "form-row__subscript"], ["mask", "separator.0", "thousandSeparator", " ", "matInput", "", 3, "formControl"], ["matSuffix", "", 1, "currency-label"], ["disabled", "", "matInput", "", 3, "value"], ["size", "medium", "color", "blue-box", 3, "click"], [1, "select-option-icon", "select-option-icon--mark"], [1, "select-option-label"]], template: function PaymentRequestDialogComponent_Template(rf, ctx) {
+_PaymentRequestDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentRequestDialogComponent, selectors: [["app-payment-request-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 37, vars: 12, consts: [[1, "title"], ["form-field-label", ""], ["appearance", "outline"], ["placeholder", "\u0421\u0442\u0430\u0442\u0443\u0441", 3, "disabled", "formControl"], [3, "value"], [3, "links"], ["form-field-subscript", ""], ["mask", "separator.0", "thousandSeparator", " ", "matInput", "", 3, "formControl"], ["matSuffix", "", 1, "currency-label"], ["disabled", "", "matInput", "", 3, "value"], ["size", "medium", "color", "blue-box", 3, "click"], [1, "select-option-icon", "select-option-icon--mark"], [1, "select-option-label"]], template: function PaymentRequestDialogComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-dialog-content")(1, "div", 0);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "div", 1)(4, "div", 2);
+    \u0275\u0275elementStart(3, "app-form-field")(4, "span", 1);
     \u0275\u0275text(5, "\u0421\u0442\u0430\u0442\u0443\u0441");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "mat-form-field", 3)(7, "mat-select", 4);
+    \u0275\u0275elementStart(6, "mat-form-field", 2)(7, "mat-select", 3);
     \u0275\u0275template(8, PaymentRequestDialogComponent_Conditional_8_Template, 4, 3, "mat-select-trigger");
-    \u0275\u0275repeaterCreate(9, PaymentRequestDialogComponent_For_10_Template, 4, 4, "mat-option", 5, _forTrack011);
+    \u0275\u0275repeaterCreate(9, PaymentRequestDialogComponent_For_10_Template, 4, 4, "mat-option", 4, _forTrack011);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(11, "div", 1)(12, "div", 2);
+    \u0275\u0275elementStart(11, "app-form-field")(12, "span", 1);
     \u0275\u0275text(13, "\u0421\u0441\u044B\u043B\u043A\u0438 \u043D\u0430 \u043C\u0435\u0434\u0438\u0430");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(14, "mat-card");
-    \u0275\u0275element(15, "app-media-links-list", 6);
+    \u0275\u0275element(15, "app-media-links-list", 5);
     \u0275\u0275elementEnd();
-    \u0275\u0275element(16, "div", 7);
+    \u0275\u0275element(16, "div", 6);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(17, "div", 1)(18, "div", 2);
+    \u0275\u0275elementStart(17, "app-form-field")(18, "span", 1);
     \u0275\u0275text(19, "\u0421\u0443\u043C\u043C\u0430");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(20, "mat-form-field", 3);
-    \u0275\u0275element(21, "input", 8);
-    \u0275\u0275elementStart(22, "span", 9);
+    \u0275\u0275elementStart(20, "mat-form-field", 2);
+    \u0275\u0275element(21, "input", 7);
+    \u0275\u0275elementStart(22, "span", 8);
     \u0275\u0275text(23);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(24, "div", 1)(25, "div", 2);
+    \u0275\u0275elementStart(24, "app-form-field")(25, "span", 1);
     \u0275\u0275text(26, "\u0421\u043F\u043E\u0441\u043E\u0431 \u043E\u043F\u043B\u0430\u0442\u044B");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(27, "mat-form-field", 3);
-    \u0275\u0275element(28, "input", 10);
+    \u0275\u0275elementStart(27, "mat-form-field", 2);
+    \u0275\u0275element(28, "input", 9);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(29, "div", 1)(30, "div", 2);
+    \u0275\u0275elementStart(29, "app-form-field")(30, "span", 1);
     \u0275\u0275text(31, "\u0414\u0430\u0442\u0430 \u0437\u0430\u044F\u0432\u043B\u0435\u043D\u0438\u044F");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(32, "mat-form-field", 3);
-    \u0275\u0275element(33, "input", 10);
+    \u0275\u0275elementStart(32, "mat-form-field", 2);
+    \u0275\u0275element(33, "input", 9);
     \u0275\u0275pipe(34, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(35, "app-button", 11);
+    \u0275\u0275elementStart(35, "app-button", 10);
     \u0275\u0275listener("click", function PaymentRequestDialogComponent_Template_app_button_click_35_listener() {
       return ctx.close();
     });
@@ -48147,11 +50181,12 @@ _PaymentRequestDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineCom
   MatDialogContent,
   NgxMaskDirective,
   MatCard,
-  MediaLinksListComponent
-], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  margin-left: 10px;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]     .mat-icon {\n  width: 20px;\n  height: 20px;\n  font-size: 20px;\n  line-height: 20px;\n  color: #505050;\n}\n[_nghost-%COMP%]   .form-row__subscript[_ngcontent-%COMP%] {\n  height: 22px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n  padding: 20px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     .mat-mdc-select-arrow-wrapper {\n  opacity: 0;\n}\n[_nghost-%COMP%]   .currency-label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 0 15px;\n  opacity: 0.6;\n}\n/*# sourceMappingURL=payment-request-dialog.component.css.map */'] });
+  MediaLinksListComponent,
+  FormFieldComponent
+], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 1em;\n}\n[_nghost-%COMP%]   .mat-mdc-card[_ngcontent-%COMP%] {\n  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);\n  padding: 20px;\n}\n[_nghost-%COMP%]   .currency-label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 0 15px;\n  opacity: 0.6;\n}\n[_nghost-%COMP%]     .mat-mdc-select-arrow-wrapper {\n  opacity: 0;\n}\n/*# sourceMappingURL=payment-request-dialog.component.css.map */'] });
 var PaymentRequestDialogComponent = _PaymentRequestDialogComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequestDialogComponent, { className: "PaymentRequestDialogComponent", filePath: "src\\app\\personal\\modals\\payment-request-dialog\\payment-request-dialog.component.ts", lineNumber: 41 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequestDialogComponent, { className: "PaymentRequestDialogComponent", filePath: "src\\app\\personal\\modals\\payment-request-dialog\\payment-request-dialog.component.ts", lineNumber: 43 });
 })();
 
 // src/app/personal/pages/payments-requests/payments-requests.component.ts
@@ -48346,11 +50381,11 @@ function PaymentRequisitesDialogComponent_For_8_Case_1_Conditional_7_Template(rf
 }
 function PaymentRequisitesDialogComponent_For_8_Case_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 6);
+    \u0275\u0275elementStart(0, "span", 5);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "mat-form-field", 7);
-    \u0275\u0275element(3, "input", 8);
+    \u0275\u0275elementStart(2, "mat-form-field", 6);
+    \u0275\u0275element(3, "input", 7);
     \u0275\u0275template(4, PaymentRequisitesDialogComponent_For_8_Case_1_Conditional_4_Template, 2, 1, "mat-hint")(5, PaymentRequisitesDialogComponent_For_8_Case_1_Conditional_5_Template, 2, 0, "mat-error")(6, PaymentRequisitesDialogComponent_For_8_Case_1_Conditional_6_Template, 2, 0)(7, PaymentRequisitesDialogComponent_For_8_Case_1_Conditional_7_Template, 2, 1);
     \u0275\u0275elementEnd();
   }
@@ -48395,11 +50430,11 @@ function PaymentRequisitesDialogComponent_For_8_Case_2_Conditional_6_Template(rf
 }
 function PaymentRequisitesDialogComponent_For_8_Case_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 6);
+    \u0275\u0275elementStart(0, "span", 5);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "mat-form-field", 7);
-    \u0275\u0275element(3, "input", 9);
+    \u0275\u0275elementStart(2, "mat-form-field", 6);
+    \u0275\u0275element(3, "input", 8);
     \u0275\u0275template(4, PaymentRequisitesDialogComponent_For_8_Case_2_Conditional_4_Template, 2, 1, "mat-hint")(5, PaymentRequisitesDialogComponent_For_8_Case_2_Conditional_5_Template, 2, 0, "mat-error")(6, PaymentRequisitesDialogComponent_For_8_Case_2_Conditional_6_Template, 2, 0);
     \u0275\u0275elementEnd();
   }
@@ -48444,11 +50479,11 @@ function PaymentRequisitesDialogComponent_For_8_Case_3_Conditional_6_Template(rf
 }
 function PaymentRequisitesDialogComponent_For_8_Case_3_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 6);
+    \u0275\u0275elementStart(0, "span", 5);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "mat-form-field", 7);
-    \u0275\u0275element(3, "input", 9);
+    \u0275\u0275elementStart(2, "mat-form-field", 6);
+    \u0275\u0275element(3, "input", 8);
     \u0275\u0275template(4, PaymentRequisitesDialogComponent_For_8_Case_3_Conditional_4_Template, 2, 1, "mat-hint")(5, PaymentRequisitesDialogComponent_For_8_Case_3_Conditional_5_Template, 2, 0, "mat-error")(6, PaymentRequisitesDialogComponent_For_8_Case_3_Conditional_6_Template, 2, 0);
     \u0275\u0275elementEnd();
   }
@@ -48493,11 +50528,11 @@ function PaymentRequisitesDialogComponent_For_8_Case_4_Conditional_6_Template(rf
 }
 function PaymentRequisitesDialogComponent_For_8_Case_4_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 6);
+    \u0275\u0275elementStart(0, "span", 5);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "mat-form-field", 7);
-    \u0275\u0275element(3, "input", 10);
+    \u0275\u0275elementStart(2, "mat-form-field", 6);
+    \u0275\u0275element(3, "input", 9);
     \u0275\u0275template(4, PaymentRequisitesDialogComponent_For_8_Case_4_Conditional_4_Template, 2, 1, "mat-hint")(5, PaymentRequisitesDialogComponent_For_8_Case_4_Conditional_5_Template, 2, 0, "mat-error")(6, PaymentRequisitesDialogComponent_For_8_Case_4_Conditional_6_Template, 2, 0);
     \u0275\u0275elementEnd();
   }
@@ -48528,7 +50563,7 @@ function PaymentRequisitesDialogComponent_For_8_Case_5_Conditional_2_Template(rf
 }
 function PaymentRequisitesDialogComponent_For_8_Case_5_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "mat-checkbox", 11);
+    \u0275\u0275elementStart(0, "mat-checkbox", 10);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
     \u0275\u0275template(2, PaymentRequisitesDialogComponent_For_8_Case_5_Conditional_2_Template, 2, 1, "mat-hint");
@@ -48545,7 +50580,7 @@ function PaymentRequisitesDialogComponent_For_8_Case_5_Template(rf, ctx) {
 }
 function PaymentRequisitesDialogComponent_For_8_Case_6_For_5_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "mat-option", 13);
+    \u0275\u0275elementStart(0, "mat-option", 12);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -48572,11 +50607,11 @@ function PaymentRequisitesDialogComponent_For_8_Case_6_Conditional_7_Template(rf
 }
 function PaymentRequisitesDialogComponent_For_8_Case_6_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 6);
+    \u0275\u0275elementStart(0, "span", 5);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "mat-form-field", 7)(3, "mat-select", 12);
-    \u0275\u0275repeaterCreate(4, PaymentRequisitesDialogComponent_For_8_Case_6_For_5_Template, 2, 2, "mat-option", 13, \u0275\u0275repeaterTrackByIdentity);
+    \u0275\u0275elementStart(2, "mat-form-field", 6)(3, "mat-select", 11);
+    \u0275\u0275repeaterCreate(4, PaymentRequisitesDialogComponent_For_8_Case_6_For_5_Template, 2, 2, "mat-option", 12, \u0275\u0275repeaterTrackByIdentity);
     \u0275\u0275elementEnd();
     \u0275\u0275template(6, PaymentRequisitesDialogComponent_For_8_Case_6_Conditional_6_Template, 2, 0, "mat-error")(7, PaymentRequisitesDialogComponent_For_8_Case_6_Conditional_7_Template, 2, 0);
     \u0275\u0275elementEnd();
@@ -48601,7 +50636,7 @@ function PaymentRequisitesDialogComponent_For_8_Case_7_Template(rf, ctx) {
 }
 function PaymentRequisitesDialogComponent_For_8_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 3);
+    \u0275\u0275elementStart(0, "app-form-field");
     \u0275\u0275template(1, PaymentRequisitesDialogComponent_For_8_Case_1_Template, 8, 5)(2, PaymentRequisitesDialogComponent_For_8_Case_2_Template, 7, 5)(3, PaymentRequisitesDialogComponent_For_8_Case_3_Template, 7, 5)(4, PaymentRequisitesDialogComponent_For_8_Case_4_Template, 7, 5)(5, PaymentRequisitesDialogComponent_For_8_Case_5_Template, 3, 3)(6, PaymentRequisitesDialogComponent_For_8_Case_6_Template, 8, 4)(7, PaymentRequisitesDialogComponent_For_8_Case_7_Template, 1, 0);
     \u0275\u0275elementEnd();
   }
@@ -48742,7 +50777,7 @@ var _PaymentRequisitesDialogComponent = class _PaymentRequisitesDialogComponent 
 _PaymentRequisitesDialogComponent.\u0275fac = function PaymentRequisitesDialogComponent_Factory(t) {
   return new (t || _PaymentRequisitesDialogComponent)(\u0275\u0275directiveInject(MAT_DIALOG_DATA), \u0275\u0275directiveInject(MatDialogRef), \u0275\u0275directiveInject(NotifierService), \u0275\u0275directiveInject(PaymentsService), \u0275\u0275directiveInject(AuthState));
 };
-_PaymentRequisitesDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentRequisitesDialogComponent, selectors: [["app-payment-requisites-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 13, vars: 4, consts: [[1, "title"], [1, "description"], [1, "divider"], [1, "form-row"], ["size", "medium", "color", "green-box", 1, "button", 3, "click"], ["size", "medium", "color", "gray-box", 1, "button", 3, "click"], [1, "form-row__label"], ["appearance", "outline"], ["matInput", "", 3, "placeholder", "formControl"], ["matInput", "", "mask", "separator.0", "thousandSeparator", " ", 3, "placeholder", "formControl"], ["matInput", "", "mask", "separator.4", "thousandSeparator", " ", "decimalMarker", ".", 3, "placeholder", "formControl"], [3, "formControl"], [3, "placeholder", "formControl"], [3, "value"]], template: function PaymentRequisitesDialogComponent_Template(rf, ctx) {
+_PaymentRequisitesDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentRequisitesDialogComponent, selectors: [["app-payment-requisites-dialog"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 13, vars: 4, consts: [[1, "title"], [1, "description"], [1, "divider"], ["size", "medium", "color", "green-box", 1, "button", 3, "click"], ["size", "medium", "color", "gray-box", 1, "button", 3, "click"], ["form-field-label", ""], ["appearance", "outline"], ["matInput", "", 3, "placeholder", "formControl"], ["matInput", "", "mask", "separator.0", "thousandSeparator", " ", 3, "placeholder", "formControl"], ["matInput", "", "mask", "separator.4", "thousandSeparator", " ", "decimalMarker", ".", 3, "placeholder", "formControl"], [3, "formControl"], [3, "placeholder", "formControl"], [3, "value"]], template: function PaymentRequisitesDialogComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "mat-dialog-content")(1, "div", 0);
     \u0275\u0275template(2, PaymentRequisitesDialogComponent_Conditional_2_Template, 1, 0)(3, PaymentRequisitesDialogComponent_Conditional_3_Template, 1, 0);
@@ -48751,14 +50786,14 @@ _PaymentRequisitesDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275define
     \u0275\u0275text(5);
     \u0275\u0275elementEnd();
     \u0275\u0275element(6, "div", 2);
-    \u0275\u0275repeaterCreate(7, PaymentRequisitesDialogComponent_For_8_Template, 8, 1, "div", 3, _forTrack013);
-    \u0275\u0275elementStart(9, "app-button", 4);
+    \u0275\u0275repeaterCreate(7, PaymentRequisitesDialogComponent_For_8_Template, 8, 1, "app-form-field", null, _forTrack013);
+    \u0275\u0275elementStart(9, "app-button", 3);
     \u0275\u0275listener("click", function PaymentRequisitesDialogComponent_Template_app_button_click_9_listener() {
       return ctx.submit();
     });
     \u0275\u0275text(10);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(11, "app-button", 5);
+    \u0275\u0275elementStart(11, "app-button", 4);
     \u0275\u0275listener("click", function PaymentRequisitesDialogComponent_Template_app_button_click_11_listener() {
       return ctx.dialogRef.close();
     });
@@ -48789,11 +50824,12 @@ _PaymentRequisitesDialogComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275define
   MatOption,
   MatSelect,
   MatHint,
-  NgxMaskDirective
-], styles: ['\n\n[_nghost-%COMP%]   .divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .form-row__label[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n  margin-bottom: 0.2em;\n  display: flex;\n  align-items: center;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 0.5em;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]   .mat-mdc-checkbox[_ngcontent-%COMP%] {\n  margin-left: -10px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]    > .mat-mdc-form-field-hint[_ngcontent-%COMP%] {\n  font-size: 12px;\n  position: relative;\n  bottom: 6px;\n}\n[_nghost-%COMP%]   .form-row[_ngcontent-%COMP%]     {\n  --mdc-outlined-text-field-disabled-input-text-color: var(--mdc-outlined-text-field-input-text-color);\n}\n[_nghost-%COMP%]   .button[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=payment-requisites-dialog.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
+  NgxMaskDirective,
+  FormFieldComponent
+], styles: ['\n\n[_nghost-%COMP%]   .divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n  width: 100vw;\n  max-width: 500px;\n}\n[_nghost-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 22px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #505050;\n}\n[_nghost-%COMP%]   .button[_ngcontent-%COMP%]:not(:last-child) {\n  margin-bottom: 20px;\n}\n/*# sourceMappingURL=payment-requisites-dialog.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
 var PaymentRequisitesDialogComponent = _PaymentRequisitesDialogComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequisitesDialogComponent, { className: "PaymentRequisitesDialogComponent", filePath: "src\\app\\personal\\modals\\payment-requisites-dialog\\payment-requisites-dialog.component.ts", lineNumber: 55 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentRequisitesDialogComponent, { className: "PaymentRequisitesDialogComponent", filePath: "src\\app\\personal\\modals\\payment-requisites-dialog\\payment-requisites-dialog.component.ts", lineNumber: 57 });
 })();
 
 // src/app/personal/pages/payments-requisites/payments-requisites.component.ts
@@ -48801,24 +50837,24 @@ var _forTrack014 = ($index, $item) => $item.name;
 function PaymentsRequisitesComponent_Conditional_4_For_4_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 6)(1, "div", 7)(2, "app-flex-ellipsis")(3, "span", 8);
+    \u0275\u0275elementStart(0, "div", 5)(1, "div", 6)(2, "app-flex-ellipsis")(3, "span", 7);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(5, "div", 7)(6, "app-button", 9);
+    \u0275\u0275elementStart(5, "div", 6)(6, "app-button", 8);
     \u0275\u0275listener("click", function PaymentsRequisitesComponent_Conditional_4_For_4_Template_app_button_click_6_listener() {
       const method_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.edit(method_r2));
     });
-    \u0275\u0275element(7, "mat-icon", 10);
+    \u0275\u0275element(7, "mat-icon", 9);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(8, "app-button", 11);
+    \u0275\u0275elementStart(8, "app-button", 10);
     \u0275\u0275listener("click", function PaymentsRequisitesComponent_Conditional_4_For_4_Template_app_button_click_8_listener() {
       const method_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.delete(method_r2));
     });
-    \u0275\u0275element(9, "mat-icon", 12);
+    \u0275\u0275element(9, "mat-icon", 11);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -48833,8 +50869,8 @@ function PaymentsRequisitesComponent_Conditional_4_Template(rf, ctx) {
     \u0275\u0275elementStart(0, "div", 4);
     \u0275\u0275text(1, "\u041F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u043D\u044B\u0435 \u043C\u0435\u0442\u043E\u0434\u044B");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "div", 5);
-    \u0275\u0275repeaterCreate(3, PaymentsRequisitesComponent_Conditional_4_For_4_Template, 10, 3, "div", 6, _forTrack014);
+    \u0275\u0275elementStart(2, "app-entities-list");
+    \u0275\u0275repeaterCreate(3, PaymentsRequisitesComponent_Conditional_4_For_4_Template, 10, 3, "div", 5, _forTrack014);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -48851,16 +50887,16 @@ function PaymentsRequisitesComponent_Conditional_5_Template(rf, ctx) {
 function PaymentsRequisitesComponent_Conditional_6_For_4_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 6)(1, "div", 7)(2, "app-flex-ellipsis")(3, "span", 8);
+    \u0275\u0275elementStart(0, "div", 5)(1, "div", 6)(2, "app-flex-ellipsis")(3, "span", 7);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(5, "div", 7)(6, "app-button", 13);
+    \u0275\u0275elementStart(5, "div", 6)(6, "app-button", 12);
     \u0275\u0275listener("click", function PaymentsRequisitesComponent_Conditional_6_For_4_Template_app_button_click_6_listener() {
       const method_r5 = \u0275\u0275restoreView(_r4).$implicit;
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.add(method_r5));
     });
-    \u0275\u0275element(7, "mat-icon", 14);
+    \u0275\u0275element(7, "mat-icon", 13);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -48875,8 +50911,8 @@ function PaymentsRequisitesComponent_Conditional_6_Template(rf, ctx) {
     \u0275\u0275elementStart(0, "div", 4);
     \u0275\u0275text(1, "\u0414\u043E\u0441\u0442\u0443\u043F\u043D\u044B\u0435 \u043C\u0435\u0442\u043E\u0434\u044B");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "div", 5);
-    \u0275\u0275repeaterCreate(3, PaymentsRequisitesComponent_Conditional_6_For_4_Template, 8, 3, "div", 6, _forTrack014);
+    \u0275\u0275elementStart(2, "app-entities-list");
+    \u0275\u0275repeaterCreate(3, PaymentsRequisitesComponent_Conditional_6_For_4_Template, 8, 3, "div", 5, _forTrack014);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -48980,7 +51016,7 @@ var _PaymentsRequisitesComponent = class _PaymentsRequisitesComponent {
 _PaymentsRequisitesComponent.\u0275fac = function PaymentsRequisitesComponent_Factory(t) {
   return new (t || _PaymentsRequisitesComponent)(\u0275\u0275directiveInject(MatDialog), \u0275\u0275directiveInject(DestroyRef), \u0275\u0275directiveInject(PaymentsService), \u0275\u0275directiveInject(NotifierService), \u0275\u0275directiveInject(AuthState), \u0275\u0275directiveInject(ConfirmationDialog));
 };
-_PaymentsRequisitesComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentsRequisitesComponent, selectors: [["app-payments-requisites"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 7, vars: 3, consts: [[1, "wrapper"], [1, "page-title"], [1, "page-card"], [1, "section-divider"], [1, "page-card__title"], [1, "methods-list"], [1, "methods-list__item"], [1, "methods-list__item-section"], [1, "methods-list__item-text"], ["size", "small", "type", "icon", "color", "blue-box", 1, "inline-button", 3, "click"], ["fontIcon", "edit"], ["size", "small", "type", "icon", "color", "red-box", 1, "inline-button", 3, "click"], ["fontIcon", "delete_outline"], ["size", "small", "type", "icon", "color", "green-box", 1, "inline-button", 3, "click"], ["fontIcon", "add"]], template: function PaymentsRequisitesComponent_Template(rf, ctx) {
+_PaymentsRequisitesComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _PaymentsRequisitesComponent, selectors: [["app-payments-requisites"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 7, vars: 3, consts: [[1, "wrapper"], [1, "page-title"], [1, "page-card"], [1, "section-divider"], [1, "page-card__title"], ["list-item", ""], ["list-item-section", ""], ["list-item-text", ""], ["size", "small", "type", "icon", "color", "blue-box", 3, "click"], ["fontIcon", "edit"], ["size", "small", "type", "icon", "color", "red-box", 3, "click"], ["fontIcon", "delete_outline"], ["size", "small", "type", "icon", "color", "green-box", 3, "click"], ["fontIcon", "add"]], template: function PaymentsRequisitesComponent_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 0)(1, "div", 1);
     \u0275\u0275text(2, " \u0417\u0434\u0435\u0441\u044C \u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043E\u0431\u043D\u043E\u0432\u0438\u0442\u044C \u0434\u0430\u043D\u043D\u044B\u0435 \u043F\u043B\u0430\u0442\u0451\u0436\u043D\u044B\u0445 \u0441\u0438\u0441\u0442\u0435\u043C");
@@ -48997,14 +51033,14 @@ _PaymentsRequisitesComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineCompo
     \u0275\u0275advance();
     \u0275\u0275conditional(6, ctx.unconnectedMethods.length ? 6 : -1);
   }
-}, dependencies: [ButtonComponent, FlexEllipsisComponent, MatIcon], styles: ['\n\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%]   .section-divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .wrapper[_ngcontent-%COMP%] {\n  max-width: 540px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n  max-width: 450px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  margin-top: 30px;\n}\n[_nghost-%COMP%]   .page-card__title[_ngcontent-%COMP%] {\n  font-family: "Roboto", sans-serif;\n  font-weight: 600;\n  font-size: 24px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  margin-bottom: 10px;\n}\n[_nghost-%COMP%]   .page-card__title[_ngcontent-%COMP%]:not(:first-child) {\n  margin-top: 20px;\n}\n[_nghost-%COMP%]   .methods-list__item[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 14px;\n  background-color: #f2f2f2;\n  gap: 10px;\n}\n[_nghost-%COMP%]   .methods-list__item-section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n[_nghost-%COMP%]   .methods-list__item-section[_ngcontent-%COMP%]:first-child {\n  flex-grow: 1;\n  flex-shrink: 0;\n  padding: 0 8px;\n  background-color: #FFFFFF;\n}\n[_nghost-%COMP%]   .methods-list__item-text[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n}\n[_nghost-%COMP%]   .methods-list__item[_ngcontent-%COMP%]:not(:last-child) {\n  border-bottom: 1px solid #E8E8E8;\n}\n[_nghost-%COMP%]   .methods-list__item[_ngcontent-%COMP%]:last-child {\n  margin-bottom: 10px;\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .methods-list__item[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  [_nghost-%COMP%]   .methods-list__item-section[_ngcontent-%COMP%] {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n  }\n  [_nghost-%COMP%]   .methods-list__item-section[_ngcontent-%COMP%]:first-child {\n    height: 50px;\n  }\n  [_nghost-%COMP%]   .methods-list__item-section[_ngcontent-%COMP%]:last-child {\n    justify-content: center;\n    gap: 60px;\n  }\n}\n/*# sourceMappingURL=payments-requisites.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
+}, dependencies: [ButtonComponent, FlexEllipsisComponent, MatIcon, EntitiesListComponent], styles: ['\n\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 600;\n  font-size: 26px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding-bottom: 36px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  padding: 10px 0;\n  line-height: 1.5em;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  border-radius: 6px;\n  background: #FFFFFF;\n  padding: 40px;\n  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.05);\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n    padding: 15px;\n  }\n}\n[_nghost-%COMP%]   .section-divider[_ngcontent-%COMP%] {\n  margin: 10px 0;\n  height: 2px;\n  background-color: #E8E8E8;\n}\n[_nghost-%COMP%] {\n  display: block;\n}\n[_nghost-%COMP%]   .wrapper[_ngcontent-%COMP%] {\n  max-width: 540px;\n}\n[_nghost-%COMP%]   .page-title[_ngcontent-%COMP%] {\n  padding-bottom: 20px;\n  max-width: 450px;\n}\n[_nghost-%COMP%]   .page-description[_ngcontent-%COMP%] {\n  padding-top: 0;\n}\n[_nghost-%COMP%]   .page-card[_ngcontent-%COMP%] {\n  margin-top: 30px;\n}\n[_nghost-%COMP%]   .page-card__title[_ngcontent-%COMP%] {\n  font-family: "Roboto", sans-serif;\n  font-weight: 600;\n  font-size: 24px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  margin-bottom: 10px;\n}\n[_nghost-%COMP%]   .page-card__title[_ngcontent-%COMP%]:not(:first-child) {\n  margin-top: 20px;\n}\n/*# sourceMappingURL=payments-requisites.component.css.map */'], data: { animation: [expandAnimation("expandAnimation", 150), fadeInFadeOutAnimation("fadeAnimation", 150)] } });
 var PaymentsRequisitesComponent = _PaymentsRequisitesComponent;
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentsRequisitesComponent, { className: "PaymentsRequisitesComponent", filePath: "src\\app\\personal\\pages\\payments-requisites\\payments-requisites.component.ts", lineNumber: 23 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(PaymentsRequisitesComponent, { className: "PaymentsRequisitesComponent", filePath: "src\\app\\personal\\pages\\payments-requisites\\payments-requisites.component.ts", lineNumber: 24 });
 })();
 
 // src/app/personal/components/navigation-bar/navigation-bar.component.ts
-var _c017 = () => ({ exact: true });
+var _c021 = () => ({ exact: true });
 var _NavigationBarComponent3 = class _NavigationBarComponent3 {
 };
 _NavigationBarComponent3.\u0275fac = function NavigationBarComponent_Factory(t) {
@@ -49023,7 +51059,7 @@ _NavigationBarComponent3.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    \u0275\u0275property("routerLinkActiveOptions", \u0275\u0275pureFunction0(1, _c017));
+    \u0275\u0275property("routerLinkActiveOptions", \u0275\u0275pureFunction0(1, _c021));
   }
 }, dependencies: [RouterLink, RouterLinkActive], styles: ['\n\n[_nghost-%COMP%] {\n  width: 100%;\n  display: flex;\n}\n[_nghost-%COMP%]   .item[_ngcontent-%COMP%] {\n  font-family: "Proxima Nova", sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.3em;\n  letter-spacing: 0;\n  color: #3E3E3E;\n  display: flex;\n  justify-content: center;\n  flex: 1;\n  padding: 25px 0;\n  border-bottom: 2px solid transparent;\n  cursor: pointer;\n}\n[_nghost-%COMP%]   .item[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.02);\n}\n[_nghost-%COMP%]   .item.active[_ngcontent-%COMP%] {\n  border-bottom-color: #FF3E14;\n}\n@media screen and (max-width: 600px) {\n  [_nghost-%COMP%] {\n    flex-direction: column;\n  }\n  [_nghost-%COMP%]   .item[_ngcontent-%COMP%] {\n    border-top: 2px solid transparent;\n  }\n  [_nghost-%COMP%]   .item.active[_ngcontent-%COMP%] {\n    border-top-color: #FF3E14;\n  }\n}\n/*# sourceMappingURL=navigation-bar.component.css.map */'] });
 var NavigationBarComponent3 = _NavigationBarComponent3;

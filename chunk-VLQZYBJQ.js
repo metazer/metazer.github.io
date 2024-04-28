@@ -27706,7 +27706,9 @@ export {
   ɵɵelementContainerEnd,
   ɵɵgetCurrentView,
   ɵɵhostProperty,
+  ɵɵsyntheticHostProperty,
   ɵɵlistener,
+  ɵɵsyntheticHostListener,
   ɵɵnextContext,
   ɵɵprojectionDef,
   ɵɵprojection,
@@ -27872,4 +27874,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-XLWBQR36.js.map
+//# sourceMappingURL=chunk-VLQZYBJQ.js.map
