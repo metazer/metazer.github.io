@@ -49235,7 +49235,6 @@ var _PaymentsComponent = class _PaymentsComponent {
   }
   ngOnInit() {
     this.loadAccounts();
-    this.openAllPaymentsList();
   }
   loadAccounts() {
     return __async(this, null, function* () {
