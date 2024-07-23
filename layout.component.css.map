@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/layout/layout.component.scss"],
-  "sourcesContent": [":host {\r\n  display: flex;\r\n  flex-direction: column;\r\n  min-height: 100%;\r\n\r\n  .header {\r\n    z-index: 2;\r\n  }\r\n\r\n  .footer {\r\n    z-index: 2;\r\n  }\r\n\r\n  .outlet {\r\n    z-index: 1;\r\n    display: flex;\r\n    flex-grow: 1;\r\n    padding: 30px 0;\r\n    background-image: url('/assets/images/backgrounds/main.png');\r\n    background-color: #f5f5f5;\r\n\r\n    ::ng-deep {\r\n      & > *:not(router-outlet) {\r\n        width: 100%;\r\n      }\r\n    }\r\n  }\r\n}\r\n"],
-  "mappings": ";AAAA;AACE,WAAA;AACA,kBAAA;AACA,cAAA;;AAEA,MAAA,CAAA;AACE,WAAA;;AAGF,MAAA,CAAA;AACE,WAAA;;AAGF,MAAA,CAAA;AACE,WAAA;AACA,WAAA;AACA,aAAA;AACA,WAAA,KAAA;AACA,oBAAA;AACA,oBAAA;;AAGE,MAAA,CATJ,OASI,UAAA,EAAA,CAAA,KAAA;AACE,SAAA;;",
-  "names": []
-}
